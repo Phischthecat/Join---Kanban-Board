@@ -17,7 +17,7 @@ function login() {
     let loggedUser = JSON.parse(localStorage.getItem('newUser'));
 
     if (loggedUser[0].user === actualUser && loggedUser[0].password === password) {
-        window.location.href = './board.html';
+        window.location.href = './summary.html';
         setDefault();
     } else {
         let error = getId('loginError');
@@ -46,7 +46,7 @@ function getRegistrated() {
         }];
         saveInLocalStorage(newUser);
         setDefault();
-        window.location.href = './board.html';
+        window.location.href = './summary.html';
     }
 
 
@@ -119,7 +119,7 @@ function checkIfUserIsLoggedIn() {
  */
 function guestLogin() {
     setDefault();
-    window.location.href = './board.html';
+    window.location.href = './summary.html';
 }
 
 

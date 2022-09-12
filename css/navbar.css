@@ -3,8 +3,17 @@ body {
     box-sizing: border-box;
 }
 
+.flex {
+    display: flex;
+}
+
+.mainContainer {
+    width: 100%;
+    background-color: var(--backGroundSection);
+}
+
 #navbar {
-    width: 150px;
+    width: 200px;
     height: 100vh;
     background-color: #293647;
     display: flex;
@@ -15,5 +24,61 @@ body {
 .joinLogo {
     width: 75px;
     height: 100px;
-    margin-top: 30px;
+    margin: 30px 0;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.iconsNav {
+    width: 30px;
+    height: 30px;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.kanbanBar {
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+    background-color: white;
+}
+
+.kanbanBar span {
+    margin-left: 75px;
+}
+
+.circle {
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    border: 2px solid black;
+}
+
+.questionMark {
+    height: 20px;
+    width: 20px;
+}
+
+.actualUser {
+    width: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 25px;
 }

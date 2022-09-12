@@ -1,0 +1,148 @@
+:root {
+    --backGroundSection: #f6f7f8;
+    --textColor: #6b717e;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.description {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+
+.description h1 {
+    font-size: 50px;
+}
+
+.line {
+    color: #36afe4;
+    font-size: 50px;
+}
+
+.text {
+    color: var(--textColor);
+}
+
+.spacing {
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.overviewSummary {
+    display: flex;
+}
+
+.containerOverview {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 500px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 100px;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+}
+
+.nr {
+    font-size: 30px;
+}
+
+.longBox {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+}
+
+.longBox img {
+    height: 35px;
+}
+
+.urgentBox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+
+.urgent {
+    display: flex;
+    flex-direction: column;
+}
+
+.secondLine {
+    height: 50px !important;
+}
+
+.comingDeadline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dateOfDeadline {
+    font-size: 20px;
+}
+
+.todoAndDone {
+    width: 45px !important;
+    height: 45px !important;
+}
+
+.thirdBox {
+    height: 100px;
+    background-color: white;
+    width: 200px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+    gap: 15px;
+}
+
+.thirdBox div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.thirdBox span {
+    color: var(--textColor);
+    font-size: 16px;
+}
+
+#toDo,
+#done {
+    font-size: 40px;
+    color: black;
+}
+
+.greeting {
+    display: flex;
+    align-items: center;
+    margin-left: 150px;
+    flex-wrap: wrap;
+    font-size: 30px;
+}
