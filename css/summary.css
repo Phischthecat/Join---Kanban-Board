@@ -1,6 +1,7 @@
 :root {
     --backGroundSection: #f6f7f8;
     --textColor: #6b717e;
+    --hoverBackround: #293647;
 }
 
 body {
@@ -11,7 +12,7 @@ body {
     display: flex;
     align-items: center;
     gap: 40px;
-    margin-left: 100px;
+    margin-left: 150px;
     margin-top: 40px;
 }
 
@@ -44,7 +45,7 @@ body {
     width: 500px;
     flex-wrap: wrap;
     margin-top: 20px;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 .box {
@@ -61,7 +62,8 @@ body {
 }
 
 .nr {
-    font-size: 30px;
+    font-size: 50px;
+    font-weight: bold;
 }
 
 .longBox {
@@ -84,6 +86,14 @@ body {
     align-items: center;
     gap: 10px;
     text-align: center;
+}
+
+.box:hover,
+.longBox:hover,
+.thirdBox:hover {
+    cursor: pointer;
+    background-color: var(--hoverBackround);
+    color: white;
 }
 
 .urgent {

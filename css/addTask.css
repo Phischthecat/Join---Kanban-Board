@@ -1,0 +1,121 @@
+:root {
+    --textColor: #6b717e;
+    --btnColor: #293647;
+}
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 50px;
+    margin-left: 150px;
+}
+
+.leftSplit,
+.rightSplit {
+    margin-left: 150px;
+    width: 300px;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+}
+
+.text {
+    color: var(--textColor);
+}
+
+span {
+    margin-bottom: 5px;
+    margin-top: 30px;
+}
+
+p {
+    margin: 0;
+}
+
+input,
+select,
+textarea {
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    outline: none;
+    resize: none;
+}
+
+:placeholder-shown {
+    padding-left: 15px;
+}
+
+input,
+select {
+    height: 40px;
+    padding-left: 15px;
+}
+
+.priorityBox {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.priorityBox div {
+    box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+    height: 40px;
+    width: 90px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.priorityBox div img {
+    height: 20px;
+    width: 20px;
+}
+
+.buttonContainer {
+    width: 220px;
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#clear {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--btnColor);
+    background-color: white;
+    color: var(--textColor);
+}
+
+#create {
+    width: 100px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--btnColor);
+    color: white;
+    font-size: 13px;
+}
+
+#clear:hover {
+    cursor: pointer;
+    border: 1px solid #36afe4;
+    color: #36afe4;
+    transition: all 225ms ease-in-out;
+}
+
+#create:hover {
+    cursor: pointer;
+    background-color: #36afe4;
+    transition: all 225ms ease-in-out;
+}
