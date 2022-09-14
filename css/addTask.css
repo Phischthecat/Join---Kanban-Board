@@ -1,22 +1,23 @@
 :root {
     --textColor: #6b717e;
     --btnColor: #293647;
+    --urgentColour: #ff3b00;
+    --mediumColour: #ffb32a;
+    --lowColour: #7be129;
 }
 
-body {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    box-sizing: border-box;
-}
-
-h1 {
-    font-size: 50px;
-    margin-left: 150px;
+.d-none {
+    display: none !important;
 }
 
 .leftSplit,
 .rightSplit {
+    width: 350px;
+}
+
+.leftSplit {
     margin-left: 150px;
-    width: 300px;
+    margin-right: 75px;
 }
 
 .flexColumn {
@@ -61,15 +62,16 @@ select {
 }
 
 .priorityBox {
-    width: 300px;
+    width: 350px;
     display: flex;
     justify-content: space-between;
+    border: none;
 }
 
 .priorityBox div {
     box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
     height: 40px;
-    width: 90px;
+    width: 110px;
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -82,16 +84,17 @@ select {
 }
 
 .buttonContainer {
-    width: 220px;
+    width: 350px;
     margin-top: 150px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 10px;
 }
 
 #clear {
     width: 100px;
     height: 40px;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 1px solid var(--btnColor);
     background-color: white;
     color: var(--textColor);
@@ -118,4 +121,55 @@ select {
     cursor: pointer;
     background-color: #36afe4;
     transition: all 225ms ease-in-out;
+}
+
+#messageToBoard {
+    bottom: 42px;
+    width: 225px;
+    height: 45px;
+    background: var(--btnColor);
+    position: absolute;
+    left: 630px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#messageToBoard span {
+    margin: 0;
+}
+
+.slide-in-bottom {
+    animation: slide-in-bottom .5s cubic-bezier(.25, .46, .45, .94) both
+}
+
+@keyframes slide-in-bottom {
+    0% {
+        transform: translateY(1000px);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1
+    }
+}
+
+.slide-in-left {
+    animation: slide-in-left .5s cubic-bezier(.25, .46, .45, .94) both
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-1000px);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1
+    }
 }

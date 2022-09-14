@@ -13,11 +13,10 @@ body {
     align-items: center;
     gap: 40px;
     margin-left: 150px;
-    margin-top: 40px;
 }
 
 .description h1 {
-    font-size: 50px;
+    font-size: 61px;
 }
 
 .line {
@@ -30,7 +29,7 @@ body {
 }
 
 .spacing {
-    font-size: 19px;
+    font-size: 27px;
     letter-spacing: 1px;
 }
 
@@ -94,6 +93,13 @@ body {
     cursor: pointer;
     background-color: var(--hoverBackround);
     color: white;
+}
+
+.box:hover span,
+.longBox:hover span,
+.thirdBox:hover div span {
+    color: white;
+    /* to do */
 }
 
 .urgent {

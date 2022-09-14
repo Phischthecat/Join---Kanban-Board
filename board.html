@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="/css/navbar.css">
     <link rel="shortcut icon" href="icons/logo.png">
-    <script src="js/main.js"></script>
     <script src="js/mini_backend.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/includeHTML.js"></script>
     <script src="js/board.js"></script>
 </head>
 
-<body onload="includeHTML(),checkIfUserIsLoggedIn();">
+<body onload="showInTodo();">
 
     <div class="flex">
         <div>
@@ -27,6 +27,65 @@
             <div w3-include-html="kanbanBar.html"></div>
 
 
+            <div>
+
+                <div class="flex-align-center">
+                    <h1>Board</h1>
+
+                    <div class="searchContainer">
+                        <input type="text" id="search" placeholder="findTask">
+                        <button>Add Task <img src="/img/secondary-plus.svg"> </button>
+                    </div>
+                </div>
+
+                <div class="categoryRow">
+                    <div class="row">
+                        <div>
+                            <span>To do</span>
+                            <img src="/img/plus.btn.svg">
+                        </div>
+
+                        <div>
+                            <span>In Progress</span>
+                            <img src="/img/plus.btn.svg">
+                        </div>
+
+                        <div>
+                            <span>Awating Feedback</span>
+                            <img src="/img/plus.btn.svg">
+                        </div>
+
+                        <div>
+                            <span>Done</span>
+                            <img src="/img/plus.btn.svg">
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="dragAndDropContainer">
+                    <div class="column" id="toDo" ondragover="allowDrop(event), highlight('toDo')"
+                        ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo'), removeHighlight('toDo')"></div>
+
+
+                    <div class="column" id="inProgress" ondragover="allowDrop(event), highlight('inProgress')"
+                        ondragleave="removeHighlight('inProgress')"
+                        ondrop="moveTo('inProgress'), removeHighlight('inProgress')"></div>
+
+
+                    <div class="column" id="awaitingFeedback"
+                        ondragover="allowDrop(event), highlight('awaitingFeedback')"
+                        ondragleave="removeHighlight('awaitingFeedback')"
+                        ondrop="moveTo('awaitingFeedback'), removeHighlight('awaitingFeedback')"></div>
+
+
+                    <div class="column" id="done" ondragover="allowDrop(event), highlight('done')"
+                        ondragleave="removeHighlight('done')" ondrop="moveTo('done'), removeHighlight('done')"></div>
+                </div>
+
+
+            </div>
         </div>
     </div>
 

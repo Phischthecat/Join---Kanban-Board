@@ -15,7 +15,7 @@
     <script src="js/addTask.js"></script>
 </head>
 
-<body onload="includeHTML(),checkIfUserIsLoggedIn(), init();">
+<body onload="init();">
 
     <div class="flex">
         <div>
@@ -74,17 +74,17 @@
                             <span class="text">Prio</span>
 
                             <div class="priorityBox">
-                                <div>
+                                <div class="urgent">
                                     <p>Urgent</p>
                                     <img src="/img/urgent.addTask.svg">
                                 </div>
 
-                                <div>
+                                <div class="medium">
                                     <p>Medium</p>
                                     <img src="/img/medium.addTask.svg">
                                 </div>
 
-                                <div>
+                                <div class="low">
                                     <p>Low</p>
                                     <img src="/img/low.addTask.svg">
                                 </div>
@@ -104,6 +104,12 @@
 
 
                 </form>
+                <div id="messageToBoard" class="slide-in-bottom d-none">
+                    <span>
+                        Task added to Board
+                    </span>
+                    <img src="/img/board.navbar.svg">
+                </div>
             </div>
 
         </div>
