@@ -68,7 +68,7 @@ select {
     border: none;
 }
 
-.priorityBox div {
+.statusButton {
     box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
     height: 40px;
     width: 110px;
@@ -76,11 +76,38 @@ select {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    border: none;
+    background-color: white;
 }
 
-.priorityBox div img {
+.priorityBox button:hover {
+    cursor: pointer;
+}
+
+.priorityBox button img {
     height: 20px;
     width: 20px;
+}
+
+.urgentBtn {
+    background-color: var(--urgentColour) !important;
+    color: white;
+}
+
+.mediumBtn {
+    background-color: var(--mediumColour) !important;
+    color: white;
+}
+
+.lowBtn {
+    background-color: var(--lowColour) !important;
+    color: white;
+}
+
+.urgentBtn img,
+.mediumBtn img,
+.lowBtn img {
+    filter: brightness(0) invert(1);
 }
 
 .buttonContainer {

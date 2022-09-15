@@ -40,7 +40,6 @@ function addTask() {
         'dragAndDropId': '',
         'title': title.value,
         'category': category.value,
-        // 'status': taskStatus,
         'description': description.value,
         'dueDate': dueDate.value,
         'createdDate': createdDate,
@@ -69,4 +68,24 @@ function animateToBoard() {
         document.body.classList.add('slide-in-left');
         window.location.href = 'board.html'
     }, 1000)
+}
+
+function getPriority(prio) {
+    if (prio == 'urgent') {
+        getId(prio).classList.toggle('urgentBtn');
+        setStatus(prio);
+    } else if (prio == 'medium') {
+        getId(prio).classList.toggle('mediumBtn');
+        setStatus(prio);
+    } else if (prio == 'low') {
+        getId(prio).classList.toggle('lowBtn');
+        setStatus(prio);
+    }
+}
+
+
+function setStatus(prio) {
+    return allTasks.push({
+        'priority': prio
+    })
 }

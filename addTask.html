@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="css/addTask.css">
     <script src="js/mini_backend.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/includeHTML.js"></script>
     <script src="js/addTask.js"></script>
 </head>
 
@@ -40,15 +39,15 @@
 
                         <div class="description flexColumn">
                             <span class="text">Description</span>
-                            <textarea id="taskDescription" cols="30" rows="5"></textarea>
+                            <textarea id="taskDescription" cols="30" rows="5" required></textarea>
                         </div>
 
                         <div class="categoryflexColumn flexColumn">
                             <span class="text">Category</span>
-                            <select id="taskCategory" class="text">
+                            <select id="taskCategory" class="text" required>
+                                <option>Backoffice</option>
                                 <option>New Category</option>
                                 <option>Sales</option>
-                                <option>Backoffice</option>
                             </select>
                         </div>
 
@@ -74,20 +73,20 @@
                             <span class="text">Prio</span>
 
                             <div class="priorityBox">
-                                <div class="urgent">
+                                <button class="statusButton" onclick="getPriority('urgent')" id="urgent">
                                     <p>Urgent</p>
                                     <img src="/img/urgent.addTask.svg">
-                                </div>
+                                </button>
 
-                                <div class="medium">
+                                <button class="statusButton" onclick="getPriority('medium')" id="medium">
                                     <p>Medium</p>
                                     <img src="/img/medium.addTask.svg">
-                                </div>
+                                </button>
 
-                                <div class="low">
+                                <button class="statusButton" onclick="getPriority('low')" id="low">
                                     <p>Low</p>
                                     <img src="/img/low.addTask.svg">
-                                </div>
+                                </button>
                             </div>
                         </div>
 
