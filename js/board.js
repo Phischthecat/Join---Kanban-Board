@@ -2,9 +2,24 @@ let currentDraggedElement;
 
 
 
+async function initTodos() {
+    await init();
+    setDragAndDropId();
+    updateHTML();
+    console.log(allTasks);
+}
 
-function startDragging() {     // Weist die jeweilige Id, dem zu verschiebenen Element zu.
-    currentDraggedElement = allTasks.dragAndDropId;
+
+function updateHTML() {
+    updateContainer('toDo');
+    updateContainer('inProgress');
+    updateContainer('awaitingFeedback');
+    updateContainer('done');
+}
+
+
+function startDragging(id) {     // Weist die jeweilige Id, dem zu verschiebenen Element zu.
+    currentDraggedElement = id;
 }
 
 
@@ -13,11 +28,10 @@ function allowDrop(ev) {     // Verändert das Standarverhalten des Elements. Es
 }
 
 
-function moveTo(status) {   // Sorgt dafür, dass das Element Draggable wird, indem die entsprechende category zugewiesen wird.
+async function moveTo(status) {   // Sorgt dafür, dass das Element Draggable wird, indem die entsprechende category zugewiesen wird.
     allTasks[currentDraggedElement]['status'] = status;
-    console.log(status);
     backend.setItem('tasks', allTasks);
-    // showInTodo(status);
+    updateHTML();
 }
 
 
@@ -31,26 +45,16 @@ function removeHighlight(category) {
 }
 
 
-async function showInTodo(status) {
-    // await init();
-    // allTasks.forEach((task) => {
-    //     document.getElementById('toDo').innerHTML = '';
-    //     // document.getElementById('toDo').innerHTML += createTaskCard(task);
-    //     document.getElementById('toDo').innerHTML = `<span>${task.title}</span>`
-    //     debugger
-    // })
+function setDragAndDropId() {
     for (let i = 0; i < allTasks.length; i++) {
-        const task = allTasks[i];
-        allTasks.dragAndDropId = i;
-        document.getElementById(status).innerHTML = '';
-        document.getElementById(status).innerHTML += createTaskCard(task);
+        allTasks[i]['dragAndDropId'] = i;
     }
 }
 
 
 function createTaskCard(task) {
     return /*html*/ `
-    <div class="taskCard" onclick="fullView()" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
+    <div class="taskCard" onclick="check(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
         <div class="category">
             <span>${task.category}</span>
         </div>
@@ -64,25 +68,100 @@ function createTaskCard(task) {
             <div id="assignedUsers"></div>
             <div id="urgencyTask"></div>
         </div>
+
+        <div id="${task.specificId}"></div>
     </div>
 `
 }
 
 
-function updateHTML() {
-    updateContainer('toDo');
-    updateContainer('inProgress');
-    updateContainer('testing');
-    updateContainer('done');
+function updateContainer(container) {
+    let filteredTask = allTasks.filter(t => t['status'] == container);
+    document.getElementById(container).innerHTML = ``;
+    for (let i = 0; i < filteredTask.length; i++) {
+        let task = filteredTask[i];
+        document.getElementById(container).innerHTML += createTaskCard(task);
+    }
 }
 
 
-async function show() {
-    await init();
-
+function check(externalId) {
     for (let i = 0; i < allTasks.length; i++) {
         const task = allTasks[i];
-        allTasks.dragAndDropId = i;
-        document.getElementById('toDo').innerHTML += createTaskCard(task);
+        if (externalId === task.specificId) {
+            showFullView(task, i);
+        }
+    }
+}
+
+
+function showFullView(task) {
+    let card = document.getElementById(task.specificId);
+    card.innerHTML = '';
+    card.innerHTML += createFullView(task);
+    showUrgency(task);
+    styleUrgency(task);
+}
+
+
+function createFullView(task) {
+    return /*html*/ `
+        <div class="backgroundFullCard">
+            <div class="fullCard">
+                <div class="headerFullCard">
+                    <div>
+                        <span>${task.category}</span>
+                    </div>
+
+                    <img src="img/secondary-plus.svg">
+                </div>
+
+                <div class="headline">
+                    <h2>${task.title}</h2>
+                </div>
+                
+                <div class="description"> 
+                    <span>${task.description}</span>
+                </div>
+
+                <div>
+                    <div class="date">
+                        <span><b>Due date:</b></span>
+                        <span>${task.dueDate}</span>
+                    </div>
+
+                    <div class="prio">
+                        <span><b>Priority</b></span>
+                        <div id="showUrgency"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    `
+}
+
+
+function showUrgency(task) {
+    let actualPrio = document.getElementById('showUrgency');
+    actualPrio.innerHTML = '';
+    actualPrio.innerHTML += /*html*/`
+        <span>${task.priority}</span>
+        <img src="/img/${task.priority}.addTask.svg">
+    `
+}
+
+
+function styleUrgency(task) {
+    let urgent = '#ff3b00';
+    let medium = '#ffb32a';
+    let low = '#7be129';
+
+    if (task.priority == 'urgent') {
+        document.getElementById('showUrgency').style = `background-color: ${urgent}`;
+    } else if (task.priority == 'medium') {
+        document.getElementById('showUrgency').style = `background-color: ${medium}`;
+    } else if (task.priority == 'low') {
+        document.getElementById('showUrgency').style = `background-color: ${low}`;
     }
 }

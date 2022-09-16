@@ -1,5 +1,5 @@
 let allTasks = [];
-
+let urgency;
 
 
 /**
@@ -21,10 +21,10 @@ function getValuesForTasks() {
     let category = getId('taskCategory');
     let dueDate = getId('taskDueDate');
     let createdDate = new Date().getTime(); //only text-format could be safed in storage --> change object to getTime (UnixTimestamp since 01.01.1970)
-    let id = new Date().getTime();
+    let specificId = new Date().getTime();
     let assignedTo = getId('assignedToPeople');
-    // let urgency = getId('taskUrgency');
-    return [title, category, description, dueDate, createdDate, assignedTo, id]
+    let priority = '';
+    return [title, category, description, dueDate, createdDate, assignedTo, specificId, priority]
 }
 
 
@@ -32,11 +32,11 @@ function getValuesForTasks() {
  * This function is used to create the Task and add it to the storage
  *  * @param {string} taskStatus -- after creating a task the user is asked to push the task into backlog or toDo
  */
-function addTask() {
+function addTask(taskStatus) {
     [title, category, description, dueDate,
-        createdDate, assignedTo, id] = getValuesForTasks();
+        createdDate, assignedTo, specificId, priority] = getValuesForTasks();
     let task = {
-        'id': id,
+        'specificId': specificId,
         'dragAndDropId': '',
         'title': title.value,
         'category': category.value,
@@ -44,7 +44,8 @@ function addTask() {
         'dueDate': dueDate.value,
         'createdDate': createdDate,
         'assignedTo': assignedTo,
-        // 'urgency': urgency.value,
+        'priority': urgency,
+        'status': taskStatus,
     };
     allTasks.push(task);
     backend.setItem('tasks', allTasks);
@@ -70,22 +71,22 @@ function animateToBoard() {
     }, 1000)
 }
 
+
 function getPriority(prio) {
     if (prio == 'urgent') {
         getId(prio).classList.toggle('urgentBtn');
-        setStatus(prio);
+        urgency = prio;
+        return prio
     } else if (prio == 'medium') {
         getId(prio).classList.toggle('mediumBtn');
-        setStatus(prio);
+        urgency = prio;
+        return prio;
     } else if (prio == 'low') {
         getId(prio).classList.toggle('lowBtn');
-        setStatus(prio);
+        urgency = prio;
+        return prio;
     }
+
 }
 
 
-function setStatus(prio) {
-    return allTasks.push({
-        'priority': prio
-    })
-}
