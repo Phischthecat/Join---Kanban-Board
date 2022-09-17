@@ -12,7 +12,6 @@ body {
     display: flex;
     align-items: center;
     gap: 40px;
-    margin-left: 150px;
 }
 
 .description h1 {
@@ -98,8 +97,7 @@ body {
 .box:hover span,
 .longBox:hover span,
 .thirdBox:hover div span {
-    color: white;
-    /* to do */
+    color: white !important;
 }
 
 .urgent {

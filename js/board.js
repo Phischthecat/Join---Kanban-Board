@@ -1,4 +1,5 @@
 let currentDraggedElement;
+let idForClosing = [];
 
 
 
@@ -6,7 +7,6 @@ async function initTodos() {
     await init();
     setDragAndDropId();
     updateHTML();
-    console.log(allTasks);
 }
 
 
@@ -52,6 +52,17 @@ function setDragAndDropId() {
 }
 
 
+function updateContainer(container) {
+    let filteredTask = allTasks.filter(t => t['status'] == container);
+    document.getElementById(container).innerHTML = '';
+    for (let i = 0; i < filteredTask.length; i++) {
+        let task = filteredTask[i];
+        idForClosing.push(task.specificId);
+        document.getElementById(container).innerHTML += createTaskCard(task);
+    }
+}
+
+
 function createTaskCard(task) {
     return /*html*/ `
     <div class="taskCard" onclick="check(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
@@ -68,20 +79,10 @@ function createTaskCard(task) {
             <div id="assignedUsers"></div>
             <div id="urgencyTask"></div>
         </div>
-
+        
         <div id="${task.specificId}"></div>
     </div>
 `
-}
-
-
-function updateContainer(container) {
-    let filteredTask = allTasks.filter(t => t['status'] == container);
-    document.getElementById(container).innerHTML = ``;
-    for (let i = 0; i < filteredTask.length; i++) {
-        let task = filteredTask[i];
-        document.getElementById(container).innerHTML += createTaskCard(task);
-    }
 }
 
 
@@ -89,7 +90,7 @@ function check(externalId) {
     for (let i = 0; i < allTasks.length; i++) {
         const task = allTasks[i];
         if (externalId === task.specificId) {
-            showFullView(task, i);
+            showFullView(task);
         }
     }
 }
@@ -98,29 +99,35 @@ function check(externalId) {
 function showFullView(task) {
     let card = document.getElementById(task.specificId);
     card.innerHTML = '';
-    card.innerHTML += createFullView(task);
-    showUrgency(task);
-    styleUrgency(task);
+    if (card.classList.contains('d-none')) {
+        card.classList.remove('d-none');
+    } else {
+        card.innerHTML += createFullView(task);
+        showUrgency(task);
+        styleUrgency(task);
+    }
 }
 
 
 function createFullView(task) {
     return /*html*/ `
-        <div class="backgroundFullCard">
+        <div class="background">
             <div class="fullCard">
                 <div class="headerFullCard">
-                    <div>
+                    <div class="categoryText">
                         <span>${task.category}</span>
                     </div>
 
-                    <img src="img/secondary-plus.svg">
+                    <div class="plus">
+                        <img onclick="closeFullFiew()" src="img/secondary-plus.svg">
+                    </div>
                 </div>
 
                 <div class="headline">
                     <h2>${task.title}</h2>
                 </div>
                 
-                <div class="description"> 
+                <div class="descriptionFullCard"> 
                     <span>${task.description}</span>
                 </div>
 
@@ -135,6 +142,13 @@ function createFullView(task) {
                         <div id="showUrgency"></div>
                     </div>
                     
+                </div>
+
+                <div class="assignedContainer">
+                    <span><b>Assigned To:</b></span>
+                        <div class="scrollUsers">
+                            <div id="asignedUSer"></div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -165,3 +179,29 @@ function styleUrgency(task) {
         document.getElementById('showUrgency').style = `background-color: ${low}`;
     }
 }
+
+
+function closeFullFiew() {
+    for (let y = 0; y < allTasks.length; y++) {
+        const element = allTasks[y];
+        if (element.specificId === idForClosing[y]) {
+            document.getElementById(`${element.specificId}`).classList.add('d-none');
+        }
+    }
+}
+
+
+async function openTaskBox() {
+    await w3IncludeHTML();
+    let box = document.getElementById('taskBox');
+    box.innerHTML = '';
+    box.innerHTML += /*html*/`
+        <div class="background slide-in-right">
+            <div class="boxContent">
+                <div w3-include-html="task-snippet.html"></div>
+            </div>
+        </div>
+        `
+}
+
+

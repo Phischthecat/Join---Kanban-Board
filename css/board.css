@@ -1,17 +1,21 @@
-.flex-align-center {
+.align-center {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-right: 75px;
 }
 
-.flex-align-center h1 {
-    margin-left: 75px;
+.align-center h1 {
+    margin-left: 75px !important;
 }
 
 .searchContainer {
     height: 50px;
-    margin-right: 50px;
     gap: 10px;
+}
+
+.d-none {
+    display: none;
 }
 
 #search {
@@ -28,7 +32,7 @@
     margin-right: 10px;
 }
 
-.searchContainer button {
+.add {
     width: 137px;
     height: 51px;
     background: #2A3647;
@@ -38,32 +42,48 @@
     font-size: 21px;
 }
 
-.row {
-    display: flex;
-    justify-content: space-between;
-    margin-left: 75px;
-    margin-right: 50px;
-    font-size: 21px;
+.add:hover {
+    background-color: #36afe4;
+    cursor: pointer;
+    transition: all 225ms ease-in-out;
+    border: none;
+    filter: drop-shadow(2px 4px 6px rgb(100, 100, 100));
 }
 
-.row img {
+.headerColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.nameColumn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.nameColumn img {
     width: 15px;
     height: 15px;
 }
 
 
 .dragAndDropContainer {
-    /* width: 100%; */
     height: 490px;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     margin-left: 75px;
+    margin-right: 75px;
 }
 
 .column {
     width: 200px;
     height: 450px;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .taskCard {
@@ -92,6 +112,7 @@
     flex-direction: column;
     margin-top: 15px;
     gap: 5px;
+    text-transform: capitalize;
 }
 
 .descriptionBoard :first-child {
@@ -106,7 +127,7 @@
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.backgroundFullCard {
+.background {
     position: absolute;
     z-index: 5;
     background-color: rgba(0, 0, 0, 0.3);
@@ -125,7 +146,6 @@
     border-radius: 30px;
     margin-bottom: 50px;
     margin-top: 50px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
     padding: 30px;
 }
@@ -135,7 +155,7 @@
     justify-content: space-between;
 }
 
-.headerFullCard div {
+.categoryText {
     width: 150px;
     height: 40px;
     background-color: aqua;
@@ -147,12 +167,17 @@
     color: white;
 }
 
-.headerFullCard img {
+.plus {
+    width: 20px;
+    height: 20px;
+}
+
+.plus img {
     filter: contrast(0.5);
     rotate: 45deg;
 }
 
-.headerFullCard img:hover {
+.plus img:hover {
     cursor: pointer;
 }
 
@@ -161,6 +186,7 @@
     overflow-x: auto;
     display: flex;
     align-items: center;
+    margin-top: 15px;
 }
 
 h2 {
@@ -170,8 +196,8 @@ h2 {
     text-transform: capitalize;
 }
 
-.description {
-    margin-top: 20px;
+.descriptionFullCard {
+    margin-top: 25px;
     font-size: 18px;
     text-transform: capitalize;
 }
@@ -208,4 +234,67 @@ h2 {
 
 #showUrgency img {
     filter: brightness(0) invert(1);
+}
+
+.assignedContainer {
+    margin-top: 20px;
+}
+
+.boxContent {
+    background-color: white;
+    box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
+    border-radius: 30px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    border-radius: 30px;
+    padding: 50px;
+}
+
+.addTask {
+    margin: 0;
+}
+
+.flex-align-center h1 {
+    margin: 0 !important;
+}
+
+.leftSplit {
+    margin: 0 !important;
+}
+
+.leftSplit,
+.rightSplit {
+    width: 300px !important;
+}
+
+form {
+    gap: 80px;
+}
+
+.priorityBox {
+    width: 300px !important;
+}
+
+.statusButton {
+    width: 90px !important;
+}
+
+.buttonContainer {
+    width: 300px !important;
+}
+
+.slide-in-right {
+    animation: slide-in-right .3s cubic-bezier(.25, .46, .45, .94) both
+}
+
+@keyframes slide-in-right {
+    0% {
+        transform: translateX(1000px);
+        opacity: 0
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1
+    }
 }

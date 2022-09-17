@@ -14,7 +14,7 @@
     <script src="js/summary.js"></script>
 </head>
 
-<body onload="init();">
+<body onload="initTasks();">
 
     <div class="flex">
 
@@ -36,22 +36,22 @@
             <div class="overviewSummary">
 
                 <div class="containerOverview">
-                    <div class="box">
-                        <span id="tasksInBoard" class="nr">1</span>
+                    <div class="box" onclick="gotToBoard()">
+                        <span id="tasksInBoard" class="nr"></span>
                         <span class="text">Tasks in <br> Board</span>
                     </div>
 
-                    <div class="box">
-                        <span id="tasksInProgress" class="nr">2</span>
+                    <div class="box" onclick="gotToBoard()">
+                        <span id="tasksInProgress" class="nr"></span>
                         <span class="text">Tasks in <br> Progress</span>
                     </div>
 
-                    <div class="box">
-                        <span id="feedBack" class="nr">3</span>
+                    <div class="box" onclick="gotToBoard()">
+                        <span id="feedBack" class="nr"></span>
                         <span class="text">Awaiting <br> Feedback</span>
                     </div>
 
-                    <div class="longBox">
+                    <div class="longBox" onclick="gotToBoard()">
                         <div class="urgentBox">
                             <img src="/img/urgent.svg">
                             <div class="urgent">
@@ -74,15 +74,15 @@
                     <div class="thirdBox">
                         <img class="todoAndDone" src="/img/toDo.svg">
                         <div>
-                            <span id="toDo" class="nr">1</span>
+                            <span id="toDo" class="nr"></span>
                             <span>To Do</span>
                         </div>
                     </div>
 
-                    <div class="thirdBox">
+                    <div class="thirdBox" onclick="gotToBoard()">
                         <img class="todoAndDone" src="/img/done.svg">
                         <div>
-                            <span id="done" class="nr">2</span>
+                            <span id="done" class="nr"></span>
                             <span>Done</span>
                         </div>
                     </div>

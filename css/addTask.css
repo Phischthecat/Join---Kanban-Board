@@ -31,9 +31,6 @@ form {
 
 .text {
     color: var(--textColor);
-}
-
-span {
     margin-bottom: 5px;
     margin-top: 30px;
 }
@@ -148,6 +145,7 @@ select {
     cursor: pointer;
     background-color: #36afe4;
     transition: all 225ms ease-in-out;
+    filter: drop-shadow(2px 4px 6px rgb(100, 100, 100));
 }
 
 #messageToBoard {

@@ -8,9 +8,12 @@
     <title>Board</title>
     <link rel="stylesheet" href="css/board.css">
     <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/addTask.css">
     <link rel="shortcut icon" href="icons/logo.png">
     <script src="js/mini_backend.js"></script>
     <script src="js/main.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script src="js/addTask.js"></script>
     <script src="js/board.js"></script>
 </head>
 
@@ -28,61 +31,67 @@
 
             <div>
 
-                <div class="flex-align-center">
+                <div class="align-center">
                     <h1>Board</h1>
 
                     <div class="searchContainer">
                         <input type="text" id="search" placeholder="findTask">
-                        <button>Add Task <img src="/img/secondary-plus.svg"> </button>
+                        <button onclick="openTaskBox()" class="add">Add Task <img src="/img/secondary-plus.svg">
+                        </button>
+                        <div id="taskBox"></div>
                     </div>
                 </div>
-
-                <div class="categoryRow">
-                    <div class="row">
-                        <div>
-                            <span>To do</span>
-                            <img src="/img/plus.btn.svg">
-                        </div>
-
-                        <div>
-                            <span>In Progress</span>
-                            <img src="/img/plus.btn.svg">
-                        </div>
-
-                        <div>
-                            <span>Awating Feedback</span>
-                            <img src="/img/plus.btn.svg">
-                        </div>
-
-                        <div>
-                            <span>Done</span>
-                            <img src="/img/plus.btn.svg">
-                        </div>
-                    </div>
-                </div>
-
-
 
                 <div class="dragAndDropContainer">
-                    <div class="column" id="toDo" ondragover="allowDrop(event), highlight('toDo')"
-                        ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo'), removeHighlight('toDo')"></div>
+
+                    <div class="headerColumn">
+                        <div class="nameColumn">
+                            <span class="noMargin">To do</span>
+                            <img src="/img/plus.btn.svg">
+                        </div>
+
+                        <div class="column" id="toDo" ondragover="allowDrop(event), highlight('toDo')"
+                            ondragleave="removeHighlight('toDo')" ondrop="moveTo('toDo'), removeHighlight('toDo')">
+                        </div>
+                    </div>
 
 
-                    <div class="column" id="inProgress" ondragover="allowDrop(event), highlight('inProgress')"
-                        ondragleave="removeHighlight('inProgress')"
-                        ondrop="moveTo('inProgress'), removeHighlight('inProgress')"></div>
+                    <div class="headerColumn">
+                        <div class="nameColumn">
+                            <span class="noMargin">In Progress</span>
+                            <img src="/img/plus.btn.svg">
+                        </div>
+
+                        <div class="column" id="inProgress" ondragover="allowDrop(event), highlight('inProgress')"
+                            ondragleave="removeHighlight('inProgress')"
+                            ondrop="moveTo('inProgress'), removeHighlight('inProgress')"></div>
+                    </div>
 
 
-                    <div class="column" id="awaitingFeedback"
-                        ondragover="allowDrop(event), highlight('awaitingFeedback')"
-                        ondragleave="removeHighlight('awaitingFeedback')"
-                        ondrop="moveTo('awaitingFeedback'), removeHighlight('awaitingFeedback')"></div>
+                    <div class="headerColumn">
+                        <div class="nameColumn">
+                            <span class="noMargin">Awaiting Feedback</span>
+                            <img src="/img/plus.btn.svg">
+                        </div>
+
+                        <div class="column" id="awaitingFeedback"
+                            ondragover="allowDrop(event), highlight('awaitingFeedback')"
+                            ondragleave="removeHighlight('awaitingFeedback')"
+                            ondrop="moveTo('awaitingFeedback'), removeHighlight('awaitingFeedback')"></div>
+                    </div>
 
 
-                    <div class="column" id="done" ondragover="allowDrop(event), highlight('done')"
-                        ondragleave="removeHighlight('done')" ondrop="moveTo('done'), removeHighlight('done')"></div>
+                    <div class="headerColumn">
+                        <div class="nameColumn">
+                            <span class="noMargin">Done</span>
+                            <img src="/img/plus.btn.svg">
+                        </div>
+
+                        <div class="column" id="done" ondragover="allowDrop(event), highlight('done')"
+                            ondragleave="removeHighlight('done')" ondrop="moveTo('done'), removeHighlight('done')">
+                        </div>
+                    </div>
                 </div>
-
 
             </div>
         </div>
