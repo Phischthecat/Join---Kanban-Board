@@ -122,6 +122,15 @@ select {
     border: 1px solid var(--btnColor);
     background-color: white;
     color: var(--textColor);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#clear img {
+    filter: contrast(0.5);
+    rotate: 45deg;
+    width: 15px;
 }
 
 #create {
@@ -132,6 +141,13 @@ select {
     background-color: var(--btnColor);
     color: white;
     font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#create img {
+    width: 12px;
 }
 
 #clear:hover {

@@ -160,14 +160,6 @@ function setDefault() {
 }
 
 
-function setUserToNavbar() {
-    let actualUser = getId('actualUser');
-    actualUser.innerHTML += /*html*/ `
-        <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam at itaque reiciendis sit exercitationem molestias, officia sapiente mollitia, perferendis illum, voluptatum doloremque ducimus officiis. Unde atque quisquam nostrum? Doloribus, nulla.</span>
-    `
-}
-
-
 function logout() {
     window.location.href = './index.html';
     localStorage.removeItem('loggedInKey');
