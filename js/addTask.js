@@ -64,7 +64,7 @@ function addTask(taskStatus) {
   allTasks.push(task);
   backend.setItem('tasks', allTasks);
   console.log(allTasks);
-  animateToBoard();
+  //   animateToBoard();
   clearFields();
 }
 

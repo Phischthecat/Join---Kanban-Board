@@ -5,6 +5,8 @@ async function initTasks() {
   deadlineChecker();
 }
 
+let allTasksDates = [];
+
 function quantityTasks() {
   let tasksInBoard = document.getElementById('tasksInBoard');
   let todoBox = document.getElementById('toDo');
@@ -58,13 +60,14 @@ function deadlineChecker() {
   let deadlineDate = getId('dateOfDeadline');
   let allTasksDatesMinimum = findingMinimumDate();
   let date = convertTimetoString(allTasksDatesMinimum);
-
+  console.log(allTasksDatesMinimum, date);
   deadlineDate.innerHTML =
     date.toLocaleString('default', { month: 'long' }) +
     ' ' +
-    date.getDay() +
+    date.getDate() +
     ', ' +
     date.getFullYear();
+  console.log(date.getDate());
 }
 
 function findingMinimumDate() {
