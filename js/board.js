@@ -124,3 +124,19 @@ function closeTaskBox() {
     document.getElementById('taskBox').classList.toggle('d-none');
   }, 1000);
 }
+
+function showPossibleDropzones(dropId) {
+  let columns = document.querySelectorAll('.column');
+  columns.forEach((column) => {
+    column.innerHTML += /*html*/ `
+    <div class="possiblePosition"></div>
+    `;
+  });
+}
+
+function removePossibleDropzones() {
+  let dropzones = document.querySelectorAll('.possiblePosition');
+  dropzones.forEach((dropzone) => {
+    dropzone.remove();
+  });
+}
