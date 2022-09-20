@@ -39,6 +39,7 @@ function getValuesForTasks() {
  *  * @param {string} taskStatus -- after creating a task the user is asked to push the task into backlog or toDo
  */
 function addTask(taskStatus) {
+<<<<<<< HEAD
     [
         title,
         category,
@@ -66,6 +67,35 @@ function addTask(taskStatus) {
     console.log(allTasks);
     animateToBoard();
     clearFields();
+=======
+  [
+    title,
+    category,
+    description,
+    dueDate,
+    createdDate,
+    assignedTo,
+    specificId,
+    priority,
+  ] = getValuesForTasks();
+  let task = {
+    specificId: specificId,
+    dragAndDropId: '',
+    title: title.value,
+    category: category.value,
+    description: description.value,
+    dueDate: dueDate.value,
+    createdDate: createdDate,
+    assignedTo: assignedTo,
+    priority: urgency,
+    status: taskStatus,
+  };
+  allTasks.push(task);
+  backend.setItem('tasks', allTasks);
+  console.log(allTasks);
+  //   animateToBoard();
+  clearFields();
+>>>>>>> refs/remotes/origin/main
 }
 
 

@@ -5,6 +5,8 @@ async function initTasks() {
   deadlineChecker();
 }
 
+let allTasksDates = [];
+
 function quantityTasks() {
   let tasksInBoard = document.getElementById('tasksInBoard');
   let todoBox = document.getElementById('toDo');
@@ -62,7 +64,7 @@ function deadlineChecker() {
   deadlineDate.innerHTML =
     date.toLocaleString('default', { month: 'long' }) +
     ' ' +
-    date.getDay() +
+    date.getDate() +
     ', ' +
     date.getFullYear();
 }
