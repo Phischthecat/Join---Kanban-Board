@@ -79,19 +79,20 @@ function createTaskBox() {
 }
 
 
-async function showBtn(box) {
+async function showBtn(box, pickedContainer) {
     if (box.classList.contains('d-none')) {
         box.classList.remove('d-none');
     }
     document.getElementById('buttonContainer').innerHTML = '';
-    document.getElementById('buttonContainer').innerHTML += createBoxBtns();
+    console.log(pickedContainer);
+    document.getElementById('buttonContainer').innerHTML += createBoxBtns(pickedContainer);
 }
 
 
-function createBoxBtns() {
+function createBoxBtns(pickedContainer) {
     return /*html*/`
     <button class="btn" onclick="closeTaskBox()" id="clear">Cancel <img src="/img/secondary-plus.svg"></button>
-    <button class="btn" onclick="addTask('toDo')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
+    <button class="btn" onclick="addTask('${pickedContainer}')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
 `;
 }
 

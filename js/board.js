@@ -5,6 +5,8 @@ let idForClosing = [];
 
 async function initTodos() {
     await init();
+    // allTasks = [];
+    // backend.setItem('tasks', allTasks);
     setDragAndDropId();
     updateHTML();
 }
@@ -119,7 +121,7 @@ function closeFullFiew() {
 }
 
 
-async function openTaskBox() {
+async function openTaskBox(pickedContainer) {
     setTimeout(() => {
         w3IncludeHTML();
     }, 100)
@@ -127,7 +129,7 @@ async function openTaskBox() {
     box.innerHTML = '';
     box.innerHTML += createTaskBox;
     setTimeout(() => {
-        showBtn(box);
+        showBtn(box, pickedContainer);
     }, 200)
 }
 
