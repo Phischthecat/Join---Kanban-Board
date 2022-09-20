@@ -1,5 +1,5 @@
 function createTaskCard(task) {
-    return /*html*/ `
+  return /*html*/ `
     <div class="taskCard" onclick="check(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
         <div class="category">
             <span>${task.category}</span>
@@ -17,12 +17,11 @@ function createTaskCard(task) {
         
         <div id="${task.specificId}"></div>
     </div>
-`
+`;
 }
 
-
 function createFullView(task) {
-    return /*html*/ `
+  return /*html*/ `
         <div class="background">
             <div class="fullCard">
                 <div class="headerFullCard">
@@ -31,7 +30,7 @@ function createFullView(task) {
                     </div>
 
                     <div class="plus">
-                        <img onclick="closeFullFiew()" src="img/secondary-plus.svg">
+                        <img onclick="closeFullView(${task.specificId})" src="img/secondary-plus.svg">
                     </div>
                 </div>
 
@@ -64,20 +63,20 @@ function createFullView(task) {
                 </div>
             </div>
         </div>
-    `
+    `;
 }
 
-
 function createTaskBox() {
-    return /*html*/`
+  return /*html*/ `
     <div class="background slide-in-right" id="animation">
         <div class="boxContent">
             <div w3-include-html="task-snippet.html"></div>
         </div>
     </div>
-    `
+    `;
 }
 
+<<<<<<< HEAD
 
 async function showBtn(box, pickedContainer) {
     if (box.classList.contains('d-none')) {
@@ -91,8 +90,19 @@ async function showBtn(box, pickedContainer) {
 
 function createBoxBtns(pickedContainer) {
     return /*html*/`
+=======
+async function showBtn(box) {
+  if (box.classList.contains('d-none')) {
+    box.classList.remove('d-none');
+  }
+  document.getElementById('buttonContainer').innerHTML = '';
+  document.getElementById('buttonContainer').innerHTML += createBoxBtns();
+}
+
+function createBoxBtns() {
+  return /*html*/ `
+>>>>>>> refs/remotes/origin/main
     <button class="btn" onclick="closeTaskBox()" id="clear">Cancel <img src="/img/secondary-plus.svg"></button>
     <button class="btn" onclick="addTask('${pickedContainer}')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
 `;
 }
-
