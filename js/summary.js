@@ -60,14 +60,13 @@ function deadlineChecker() {
   let deadlineDate = getId('dateOfDeadline');
   let allTasksDatesMinimum = findingMinimumDate();
   let date = convertTimetoString(allTasksDatesMinimum);
-  console.log(allTasksDatesMinimum, date);
+
   deadlineDate.innerHTML =
     date.toLocaleString('default', { month: 'long' }) +
     ' ' +
     date.getDate() +
     ', ' +
     date.getFullYear();
-  console.log(date.getDate());
 }
 
 function findingMinimumDate() {
