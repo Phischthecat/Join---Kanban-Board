@@ -117,7 +117,7 @@ async function openTaskBox(pickedContainer) {
     box.innerHTML += createTaskBox();
     setTimeout(() => {
         showBtn(box, pickedContainer);
-    }, 1000);
+    }, 200);
 }
 
 function closeTaskBox() {
