@@ -1,0 +1,40 @@
+.mainContainer {
+  height: 100vh;
+}
+
+.contactContainer {
+  display: flex;
+  height: calc(100vh - 75px);
+}
+
+.contactList {
+  width: 40%;
+  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+}
+
+.contactArea {
+  width: 60%;
+}
+
+.contactHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 75px;
+  gap: 30px;
+}
+
+.contactHeadline {
+  border-right: 2px solid #36afe4;
+}
+
+.contactH1 {
+  margin: 0;
+  margin-right: 30px;
+  font-size: 61px;
+}
+
+.subheadline {
+  font-size: 27px;
+}

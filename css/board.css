@@ -195,13 +195,13 @@
   cursor: pointer;
 }
 
-.headline {
+/* .headline {
   height: 50px;
   overflow-x: auto;
   display: flex;
   align-items: center;
   margin-top: 15px;
-}
+} */
 
 h2 {
   font-size: 45px;
