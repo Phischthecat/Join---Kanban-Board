@@ -10,6 +10,7 @@ function getId(theId) {
     return document.getElementById(theId);
 }
 
+
 /**
  * This function is used to return the ids and/or values of the input fields for the current task
  */
