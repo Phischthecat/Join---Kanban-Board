@@ -1,3 +1,10 @@
+:root {
+  --hrColor: #d1d1d1;
+  --boxShadowColor: #00000014;
+  --hyphenColor: #36afe4;
+  --emailColor: #007cee;
+}
+
 .mainContainer {
   height: 100vh;
 }
@@ -8,12 +15,15 @@
 }
 
 .contactList {
+  overflow: auto;
   width: 40%;
-  box-shadow: 4px 0px 6px rgba(0, 0, 0, 0.08);
+  padding: 0 35px;
+  box-shadow: 4px 0px 6px var(--boxShadowColor);
 }
 
 .contactArea {
-  width: 60%;
+  width: 50%;
+  padding: 75px;
 }
 
 .contactHeader {
@@ -21,15 +31,14 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding: 75px;
   gap: 30px;
 }
 
 .contactHeadline {
-  border-right: 2px solid #36afe4;
+  border-right: 2px solid var(--hyphenColor);
 }
 
-.contactH1 {
+.contactHeadline h1 {
   margin: 0;
   margin-right: 30px;
   font-size: 61px;
@@ -37,4 +46,44 @@
 
 .subheadline {
   font-size: 27px;
+}
+
+.contactSectionHeader h2 {
+  padding: 15px 25px;
+  font-weight: 100;
+}
+
+.contactSectionHeader hr {
+  border: 1px solid var(--hrColor);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 15px;
+  margin: 15px 0;
+  gap: 35px;
+}
+
+.initials {
+  height: 42px;
+  width: 42px;
+  border-radius: 100%;
+  background-color: orange;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  font-size: 12px;
+}
+
+.contactInfo .name {
+  font-size: 21px;
+  margin-bottom: 5px;
+}
+
+.contactInfo .email {
+  color: var(--emailColor);
 }
