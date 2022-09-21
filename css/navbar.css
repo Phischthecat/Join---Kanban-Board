@@ -12,9 +12,9 @@ body {
     display: flex;
 }
 
-h1 {
+.headline {
     font-size: 50px;
-    /* margin-left: 150px; */
+    margin-left: 150px;
 }
 
 .mainContainer {

@@ -1,35 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
-    <link rel="stylesheet" href="css/contact.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="shortcut icon" href="icons/logo.png">
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="shortcut icon" href="icons/logo.png" />
     <script src="js/main.js"></script>
     <script src="js/mini_backend.js"></script>
     <script src="js/contact.js"></script>
-</head>
+  </head>
 
-<body onload="init();">
-
+  <body onload="init();">
     <div class="flex">
-        <div>
-            <div w3-include-html="navbar.html" class="flex"></div>
+      <div>
+        <div w3-include-html="navbar.html" class="flex"></div>
+      </div>
+
+      <div class="mainContainer">
+        <div w3-include-html="kanbanBar.html"></div>
+        <div class="contactContainer">
+          <div id="contactList" class="contactList"></div>
+          <div class="contactArea">
+            <div class="contactHeader">
+              <div class="contactHeadline">
+                <h1>Contacts</h1>
+              </div>
+              <div class="subheadline">
+                <span>Better with a team</span>
+              </div>
+            </div>
+            <div class="contactView"></div>
+          </div>
         </div>
-
-        <div class="mainContainer">
-
-            <div w3-include-html="kanbanBar.html"></div>
-
-
-        </div>
+      </div>
     </div>
-
-
-</body>
-
+  </body>
 </html>
