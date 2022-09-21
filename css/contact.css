@@ -3,6 +3,7 @@
   --boxShadowColor: #00000014;
   --hyphenColor: #36afe4;
   --emailColor: #007cee;
+  --blueColor: #29abe2;
 }
 
 .mainContainer {
@@ -69,12 +70,6 @@
 .initials {
   height: 42px;
   width: 42px;
-  border-radius: 100%;
-  background-color: orange;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-right: 20px;
   font-size: 12px;
 }
@@ -86,4 +81,43 @@
 
 .contactInfo .email {
   color: var(--emailColor);
+}
+
+.headerFullContact {
+  font-size: 47px;
+  display: flex;
+  gap: 35px;
+  margin-top: 75px;
+}
+
+.initialsFullContact {
+  width: 120px;
+  height: 120px;
+}
+
+.initialCircle {
+  background-color: orange;
+  border-radius: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addTaskLink {
+  color: var(--blueColor);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.addTaskLink span {
+  font-size: 30px;
+}
+
+.nameContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

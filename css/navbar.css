@@ -93,3 +93,7 @@ a {
   align-items: center;
   margin-right: 25px;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}
