@@ -10,15 +10,12 @@ function getId(theId) {
     return document.getElementById(theId);
 }
 
-<<<<<<< HEAD
-=======
 async function initAddTask() {
-  await init();
-  setTimeout(() => {
-    setDueDateOnToday();
-  }, 300);
+    await init();
+    setTimeout(() => {
+        setDueDateOnToday();
+    }, 300);
 }
->>>>>>> refs/remotes/origin/main
 
 /**
  * This function is used to return the ids and/or values of the input fields for the current task
@@ -117,15 +114,15 @@ function getPriority(prio) {
 }
 
 function setDueDateOnToday() {
-  let date = document.getElementById('taskDueDate');
-  today = new Date();
-  date.value =
-    today.getFullYear() +
-    '-' +
-    (today.getMonth() + 1).toLocaleString('en-US', {
-      minimumIntegerDigits: 2,
-      useGrouping: false,
-    }) +
-    '-' +
-    today.getDate();
+    let date = document.getElementById('taskDueDate');
+    today = new Date();
+    date.value =
+        today.getFullYear() +
+        '-' +
+        (today.getMonth() + 1).toLocaleString('en-US', {
+            minimumIntegerDigits: 2,
+            useGrouping: false,
+        }) +
+        '-' +
+        today.getDate();
 }
