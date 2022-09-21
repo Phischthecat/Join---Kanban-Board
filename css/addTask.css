@@ -11,6 +11,10 @@
     display: none !important;
 }
 
+.addTask {
+    margin-left: 150px;
+}
+
 .leftSplit,
 .rightSplit {
     width: 350px;
