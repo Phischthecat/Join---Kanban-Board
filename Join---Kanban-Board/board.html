@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Board</title>
+    <link rel="stylesheet" href="css/board.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/addTask.css" />
+    <link rel="shortcut icon" href="icons/logo.png" />
+    <script src="js/mini_backend.js"></script>
+    <script src="js/main.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/addTask.js"></script>
+    <script src="js/board.js"></script>
+  </head>
+
+  <body onload="initTodos();">
+    <div class="flex">
+      <div>
+        <div w3-include-html="navbar.html" class="flex"></div>
+      </div>
+
+      <div class="mainContainer">
+        <div w3-include-html="kanbanBar.html"></div>
+
+        <div>
+          <div class="align-center">
+            <h1>Board</h1>
+
+            <div class="searchContainer">
+              <input type="text" id="search" placeholder="findTask" />
+              <button onclick="openTaskBox()" class="add">
+                Add Task <img src="img/secondary-plus.svg" />
+              </button>
+              <div id="taskBox"></div>
+            </div>
+          </div>
+
+          <div class="dragAndDropContainer">
+            <div class="headerColumn">
+              <div class="nameColumn">
+                <span class="noMargin">To do</span>
+                <img
+                  class="cursor-pointer"
+                  src="img/plus.btn.svg"
+                  onclick="openTaskBox()"
+                />
+              </div>
+
+              <div
+                class="column"
+                id="toDo"
+                ondrag="showPossibleDropzones('toDo')"
+                ondragover="allowDrop(event);"
+                ondrop="moveTo('toDo'), removePossibleDropzones()"
+              ></div>
+            </div>
+
+            <div class="headerColumn">
+              <div class="nameColumn">
+                <span class="noMargin">In Progress</span>
+                <img
+                  class="cursor-pointer"
+                  src="img/plus.btn.svg"
+                  onclick="openTaskBox()"
+                />
+              </div>
+
+              <div
+                class="column"
+                id="inProgress"
+                ondrag="showPossibleDropzones('inProgress')"
+                ondragover="allowDrop(event); "
+                ondrop="moveTo('inProgress'), removePossibleDropzones()"
+              ></div>
+            </div>
+
+            <div class="headerColumn">
+              <div class="nameColumn">
+                <span class="noMargin">Awaiting Feedback</span>
+                <img
+                  class="cursor-pointer"
+                  src="img/plus.btn.svg"
+                  onclick="openTaskBox()"
+                />
+              </div>
+
+              <div
+                class="column"
+                id="awaitingFeedback"
+                ondrag="showPossibleDropzones('awaitingFeedback')"
+                ondragover="allowDrop(event);"
+                ondrop="moveTo('awaitingFeedback'), removePossibleDropzones()"
+              ></div>
+            </div>
+
+            <div class="headerColumn">
+              <div class="nameColumn">
+                <span class="noMargin">Done</span>
+                <img
+                  class="cursor-pointer"
+                  src="img/plus.btn.svg"
+                  onclick="openTaskBox()"
+                />
+              </div>
+
+              <div
+                class="column"
+                id="done"
+                ondrag="showPossibleDropzones('done')"
+                ondragover="allowDrop(event);"
+                ondrop="moveTo('done'), removePossibleDropzones()"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

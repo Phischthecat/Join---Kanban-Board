@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOIN</title>
+
+    <link rel="shortcut icon" href="icons/img/joinlogo.svg">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/login.css">
+    <link rel="stylesheet" href="css/media.css">
+    <script src="js/main.js"></script>
+</head>
+
+<body onload="init()" class="loginBody">
+
+    <div class="logo slide-out-bck-tl" id="logo">
+        <img src="img/joinlogo.png">
+    </div>
+
+    <div id="loginError"></div>
+
+    <div class="loginContainer slide-in-bottom" id="loginContainer">
+
+        <div class="loginBox">
+            <h1>Log In</h1>
+        </div>
+
+        <form class="loginSection" onsubmit="return false">
+            <input required type="text" class="inputFields" id="userName" minlength="5" placeholder="Username"
+                name="uname">
+
+            <div id="errorMessage"></div>
+
+
+            <input required type="password" class="inputFields" id="password" minlength="5" placeholder="Password"
+                name="psw">
+
+            <span id="forgot">Forgot my Password</span>
+
+            <div class="btnBox">
+                <button class="btn" id="loginBtn" type="submit" required onclick="login()">Login</button>
+
+                <button id="guestBtn" type="button" required onclick="guestLogin()">Guest Login</button>
+            </div>
+
+
+        </form>
+
+
+
+    </div>
+
+    <div class="registrate slide-in-bottom">
+        <div><span>Not a Join User ?</span></div>
+
+        <button class="btn" id="register" type="button" required onclick="signUp()">Sign Up</button>
+    </div>
+
+</body>
+
+</html>
+
+<!-- <a href="https://www.flaticon.com/free-icons/password" title="password icons">Password icons created by Prosymbols Premium - Flaticon</a>      -->
+<!-- <a href="https://www.flaticon.com/free-icons/email" title="email icons">Email icons created by Tomas Knop - Flaticon</a> -->

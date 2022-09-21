@@ -1,0 +1,485 @@
+/********* Media Queries for Login *********/
+@media(max-width: 1150px) {
+    .loginContainer {
+        margin-right: calc(100vw / 4);
+        margin-left: calc(100vw / 4);
+    }
+}
+
+@media(max-width: 750px) {
+    .loginContainer {
+        margin-right: calc(100vw / 5);
+        margin-left: calc(100vw / 5);
+    }
+}
+
+@media(max-width: 560px) {
+    .loginContainer {
+        margin-right: calc(100vw / 9);
+        margin-left: calc(100vw / 9);
+    }
+}
+
+@media(max-width: 420px) {
+    .loginContainer {
+        margin-right: calc(100vw / 20);
+        margin-left: calc(100vw / 20);
+    }
+}
+
+@media(max-width: 350px) {
+    .loginContainer {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .inputFields {
+        width: 180px;
+    }
+
+    .btn {
+        width: 120px;
+    }
+
+    #guestBtn {
+        width: 120px;
+    }
+
+    .registrate {
+        gap: 15px;
+    }
+}
+
+/********* Media Queries for Login *********/
+
+
+/********* Media Queries for Summary *********/
+@media (max-width: 1190px) {
+    .greeting {
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 1111px) {
+    .greeting {
+        margin-left: 35px;
+    }
+}
+
+@media (max-width: 1075px) {
+    .greeting {
+        margin-left: 20px;
+    }
+}
+
+
+@media (max-width: 1060px) {
+    .greeting {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 1055px) {
+    h1 {
+        margin-left: 120px;
+    }
+
+    .containerOverview {
+        margin-left: 120px;
+    }
+
+    .greeting {
+        margin-left: 22px;
+    }
+}
+
+@media (max-width: 1033px) {
+    h1 {
+        margin-left: 100px;
+    }
+
+    .containerOverview {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 1020px) {
+    h1 {
+        margin-left: 80px;
+    }
+
+    .containerOverview {
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 1000px) {
+    h1 {
+        margin-left: 60px;
+    }
+
+    .containerOverview {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 980px) {
+    h1 {
+        margin-left: 40px;
+    }
+
+    .containerOverview {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 965px) {
+    .loinLogoHeader {
+        display: flex;
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .questionMark {
+        display: none;
+    }
+
+    .actualUser {
+        margin-right: 0;
+        width: unset;
+        padding-right: 20px;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .d-none {
+        display: flex;
+    }
+
+    .kanbanText {
+        display: flex;
+        padding-top: 20px;
+        margin-left: -220px;
+    }
+
+    .spacing {
+        display: flex;
+        margin-left: -135px;
+    }
+
+    .line {
+        position: relative;
+        top: 130px;
+        right: 200px;
+        transform: rotate(90deg);
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .greeting {
+        display: none;
+    }
+
+    .joinLogoHeader {
+        display: flex;
+    }
+
+    h1 {
+        margin-bottom: -115px;
+        margin-top: -25px;
+        margin-left: -180px;
+    }
+
+    .overviewSummary {
+        display: flex;
+        justify-content: center;
+    }
+
+    .containerOverview {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+}
+
+@media (max-width: 960px) {
+    .description {
+        margin-left: -40px;
+    }
+
+    .overviewSummary {
+        margin-left: -40px;
+    }
+}
+
+@media (max-width: 740px) {
+    .flex {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #navbar {
+        width: unset;
+        height: unset;
+        display: unset;
+        flex-direction: unset;
+        align-items: unset;
+    }
+
+    .joinLogo {
+        display: none;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    a {
+        margin-top: -10px;
+    }
+}
+
+@media (max-width: 540px) {
+    .line {
+        right: 100px;
+    }
+
+    .spacing {
+        margin-left: 65px;
+    }
+
+    h1 {
+        margin-left: 25px;
+    }
+
+    .kanbanText {
+        margin-left: -20px;
+    }
+
+    .containerOverview {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .longBox {
+        width: 90%;
+    }
+}
+
+@media (max-width: 540px) {
+    li {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .line {
+        right: 110px;
+    }
+
+    .spacing {
+        margin-left: 45px;
+    }
+
+    h1 {
+        margin-left: 10px
+    }
+
+    .kanbanText {
+        margin-left: -30px;
+    }
+}
+
+@media (max-width: 408px) {
+    li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .spacing {
+        font-size: 24px;
+    }
+
+    .description h1 {
+        margin-left: 20px;
+        font-size: 58px;
+    }
+
+    .kanbanText {
+        margin-left: -10px;
+    }
+
+    .line {
+        right: 90px;
+    }
+}
+
+@media (max-width: 359px) {
+    li {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .iconsNav {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* @media (max-width: 1070px) {
+    .loinLogoHeader {
+        display: flex;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .spacing {
+        display: flex;
+        color: black;
+    }
+
+    .questionMark {
+        display: none;
+    }
+
+    .actualUser {
+        width: unset;
+        padding-right: 20px;
+        margin-right: 0;
+    }
+
+    .kanbanBar span {
+        padding-top: 10px;
+        margin-left: 0;
+        position: absolute;
+        top: 95px;
+        left: 193px;
+        display: flex;
+        color: black;
+        font-weight: bolder;
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        gap: 0;
+        padding-right: 150px;
+    }
+
+    h1 {
+        margin-left: -40px;
+    }
+
+    .description h1 {
+        font-size: 61px;
+        margin-bottom: 20px;
+        margin-top: 65px;
+    }
+
+    .line {
+        transform: rotate(90deg);
+        position: absolute;
+        top: 175px;
+        left: 220px;
+    }
+
+    .greeting {
+        display: none;
+    }
+
+    .overviewSummary {
+        display: flex;
+        justify-content: center;
+    }
+
+    .containerOverview {
+        margin-top: 60px;
+        margin-left: 0;
+        padding-left: 30px;
+    }
+
+    .joinLogo {
+        display: none;
+    }
+
+    .flex {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #navbar {
+        width: unset;
+        height: unset;
+        display: unset;
+        flex-direction: unset;
+        align-items: unset;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+        margin-top: 13px;
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-left: 35px;
+        padding-right: 35px;
+        gap: 10px;
+    }
+
+}
+
+@media (max-width: 615px) {
+    .containerOverview {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 589px) {
+    li {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 585px) {
+    li {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 539px) {
+    li {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+} */
