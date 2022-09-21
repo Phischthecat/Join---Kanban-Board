@@ -11,6 +11,7 @@
     <script src="js/main.js"></script>
     <script src="js/mini_backend.js"></script>
     <script src="js/contact.js"></script>
+    <script src="js/board.js"></script>
   </head>
 
   <body onload="init();">
@@ -22,7 +23,52 @@
       <div class="mainContainer">
         <div w3-include-html="kanbanBar.html"></div>
         <div class="contactContainer">
-          <div id="contactList" class="contactList"></div>
+          <div id="contactList" class="contactList">
+            <div class="contactSection">
+              <div class="contactSectionHeader">
+                <h2>A</h2>
+                <hr />
+              </div>
+              <div id="contactsOfA" class="contactsOf">
+                <div class="contactInfo">
+                  <div class="initials initialCircle">AM</div>
+                  <div>
+                    <div class="name">Anton Mayer</div>
+                    <div class="email">antom@gmail.com</div>
+                  </div>
+                </div>
+                <div class="contactInfo">
+                  <div class="initials initialCircle">AM</div>
+                  <div>
+                    <div class="name">Anton Mayer</div>
+                    <div class="email">antom@gmail.com</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="contactSection">
+              <div class="contactSectionHeader">
+                <h2>A</h2>
+                <hr />
+              </div>
+              <div id="contactsOfA" class="contactsOf">
+                <div class="contactInfo">
+                  <div class="initials initialCircle">AM</div>
+                  <div>
+                    <div class="name">Anton Mayer</div>
+                    <div class="email">antom@gmail.com</div>
+                  </div>
+                </div>
+                <div class="contactInfo">
+                  <div class="initials initialCircle">AM</div>
+                  <div>
+                    <div class="name">Anton Mayer</div>
+                    <div class="email">antom@gmail.com</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="contactArea">
             <div class="contactHeader">
               <div class="contactHeadline">
@@ -32,7 +78,25 @@
                 <span>Better with a team</span>
               </div>
             </div>
-            <div class="contactView"></div>
+            <div id="contactView" class="contactView">
+              <div class="headerFullContact">
+                <div
+                  id="initialsFullContact"
+                  class="initialsFullContact initialCircle"
+                >
+                  AM
+                </div>
+                <div class="nameContainer">
+                  <div class="nameFullContact">Anton Mayer</div>
+                  <div
+                    class="addTaskLink cursor-pointer"
+                    onclick="openTaskBox('toDo')"
+                  >
+                    <span>+</span> Add Task
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

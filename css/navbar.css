@@ -1,94 +1,99 @@
 :root {
-    --backGroundSection: #f6f7f8;
+  --backGroundSection: #f6f7f8;
 }
 
 body {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .headline {
-    font-size: 50px;
-    margin-left: 150px;
+  font-size: 50px;
+  margin-left: 150px;
 }
 
 .mainContainer {
-    width: 100%;
-    background-color: var(--backGroundSection);
+  width: 100%;
+  background-color: var(--backGroundSection);
 }
 
 #navbar {
-    width: 200px;
-    height: 100vh;
-    background-color: #293647;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  width: 200px;
+  height: 100vh;
+  background-color: #293647;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .joinLogo {
-    width: 75px;
-    height: 100px;
-    margin: 30px 0;
+  width: 75px;
+  height: 100px;
+  margin: 30px 0;
 }
 
 ul {
-    padding: 0;
+  padding: 0;
 }
 
 li {
-    list-style: none;
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .iconsNav {
-    width: 30px;
-    height: 30px;
+  width: 30px;
+  height: 30px;
 }
 
 a {
-    color: white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
 
 .kanbanBar {
-    width: 100%;
-    height: 75px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
-    background-color: white;
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+  background-color: white;
 }
 
 .kanbanBar span {
-    margin-left: 150px;
+  margin-left: 150px;
 }
 
 .circle {
-    height: 30px;
-    width: 30px;
-    border-radius: 100%;
-    border: 2px solid black;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: 2px solid black;
 }
 
 .questionMark {
-    height: 20px;
-    width: 20px;
+  height: 20px;
+  width: 20px;
 }
 
 .actualUser {
-    width: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 25px;
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 25px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
