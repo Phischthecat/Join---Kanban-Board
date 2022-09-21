@@ -4,6 +4,7 @@
     --urgentColour: #ff3b00;
     --mediumColour: #ffb32a;
     --lowColour: #7be129;
+    --hoverBtnColour: #36afe4;
 }
 
 .d-none {
@@ -152,14 +153,14 @@ select {
 
 #clear:hover {
     cursor: pointer;
-    border: 1px solid #36afe4;
-    color: #36afe4;
+    border: 1px solid var(--hoverBtnColour);
+    color: var(--hoverBtnColour);
     transition: all 225ms ease-in-out;
 }
 
 #create:hover {
     cursor: pointer;
-    background-color: #36afe4;
+    background-color: var(--hoverBtnColour);
     transition: all 225ms ease-in-out;
     filter: drop-shadow(2px 4px 6px rgb(100, 100, 100));
 }
