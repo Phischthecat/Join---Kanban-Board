@@ -4,6 +4,7 @@
   --hyphenColor: #36afe4;
   --emailColor: #007cee;
   --blueColor: #29abe2;
+  --bgColorContact: #2a3647;
 }
 
 .mainContainer {
@@ -17,7 +18,7 @@
 
 .contactList {
   overflow: auto;
-  width: 40%;
+  width: 315px;
   padding: 0 35px;
   box-shadow: 4px 0px 6px var(--boxShadowColor);
 }
@@ -49,6 +50,10 @@
   font-size: 27px;
 }
 
+.contactSectionHeader {
+  margin-bottom: 15px;
+}
+
 .contactSectionHeader h2 {
   padding: 15px 25px;
   font-weight: 100;
@@ -63,8 +68,13 @@
   flex-direction: row;
   align-items: flex-start;
   padding: 15px;
-  margin: 15px 0;
   gap: 35px;
+}
+
+.contactInfo:hover {
+  background-color: var(--bgColorContact);
+  border-radius: 10px;
+  color: white;
 }
 
 .initials {
@@ -98,6 +108,7 @@
 .initialCircle {
   background-color: orange;
   border-radius: 100%;
+  border: 1px solid white;
   color: white;
   display: flex;
   justify-content: center;
@@ -120,4 +131,28 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.contactFullInfoHeader {
+  display: flex;
+  gap: 50px;
+  margin-top: 30px;
+}
+
+.editContact {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.editContact img {
+  filter: invert(1);
+}
+
+.emailFullContact {
+  margin-bottom: 25px;
+}
+
+.contactFullInfo h3 {
+  font-size: 16px;
 }
