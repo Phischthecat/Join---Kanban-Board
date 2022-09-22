@@ -1,66 +1,5 @@
-.slide-in-bottom {
-  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both;
-}
-
-@keyframes slide-in-bottom {
-  0% {
-    transform: translateY(1000px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.slide-out-bck-tl {
-  animation: slide-out-bck-tl 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
-}
-
-@keyframes slide-out-bck-tl {
-  0% {
-    transform: translateZ(0) translateY(calc(100vh / 2))
-      translateX(calc(100vw / 2));
-    opacity: 0.2;
-  }
-
-  100% {
-    /* transform: translateZ(0) translateY(10%) translateX(0%); */
-    opacity: 1;
-  }
-}
-
-.slide-in-right {
-  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@keyframes slide-in-right {
-  0% {
-    transform: translateX(1000px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-left {
-  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
+.loginBody {
+  background-color: var(--backGroundSection);
 }
 
 .logo {
@@ -116,11 +55,6 @@
   justify-content: center;
   text-decoration-line: underline;
   text-decoration-color: #44b3e5;
-}
-
-.loginSection {
-  display: flex;
-  flex-direction: column;
 }
 
 .loginSection span {

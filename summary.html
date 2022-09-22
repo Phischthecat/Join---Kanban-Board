@@ -1,106 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Summary</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="css/summary.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="shortcut icon" href="icons/logo.png" />
-    <script src="js/mini_backend.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/summary.js"></script>
-  </head>
 
-  <body onload="initTasks();">
-    <div class="flex">
-      <div>
-        <div w3-include-html="navbar.html" class="flex"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Summary</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/summary.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="shortcut icon" href="icons/logo.png" />
+  <script src="js/mini_backend.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/summary.js"></script>
+</head>
+
+<body onload="initTasks();">
+  <div class="flex">
+    <div>
+      <div w3-include-html="navbar.html" class="flex"></div>
+    </div>
+
+    <div class="mainContainer">
+      <div w3-include-html="kanbanBar.html"></div>
+
+      <div class="description">
+        <h1 class="pageHeader">Summary</h1>
+        <span class="line">|</span>
+        <span class="text spacing">Everything in a nutshell !</span>
       </div>
 
-      <div class="mainContainer">
-        <div w3-include-html="kanbanBar.html"></div>
+      <div class="overviewSummary">
+        <div class="containerOverview">
+          <div class="box" onclick="gotToBoard()">
+            <span id="tasksInBoard" class="nr"></span>
+            <span class="text">Tasks in <br />
+              Board</span>
+          </div>
 
-        <div class="description">
-          <h1>Summary</h1>
-          <span class="line">|</span>
-          <span class="text spacing">Everything in a nutshell !</span>
+          <div class="box" onclick="gotToBoard()">
+            <span id="tasksInProgress" class="nr"></span>
+            <span class="text">Tasks in <br />
+              Progress</span>
+          </div>
+
+          <div class="box" onclick="gotToBoard()">
+            <span id="feedBack" class="nr"></span>
+            <span class="text">Awaiting <br />
+              Feedback</span>
+          </div>
+
+          <div class="longBox" onclick="gotToBoard()">
+            <div class="urgentBox">
+              <img src="img/urgent.svg" />
+              <div class="urgent">
+                <span id="nrOfUrgent" class="nr">1</span>
+                <span class="text">Urgent</span>
+              </div>
+            </div>
+
+            <div>
+              <img class="secondLine" src="img/line.svg" />
+            </div>
+
+            <div class="upcomingDeadline">
+              <span id="dateOfDeadline"></span>
+              <span class="text">upcoming Deadline</span>
+            </div>
+          </div>
+
+          <div class="thirdBox">
+            <div class="imgContainer">
+              <img class="todoAndDone" src="img/pencil.svg" />
+            </div>
+            <div>
+              <span id="toDo" class="nr"></span>
+              <span>To Do</span>
+            </div>
+          </div>
+
+          <div class="thirdBox" onclick="gotToBoard()">
+            <div class="imgContainer">
+              <img class="todoAndDone" src="img/check.svg" />
+            </div>
+            <div>
+              <span id="done" class="nr"></span>
+              <span>Done</span>
+            </div>
+          </div>
         </div>
 
-        <div class="overviewSummary">
-          <div class="containerOverview">
-            <div class="box" onclick="gotToBoard()">
-              <span id="tasksInBoard" class="nr"></span>
-              <span class="text"
-                >Tasks in <br />
-                Board</span
-              >
-            </div>
-
-            <div class="box" onclick="gotToBoard()">
-              <span id="tasksInProgress" class="nr"></span>
-              <span class="text"
-                >Tasks in <br />
-                Progress</span
-              >
-            </div>
-
-            <div class="box" onclick="gotToBoard()">
-              <span id="feedBack" class="nr"></span>
-              <span class="text"
-                >Awaiting <br />
-                Feedback</span
-              >
-            </div>
-
-            <div class="longBox" onclick="gotToBoard()">
-              <div class="urgentBox">
-                <img src="img/urgent.svg" />
-                <div class="urgent">
-                  <span id="nrOfUrgent" class="nr">1</span>
-                  <span class="text">Urgent</span>
-                </div>
-              </div>
-
-              <div>
-                <img class="secondLine" src="img/line.svg" />
-              </div>
-
-              <div class="upcomingDeadline">
-                <span id="dateOfDeadline"></span>
-                <span class="text">upcoming Deadline</span>
-              </div>
-            </div>
-
-            <div class="thirdBox">
-              <div class="imgContainer">
-                <img class="todoAndDone" src="img/pencil.svg" />
-              </div>
-              <div>
-                <span id="toDo" class="nr"></span>
-                <span>To Do</span>
-              </div>
-            </div>
-
-            <div class="thirdBox" onclick="gotToBoard()">
-              <div class="imgContainer">
-                <img class="todoAndDone" src="img/check.svg" />
-              </div>
-              <div>
-                <span id="done" class="nr"></span>
-                <span>Done</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="greeting">
-            <span>Good morning</span>
-            <span id="loggedInUser"></span>
-          </div>
+        <div class="greeting">
+          <span>Good morning</span>
+          <span id="loggedInUser"></span>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

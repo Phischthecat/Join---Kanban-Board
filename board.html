@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Board</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/board.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/addTask.css" />
@@ -30,11 +30,11 @@
 
       <div>
         <div class="align-center">
-          <h1>Board</h1>
+          <h1 class="pageHeader">Board</h1>
 
           <div class="searchContainer">
             <input type="text" id="search" placeholder="findTask" />
-            <button onclick="openTaskBox('toDo')" class="add">
+            <button onclick="openTaskBox()" class="add">
               Add Task <img src="img/secondary-plus.svg" />
             </button>
             <div id="taskBox"></div>
@@ -42,9 +42,9 @@
         </div>
 
         <div class="dragAndDropContainer">
-          <div class="headerColumn">
+          <div class="flexColumn">
             <div class="nameColumn">
-              <span class="noMargin">To do</span>
+              <span>To do</span>
               <img class="cursor-pointer" src="img/plus.btn.svg" onclick="openTaskBox('toDo')" />
             </div>
 
@@ -52,9 +52,9 @@
               ondrop="moveTo('toDo'), removePossibleDropzones()"></div>
           </div>
 
-          <div class="headerColumn">
+          <div class="flexColumn">
             <div class="nameColumn">
-              <span class="noMargin">In Progress</span>
+              <span>In Progress</span>
               <img class="cursor-pointer" src="img/plus.btn.svg" onclick="openTaskBox('inProgress')" />
             </div>
 
@@ -62,9 +62,9 @@
               ondragover="allowDrop(event); " ondrop="moveTo('inProgress'), removePossibleDropzones()"></div>
           </div>
 
-          <div class="headerColumn">
+          <div class="flexColumn">
             <div class="nameColumn">
-              <span class="noMargin">Awaiting Feedback</span>
+              <span>Awaiting Feedback</span>
               <img class="cursor-pointer" src="img/plus.btn.svg" onclick="openTaskBox('awaitingFeedback')" />
             </div>
 
@@ -72,9 +72,9 @@
               ondragover="allowDrop(event);" ondrop="moveTo('awaitingFeedback'), removePossibleDropzones()"></div>
           </div>
 
-          <div class="headerColumn">
+          <div class="flexColumn">
             <div class="nameColumn">
-              <span class="noMargin">Done</span>
+              <span>Done</span>
               <img class="cursor-pointer" src="img/plus.btn.svg" onclick="openTaskBox('done')" />
             </div>
 

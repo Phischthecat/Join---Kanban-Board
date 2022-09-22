@@ -2,20 +2,12 @@
   display: flex;
   align-items: center;
   gap: 40px;
-}
-
-.description h1 {
-  font-size: 61px;
   margin-left: 150px;
 }
 
 .line {
   color: #36afe4;
   font-size: 50px;
-}
-
-.text {
-  color: var(--textColor);
 }
 
 .spacing {

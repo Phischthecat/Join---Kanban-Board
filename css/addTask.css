@@ -1,8 +1,4 @@
-.d-none {
-  display: none !important;
-}
-
-.addTask {
+.margin {
   margin-left: 150px;
 }
 
@@ -16,23 +12,10 @@
   margin-right: 75px;
 }
 
-.flexColumn {
-  display: flex;
-  flex-direction: column;
-}
-
-form {
-  display: flex;
-}
-
 .text {
   color: var(--textColor);
   margin-bottom: 5px;
   margin-top: 30px;
-}
-
-p {
-  margin: 0;
 }
 
 input,
@@ -73,6 +56,10 @@ select {
   background-color: white;
 }
 
+.statusButton p {
+  margin: 0;
+}
+
 .priorityBox button:hover {
   cursor: pointer;
 }
@@ -111,7 +98,7 @@ select {
   gap: 10px;
 }
 
-#clear {
+.secondBtn {
   width: 100px;
   height: 40px;
   border-radius: 5px;
@@ -123,13 +110,13 @@ select {
   align-items: center;
 }
 
-#clear img {
+.secondBtn img {
   filter: contrast(0.5);
   rotate: 45deg;
   width: 15px;
 }
 
-#create {
+.firstBtn {
   width: 100px;
   height: 40px;
   border-radius: 10px;
@@ -142,18 +129,18 @@ select {
   align-items: center;
 }
 
-#create img {
+.firstBtn img {
   width: 12px;
 }
 
-#clear:hover {
+.secondBtn:hover {
   cursor: pointer;
   border: 1px solid var(--hoverBtnColour);
   color: var(--hoverBtnColour);
   transition: all 225ms ease-in-out;
 }
 
-#create:hover {
+.firstBtn:hover {
   cursor: pointer;
   background-color: var(--hoverBtnColour);
   transition: all 225ms ease-in-out;
@@ -177,36 +164,4 @@ select {
 
 #messageToBoard span {
   margin: 0;
-}
-
-.slide-in-bottom {
-  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@keyframes slide-in-bottom {
-  0% {
-    transform: translateY(1000px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.slide-in-left {
-  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(-1000px);
-    opacity: 0;
-  }
-
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
 }

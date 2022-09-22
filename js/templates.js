@@ -1,5 +1,5 @@
 function createTaskCard(task) {
-  return /*html*/ `
+    return /*html*/ `
     <div class="taskCard" onclick="check(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
         <div class="category">
             <span>${task.category}</span>
@@ -21,7 +21,7 @@ function createTaskCard(task) {
 }
 
 function createFullView(task) {
-  return /*html*/ `
+    return /*html*/ `
         <div class="background">
             <div class="fullCard">
                 <div class="headerFullCard">
@@ -34,8 +34,8 @@ function createFullView(task) {
                     </div>
                 </div>
 
-                <div class="headline">
-                    <h2>${task.title}</h2>
+                <div>
+                    <h2 class="headline">${task.title}</h2>
                 </div>
                 
                 <div class="descriptionFullCard"> 
@@ -67,7 +67,7 @@ function createFullView(task) {
 }
 
 function createTaskBox() {
-  return /*html*/ `
+    return /*html*/ `
     <div class="background slide-in-right" id="animation">
         <div class="boxContent">
             <div w3-include-html="task-snippet.html"></div>
@@ -77,17 +77,17 @@ function createTaskBox() {
 }
 
 async function showBtn(box, pickedContainer) {
-  if (box.classList.contains('d-none')) {
-    box.classList.remove('d-none');
-  }
-  document.getElementById('buttonContainer').innerHTML = '';
-  document.getElementById('buttonContainer').innerHTML +=
-    createBoxBtns(pickedContainer);
+    if (box.classList.contains('d-none')) {
+        box.classList.remove('d-none');
+    }
+    document.getElementById('buttonContainer').innerHTML = '';
+    document.getElementById('buttonContainer').innerHTML +=
+        createBoxBtns(pickedContainer);
 }
 
 function createBoxBtns(pickedContainer) {
-  return /*html*/ `
-    <button type="button" class="btn" onclick="closeTaskBox()" id="clear">Cancel <img src="/img/secondary-plus.svg"></button>
-    <button type="submit" class="btn" onclick="addTask('${pickedContainer}')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
+    return /*html*/ `
+    <button type="button" class="secondBtn" onclick="closeTaskBox()" id="clear">Cancel <img src="/img/secondary-plus.svg"></button>
+    <button type="submit" class="firstBtn" onclick="addTask('${pickedContainer}')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
 `;
 }
