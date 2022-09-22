@@ -6,6 +6,7 @@
 }
 
 .align-center h1 {
+  font-size: 61px;
   margin-left: 75px;
 }
 
@@ -141,7 +142,7 @@
 .background {
   position: absolute;
   z-index: 5;
-  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.3); */
   height: 100vh;
   top: 0;
   width: 100%;
