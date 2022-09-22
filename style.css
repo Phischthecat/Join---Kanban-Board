@@ -1,0 +1,43 @@
+:root {
+  --backGroundSection: #f6f7f8;
+  --textColor: #6b717e;
+  --hoverBackround: #293647;
+  --bgIcons: #2a3647;
+  --textColor: #6b717e;
+  --btnColor: #293647;
+  --urgentColour: #ff3b00;
+  --mediumColour: #ffb32a;
+  --lowColour: #7be129;
+  --hoverBtnColour: #36afe4;
+  --hrColor: #d1d1d1;
+  --boxShadowColor: #00000014;
+  --hyphenColor: #36afe4;
+  --emailColor: #007cee;
+  --blueColor: #29abe2;
+  --bgColorContact: #2a3647;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+}
+
+.flex {
+  display: flex;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.btn {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: unset;
+  background-color: #293647;
+  color: white;
+  font-size: 18px;
+}

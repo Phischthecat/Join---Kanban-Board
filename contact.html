@@ -6,102 +6,143 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact</title>
-  <link rel="stylesheet" href="css/contact.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
   <link rel="shortcut icon" href="icons/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/board.css" />
+  <link rel="stylesheet" href="css/addTask.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
   <script src="js/main.js"></script>
-  <script src="js/templates.js"></script>
+  <script src="js/board.js"></script>
+  <script src="js/addTask.js"></script>
   <script src="js/mini_backend.js"></script>
   <script src="http://www.w3schools.com/lib/w3data.js"></script>
-  <script src="js/board.js"></script>
+  <script src="js/templates.js"></script>
   <script src="js/contact.js"></script>
 </head>
 
-<body onload="init();">
-  <div class="flex">
-    <div>
-      <div w3-include-html="navbar.html" class="flex"></div>
-    </div>
+<head>
 
-    <div class="mainContainer">
-      <div w3-include-html="kanbanBar.html"></div>
-      <div class="contactContainer">
-        <div id="contactList" class="contactList">
-          <div class="contactSection">
-            <div class="contactSectionHeader">
-              <h2>A</h2>
-              <hr />
-            </div>
-            <div id="contactsOfA" class="contactsOf">
-              <div class="contactInfo">
-                <div class="initials initialCircle">AM</div>
-                <div>
-                  <div class="name">Anton Mayer</div>
-                  <div class="email">antom@gmail.com</div>
-                </div>
-              </div>
-              <div class="contactInfo">
-                <div class="initials initialCircle">AM</div>
-                <div>
-                  <div class="name">Anton Mayer</div>
-                  <div class="email">antom@gmail.com</div>
-                </div>
-              </div>
-            </div>
+  <div class="mainContainer">
+    <div id="taskBox"></div>
+    <div w3-include-html="kanbanBar.html"></div>
+    <div class="contactContainer">
+      <div id="contactList" class="contactList">
+        <div class="contactSection">
+          <div class="contactSectionHeader">
+            <h2>A</h2>
+            <hr />
           </div>
-          <div class="contactSection">
-            <div class="contactSectionHeader">
-              <h2>A</h2>
-              <hr />
-            </div>
-            <div id="contactsOfA" class="contactsOf">
-              <div class="contactInfo">
-                <div class="initials initialCircle">AM</div>
-                <div>
-                  <div class="name">Anton Mayer</div>
-                  <div class="email">antom@gmail.com</div>
-                </div>
+          <div id="contactsOfA" class="contactsOf">
+            <div class="contactInfo cursor-pointer">
+              <div class="initials initialCircle">AM</div>
+              <div>
+                <div class="name">Anton Mayer</div>
+                <div class="email">antom@gmail.com</div>
               </div>
-              <div class="contactInfo">
-                <div class="initials initialCircle">AM</div>
-                <div>
-                  <div class="name">Anton Mayer</div>
-                  <div class="email">antom@gmail.com</div>
-                </div>
+            </div>
+            <div class="contactInfo cursor-pointer">
+              <div class="initials initialCircle">AM</div>
+              <div>
+                <div class="name">Anton Mayer</div>
+                <div class="email">antom@gmail.com</div>
               </div>
             </div>
           </div>
         </div>
-        <div class="contactArea">
-          <div class="contactHeader">
-            <div class="contactHeadline">
-              <h1>Contacts</h1>
+        <div class="contactSection">
+          <div class="contactSectionHeader">
+            <h2>A</h2>
+            <hr />
+          </div>
+          <div id="contactsOfA" class="contactsOf">
+            <div class="contactInfo cursor-pointer">
+              <div class="initials initialCircle">AM</div>
+              <div>
+                <div class="name">Anton Mayer</div>
+                <div class="email">antom@gmail.com</div>
+              </div>
             </div>
-            <div class="subheadline">
-              <span>Better with a team</span>
+            <div class="contactInfo cursor-pointer">
+              <div class="initials initialCircle">AM</div>
+              <div>
+                <div class="name">Anton Mayer</div>
+                <div class="email">antom@gmail.com</div>
+              </div>
             </div>
           </div>
-          <div id="contactView" class="contactView">
-            <div class="headerFullContact">
-              <div id="initialsFullContact" class="initialsFullContact initialCircle">
-                AM
+        </div>
+      </div>
+      <div class="contactSection">
+        <div class="contactSectionHeader">
+          <h2>A</h2>
+          <hr />
+        </div>
+        <div id="contactsOfA" class="contactsOf">
+          <div class="contactInfo">
+            <div class="initials initialCircle">AM</div>
+            <div>
+              <div class="name">Anton Mayer</div>
+              <div class="email">antom@gmail.com</div>
+            </div>
+          </div>
+          <div class="contactInfo">
+            <div class="initials initialCircle">AM</div>
+            <div>
+              <div class="name">Anton Mayer</div>
+              <div class="email">antom@gmail.com</div>
+            </div>
+          </div>
+          <div class="contactFullInfo">
+            <div class="contactFullInfoHeader">
+              <h2>Contact Information</h2>
+              <div class="editContact cursor-pointer">
+                <img src="./img/pencil.svg" alt="pencil" />
+                Edit Contact
               </div>
-              <div class="nameContainer">
-                <div class="nameFullContact">Anton Mayer</div>
-                <div class="addTaskLink cursor-pointer" onclick="openTaskBox('toDo')">
-                  <span>+</span> Add Task
-                </div>
-              </div>
-
-
-
-              <div id="taskBox"></div>
+            </div>
+            <div class="emailFullContact">
+              <h3>Email</h3>
+              <a class="email" href="mailto:antom@gmail.com">antom@gmail.com</a>
+            </div>
+            <div class="phoneFullContact">
+              <h3>Phone</h3>
+              <a href="tel:+491111111111">1111 111 11 1</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="contactArea">
+      <div class="contactHeader">
+        <div class="contactHeadline">
+          <h1>Contacts</h1>
+        </div>
+        <div class="subheadline">
+          <span>Better with a team</span>
+        </div>
+      </div>
+      <div id="contactView" class="contactView">
+        <div class="headerFullContact">
+          <div id="initialsFullContact" class="initialsFullContact initialCircle">
+            AM
+          </div>
+          <div class="nameContainer">
+            <div class="nameFullContact">Anton Mayer</div>
+            <div class="addTaskLink cursor-pointer" onclick="openTaskBox('toDo')">
+              <span>+</span> Add Task
+            </div>
+          </div>
+
+
+
+          <div id="taskBox"></div>
+        </div>
+      </div>
+    </div>
   </div>
-</body>
+  </div>
+  </div>
+  </body>
 
 </html>
