@@ -1,12 +1,3 @@
-:root {
-  --hrColor: #d1d1d1;
-  --boxShadowColor: #00000014;
-  --hyphenColor: #36afe4;
-  --emailColor: #007cee;
-  --blueColor: #29abe2;
-  --bgColorContact: #2a3647;
-}
-
 .mainContainer {
   height: 100vh;
 }
