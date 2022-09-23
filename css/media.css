@@ -1,0 +1,388 @@
+/********* Media Queries for Summary *********/
+@media (max-width: 1190px) {
+    .greeting {
+        margin-left: 70px;
+    }
+}
+
+@media (max-width: 1111px) {
+    .greeting {
+        margin-left: 35px;
+    }
+}
+
+@media (max-width: 1075px) {
+    .greeting {
+        margin-left: 20px;
+    }
+}
+
+
+@media (max-width: 1060px) {
+    .greeting {
+        margin-left: 10px;
+    }
+}
+
+@media (max-width: 1055px) {
+    .pageHeader {
+        margin-left: 120px;
+    }
+
+    .containerOverview {
+        margin-left: 120px;
+    }
+
+    .greeting {
+        margin-left: 22px;
+    }
+}
+
+@media (max-width: 1033px) {
+    .pageHeader {
+        margin-left: 100px;
+    }
+
+    .containerOverview {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 1020px) {
+    .pageHeader {
+        margin-left: 80px;
+    }
+
+    .containerOverview {
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .pageHeader {
+        margin-left: 60px;
+    }
+
+    .containerOverview {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 980px) {
+    .pageHeader {
+        margin-left: 40px;
+    }
+
+    .containerOverview {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 965px) {
+    .joinLogoHeader {
+        display: flex;
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .questionMark {
+        display: none;
+    }
+
+    .actualUser {
+        margin-right: 0;
+        width: unset;
+        padding-right: 20px;
+    }
+
+    .text {
+        display: none;
+    }
+
+    .d-none {
+        display: flex;
+    }
+
+    .kanbanText {
+        display: flex;
+        padding-top: 20px;
+        margin-left: -220px;
+    }
+
+    .spacing {
+        display: flex;
+        margin-left: -135px;
+    }
+
+    .line {
+        position: relative;
+        top: 130px;
+        right: 200px;
+        transform: rotate(90deg);
+    }
+
+    .description {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .greeting {
+        display: none;
+    }
+
+    .joinLogoHeader {
+        display: flex;
+    }
+
+    .pageHeader {
+        margin-bottom: -115px;
+        margin-top: -25px;
+        margin-left: -180px;
+    }
+
+    .overviewSummary {
+        display: flex;
+        justify-content: center;
+    }
+
+    .containerOverview {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+}
+
+@media (max-width: 960px) {
+    .description {
+        margin-left: -40px;
+    }
+
+    .overviewSummary {
+        margin-left: -40px;
+    }
+}
+
+@media (max-width: 740px) {
+    .flex {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #navbar {
+        width: unset;
+        height: unset;
+        display: unset;
+        flex-direction: unset;
+        align-items: unset;
+    }
+
+    .joinLogo {
+        display: none;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 0;
+    }
+
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    a {
+        margin-top: -10px;
+    }
+}
+
+@media (max-width: 540px) {
+    .line {
+        right: 100px;
+    }
+
+    .spacing {
+        margin-left: 65px;
+    }
+
+    .pageHeader {
+        margin-left: 25px;
+    }
+
+    .kanbanText {
+        margin-left: -20px;
+    }
+
+    .containerOverview {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .longBox {
+        width: 90%;
+    }
+}
+
+@media (max-width: 540px) {
+    li {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 420px) {
+    .line {
+        right: 110px;
+    }
+
+    .spacing {
+        margin-left: 45px;
+    }
+
+    .pageHeader {
+        margin-left: 10px
+    }
+
+    .kanbanText {
+        margin-left: -30px;
+    }
+}
+
+@media (max-width: 408px) {
+    li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    .spacing {
+        font-size: 24px;
+    }
+
+    .description .pageHeader {
+        margin-left: 20px;
+        font-size: 58px;
+    }
+
+    .kanbanText {
+        margin-left: -10px;
+    }
+
+    .line {
+        right: 90px;
+    }
+}
+
+@media (max-width: 359px) {
+    li {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .iconsNav {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/********* Media Queries for Summary *********/
+
+
+/********* Media Queries for Add Task *********/
+@media (max-width: 1150px) {
+    .leftSplit {
+        margin-left: 120px;
+    }
+}
+
+@media (max-width: 1120px) {
+    .leftSplit {
+        margin-left: 100px;
+    }
+}
+
+@media (max-width: 1090px) {
+    .leftSplit {
+        margin-left: 80px;
+    }
+}
+
+@media (max-width: 1070px) {
+    .leftSplit {
+        margin-left: 60px;
+    }
+}
+
+@media (max-width: 1050px) {
+    .leftSplit {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 1030px) {
+    .leftSplit {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1010px) {
+    .actualUser {
+        display: none;
+    }
+
+    .flex {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #navbar {
+        width: unset;
+        height: unset;
+    }
+
+    .joinLogo {
+        display: none;
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+        padding: unset;
+        padding-top: 35px;
+        margin-top: unset;
+        margin-bottom: unset;
+    }
+
+    li {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+
+    #formAddTask {
+        display: flex;
+        justify-content: center;
+    }
+
+    .buttonContainer {
+        display: none;
+    }
+
+    #navbar {
+        margin-top: 53px;
+    }
+
+    .pageHeader {
+        margin-left: 120px;
+    }
+
+}

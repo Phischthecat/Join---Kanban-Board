@@ -102,10 +102,7 @@ function styleUrgency(task) {
 }
 
 function closeFullView(taskId) {
-    //   for (let y = 0; y < allTasks.length; y++) {
-    //     const element = allTasks[y];
     document.getElementById(taskId).classList.add('d-none');
-    //   }
 }
 
 async function openTaskBox(pickedContainer) {
