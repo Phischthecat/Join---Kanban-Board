@@ -1,22 +1,93 @@
 :root {
   --backGroundSection: #f6f7f8;
   --textColor: #6b717e;
-  --hoverBackround: #293647;
-  --bgIcons: #2a3647;
-  --textColor: #6b717e;
-  --btnColor: #293647;
+  --mainColorDarkBlue: #2a3647;
   --urgentColour: #ff3b00;
   --mediumColour: #ffb32a;
   --lowColour: #7be129;
-  --hoverBtnColour: #36afe4;
+  --mainColorLightBlue: #36afe4;
   --hrColor: #d1d1d1;
   --boxShadowColor: #00000014;
-  --hyphenColor: #36afe4;
   --emailColor: #007cee;
   --blueColor: #29abe2;
-  --bgColorContact: #2a3647;
 }
 
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text {
+  color: var(--textColor);
+}
+
+.btn {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: unset;
+  background-color: var(--btnColor);
+  color: white;
+  font-size: 18px;
+}
+
+.btn-blue {
+  background-color: var(--mainColorDarkBlue);
+  color: white;
+  height: 50px;
+  width: auto;
+  border-radius: 10px;
+  padding: 18px 10px;
+  font-size: 21px;
+  gap: 10px;
+}
+
+.btn-white {
+  background-color: white;
+  color: var(--mainColorDarkBlue);
+  height: 50px;
+  width: auto;
+  border-radius: 10px;
+  border: 1px solid var(--mainColorDarkBlue);
+  padding: 18px 10px;
+  font-size: 21px;
+  gap: 10px;
+}
+
+.pageHeader {
+  font-size: 61px;
+}
+
+.mainContainer {
+  width: 100%;
+  background-color: var(--backGroundSection);
+}
+
+.headline {
+  font-size: 45px;
+  margin-top: 15px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
 
 /**
 *
@@ -45,7 +116,8 @@
 
 @keyframes slide-out-bck-tl {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2))
+      translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 
@@ -85,7 +157,6 @@
     opacity: 1;
   }
 }
-
 
 /**
 *
@@ -155,65 +226,4 @@
     transform: translateX(0);
     opacity: 1;
   }
-}
-
-
-/**
-*
-******************  main Classes ****************** 
-*
-**/
-
-body {
-  margin: 0;
-  box-sizing: border-box;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  font-size: 16px;
-}
-
-.flex {
-  display: flex;
-}
-
-.flexColumn {
-  display: flex;
-  flex-direction: column;
-}
-
-.d-none {
-  display: none !important;
-}
-
-.cursor-pointer {
-  cursor: pointer;
-}
-
-.text {
-  color: var(--textColor);
-}
-
-.btn {
-  height: 50px;
-  width: 200px;
-  border-radius: 10px;
-  border: unset;
-  background-color: var(--btnColor);
-  color: white;
-  font-size: 18px;
-}
-
-.pageHeader {
-  font-size: 61px;
-}
-
-.mainContainer {
-  width: 100%;
-  background-color: var(--backGroundSection);
-}
-
-.headline {
-  font-size: 45px;
-  margin-top: 15px;
-  margin-bottom: 0;
-  text-transform: capitalize;
 }
