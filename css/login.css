@@ -4,6 +4,7 @@
 
 .loginForm {
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .logo {
@@ -61,7 +62,8 @@
   text-decoration-color: #44b3e5;
 }
 
-.loginSection span {
+.loginForm span {
+  width: 100%;
   margin: 30px 0;
   color: #44b3e5;
 }
@@ -85,7 +87,6 @@
   display: flex;
   align-items: center;
   gap: 25px;
-  margin-top: 50px;
 }
 
 #userName {
@@ -172,6 +173,8 @@
 #register {
   width: 100px;
 }
+
+
 
 @media (max-width: 1150px) {
   .loginContainer {

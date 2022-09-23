@@ -10,6 +10,7 @@
   --boxShadowColor: #00000014;
   --emailColor: #007cee;
   --blueColor: #29abe2;
+  --btnColor: #293647;
 }
 
 body {
@@ -94,11 +95,11 @@ body {
 ******************   KeyFrames for Login ****************** 
 *
 **/
-.slide-in-bottom {
-  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both;
+.slide-in-bottom-login {
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
 }
 
-@keyframes slide-in-bottom {
+@keyframes slide-in-bottom-login {
   0% {
     transform: translateY(1000px);
     opacity: 0;
@@ -110,14 +111,13 @@ body {
   }
 }
 
-.slide-out-bck-tl {
-  animation: slide-out-bck-tl 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
+.slide-out-bck-tl-login {
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
 }
 
-@keyframes slide-out-bck-tl {
+@keyframes slide-out-bck-tl-login {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2))
-      translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 
@@ -126,11 +126,11 @@ body {
   }
 }
 
-.slide-in-right {
-  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+.slide-in-right-login {
+  animation: slide-in-right-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-@keyframes slide-in-right {
+@keyframes slide-in-right-login {
   0% {
     transform: translateX(1000px);
     opacity: 0;
@@ -142,11 +142,11 @@ body {
   }
 }
 
-.slide-in-left {
-  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+.slide-in-left-login {
+  animation: slide-in-left-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
-@keyframes slide-in-left {
+@keyframes slide-in-left-login {
   0% {
     transform: translateX(-1000px);
     opacity: 0;
