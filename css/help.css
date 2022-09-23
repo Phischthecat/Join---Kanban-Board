@@ -1,22 +1,9 @@
-a {
-  text-decoration: none !important;
-  color: white !important;
-}
-
-.helpSection {
-  display: flex;
-}
-
 .helpContainer {
   height: auto;
   margin: 20px;
   box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   overflow-y: auto;
-}
-
-.headline {
-  margin: 20px;
 }
 
 .headline p {

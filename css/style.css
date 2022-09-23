@@ -1,0 +1,219 @@
+:root {
+  --backGroundSection: #f6f7f8;
+  --textColor: #6b717e;
+  --hoverBackround: #293647;
+  --bgIcons: #2a3647;
+  --textColor: #6b717e;
+  --btnColor: #293647;
+  --urgentColour: #ff3b00;
+  --mediumColour: #ffb32a;
+  --lowColour: #7be129;
+  --hoverBtnColour: #36afe4;
+  --hrColor: #d1d1d1;
+  --boxShadowColor: #00000014;
+  --hyphenColor: #36afe4;
+  --emailColor: #007cee;
+  --blueColor: #29abe2;
+  --bgColorContact: #2a3647;
+}
+
+
+/**
+*
+******************   KeyFrames for Login ****************** 
+*
+**/
+.slide-in-bottom {
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-out-bck-tl {
+  animation: slide-out-bck-tl 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
+}
+
+@keyframes slide-out-bck-tl {
+  0% {
+    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.slide-in-right {
+  animation: slide-in-right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+/**
+*
+******************   KeyFrames for Addtask, Board etc. ****************** 
+*
+**/
+
+.slide-in-right {
+  animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-out-right {
+  animation: slide-out-right 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+}
+
+.slide-in-bottom {
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+
+/**
+*
+******************  main Classes ****************** 
+*
+**/
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 16px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text {
+  color: var(--textColor);
+}
+
+.btn {
+  height: 50px;
+  width: 200px;
+  border-radius: 10px;
+  border: unset;
+  background-color: var(--btnColor);
+  color: white;
+  font-size: 18px;
+}
+
+.pageHeader {
+  font-size: 61px;
+}
+
+.mainContainer {
+  width: 100%;
+  background-color: var(--backGroundSection);
+}
+
+.headline {
+  font-size: 45px;
+  margin-top: 15px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+}
