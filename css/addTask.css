@@ -115,7 +115,7 @@ select {
   width: 100px;
   height: 40px;
   border-radius: 5px;
-  border: 1px solid var(--btnColor);
+  border: 1px solid var(--mainColorDarkBlue);
   background-color: white;
   color: var(--textColor);
   display: flex;
@@ -134,7 +134,7 @@ select {
   height: 40px;
   border-radius: 10px;
   border: none;
-  background-color: var(--btnColor);
+  background-color: var(--mainColorDarkBlue);
   color: white;
   font-size: 13px;
   display: flex;
@@ -148,14 +148,14 @@ select {
 
 #clear:hover {
   cursor: pointer;
-  border: 1px solid var(--hoverBtnColour);
-  color: var(--hoverBtnColour);
+  border: 1px solid var(--mainColorLightBlue);
+  color: var(--mainColorLightBlue);
   transition: all 225ms ease-in-out;
 }
 
 #create:hover {
   cursor: pointer;
-  background-color: var(--hoverBtnColour);
+  background-color: var(--mainColorLightBlue);
   transition: all 225ms ease-in-out;
   filter: drop-shadow(2px 4px 6px rgb(100, 100, 100));
 }
@@ -164,7 +164,7 @@ select {
   bottom: 42px;
   width: 225px;
   height: 45px;
-  background: var(--btnColor);
+  background: var(--mainColorDarkBlue);
   position: absolute;
   left: 630px;
   border-radius: 10px;

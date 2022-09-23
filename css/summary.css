@@ -81,7 +81,7 @@
 .longBox:hover,
 .thirdBox:hover {
   cursor: pointer;
-  background-color: var(--hoverBackround);
+  background-color: var(--mainColorDarkBlue);
   color: white;
 }
 
@@ -127,7 +127,7 @@
   border-radius: 100%;
   border: 1px solid transparent;
   padding: 10px;
-  background: var(--bgIcons);
+  background: var(--mainColorDarkBlue);
 }
 
 .thirdBox {

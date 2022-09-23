@@ -28,7 +28,7 @@
 }
 
 .contactHeadline {
-  border-right: 2px solid var(--hyphenColor);
+  border-right: 2px solid var(--mainColorLightBlue);
 }
 
 .contactHeadline h1 {
@@ -63,7 +63,7 @@
 }
 
 .contactInfo:hover {
-  background-color: var(--bgColorContact);
+  background-color: var(--mainColorDarkBlue);
   border-radius: 10px;
   color: white;
 }
