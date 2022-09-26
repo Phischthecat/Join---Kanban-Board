@@ -106,6 +106,7 @@ select {
   filter: invert(0.8);
   rotate: 45deg;
   width: 15px;
+  vertical-align: middle;
 }
 
 .addTaskBtn {

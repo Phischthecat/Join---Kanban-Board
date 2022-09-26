@@ -1,5 +1,6 @@
 .mainContainerContact {
   height: 100vh;
+  width: 100%;
 }
 
 .contactContainer {
@@ -15,6 +16,10 @@
 }
 
 .contactArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
   width: 50%;
   padding: 75px;
 }
@@ -146,4 +151,20 @@
 
 .contactFullInfo h3 {
   font-size: 16px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.newContactBtn {
+  text-align: center;
+}
+
+.newContactBtn img {
+  height: 20px;
+  width: 20px;
+  margin-left: 10px;
+  vertical-align: text-bottom;
 }

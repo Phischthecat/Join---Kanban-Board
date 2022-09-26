@@ -51,8 +51,7 @@ body {
   border: unset;
   border-radius: 10px;
   padding: 4px 16px;
-  font-size: 21px;
-  gap: 10px;
+  font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
@@ -64,8 +63,7 @@ body {
   border-radius: 10px;
   border: 1px solid var(--mainColorDarkBlue);
   padding: 4px 16px;
-  font-size: 21px;
-  gap: 10px;
+  font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
