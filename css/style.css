@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Inter';
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: oblique 0deg 12deg;
+  src: url('/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf')
+    format('woff2-variations');
+}
+
 :root {
   --backGroundSection: #f6f7f8;
   --textColor: #6b717e;
@@ -18,7 +27,7 @@
 body {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
 }
 
@@ -40,7 +49,31 @@ body {
 }
 
 .text {
-  color: var(--textColor);
+  color: var(--mainColorDarkBlue);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 75px;
+}
+
+.headline {
+  border-right: 3px solid var(--mainColorLightBlue);
+}
+
+.headline h1 {
+  margin: 0;
+  margin-right: 30px;
+  font-size: 61px;
+}
+
+.subheadline {
+  font-size: 27px;
+  letter-spacing: 1px;
 }
 
 .btn-blue {
@@ -85,13 +118,31 @@ body {
 .mainContainer {
   width: 100%;
   background-color: var(--backGroundSection);
+  overflow: hidden;
 }
 
-.headline {
-  font-size: 45px;
+.taskHeader {
   margin-top: 15px;
   margin-bottom: 0;
   text-transform: capitalize;
+  vertical-align: middle;
+}
+
+.contactArea {
+  width: 50%;
+}
+
+.summaryArea {
+  width: 100%;
+}
+
+.contactArea,
+.summaryArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 75px;
 }
 
 /**
