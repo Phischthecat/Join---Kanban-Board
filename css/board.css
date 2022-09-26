@@ -26,14 +26,8 @@
   margin-right: 10px;
 }
 
-.add {
+.addTaskBtn {
   width: 137px;
-  height: 51px;
-  background: #2a3647;
-  border: 1px solid #2a3647;
-  border-radius: 10px;
-  color: white;
-  font-size: 21px;
 }
 
 .add:hover {

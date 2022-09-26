@@ -11,6 +11,8 @@
   --emailColor: #007cee;
   --blueColor: #29abe2;
   --btnColor: #293647;
+  --boxShadow: #d3d3d3;
+  --transitionSpeed: 150ms;
 }
 
 body {
@@ -41,37 +43,41 @@ body {
   color: var(--textColor);
 }
 
-.btn {
-  height: 50px;
-  width: 200px;
-  border-radius: 10px;
-  border: unset;
-  background-color: var(--btnColor);
-  color: white;
-  font-size: 18px;
-}
-
 .btn-blue {
+  cursor: pointer;
   background-color: var(--mainColorDarkBlue);
   color: white;
   height: 50px;
-  width: auto;
+  border: unset;
   border-radius: 10px;
-  padding: 18px 10px;
+  padding: 4px 16px;
   font-size: 21px;
   gap: 10px;
+  transition: all var(--transitionSpeed) ease-in-out;
 }
 
 .btn-white {
+  cursor: pointer;
   background-color: white;
   color: var(--mainColorDarkBlue);
   height: 50px;
-  width: auto;
   border-radius: 10px;
   border: 1px solid var(--mainColorDarkBlue);
-  padding: 18px 10px;
+  padding: 4px 16px;
   font-size: 21px;
   gap: 10px;
+  transition: all var(--transitionSpeed) ease-in-out;
+}
+
+.btn-blue:hover {
+  background-color: var(--blueColor);
+  box-shadow: 0 5px 5px var(--boxShadow);
+}
+
+.btn-white:hover {
+  border: 3px solid var(--blueColor);
+  color: var(--blueColor);
+  box-shadow: 0 5px 5px var(--boxShadow);
 }
 
 .pageHeader {
@@ -96,7 +102,8 @@ body {
 *
 **/
 .slide-in-bottom-login {
-  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    1.2s both !important;
 }
 
 @keyframes slide-in-bottom-login {
@@ -112,12 +119,14 @@ body {
 }
 
 .slide-out-bck-tl-login {
-  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    0.1s both;
 }
 
 @keyframes slide-out-bck-tl-login {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2))
+      translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 

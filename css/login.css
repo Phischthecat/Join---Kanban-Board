@@ -63,6 +63,7 @@
 }
 
 .loginForm span {
+  text-align: center;
   width: 100%;
   margin: 30px 0;
   color: #44b3e5;
@@ -139,23 +140,12 @@
   margin-bottom: 40px;
 }
 
-.btn:hover {
-  cursor: pointer;
-  opacity: 0.7;
+.loginBtn {
+  width: 145px;
 }
 
-#guestBtn {
-  height: 50px;
-  width: 200px;
-  border-radius: 10px;
-  border: 1px solid #293647;
-  color: #293647;
-  font-size: 18px;
-}
-
-#guestBtn:hover {
-  cursor: pointer;
-  background-color: rgba(29, 36, 47, 20%);
+.guestBtn {
+  width: 160px;
 }
 
 .registrate {
@@ -169,12 +159,6 @@
 .registrate span {
   font-size: 20px;
 }
-
-#register {
-  width: 100px;
-}
-
-
 
 @media (max-width: 1150px) {
   .loginContainer {
@@ -218,7 +202,7 @@
     width: 120px;
   }
 
-  #guestBtn {
+  .guestBtn {
     width: 120px;
   }
 

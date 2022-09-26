@@ -98,53 +98,28 @@ select {
   gap: 10px;
 }
 
-.secondBtn {
-  width: 100px;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid var(--mainColorDarkBlue);
-  background-color: white;
-  color: var(--textColor);
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+.clearBtn {
+  width: 135px;
 }
 
-.secondBtn img {
-  filter: contrast(0.5);
+.clearBtn img {
+  filter: invert(0.8);
   rotate: 45deg;
   width: 15px;
 }
 
-.firstBtn {
-  width: 100px;
-  height: 40px;
-  border-radius: 10px;
-  border: none;
-  background-color: var(--mainColorDarkBlue);
-  color: white;
-  font-size: 13px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.addTaskBtn {
+  width: 180px;
 }
 
-.firstBtn img {
+.addTaskBtn img {
   width: 12px;
 }
 
-.secondBtn:hover {
-  cursor: pointer;
-  border: 1px solid var(--mainColorLightBlue);
-  color: var(--mainColorLightBlue);
-  transition: all 225ms ease-in-out;
-}
-
-.firstBtn:hover {
-  cursor: pointer;
-  background-color: var(--mainColorLightBlue);
-  transition: all 225ms ease-in-out;
-  filter: drop-shadow(2px 4px 6px rgb(100, 100, 100));
+.clearBtn:hover img {
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
+    brightness(91%) contrast(94%);
+  transition: all var(--transitionSpeed) ease-in-out;
 }
 
 #messageToBoard {
