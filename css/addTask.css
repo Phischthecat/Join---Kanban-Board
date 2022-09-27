@@ -1,5 +1,5 @@
-.margin {
-  margin-left: 150px;
+.addTaskContainer {
+  padding: 75px;
 }
 
 .leftSplit,
@@ -8,8 +8,7 @@
 }
 
 .leftSplit {
-  margin-left: 150px;
-  margin-right: 75px;
+  margin-right: 10%;
 }
 
 .text {
