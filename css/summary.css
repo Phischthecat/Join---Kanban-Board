@@ -91,19 +91,8 @@
   background-color: #fff;
 }
 
-.urgent {
-  display: flex;
-  flex-direction: column;
-}
-
 .secondLine {
   height: 50px !important;
-}
-
-.upcomingDeadline {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #dateOfDeadline {

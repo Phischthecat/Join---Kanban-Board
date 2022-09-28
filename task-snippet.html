@@ -5,12 +5,7 @@
     <div class="leftSplit">
       <div class="title flexColumn">
         <span class="text">Title</span>
-        <input
-          id="taskTitle"
-          required
-          type="text"
-          placeholder="Enter a title"
-        />
+        <input id="taskTitle" required type="text" placeholder="Enter a title" />
       </div>
 
       <div class="description flexColumn">
@@ -46,32 +41,17 @@
         <span class="text">Prio</span>
 
         <div class="priorityBox">
-          <button
-            type="button"
-            class="statusButton"
-            onclick="getPriority('urgent')"
-            id="urgent"
-          >
+          <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
             <p>Urgent</p>
             <img src="img/urgent.addTask.svg" />
           </button>
 
-          <button
-            type="button"
-            class="statusButton"
-            onclick="getPriority('medium')"
-            id="medium"
-          >
+          <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
             <p>Medium</p>
             <img src="img/medium.addTask.svg" />
           </button>
 
-          <button
-            type="button"
-            class="statusButton"
-            onclick="getPriority('low')"
-            id="low"
-          >
+          <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
             <p>Low</p>
             <img src="img/low.addTask.svg" />
           </button>
@@ -84,20 +64,10 @@
       </div>
 
       <div class="buttonContainer" id="buttonContainer">
-        <button
-          type="button"
-          class="btn-white clearBtn"
-          onclick="clearFields()"
-          id="clear"
-        >
+        <button type="button" class="btn-white clearBtn" onclick="clearFields()" id="clear">
           Clear <img src="img/secondary-plus.svg" />
         </button>
-        <button
-          type="submit"
-          class="btn-blue createTaskBtn"
-          onclick="addTask('toDo')"
-          id="create"
-        >
+        <button type="submit" class="btn-blue createTaskBtn" onclick="addTask('toDo')" id="create">
           Create Task <img src="img/ticked-off.svg" />
         </button>
       </div>
