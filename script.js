@@ -21,21 +21,55 @@ async function includeHTML() {
 }
 
 async function openTaskBox(pickedContainer) {
+  document.body.style.overflow = 'hidden';
   setTimeout(() => {
     w3IncludeHTML();
   }, 100);
   let box = document.getElementById('taskBox');
-  box.innerHTML = '';
-  box.innerHTML += createTaskBox();
+  box.innerHTML = createTaskBox();
   setTimeout(() => {
-    showBtn(box, pickedContainer);
+    if (box.classList.contains('d-none')) {
+      box.classList.remove('d-none');
+    }
+    document.getElementById('animation').classList.toggle('background');
+    showBtn(pickedContainer);
   }, 150);
 }
 
 function closeTaskBox() {
+  let taskBoxContainer = document.getElementById('animation');
+  let taskBox = document.getElementById('taskBox');
+  taskBoxContainer.classList.toggle('slide-in-right');
+  taskBoxContainer.classList.toggle('slide-out-right');
+  taskBoxContainer.classList.toggle('background');
+  setTimeout(() => {
+    taskBox.classList.toggle('d-none');
+    document.body.style.overflow = 'auto';
+  }, 1000);
+}
+
+async function showBtn(pickedContainer) {
+  document.getElementById('buttonContainer').innerHTML =
+    createBoxBtns(pickedContainer);
+}
+
+async function openContactBox(fct) {
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => {
+    w3IncludeHTML();
+  }, 100);
+  let box = document.getElementById('taskBox');
+  box.innerHTML = fct();
+  if (box.classList.contains('d-none')) {
+    box.classList.remove('d-none');
+  }
+}
+
+function closeContactBox() {
   document.getElementById('animation').classList.toggle('slide-out-right');
   setTimeout(() => {
     document.getElementById('taskBox').classList.toggle('d-none');
+    document.body.style.overflow = 'auto';
   }, 1000);
 }
 

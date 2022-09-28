@@ -136,3 +136,95 @@
   margin-left: 10px;
   vertical-align: text-bottom;
 }
+
+.overlayContainer {
+  display: flex;
+  min-height: 500px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.overlayHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-color: var(--mainColorDarkBlue);
+  color: white;
+  padding: 20px 40px;
+}
+
+.overlayHeader img {
+  height: 40px;
+  width: 40px;
+}
+
+.overlayHeader h1 {
+  margin-bottom: 10px;
+}
+
+.overlayHeader span {
+  font-weight: 300;
+}
+
+.overlayHeader hr {
+  margin-left: 0;
+  width: 60px;
+  border: 1px solid var(--mainColorLightBlue);
+}
+
+.addContactSection {
+  display: flex;
+  align-items: center;
+
+  padding: 20px 40px 70px 40px;
+}
+
+.userIcon {
+  height: 100px;
+  width: 100px;
+  margin-right: 40px;
+}
+
+.contactInputSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 100%;
+  width: 300px;
+}
+
+.contactInputSection input {
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.name {
+  background-image: url(./img/name.svg);
+  background-repeat: no-repeat;
+  background-size: 15px;
+  font-size: 16px;
+  padding-left: 15px;
+}
+
+.close {
+  height: 20px;
+  width: 20px;
+  margin-bottom: 15px;
+  filter: invert(0.7);
+  transform: rotate(45deg);
+}
+
+.contactBtnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.contactBtnContainer:first-of-type button {
+  margin-right: 20px;
+}

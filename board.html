@@ -18,6 +18,7 @@
   </head>
 
   <body onload="initTodos();">
+    <div id="taskBox"></div>
     <div class="flex">
       <div>
         <div w3-include-html="navbar.html" class="flex"></div>
@@ -33,11 +34,10 @@
             </div>
 
             <div class="searchContainer">
-              <input type="text" id="search" placeholder="findTask" />
+              <input type="text" id="search" placeholder="find Task" />
               <button onclick="openTaskBox()" class="btn-blue addTaskBtn">
                 Add Task <img src="img/secondary-plus.svg" />
               </button>
-              <div id="taskBox"></div>
             </div>
           </div>
 

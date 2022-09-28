@@ -22,7 +22,7 @@ function createTaskCard(task) {
 
 function createFullView(task) {
   return /*html*/ `
-        <div class="background">
+        <div class="mainContainer">
             <div class="fullCard">
                 <div class="headerFullCard">
                     <div class="categoryText">
@@ -68,7 +68,7 @@ function createFullView(task) {
 
 function createTaskBox() {
   return /*html*/ `
-    <div class="background slide-in-right" id="animation">
+    <div class="mainContainer slide-in-right" id="animation">
         <div class="boxContent">
             <div w3-include-html="task-snippet.html"></div>
         </div>
@@ -76,18 +76,41 @@ function createTaskBox() {
     `;
 }
 
-async function showBtn(box, pickedContainer) {
-  if (box.classList.contains('d-none')) {
-    box.classList.remove('d-none');
-  }
-  document.getElementById('buttonContainer').innerHTML = '';
-  document.getElementById('buttonContainer').innerHTML +=
-    createBoxBtns(pickedContainer);
-}
-
 function createBoxBtns(pickedContainer) {
   return /*html*/ `
-    <button type="button" class="btn-white clearBtn" onclick="closeTaskBox()" id="clear">Cancel <img src="/img/secondary-plus.svg"></button>
-    <button type="submit" class="btn-blue AddTaskBtn" onclick="addTask('${pickedContainer}')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
-`;
+      <button type="button" class="btn-white clearBtn" onclick="closeTaskBox()" id="clear">Cancel <img src="/img/secondary-plus.svg"></button>
+      <button type="submit" class="btn-blue addTaskBtn" onclick="addTask('${pickedContainer}')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
+  `;
+}
+
+function createNewContact() {
+  return /*html*/ `
+    <div class="mainContainer slide-in-right" id="animation">
+    <div class="boxContainer">
+            <div class="overlayContainer">
+                <div class="overlayHeader">
+                    <img src="img/joinlogo.svg">    
+                    <h1>Add contact</h1>
+                    <span>Tasks are better with a team!</span>
+                    <hr>
+                </div>
+                <div class="addContactSection">
+                        <div>
+                            <img class="userIcon" src="./img/user.svg" alt="user">
+                        </div>
+                        <div class="contactInputSection">
+                            <img class="close" src="/img/secondary-plus.svg">
+                            <input class="name" type="text" placeholder="Name">
+                            <input class="email" type="email" placeholder="Email">
+                            <input class="phone" type="tel" placeholder="Phone">
+                            <div class="contactBtnContainer">
+                                <button type="button" class="btn-white" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
+                                <button type="submit" class="btn-blue" onclick="addContact()">Create Task <img src="/img/ticked-off.svg"></button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
 }

@@ -20,12 +20,12 @@
 
   <body onload="init();">
     <div class="flex">
+      <div id="taskBox"></div>
       <div>
         <div w3-include-html="navbar.html" class="flex"></div>
       </div>
 
       <div class="mainContainerContact">
-        <div id="taskBox"></div>
         <div w3-include-html="kanbanBar.html"></div>
         <div class="contactContainer">
           <div id="contactList" class="contactList">
@@ -127,7 +127,7 @@
               <button
                 type="button"
                 class="btn-blue newContactBtn"
-                onclick="addContact()"
+                onclick="openContactBox(createNewContact)"
               >
                 New contact<img src="img/addNewContact.svg" />
               </button>
