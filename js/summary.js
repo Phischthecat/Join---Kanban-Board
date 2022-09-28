@@ -52,10 +52,6 @@ function setQuantity(
   doneBox.innerHTML += done.length;
 }
 
-function gotToBoard() {
-  window.location.href = 'board.html';
-}
-
 function deadlineChecker() {
   let deadlineDate = getId('dateOfDeadline');
   let allTasksDatesMinimum = findingMinimumDate();
