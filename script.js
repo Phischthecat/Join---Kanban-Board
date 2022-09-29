@@ -1,6 +1,7 @@
 async function init() {
   await downloadFromServer();
   allTasks = (await backend.getItem('tasks')) || [];
+  contacts = (await backend.getItem('contacts')) || [];
   includeHTML();
   checkIfUserIsLoggedIn();
 }
@@ -53,13 +54,13 @@ async function showBtn(pickedContainer) {
     createBoxBtns(pickedContainer);
 }
 
-async function openContactBox(fct) {
+async function openContactBox(fct, contact) {
   document.body.style.overflow = 'hidden';
   setTimeout(() => {
     w3IncludeHTML();
   }, 100);
   let box = document.getElementById('taskBox');
-  box.innerHTML = fct();
+  box.innerHTML = fct(contact);
   if (box.classList.contains('d-none')) {
     box.classList.remove('d-none');
   }

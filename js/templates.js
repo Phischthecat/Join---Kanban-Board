@@ -101,15 +101,14 @@ function createNewContact() {
                         <div class="contactInputSection">
                             <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
                             <form id="newContactForm" onsubmit="addContact(); return false;">
-                            <input class="name" id="newContactName" type="text" placeholder="Name">
-                            <input class="email" id="newContactEmail" type="email" placeholder="Email">
-                            <input class="phone" id="newContactPhone" type="tel" placeholder="Phone">
+                            <input class="nameModal" id="newContactName" type="text" placeholder="Name">
+                            <input class="emailModal" id="newContactEmail" type="email" placeholder="Email">
+                            <input class="phoneModal" id="newContactPhone" type="tel" placeholder="Phone">
                             <div class="contactBtnContainer">
                                 <button type="button" class="btn-white" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
                                 <button type="submit" class="btn-blue" >Create Task <img src="/img/ticked-off.svg"></button>
                             </div>
                             </form>
-                        </div>
                 </div>
             </div>
         </div>
@@ -117,7 +116,7 @@ function createNewContact() {
     `;
 }
 
-function editContact(initial, name, email, phone) {
+function editContact(contact) {
   return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
     <div class="boxContainer">
@@ -130,20 +129,19 @@ function editContact(initial, name, email, phone) {
                 <div class="addContactSection">
                     <div>
                         <div class="initialsFullContact initialCircle">
-                            ${initial}
+                            ${contact.initial}
                         </div>
                     </div>
                         <div class="contactInputSection">
                             <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
                             <form id="editContactForm" onsubmit="saveContact(); return false;">
-                            <input class="name" id="editContactName" type="text" >
-                            <input class="email" id="editContactEmail" type="email" >
-                            <input class="phone" id="editContactPhone" type="tel" >
+                            <input class="nameModal" id="editContactName" type="text" value="${contact.name}">
+                            <input class="emailModal" id="editContactEmail" type="email" value="${contact.email}">
+                            <input class="phoneModal" id="editContactPhone" type="tel" value="${contact.phone}">
                             <div class="editBtnContainer">
                                 <button type="submit" class="btn-blue" >Save</button>
                             </div>
-                            </form>
-                        </div>
+                            </form>                            
                 </div>
             </div>
         </div>

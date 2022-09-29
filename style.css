@@ -15,7 +15,7 @@
   --mediumColour: #ffb32a;
   --lowColour: #7be129;
   --mainColorLightBlue: #36afe4;
-  --hrColor: #d1d1d1;
+  --colorLightGrey: #d1d1d1;
   --boxShadowColor: #00000014;
   --emailColor: #007cee;
   --blueColor: #29abe2;
@@ -29,6 +29,10 @@ body {
   box-sizing: border-box;
   font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
+}
+
+::placeholder {
+  color: var(--colorLightGrey);
 }
 
 .flex {
@@ -173,6 +177,25 @@ body {
   padding: 75px;
 }
 
+#messageToBoard {
+  bottom: 42px;
+  width: 225px;
+  height: 45px;
+  background: var(--mainColorDarkBlue);
+  position: absolute;
+  left: 630px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#messageToBoard span {
+  margin: 0;
+}
+
 /**
 *
 ******************   KeyFrames for Login ****************** 
@@ -295,6 +318,22 @@ body {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+.slide-out-bottom {
+  animation: slide-out-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-out-bottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(1000px);
+    opacity: 0;
   }
 }
 
