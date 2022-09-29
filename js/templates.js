@@ -35,7 +35,7 @@ function createFullView(task) {
                 </div>
 
                 <div>
-                    <h2 class="headline">${task.title}</h2>
+                    <h2 class="taskHeader">${task.title}</h2>
                 </div>
                 
                 <div class="descriptionFullCard"> 

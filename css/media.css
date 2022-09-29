@@ -1,3 +1,58 @@
+/********* Media Queries for Login *********/
+@media(max-width: 1150px) {
+    .loginContainer {
+        margin-right: calc(100vw / 4);
+        margin-left: calc(100vw / 4);
+    }
+}
+
+@media(max-width: 750px) {
+    .loginContainer {
+        margin-right: calc(100vw / 5);
+        margin-left: calc(100vw / 5);
+    }
+}
+
+@media(max-width: 560px) {
+    .loginContainer {
+        margin-right: calc(100vw / 9);
+        margin-left: calc(100vw / 9);
+    }
+}
+
+@media(max-width: 420px) {
+    .loginContainer {
+        margin-right: calc(100vw / 20);
+        margin-left: calc(100vw / 20);
+    }
+}
+
+@media(max-width: 350px) {
+    .loginContainer {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .inputFields {
+        width: 180px;
+    }
+
+    .btn {
+        width: 120px;
+    }
+
+    #guestBtn {
+        width: 120px;
+    }
+
+    .registrate {
+        gap: 15px;
+    }
+}
+
+/********* Media Queries for Login *********/
+
+
 /********* Media Queries for Summary *********/
 @media (max-width: 1190px) {
     .greeting {
@@ -25,7 +80,7 @@
 }
 
 @media (max-width: 1055px) {
-    .pageHeader {
+    h1 {
         margin-left: 120px;
     }
 
@@ -39,7 +94,7 @@
 }
 
 @media (max-width: 1033px) {
-    .pageHeader {
+    h1 {
         margin-left: 100px;
     }
 
@@ -49,7 +104,7 @@
 }
 
 @media (max-width: 1020px) {
-    .pageHeader {
+    h1 {
         margin-left: 80px;
     }
 
@@ -59,7 +114,7 @@
 }
 
 @media (max-width: 1000px) {
-    .pageHeader {
+    h1 {
         margin-left: 60px;
     }
 
@@ -69,7 +124,7 @@
 }
 
 @media (max-width: 980px) {
-    .pageHeader {
+    h1 {
         margin-left: 40px;
     }
 
@@ -134,10 +189,10 @@
         display: flex;
     }
 
-    .pageHeader {
+    h1 {
         margin-bottom: -115px;
         margin-top: -25px;
-        margin-left: -180px;
+        margin-right: 220px;
     }
 
     .overviewSummary {
@@ -160,20 +215,21 @@
     .overviewSummary {
         margin-left: -40px;
     }
+
+    #navbar {
+        height: 111vh;
+    }
 }
 
 @media (max-width: 740px) {
-    .flex {
-        display: flex;
-        flex-direction: column-reverse;
+    .w3Container {
+        display: none;
     }
 
-    #navbar {
-        width: unset;
-        height: unset;
-        display: unset;
-        flex-direction: unset;
-        align-items: unset;
+    .navbar {
+        display: flex;
+        justify-content: center;
+        background-color: #293647;
     }
 
     .joinLogo {
@@ -209,85 +265,173 @@
         margin-left: 65px;
     }
 
-    .pageHeader {
-        margin-left: 25px;
+    h1 {
+        margin-left: 240px;
     }
 
     .kanbanText {
         margin-left: -20px;
     }
 
-    .containerOverview {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .longBox {
-        width: 90%;
-    }
-}
-
-@media (max-width: 540px) {
     li {
         padding-left: 15px;
         padding-right: 15px;
     }
+
+    .description {
+        margin-left: -210px;
+    }
+
+    .box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .thirdBox {
+        width: 160px;
+    }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 535px) {
+    .box {
+        width: 100px;
+        height: 100px;
+    }
+
+    .thirdBox {
+        width: 140px;
+    }
+
+    .description {
+        margin-left: -190px;
+    }
+}
+
+@media (max-width: 528px) {
+    .overviewSummary {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .description {
+        margin-left: -170px
+    }
+}
+
+@media (max-width: 455px) {
+    .overviewSummary {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .description {
+        margin-left: -130px
+    }
+}
+
+@media (max-width: 422px) {
+    .overviewSummary {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .description {
+        margin-left: -90px
+    }
+
+    h1 {
+        margin-left: 240px;
+    }
+
     .line {
-        right: 110px;
-    }
-
-    .spacing {
-        margin-left: 45px;
-    }
-
-    .pageHeader {
-        margin-left: 10px
-    }
-
-    .kanbanText {
-        margin-left: -30px;
+        right: 100px;
     }
 }
 
 @media (max-width: 408px) {
     li {
-        padding-left: 10px;
-        padding-right: 10px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 400px) {
+    .description h1 {
+        font-size: 45px;
+        margin-right: 240px;
+    }
+
     .spacing {
-        font-size: 24px;
-    }
-
-    .description .pageHeader {
-        margin-left: 20px;
-        font-size: 58px;
-    }
-
-    .kanbanText {
-        margin-left: -10px;
+        font-size: 23px;
     }
 
     .line {
-        right: 90px;
+        right: 80px;
+    }
+
+    .kanbanText {
+        margin-left: 28px;
+    }
+}
+
+@media (max-width: 377px) {
+    .box {
+        width: 80px;
+        height: 80px;
+    }
+
+    .longBox {
+        height: 80px;
+    }
+
+    .thirdBox {
+        width: 120px;
+    }
+
+    #navbar {
+        height: 112px;
+    }
+
+    .containerWithSections {
+        padding-top: 15px;
     }
 }
 
 @media (max-width: 359px) {
-    li {
-        padding-left: 5px;
-        padding-right: 5px;
+    .description h1 {
+        margin-left: 205px;
+        font-size: 40px;
     }
 
-    .iconsNav {
-        width: 25px;
-        height: 25px;
+    .kanbanText {
+        margin-left: 20px;
+    }
+
+    #navbar {
+        height: 116px;
+    }
+}
+
+@media (max-width: 358px) {
+    #navbar {
+        height: 117px;
+    }
+}
+
+@media (max-width: 357px) {
+    #navbar {
+        height: 117px;
+    }
+}
+
+@media (max-width: 339px) {
+    .description {
+        margin-left: -50px;
+    }
+
+    li {
+        padding-left: 6px;
+        padding-right: 6px;
     }
 }
 
@@ -295,55 +439,68 @@
 
 
 /********* Media Queries for Add Task *********/
-@media (max-width: 1150px) {
+@media (max-width: 1170px) {
     .leftSplit {
-        margin-left: 120px;
+        margin-left: 110px;
     }
+
+    h1 {
+        margin-left: 110px;
+    }
+
 }
 
-@media (max-width: 1120px) {
+@media (max-width: 1130px) {
     .leftSplit {
-        margin-left: 100px;
+        margin-left: 80px;
     }
-}
 
-@media (max-width: 1090px) {
-    .leftSplit {
+    h1 {
         margin-left: 80px;
     }
 }
 
-@media (max-width: 1070px) {
+@media (max-width: 1100px) {
     .leftSplit {
-        margin-left: 60px;
+        margin-left: 50px;
+    }
+
+    h1 {
+        margin-left: 50px;
     }
 }
 
 @media (max-width: 1050px) {
     .leftSplit {
-        margin-left: 40px;
+        margin-left: 25px;
+    }
+
+    h1 {
+        margin-left: 25px;
     }
 }
 
-@media (max-width: 1030px) {
-    .leftSplit {
-        margin-left: 20px;
-    }
-}
 
-@media (max-width: 1010px) {
+@media (max-width: 1020px) {
+    h1 {
+        margin-left: 25px;
+        margin-top: 10px;
+    }
+
     .actualUser {
         display: none;
     }
 
-    .flex {
-        display: flex;
-        flex-direction: column-reverse;
+    #navbar {
+        display: none;
     }
 
-    #navbar {
-        width: unset;
-        height: unset;
+    .navbar {
+        display: flex;
+        background-color: #293647;
+        justify-content: center;
+        height: 104px;
+        margin-top: 21px;
     }
 
     .joinLogo {
@@ -352,37 +509,34 @@
 
     ul {
         display: flex;
-        align-items: center;
-        padding: unset;
-        padding-top: 35px;
-        margin-top: unset;
-        margin-bottom: unset;
     }
 
     li {
-        list-style: none;
         display: flex;
-        align-items: center;
         flex-direction: column;
-        padding-left: 35px;
-        padding-right: 35px;
-    }
-
-    #formAddTask {
-        display: flex;
-        justify-content: center;
+        padding-left: 15px;
+        padding-right: 15px;
     }
 
     .buttonContainer {
         display: none;
     }
 
-    #navbar {
-        margin-top: 53px;
+    #boardAnimation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
-    .pageHeader {
-        margin-left: 120px;
-    }
 
 }
+
+/********* Media Queries for Add Task *********/
+/* .navbar {
+    display: none;
+    background-color: #293647;
+  }
+  
+  .d-none {
+    display: none;
+  } */

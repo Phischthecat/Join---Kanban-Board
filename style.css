@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'Inter';
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: oblique 0deg 12deg;
+  src: url('/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf')
+    format('woff2-variations');
+}
+
 :root {
   --backGroundSection: #f6f7f8;
   --textColor: #6b717e;
@@ -18,7 +27,7 @@
 body {
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
 }
 
@@ -31,12 +40,6 @@ body {
   flex-direction: column;
 }
 
-.columnCenter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .d-none {
   display: none !important;
 }
@@ -46,7 +49,34 @@ body {
 }
 
 .text {
-  color: var(--textColor);
+  color: var(--mainColorDarkBlue);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 75px;
+}
+
+.headline h1 {
+  margin: 0;
+  font-size: 61px;
+}
+
+.subheadline {
+  font-size: 27px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subheadline span {
+  border-left: 4px solid var(--mainColorLightBlue);
+  padding: 20px 30px;
 }
 
 .btn-blue {
@@ -91,13 +121,31 @@ body {
 .mainContainer {
   width: 100%;
   background-color: var(--backGroundSection);
+  overflow: hidden;
 }
 
-.headline {
-  font-size: 45px;
+.taskHeader {
   margin-top: 15px;
   margin-bottom: 0;
   text-transform: capitalize;
+  vertical-align: middle;
+}
+
+.contactArea {
+  width: 50%;
+}
+
+.summaryArea {
+  width: 100%;
+}
+
+.contactArea,
+.summaryArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 75px;
 }
 
 /**
@@ -106,7 +154,8 @@ body {
 *
 **/
 .slide-in-bottom-login {
-  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    1.2s both !important;
 }
 
 @keyframes slide-in-bottom-login {
@@ -122,12 +171,14 @@ body {
 }
 
 .slide-out-bck-tl-login {
-  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    0.1s both;
 }
 
 @keyframes slide-out-bck-tl-login {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2))
+      translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 
