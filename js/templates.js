@@ -135,13 +135,14 @@ function editContact(initial, name, email, phone) {
                     </div>
                         <div class="contactInputSection">
                             <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
-                            <input class="name" type="text" value="${name}">
-                            <input class="email" type="email" value="${email}">
-                            <input class="phone" type="tel" value="${phone}">
-                            <div class="contactBtnContainer">
-                                <button type="button" class="btn-white" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
-                                <button type="submit" class="btn-blue" onclick="addContact()">Create Task <img src="/img/ticked-off.svg"></button>
+                            <form id="editContactForm" onsubmit="saveContact(); return false;">
+                            <input class="name" id="editContactName" type="text" >
+                            <input class="email" id="editContactEmail" type="email" >
+                            <input class="phone" id="editContactPhone" type="tel" >
+                            <div class="editBtnContainer">
+                                <button type="submit" class="btn-blue" >Save</button>
                             </div>
+                            </form>
                         </div>
                 </div>
             </div>
