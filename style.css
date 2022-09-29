@@ -102,6 +102,12 @@ body {
   font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
 }
+.btn-white img {
+  filter: invert(0.8);
+  rotate: 45deg;
+  width: 15px;
+  vertical-align: middle;
+}
 
 .btn-blue:hover {
   background-color: var(--blueColor);
@@ -109,9 +115,15 @@ body {
 }
 
 .btn-white:hover {
-  border: 3px solid var(--blueColor);
+  border: 1px solid var(--blueColor);
   color: var(--blueColor);
   box-shadow: 0 5px 5px var(--boxShadow);
+}
+
+.btn-white:hover img {
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
+    brightness(91%) contrast(94%);
+  transition: all var(--transitionSpeed) ease-in-out;
 }
 
 .pageHeader {

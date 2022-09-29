@@ -101,25 +101,12 @@ select {
   width: 135px;
 }
 
-.clearBtn img {
-  filter: invert(0.8);
-  rotate: 45deg;
-  width: 15px;
-  vertical-align: middle;
-}
-
 .addTaskBtn {
   width: 180px;
 }
 
 .addTaskBtn img {
   width: 12px;
-}
-
-.clearBtn:hover img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
-    brightness(91%) contrast(94%);
-  transition: all var(--transitionSpeed) ease-in-out;
 }
 
 #messageToBoard {
