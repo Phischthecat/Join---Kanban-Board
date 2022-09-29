@@ -1,6 +1,7 @@
 async function init() {
   await downloadFromServer();
   allTasks = (await backend.getItem('tasks')) || [];
+  users = (await backend.getItem('tasks')) || [];
   includeHTML();
   checkIfUserIsLoggedIn();
 }
