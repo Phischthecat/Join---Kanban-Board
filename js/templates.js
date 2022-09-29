@@ -22,7 +22,7 @@ function createTaskCard(task) {
 
 function createFullView(task) {
   return /*html*/ `
-        <div class="mainContainer">
+        <div class="modalContainer">
             <div class="fullCard">
                 <div class="headerFullCard">
                     <div class="categoryText">
@@ -68,7 +68,7 @@ function createFullView(task) {
 
 function createTaskBox() {
   return /*html*/ `
-    <div class="mainContainer slide-in-right" id="animation">
+    <div class="modalContainer slide-in-right" id="animation">
         <div class="boxContent">
             <div w3-include-html="task-snippet.html"></div>
         </div>
@@ -85,7 +85,7 @@ function createBoxBtns(pickedContainer) {
 
 function createNewContact() {
   return /*html*/ `
-    <div class="mainContainer slide-in-right" id="animation">
+    <div class="modalContainer slide-in-right" id="animation">
     <div class="boxContainer">
             <div class="overlayContainer">
                 <div class="overlayHeader">
@@ -99,10 +99,45 @@ function createNewContact() {
                             <img class="userIcon" src="./img/user.svg" alt="user">
                         </div>
                         <div class="contactInputSection">
-                            <img class="close" src="/img/secondary-plus.svg">
-                            <input class="name" type="text" placeholder="Name">
-                            <input class="email" type="email" placeholder="Email">
-                            <input class="phone" type="tel" placeholder="Phone">
+                            <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
+                            <form id="newContactForm" onsubmit="addContact(); return false;">
+                            <input class="name" id="newContactName" type="text" placeholder="Name">
+                            <input class="email" id="newContactEmail" type="email" placeholder="Email">
+                            <input class="phone" id="newContactPhone" type="tel" placeholder="Phone">
+                            <div class="contactBtnContainer">
+                                <button type="button" class="btn-white" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
+                                <button type="submit" class="btn-blue" >Create Task <img src="/img/ticked-off.svg"></button>
+                            </div>
+                            </form>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    `;
+}
+
+function editContact(initial, name, email, phone) {
+  return /*html*/ `
+    <div class="modalContainer slide-in-right" id="animation">
+    <div class="boxContainer">
+            <div class="overlayContainer">
+                <div class="overlayHeader">
+                    <img src="img/joinlogo.svg">    
+                    <h1>Edit contact</h1>
+                    <hr>
+                </div>
+                <div class="addContactSection">
+                    <div>
+                        <div class="initialsFullContact initialCircle">
+                            ${initial}
+                        </div>
+                    </div>
+                        <div class="contactInputSection">
+                            <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
+                            <input class="name" type="text" value="${name}">
+                            <input class="email" type="email" value="${email}">
+                            <input class="phone" type="tel" value="${phone}">
                             <div class="contactBtnContainer">
                                 <button type="button" class="btn-white" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
                                 <button type="submit" class="btn-blue" onclick="addContact()">Create Task <img src="/img/ticked-off.svg"></button>
