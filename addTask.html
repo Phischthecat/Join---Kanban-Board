@@ -6,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>addTask</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/media.css">
   <link rel="shortcut icon" href="icons/logo.png" />
   <link rel="stylesheet" href="css/addTask.css" />
   <script src="js/mini_backend.js"></script>
-  <script src="js/main.js"></script>
+  <script src="script.js"></script>
   <script src="js/addTask.js"></script>
 </head>
 
@@ -24,10 +24,45 @@
 
     <div class="mainContainer">
       <div w3-include-html="kanbanBar.html"></div>
-
-      <div w3-include-html="task-snippet.html"></div>
+      <div class="addTaskContainer">
+        <div w3-include-html="task-snippet.html"></div>
+      </div>
     </div>
   </div>
 </body>
 
 </html>
+
+<<<<<<< HEAD <head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>addTask</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/media.css">
+  <link rel="shortcut icon" href="icons/logo.png" />
+  <link rel="stylesheet" href="css/addTask.css" />
+  <script src="js/mini_backend.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/addTask.js"></script>
+  </head>
+  =======
+
+  <body onload="initAddTask();">
+    <div class="flex">
+      <div>
+        <div w3-include-html="navbar.html" class="flex"></div>
+      </div>
+      >>>>>>> 177892415f137c2f9343bb451224662dfad30cae
+
+      <div class="mainContainer">
+        <div w3-include-html="kanbanBar.html"></div>
+        <div class="addTaskContainer">
+          <div w3-include-html="task-snippet.html"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  </html>

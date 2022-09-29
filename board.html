@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/board.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/addTask.css" />
     <link rel="shortcut icon" href="icons/logo.png" />
     <script src="js/mini_backend.js"></script>
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <script src="js/templates.js"></script>
-    <script src="js/addTask.js"></script>
     <script src="js/board.js"></script>
   </head>
 
   <body onload="initTodos();">
+    <div id="taskBox"></div>
     <div class="flex">
       <div>
         <div w3-include-html="navbar.html" class="flex"></div>
@@ -27,16 +27,17 @@
       <div class="mainContainer">
         <div w3-include-html="kanbanBar.html"></div>
 
-        <div>
+        <div class="boardContainer">
           <div class="align-center">
-            <h1 class="pageHeader">Board</h1>
+            <div class="headline">
+              <h1>Board</h1>
+            </div>
 
             <div class="searchContainer">
-              <input type="text" id="search" placeholder="findTask" />
+              <input type="text" id="search" placeholder="find Task" />
               <button onclick="openTaskBox()" class="btn-blue addTaskBtn">
                 Add Task <img src="img/secondary-plus.svg" />
               </button>
-              <div id="taskBox"></div>
             </div>
           </div>
 

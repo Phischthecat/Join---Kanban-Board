@@ -25,7 +25,7 @@
 }
 
 .contactSectionHeader hr {
-  border: 1px solid var(--hrColor);
+  border: 1px solid var(--colorLightGrey);
 }
 
 .contactInfo {
@@ -67,6 +67,7 @@
 .initialsFullContact {
   width: 120px;
   height: 120px;
+  font-size: 47px;
 }
 
 .initialCircle {
@@ -135,4 +136,119 @@
   width: 20px;
   margin-left: 10px;
   vertical-align: text-bottom;
+}
+
+.overlayContainer {
+  display: flex;
+  min-height: 500px;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.overlayHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background-color: var(--mainColorDarkBlue);
+  color: white;
+  padding: 20px 40px;
+}
+
+.overlayHeader img {
+  height: 40px;
+  width: 40px;
+}
+
+.overlayHeader h1 {
+  margin-bottom: 10px;
+}
+
+.overlayHeader span {
+  font-weight: 300;
+}
+
+.overlayHeader hr {
+  margin-left: 0;
+  width: 60px;
+  border: 1px solid var(--mainColorLightBlue);
+}
+
+.addContactSection {
+  display: flex;
+  align-items: center;
+
+  padding: 25px 40px 70px 40px;
+  gap: 40px;
+}
+
+.userIcon {
+  height: 120px;
+  width: 120px;
+}
+
+.contactInputSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  height: 100%;
+  width: 300px;
+}
+
+.contactInputSection form {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.contactInputSection input {
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.nameModal {
+  background: url(/img/name.svg) no-repeat 260px center;
+  background-size: 12px;
+  font-size: 14px;
+}
+
+.emailModal {
+  background: url(/img/email.svg) no-repeat 260px center;
+  background-size: 12px;
+  font-size: 14px;
+}
+
+.phoneModal {
+  background: url(/img/phone.svg) no-repeat 260px center;
+  background-size: 12px;
+  font-size: 14px;
+}
+
+.close {
+  height: 20px;
+  width: 20px;
+  margin-bottom: 75px;
+  filter: invert(0.7);
+  transform: rotate(45deg);
+}
+
+.contactBtnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.editBtnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.contactBtnContainer:first-of-type button {
+  margin-right: 20px;
 }

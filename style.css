@@ -14,7 +14,7 @@
   --mediumColour: #ffb32a;
   --lowColour: #7be129;
   --mainColorLightBlue: #36afe4;
-  --hrColor: #d1d1d1;
+  --colorLightGrey: #d1d1d1;
   --boxShadowColor: #00000014;
   --emailColor: #007cee;
   --blueColor: #29abe2;
@@ -28,6 +28,10 @@ body {
   box-sizing: border-box;
   font-family: 'Inter', Arial, sans-serif;
   font-size: 16px;
+}
+
+::placeholder {
+  color: var(--colorLightGrey);
 }
 
 .flex {
@@ -60,19 +64,22 @@ body {
   margin-bottom: 75px;
 }
 
-.headline {
-  border-right: 3px solid var(--mainColorLightBlue);
-}
-
 .headline h1 {
   margin: 0;
-  margin-right: 30px;
   font-size: 61px;
 }
 
 .subheadline {
   font-size: 27px;
   letter-spacing: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subheadline span {
+  border-left: 4px solid var(--mainColorLightBlue);
+  padding: 20px 30px;
 }
 
 .btn-blue {
@@ -98,6 +105,12 @@ body {
   font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
 }
+.btn-white img {
+  filter: invert(0.8);
+  rotate: 45deg;
+  width: 15px;
+  vertical-align: middle;
+}
 
 .btn-blue:hover {
   background-color: var(--blueColor);
@@ -105,9 +118,15 @@ body {
 }
 
 .btn-white:hover {
-  border: 3px solid var(--blueColor);
+  border: 1px solid var(--blueColor);
   color: var(--blueColor);
   box-shadow: 0 5px 5px var(--boxShadow);
+}
+
+.btn-white:hover img {
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
+    brightness(91%) contrast(94%);
+  transition: all var(--transitionSpeed) ease-in-out;
 }
 
 .pageHeader {
@@ -118,6 +137,19 @@ body {
   width: 100%;
   background-color: var(--backGroundSection);
   overflow: hidden;
+}
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .taskHeader {
@@ -142,6 +174,25 @@ body {
   justify-content: space-between;
 
   padding: 75px;
+}
+
+#messageToBoard {
+  bottom: 42px;
+  width: 225px;
+  height: 45px;
+  background: var(--mainColorDarkBlue);
+  position: absolute;
+  left: 630px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#messageToBoard span {
+  margin: 0;
 }
 
 /**
@@ -263,6 +314,22 @@ body {
   100% {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+.slide-out-bottom {
+  animation: slide-out-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-out-bottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(1000px);
+    opacity: 0;
   }
 }
 

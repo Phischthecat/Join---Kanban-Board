@@ -1,5 +1,5 @@
-.margin {
-  margin-left: 150px;
+.addTaskContainer {
+  padding: 75px;
 }
 
 .leftSplit,
@@ -8,8 +8,7 @@
 }
 
 .leftSplit {
-  margin-left: 150px;
-  margin-right: 75px;
+  margin-right: 10%;
 }
 
 .text {
@@ -102,42 +101,10 @@ select {
   width: 135px;
 }
 
-.clearBtn img {
-  filter: invert(0.8);
-  rotate: 45deg;
-  width: 15px;
-  vertical-align: middle;
-}
-
 .addTaskBtn {
   width: 180px;
 }
 
 .addTaskBtn img {
   width: 12px;
-}
-
-.clearBtn:hover img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
-    brightness(91%) contrast(94%);
-  transition: all var(--transitionSpeed) ease-in-out;
-}
-
-#messageToBoard {
-  bottom: 42px;
-  width: 225px;
-  height: 45px;
-  background: var(--mainColorDarkBlue);
-  position: absolute;
-  left: 630px;
-  border-radius: 10px;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-#messageToBoard span {
-  margin: 0;
 }
