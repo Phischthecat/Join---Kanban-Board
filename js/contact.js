@@ -1,4 +1,5 @@
 let contacts = [];
+let contactListLetters = [];
 // contacts = [
 //   {
 //     initial: 'PS',
@@ -15,6 +16,12 @@ let contacts = [];
 //   { initial: 'RM', name: 'Riso Miso', email: 'pi@web.de', phone: '123456' },
 //   { initial: 'PS', name: 'Phil Schmu', email: 'pe@web.de', phone: '123456' },
 // ];
+
+async function initContact() {
+  await init();
+  lettersOfContactList();
+  generateContactSectionsForLetters();
+}
 
 async function addContact() {
   let name = getId('newContactName').value;
@@ -45,4 +52,56 @@ function openDialog(text) {
   setTimeout(() => {
     message.classList.add('slide-out-bottom');
   }, 2000);
+}
+
+function lettersOfContactList() {
+  for (let i = 0; i < contacts.length; i++) {
+    if (!contactListLetters.includes(contacts[i].name.charAt(0))) {
+      contactListLetters.push(contacts[i].name.charAt(0).toUpperCase());
+    }
+  }
+}
+
+function createContactSectionOfLetter(letter) {
+  return /* html*/ `
+<div class="contactSection">
+  <div class="contactSectionHeader">
+    <h2>${letter}</h2>
+    <hr />
+  </div>
+  <div id="contactsOf${letter}" class="contactsOf"></div>
+</div>
+  `;
+}
+
+function createContact(contact) {
+  return /* html */ `
+  <div class="contactInfo cursor-pointer" onclick="showFullContact()">
+    <div class="initials initialCircle">${contact.initial.toUpperCase()}</div>
+    <div>
+      <div class="name">${contact.name}</div>
+      <div class="email">${contact.email}</div>
+    </div>
+  </div>
+  `;
+}
+
+function generateContactSectionsForLetters() {
+  let contactList = getId('contactList');
+  contactList.innerHTML = '';
+  for (let i = 0; i < contactListLetters.length; i++) {
+    const letter = contactListLetters[i];
+    contactList.innerHTML += createContactSectionOfLetter(letter);
+    generateContacts(letter);
+  }
+}
+
+function generateContacts(letter) {
+  let letterContainer = getId('contactsOf' + letter);
+  for (let i = 0; i < contacts.length; i++) {
+    const contact = contacts[i];
+    if (contact.name.charAt(0).toUpperCase() == letter) {
+      letterContainer.innerHTML += createContact(contact);
+    }
+  }
 }
