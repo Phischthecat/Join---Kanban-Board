@@ -1,7 +1,9 @@
 async function init() {
   await downloadFromServer();
   allTasks = (await backend.getItem('tasks')) || [];
-  users = (await backend.getItem('tasks')) || [];
+  users = (await backend.getItem('users')) || [];
+  // users = [];
+  // backend.setItem('users', users)
   includeHTML();
   checkIfUserIsLoggedIn();
 }
@@ -79,7 +81,7 @@ function closeContactBox() {
  */
 function checkIfUserIsLoggedIn() {
   if (!window.location.href.endsWith('index.html')) {
-    if (localStorage.getItem('loggedInKey') === null) {
+    if (localStorage.getItem('loggedInKey') === null && !window.location.href.endsWith('register.html')) {
       window.location.href = './index.html';
     }
   }

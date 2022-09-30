@@ -9,14 +9,17 @@
   <link rel="shortcut icon" href="icons/logo.png" />
   <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
   <link rel="stylesheet" href="style.css" />
+  <script src="js/mini_backend.js"></script>
+  <script src="script.js"></script>
   <script src="js/login.js"></script>
-  <script src="js/script.js"></script>
 </head>
 
-<body class="slide-in-right-login loginBody">
+<body onload="init()" class="slide-in-right-login loginBody">
   <div class="logo">
     <img src="img/joinlogo.png" />
   </div>
+
+  <div id="errorMessage"></div>
 
   <div class="loginContainer">
     <div class="arrow" onclick="backToLogin()">
@@ -38,14 +41,13 @@
         name="psw" />
 
       <div class="btnBox">
-        <button class="btn" id="fullRegister" type="submit" required onclick="getRegistrated()">
+        <button class="btn-blue loginBtn" id="fullRegister" type="submit" required onclick="getRegistrated()">
           Register
         </button>
       </div>
     </form>
   </div>
 
-  <div id="errorMessage"></div>
 </body>
 
 </html>

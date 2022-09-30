@@ -1,119 +1,111 @@
-let newUser = [];
+let users = [];
 let loggedIn = true;
+let exists = false;
 
 
+/**
+ * This function is used for controlling password and username
+ */
 
-// function login() {
-//   let actualUser = getId('userName').value;
-//   let password = getId('password').value;
-//   let loggedUser = JSON.parse(localStorage.getItem('newUser'));
+function login() {
+  for (let i = 0; i < users.length; i++) {
+    let user = users[i]
+    if (user.userName == getId('userName').value && user.password == getId('password').value) {
+      window.location.href = './summary.html';
+      setDefault();
+    } else {
+      let error = getId('loginError');
+      error.innerHTML = '';
+      error.innerHTML += createErrorBoxLogin();
+      document.getElementById('password').value = '';
+    }
+  }
+}
 
-//   if (
-//     loggedUser[0].user === actualUser &&
-//     loggedUser[0].password === password
-//   ) {
-//     window.location.href = './summary.html';
-//     setDefault();
-//   } else {
-//     let error = getId('loginError');
-//     error.innerHTML = '';
-//     error.innerHTML += createErrorBoxLogin();
-//     document.getElementById('password').value = '';
-//   }
-// }
 
-// /**
-//  * This function is used for checking or setting the registration
-//  */
-// function getRegistrated() {
-//   let actualUser = getId('userName').value;
-//   let password = getId('password').value;
-//   let email = getId('email').value;
+/**
+ * This function is used for checking or setting the registration
+ */
+async function getRegistrated() {
+  let actualUser = {
+    userName: getId('userName').value,
+    password: getId('password').value,
+    email: getId('email').value
+  }
+  checkConditions();
+  if (exists) {
+    users.push(actualUser);
+    await backend.setItem('users', users);
+    setDefault();
+    window.location.href = './summary.html';
+  }
+}
 
-//   let loggedUser = JSON.parse(localStorage.getItem('newUser'));
 
-//   if (loggedUser === null) {
-//     newUser = [
-//       {
-//         user: actualUser,
-//         password: password,
-//         email: email,
-//       },
-//     ];
-//     saveInLocalStorage(newUser);
-//     setDefault();
-//     window.location.href = './summary.html';
-//   }
+/**
+ * This functon is used to check if All Conditions are true  
+ */
+function checkConditions() {
+  if (users.length >= 0 && getId('userName') != '' && getId('password').value != '' && getId('email').value != '') {
+    exists = true;
+  } else {
+    users.forEach((user) => {
+      let error = getId('errorMessage');
+      if (user.userName == getId('userName').value) {
+        error.innerHTML = '';
+        error.innerHTML += createErrorName();
+      } else if (user.email == getId('email').value) {
+        error.innerHTML = '';
+        error.innerHTML += createErrorEmail();
+      }
+    })
+  }
+}
 
-//   if (
-//     loggedUser[0].user === actualUser &&
-//     loggedUser[0].password === password &&
-//     loggedUser[0].email === email
-//   ) {
-//     let error = getId('errorMessage');
-//     error.innerHTML = '';
-//     error.innerHTML += createErrorBoxRegister();
-//   }
-// }
 
-// function createErrorBoxLogin() {
-//   return /*html*/ `
-//     <div class = "errorBox"><span><b>Invalid User or Password</b></span></div>
-//     `;
-// }
+/**
+ * This function redirects to register.html
+ */
+function signUp() {
+  window.location.href = './register.html';
+}
 
-// /**
-//  * This function returns an html part which is used for an error message
-//  * @returns html part
-//  */
-// function createErrorBoxRegister() {
-//   return /*html*/ `
-//     <div class = "errorBox"><span><b>This User already exists</b></span></div>
-// `;
-// }
+/**
+ * This function goes back to index.html
+ */
+function backToLogin() {
+  window.location.href = './index.html';
+}
 
-// /**
-//  * This function is for setting an User in Local Storage and as soon as possible in the backend
-//  * @param {string} newUser
-//  */
-// function saveInLocalStorage(newUser) {
-//   newUser = JSON.stringify(newUser);
-//   localStorage.setItem('newUser', newUser);
-// }
+/**
+ * A simple Guest Login
+ */
+function guestLogin() {
+  setDefault();
+  window.location.href = './summary.html';
+}
 
-// /**
-//  * This function redirects to register.html
-//  */
-// function signUp() {
-//   window.location.href = './register.html';
-// }
+/**
+ * This function is for setting an default variable to the local storage
+ * and as soon as possible in the backend for The checkIfUserIsLoggedIn Function
+ */
+function setDefault() {
+  if (localStorage.getItem('loggedInKey') === null) {
+    localStorage.setItem('loggedInKey', loggedIn);
+  }
+}
 
-// /**
-//  * This function goes back to index.html
-//  */
-// function backToLogin() {
-//   window.location.href = './index.html';
-// }
+/**
+ * this function used for the logout
+ */
+function logout() {
+  window.location.href = './index.html';
+  localStorage.removeItem('loggedInKey');
+}
 
-// /**
-//  * A simple Guest Login
-//  */
-// function guestLogin() {
-//   setDefault();
-//   window.location.href = './summary.html';
-// }
 
-// /**
-//  * This function is for setting an default variable to the local storage
-//  * and as soon as possible in the backend for The checkIfUserIsLoggedIn Function
-//  */
-// function setDefault() {
-//   if (localStorage.getItem('loggedInKey') === null) {
-//     localStorage.setItem('loggedInKey', loggedIn);
-//   }
-// }
-
-// function logout() {
-//   window.location.href = './index.html';
-//   localStorage.removeItem('loggedInKey');
-// }
+function openForgotPart() {
+  let content = getId('content');
+  content.innerHTML = '';
+  content.innerHTML += createForgetPart();
+}
