@@ -1,0 +1,350 @@
+/* @font-face {
+  font-family: 'Inter';
+  font-weight: 125 950;
+  font-stretch: 75% 125%;
+  font-style: oblique 0deg 12deg;
+  src: url('/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('woff2-variations');
+} */
+
+:root {
+  --backGroundSection: #f6f7f8;
+  --textColor: #6b717e;
+  --mainColorDarkBlue: #2a3647;
+  --urgentColour: #ff3b00;
+  --mediumColour: #ffb32a;
+  --lowColour: #7be129;
+  --mainColorLightBlue: #36afe4;
+  --colorLightGrey: #d1d1d1;
+  --boxShadowColor: #00000014;
+  --emailColor: #007cee;
+  --blueColor: #29abe2;
+  --btnColor: #293647;
+  --boxShadow: #d3d3d3;
+  --transitionSpeed: 150ms;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 16px;
+}
+
+::placeholder {
+  color: var(--colorLightGrey);
+}
+
+.flex {
+  display: flex;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-none {
+  display: none !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.text {
+  color: var(--mainColorDarkBlue);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 75px;
+}
+
+.headline h1 {
+  margin: 0;
+  font-size: 61px;
+}
+
+.subheadline {
+  font-size: 27px;
+  letter-spacing: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subheadline span {
+  border-left: 4px solid var(--mainColorLightBlue);
+  padding: 20px 30px;
+}
+
+.btn-blue {
+  cursor: pointer;
+  background-color: var(--mainColorDarkBlue);
+  color: white;
+  height: 50px;
+  border: unset;
+  border-radius: 10px;
+  padding: 4px 16px;
+  font-size: 16px;
+  transition: all var(--transitionSpeed) ease-in-out;
+}
+
+.btn-white {
+  cursor: pointer;
+  background-color: white;
+  color: var(--mainColorDarkBlue);
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--mainColorDarkBlue);
+  padding: 4px 16px;
+  font-size: 16px;
+  transition: all var(--transitionSpeed) ease-in-out;
+}
+.btn-white img {
+  filter: invert(0.8);
+  rotate: 45deg;
+  width: 15px;
+  vertical-align: middle;
+}
+
+.btn-blue:hover {
+  background-color: var(--blueColor);
+  box-shadow: 0 5px 5px var(--boxShadow);
+}
+
+.btn-white:hover {
+  border: 1px solid var(--blueColor);
+  color: var(--blueColor);
+  box-shadow: 0 5px 5px var(--boxShadow);
+}
+
+.btn-white:hover img {
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
+    brightness(91%) contrast(94%);
+  transition: all var(--transitionSpeed) ease-in-out;
+}
+
+.pageHeader {
+  font-size: 61px;
+}
+
+.mainContainer {
+  width: 100%;
+  background-color: var(--backGroundSection);
+  overflow: hidden;
+}
+
+.modalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background-color: rgba(0, 0, 0, 0.3);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taskHeader {
+  margin-top: 15px;
+  margin-bottom: 0;
+  text-transform: capitalize;
+  vertical-align: middle;
+}
+
+.contactArea {
+  width: 50%;
+}
+
+.summaryArea {
+  width: 100%;
+}
+
+.contactArea,
+.summaryArea {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 75px;
+}
+
+#messageToBoard {
+  bottom: 42px;
+  width: 225px;
+  height: 45px;
+  background: var(--mainColorDarkBlue);
+  position: absolute;
+  left: 630px;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#messageToBoard span {
+  margin: 0;
+}
+
+/**
+*
+******************   KeyFrames for Login ****************** 
+*
+**/
+.slide-in-bottom-login {
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
+}
+
+@keyframes slide-in-bottom-login {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-out-bck-tl-login {
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
+}
+
+@keyframes slide-out-bck-tl-login {
+  0% {
+    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.slide-in-right-login {
+  animation: slide-in-right-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-right-login {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left-login {
+  animation: slide-in-left-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-left-login {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/**
+*
+******************   KeyFrames for Addtask, Board etc. ****************** 
+*
+**/
+
+.slide-in-right {
+  animation: slide-in-right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-out-right {
+  animation: slide-out-right 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}
+
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(1000px);
+    opacity: 0;
+  }
+}
+
+.slide-in-bottom {
+  animation: slide-in-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.slide-out-bottom {
+  animation: slide-out-bottom 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-out-bottom {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(1000px);
+    opacity: 0;
+  }
+}
+
+.slide-in-left {
+  animation: slide-in-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-1000px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
