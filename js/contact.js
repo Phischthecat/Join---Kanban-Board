@@ -37,6 +37,7 @@ async function addContact() {
   getId('newContactForm').reset();
   closeContactBox();
   openDialogForCreate('Contact successfully created');
+  initContact();
 }
 
 //todo_phil
@@ -45,7 +46,7 @@ async function addContact() {
 //   let initial = name.charAt(0) + name.charAt(name.indexOf(' ') + 1);
 // }
 
-function openDialog(text) {
+function openDialogForCreate(text) {
   let message = getId('messageToBoard');
   message.innerHTML = text;
   message.classList.remove('d-none');
@@ -60,6 +61,7 @@ function lettersOfContactList() {
       contactListLetters.push(contacts[i].name.charAt(0).toUpperCase());
     }
   }
+  contactListLetters.sort();
 }
 
 function createContactSectionOfLetter(letter) {
