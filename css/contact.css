@@ -25,7 +25,7 @@
 }
 
 .contactSectionHeader hr {
-  border: 1px solid var(--hrColor);
+  border: 1px solid var(--colorLightGrey);
 }
 
 .contactInfo {
@@ -193,10 +193,12 @@
   flex-direction: column;
   align-items: flex-end;
   height: 100%;
+  width: 300px;
 }
 
 .contactInputSection form {
   height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -209,12 +211,22 @@
   margin-bottom: 15px;
 }
 
-.name {
-  background-image: url(./img/name.svg);
-  background-repeat: no-repeat;
-  background-size: 15px;
-  font-size: 16px;
-  padding-left: 15px;
+.nameModal {
+  background: url(/img/name.svg) no-repeat 260px center;
+  background-size: 12px;
+  font-size: 14px;
+}
+
+.emailModal {
+  background: url(/img/email.svg) no-repeat 260px center;
+  background-size: 12px;
+  font-size: 14px;
+}
+
+.phoneModal {
+  background: url(/img/phone.svg) no-repeat 260px center;
+  background-size: 12px;
+  font-size: 14px;
 }
 
 .close {
@@ -229,6 +241,12 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+}
+
+.editBtnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .contactBtnContainer:first-of-type button {

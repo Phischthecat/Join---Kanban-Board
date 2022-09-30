@@ -21,6 +21,10 @@
   <body onload="init();">
     <div class="flex">
       <div id="taskBox"></div>
+      <div id="messageToBoard" class="slide-in-bottom d-none">
+        <span>Contact successfully edit</span>
+      </div>
+
       <div>
         <div w3-include-html="navbar.html" class="flex"></div>
       </div>
@@ -107,7 +111,7 @@
                     <h2>Contact Information</h2>
                     <div
                       class="editContact cursor-pointer"
-                      onclick="openContactBox(editContact)"
+                      onclick="openContactBox(editContact, contacts[0])"
                     >
                       <img src="./img/pencil.svg" alt="pencil" />
                       Edit Contact

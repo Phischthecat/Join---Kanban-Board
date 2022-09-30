@@ -16,6 +16,7 @@
 </head>
 
 <body onload="init()" class="loginBody">
+
   <div class="logo slide-out-bck-tl-login" id="logo">
     <img src="img/joinlogo.png" />
   </div>
@@ -24,11 +25,13 @@
     <div id="loginError"></div>
 
     <div class="loginContainer slide-in-bottom-login" id="loginContainer">
+
       <div class="loginBox">
         <h1>Log In</h1>
       </div>
 
       <form class="loginForm flexColumn" onsubmit="return false">
+
         <input required type="text" class="inputFields" id="userName" minlength="5" placeholder="Username"
           name="uname" />
 
@@ -40,26 +43,28 @@
         <span class="forgotMessage cursor-pointer" onclick="openForgotPart()">Forgot my Password</span>
 
         <div class="btnBox">
+
           <button class="btn-blue loginBtn" type="submit" required onclick="login()">
             Login
           </button>
-
           <button class="btn-white guestBtn" type="button" required onclick="guestLogin()">
             Guest Login
           </button>
+
         </div>
+
       </form>
     </div>
 
     <div class="registrate slide-in-bottom-login">
-      <div><span>Not a Join User ?</span></div>
 
+      <div><span>Not a Join User ?</span></div>
       <button class="btn-blue" id="register" type="button" required onclick="signUp()">
         Sign Up
       </button>
+
     </div>
   </div>
-
 </body>
 
 </html>

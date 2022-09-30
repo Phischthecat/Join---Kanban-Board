@@ -149,3 +149,35 @@
   flex-wrap: wrap;
   font-size: 30px;
 }
+
+.summaryArea {
+  padding: 50px;
+  padding-left: 140px;
+}
+
+.headerSummary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+  height: 75px;
+}
+
+.hide {
+  display: none;
+}
+
+.joinLogoSummary {
+  width: 40px;
+  height: 40px;
+  padding-left: 20px;
+  filter: invert();
+}
+
+.actualUserSummary {
+  padding-right: 20px;
+}
+
+.kanbanTextSummary {
+  display: none;
+}

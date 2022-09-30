@@ -105,15 +105,14 @@ function createNewContact() {
                         <div class="contactInputSection">
                             <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
                             <form id="newContactForm" onsubmit="addContact(); return false;">
-                            <input class="name" id="newContactName" type="text" placeholder="Name">
-                            <input class="email" id="newContactEmail" type="email" placeholder="Email">
-                            <input class="phone" id="newContactPhone" type="tel" placeholder="Phone">
+                            <input class="nameModal" id="newContactName" type="text" placeholder="Name">
+                            <input class="emailModal" id="newContactEmail" type="email" placeholder="Email">
+                            <input class="phoneModal" id="newContactPhone" type="tel" placeholder="Phone">
                             <div class="contactBtnContainer">
                                 <button type="button" class="btn-white" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
                                 <button type="submit" class="btn-blue" >Create Task <img src="/img/ticked-off.svg"></button>
                             </div>
                             </form>
-                        </div>
                 </div>
             </div>
         </div>
@@ -135,19 +134,19 @@ function editContact(initial, name, email, phone) {
                 <div class="addContactSection">
                     <div>
                         <div class="initialsFullContact initialCircle">
-                            ${initial}
+                            ${contact.initial}
                         </div>
                     </div>
                         <div class="contactInputSection">
                             <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
-                            <input class="name" type="text" value="${name}">
-                            <input class="email" type="email" value="${email}">
-                            <input class="phone" type="tel" value="${phone}">
-                            <div class="contactBtnContainer">
-                                <button type="button" class="btn-white" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
-                                <button type="submit" class="btn-blue" onclick="addContact()">Create Task <img src="/img/ticked-off.svg"></button>
+                            <form id="editContactForm" onsubmit="saveContact(); return false;">
+                            <input class="nameModal" id="editContactName" type="text" value="${contact.name}">
+                            <input class="emailModal" id="editContactEmail" type="email" value="${contact.email}">
+                            <input class="phoneModal" id="editContactPhone" type="tel" value="${contact.phone}">
+                            <div class="editBtnContainer">
+                                <button type="submit" class="btn-blue" >Save</button>
                             </div>
-                        </div>
+                            </form>                            
                 </div>
             </div>
         </div>
