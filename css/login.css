@@ -159,7 +159,7 @@
   align-items: center;
   justify-content: center;
   gap: 50px;
-  margin-top: 75px;
+  margin-top: 50px;
 }
 
 .registrate span {
@@ -194,16 +194,33 @@
 }
 
 @media (max-width: 420px) {
+  .logo {
+    margin-top: 15px;
+  }
+
   .loginContainer {
     margin-right: calc(100vw / 20);
     margin-left: calc(100vw / 20);
+    margin-top: 25px;
+  }
+
+  .btnBox {
+    flex-direction: column;
+  }
+
+  .registrate {
+    margin-top: 25px;
+  }
+
+  .btnBox button {
+    width: 160px;
   }
 }
 
 @media (max-width: 350px) {
-  .loginContainer {
-    margin-right: auto;
-    margin-left: auto;
+
+  .login {
+    margin-top: 25px;
   }
 
   .inputFields {
