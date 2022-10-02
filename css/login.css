@@ -41,7 +41,7 @@
   margin-top: 25px;
   margin-bottom: 0;
   background-color: white;
-  border-radius: 40px;
+  border-radius: 30px;
   padding: 10px;
 }
 
@@ -215,7 +215,7 @@
 
 .passwordContainer {
   background-color: white;
-  border-radius: 40px;
+  border-radius: 30px;
   padding: 44px 84px 44px 84px;
   display: flex;
 }
