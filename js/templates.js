@@ -191,14 +191,33 @@ function createErrorEmail() {
 
 function createForgetPart() {
     return /*html*/ `
-        <div class="loginContainer">
-                <div class="arrow" onclick="backToLogin()">
-                <img src="img/left-arrow.png" />
+    <div class="passwordMainContainer">
+
+        <div class="passwordContainer">
+
+            <div class="arrowPassword">
+                <img src="img/left-arrow.png" class="cursor-pointer" onclick="backToLogin()" />
             </div>
 
-            <div class="loginBox deleteMs">
+            <div class="flex headBox flexColumn">
                 <h1>I forgot my Password</h1>
+
+                <hr>
+
+                <div class="instructions">
+                    <span> Don't worry! We will send you an email with the instructions to reset your password.</span>
+                </div>
+
+                <div class="flex centerBox">
+                    <input required class="inputFieldsMain" type="email" id="emailbox" minlength="3" placeholder="Email" name="email" />
+                </div>
+
+                <div class="sendBtnBox flex">
+                    <button class="btn-blue mailBtn">Send me the Mail </button>
+                </div>
             </div>
+
         </div>
+    </div>    
     `;
 }

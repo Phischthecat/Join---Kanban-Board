@@ -21,31 +21,35 @@
 
   <div id="errorMessage"></div>
 
-  <div class="loginContainer">
-    <div class="arrow" onclick="backToLogin()">
-      <img src="img/left-arrow.png" />
-    </div>
-
-    <div class="loginBox deleteMs">
-      <h1>Sign In</h1>
-    </div>
-
-    <form class="loginForm flexColumn" onsubmit="return false">
-      <input required type="text" class="inputFields msBottom" id="userName" minlength="5" placeholder="Username"
-        name="uname" />
-
-      <input required class="inputFields" type="email" id="email" minlength="3" placeholder="Enter Email"
-        name="email" />
-
-      <input required type="password" class="inputFields distance" id="password" minlength="5" placeholder="Password"
-        name="psw" />
-
-      <div class="btnBox">
-        <button class="btn-blue loginBtn" id="fullRegister" type="submit" required onclick="getRegistrated()">
-          Register
-        </button>
+  <div class="loginSection flex flexColumn">
+    <div class="loginContainer">
+      <div class="arrow" onclick="backToLogin()">
+        <img src="img/left-arrow.png" />
       </div>
-    </form>
+
+      <div class="loginBox distance msTop">
+        <h1>Sign Up</h1>
+      </div>
+
+      <hr class="line">
+
+      <form class="loginForm flexColumn" onsubmit="return false">
+        <input required type="text" class="inputFieldsLogin distance" id="userName" minlength="5" placeholder="Username"
+          name="uname" />
+
+        <input required class="inputFieldsLogin distance" type="email" id="email" minlength="3"
+          placeholder="Enter Email" name="email" />
+
+        <input required type="password" class="inputFieldsLogin distance" id="password" minlength="5"
+          placeholder="Password" name="psw" />
+
+        <div>
+          <button class="btn-blue loginBtn" id="fullRegister" type="submit" required onclick="getRegistrated()">
+            Sign Up
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 
 </body>

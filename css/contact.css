@@ -11,7 +11,7 @@
 .contactList {
   overflow: auto;
   width: 315px;
-  padding: 0 35px;
+  padding: 10px 35px;
   box-shadow: 4px 0px 6px var(--boxShadowColor);
 }
 

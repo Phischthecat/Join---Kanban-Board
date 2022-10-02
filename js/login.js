@@ -1,6 +1,7 @@
 let users = [];
 let loggedIn = true;
 let exists = false;
+let responsive = true;
 
 
 /**
@@ -106,6 +107,25 @@ function logout() {
 
 function openForgotPart() {
   let content = getId('content');
+  responsive = false;
   content.innerHTML = '';
   content.innerHTML += createForgetPart();
+}
+
+
+function checkForResponsive() {
+  setInterval(() => {
+    window.addEventListener("resize", removeClass());
+  }, 200);
+}
+
+
+function removeClass() {
+  if (window.innerWidth < 540 && responsive) {
+    getId('responsiveSpan').classList.remove('d-none');
+    getId('responsiveBtn').classList.remove('d-none');
+  } else if (window.innerWidth > 540 && responsive) {
+    getId('responsiveSpan').classList.add('d-none');
+    getId('responsiveBtn').classList.add('d-none');
+  }
 }
