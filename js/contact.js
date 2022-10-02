@@ -76,9 +76,9 @@ function createContactSectionOfLetter(letter) {
   `;
 }
 
-function createContact(contact) {
+function createContact(contact, i) {
   return /* html */ `
-  <div class="contactInfo cursor-pointer" onclick="showFullContact()">
+  <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
     <div class="initials initialCircle">${contact.initial.toUpperCase()}</div>
     <div>
       <div class="name">${contact.name}</div>
@@ -103,7 +103,59 @@ function generateContacts(letter) {
   for (let i = 0; i < contacts.length; i++) {
     const contact = contacts[i];
     if (contact.name.charAt(0).toUpperCase() == letter) {
-      letterContainer.innerHTML += createContact(contact);
+      letterContainer.innerHTML += createContact(contact, i);
     }
   }
+}
+
+function showFullContact(i) {
+  let fullContact = getId('contactView');
+  fullContact.innerHTML = createFullContact(i);
+}
+
+function createFullContact(i) {
+  let contact = contacts[i];
+  return /*html*/ `
+  <div class="headerFullContact">
+                  <div
+                    id="initialsFullContact"
+                    class="initialsFullContact initialCircle"
+                  >
+                    ${contact.initial}
+                  </div>
+                  <div class="nameContainer">
+                    <div class="nameFullContact">${contact.name}</div>
+                    <div
+                      class="addTaskLink cursor-pointer"
+                      onclick="openTaskBox('toDo')"
+                    >
+                      <span>+</span> Add Task
+                    </div>
+                  </div>
+                </div>
+                <div class="contactFullInfo">
+                  <div class="contactFullInfoHeader">
+                    <h2>Contact Information</h2>
+                    <div
+                      class="editContact cursor-pointer"
+                      onclick="openContactBox(editContact, contacts[${i}])"
+                    >
+                      <img src="./img/pencil.svg" alt="pencil" />
+                      Edit Contact
+                    </div>
+                  </div>
+                  <div class="emailFullContact">
+                    <h3>Email</h3>
+                    <a class="email" href="mailto:antom@gmail.com"
+                      >${contact.email}</a
+                    >
+                  </div>
+                  <div class="phoneFullContact">
+                    <h3>Phone</h3>
+                    <a href="tel:+49${contact.phone}">${contact.phone}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  `;
 }
