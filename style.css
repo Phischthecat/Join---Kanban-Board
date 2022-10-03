@@ -79,8 +79,8 @@ body {
 }
 
 .blue-border {
-  border-left: 4px solid var(--mainColorLightBlue);
-  padding-left: 20px;
+  border-right: 4px solid var(--mainColorLightBlue);
+  padding-right: 20px;
 }
 
 .btn-blue {
