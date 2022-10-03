@@ -2,6 +2,7 @@ async function init() {
   await downloadFromServer();
   allTasks = (await backend.getItem('tasks')) || [];
   users = (await backend.getItem('users')) || [];
+  contacts = (await backend.getItem('contacts')) || [];
   // users = [];
   // backend.setItem('users', users)
   includeHTML();

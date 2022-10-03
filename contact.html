@@ -1,102 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact</title>
-    <link rel="shortcut icon" href="icons/logo.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="css/contact.css" />
-    <link rel="stylesheet" href="css/board.css" />
-    <link rel="stylesheet" href="css/addTask.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <script src="js/mini_backend.js"></script>
-    <script src="script.js"></script>
-    <script src="http://www.w3schools.com/lib/w3data.js"></script>
-    <script src="js/templates.js"></script>
-    <script src="js/contact.js"></script>
-  </head>
 
-  <body onload="initContact();">
-    <div class="flex">
-      <div id="taskBox"></div>
-      <div id="messageToBoard" class="slide-in-bottom d-none">
-        <span></span>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+  <link rel="shortcut icon" href="icons/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/board.css" />
+  <link rel="stylesheet" href="css/addTask.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <script src="js/mini_backend.js"></script>
+  <script src="js/addTask.js"></script>
+  <script src="script.js"></script>
+  <script src="http://www.w3schools.com/lib/w3data.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/contact.js"></script>
+</head>
 
-      <div>
-        <div w3-include-html="navbar.html" class="flex"></div>
-      </div>
+<body onload="initContact();">
+  <div class="flex">
+    <div id="taskBox"></div>
+    <div id="messageToBoard" class="slide-in-bottom d-none">
+      <span></span>
+    </div>
 
-      <div class="mainContainerContact">
-        <div w3-include-html="kanbanBar.html"></div>
-        <div class="contactContainer">
-          <div id="contactList" class="contactList"></div>
-          <div class="contactArea">
-            <div>
-              <div class="header">
-                <div class="headline">
-                  <h1>Contacts</h1>
-                </div>
-                <div class="subheadline">
-                  <span>Better with a team</span>
-                </div>
+    <div>
+      <div w3-include-html="navbar.html" class="flex"></div>
+    </div>
+
+    <div class="mainContainerContact">
+      <div w3-include-html="kanbanBar.html"></div>
+      <div class="contactContainer">
+        <div id="contactList" class="contactList"></div>
+        <div class="contactArea">
+          <div>
+            <div class="header">
+              <div class="headline">
+                <h1>Contacts</h1>
               </div>
-              <div id="contactView" class="contactView">
-                <div class="headerFullContact">
-                  <div
-                    id="initialsFullContact"
-                    class="initialsFullContact initialCircle"
-                  >
-                    AM
-                  </div>
-                  <div class="nameContainer">
-                    <div class="nameFullContact">Anton Mayer</div>
-                    <div
-                      class="addTaskLink cursor-pointer"
-                      onclick="openTaskBox('toDo')"
-                    >
-                      <span>+</span> Add Task
-                    </div>
-                  </div>
+              <div class="subheadline">
+                <span>Better with a team</span>
+              </div>
+            </div>
+            <div id="contactView" class="contactView">
+              <div class="headerFullContact">
+                <div id="initialsFullContact" class="initialsFullContact initialCircle">
+                  AM
                 </div>
-                <div class="contactFullInfo">
-                  <div class="contactFullInfoHeader">
-                    <h2>Contact Information</h2>
-                    <div
-                      class="editContact cursor-pointer"
-                      onclick="openContactBox(editContact, contacts[0])"
-                    >
-                      <img src="./img/pencil.svg" alt="pencil" />
-                      Edit Contact
-                    </div>
-                  </div>
-                  <div class="emailFullContact">
-                    <h3>Email</h3>
-                    <a class="email" href="mailto:antom@gmail.com"
-                      >antom@gmail.com</a
-                    >
-                  </div>
-                  <div class="phoneFullContact">
-                    <h3>Phone</h3>
-                    <a href="tel:+491111111111">1111 111 11 1</a>
+                <div class="nameContainer">
+                  <div class="nameFullContact">Anton Mayer</div>
+                  <div class="addTaskLink cursor-pointer" onclick="openTaskBox('toDo')">
+                    <span>+</span> Add Task
                   </div>
                 </div>
               </div>
+              <div class="contactFullInfo">
+                <div class="contactFullInfoHeader">
+                  <h2>Contact Information</h2>
+                  <div class="editContact cursor-pointer" onclick="openContactBox(editContact, contacts[0])">
+                    <img src="./img/pencil.svg" alt="pencil" />
+                    Edit Contact
+                  </div>
+                </div>
+                <div class="emailFullContact">
+                  <h3>Email</h3>
+                  <a class="email" href="mailto:antom@gmail.com">antom@gmail.com</a>
+                </div>
+                <div class="phoneFullContact">
+                  <h3>Phone</h3>
+                  <a href="tel:+491111111111">1111 111 11 1</a>
+                </div>
+              </div>
             </div>
-            <div class="btnContainer">
-              <button
-                type="button"
-                class="btn-blue newContactBtn"
-                onclick="openContactBox(createNewContact)"
-              >
-                New contact<img src="img/addNewContact.svg" />
-              </button>
-            </div>
+          </div>
+          <div class="btnContainer">
+            <button type="button" class="btn-blue newContactBtn" onclick="openContactBox(createNewContact)">
+              New contact<img src="img/addNewContact.svg" />
+            </button>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
