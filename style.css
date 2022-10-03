@@ -80,7 +80,7 @@ body {
 
 .subheadline span {
   border-left: 4px solid var(--mainColorLightBlue);
-  padding: 20px 30px;
+  padding-left: 20px;
 }
 
 .btn-blue {
