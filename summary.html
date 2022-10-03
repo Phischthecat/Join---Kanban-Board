@@ -16,12 +16,8 @@
     <script src="js/summary.js"></script>
   </head>
 
-  <body onload="initTasks();">
-    <div class="flex">
-      <div>
-        <div w3-include-html="navbar.html" class="flex"></div>
-      </div>
-
+<body onload="initTasks();">
+  
       <div class="mainContainer">
         <!--Header only for Summary Page-->
         <header class="headerSummary hide">
@@ -123,5 +119,35 @@
         </div>
       </div>
     </div>
-  </body>
+  </div>
+
+  <!-- Navbar only for Summary-->
+  <nav class="navbarSummary">
+    <div class="containerWithSectionsSummary">
+      <ul>
+        <li>
+          <img class="iconsNav" src="img/summary.svg">
+          <a href="summary.html">Summary</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/board.navbar.svg">
+          <a href="board.html">Board</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/addtask.navbar.svg">
+          <a href="addTask.html">Add Task</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/contacts.navbar.svg">
+          <a href="contact.html">Contacts</a>
+        </li>
+        <li>
+          <a href="help.html"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Navbar only for Summa-->
+</body>
+
 </html>

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/addTask.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <script src="js/mini_backend.js"></script>
+    <script src="js/addTask.js"></script>
     <script src="script.js"></script>
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <script src="js/templates.js"></script>
@@ -34,52 +35,54 @@
         <div class="contactContainer">
           <div id="contactList" class="contactList"></div>
           <div class="contactArea">
-            <div class="header">
-              <div class="headline blue-border">
-                <h1>Contacts</h1>
-              </div>
-              <div class="subheadline">
-                <span>Better with a team</span>
-              </div>
-            </div>
-            <div id="contactView" class="contactView d-none">
-              <div class="headerFullContact">
-                <div
-                  id="initialsFullContact"
-                  class="initialsFullContact initialCircle"
-                >
-                  AM
+            <div>
+              <div class="header">
+                <div class="headline blue-border">
+                  <h1>Contacts</h1>
                 </div>
-                <div class="nameContainer">
-                  <div class="nameFullContact">Anton Mayer</div>
+                <div class="subheadline">
+                  <span>Better with a team</span>
+                </div>
+              </div>
+              <div id="contactView" class="contactView">
+                <div class="headerFullContact">
                   <div
-                    class="addTaskLink cursor-pointer"
-                    onclick="openTaskBox('toDo')"
+                    id="initialsFullContact"
+                    class="initialsFullContact initialCircle"
                   >
-                    <span>+</span> Add Task
+                    AM
+                  </div>
+                  <div class="nameContainer">
+                    <div class="nameFullContact">Anton Mayer</div>
+                    <div
+                      class="addTaskLink cursor-pointer"
+                      onclick="openTaskBox('toDo')"
+                    >
+                      <span>+</span> Add Task
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div class="contactFullInfo">
-                <div class="contactFullInfoHeader">
-                  <h2>Contact Information</h2>
-                  <div
-                    class="editContact cursor-pointer"
-                    onclick="openContactBox(editContact, contacts[0])"
-                  >
-                    <img src="./img/pencil.svg" alt="pencil" />
-                    Edit Contact
+                <div class="contactFullInfo">
+                  <div class="contactFullInfoHeader">
+                    <h2>Contact Information</h2>
+                    <div
+                      class="editContact cursor-pointer"
+                      onclick="openContactBox(editContact, contacts[0])"
+                    >
+                      <img src="./img/pencil.svg" alt="pencil" />
+                      Edit Contact
+                    </div>
                   </div>
-                </div>
-                <div class="emailFullContact">
-                  <h3>Email</h3>
-                  <a class="email" href="mailto:antom@gmail.com"
-                    >antom@gmail.com</a
-                  >
-                </div>
-                <div class="phoneFullContact">
-                  <h3>Phone</h3>
-                  <a href="tel:+491111111111">1111 111 11 1</a>
+                  <div class="emailFullContact">
+                    <h3>Email</h3>
+                    <a class="email" href="mailto:antom@gmail.com"
+                      >antom@gmail.com</a
+                    >
+                  </div>
+                  <div class="phoneFullContact">
+                    <h3>Phone</h3>
+                    <a href="tel:+491111111111">1111 111 11 1</a>
+                  </div>
                 </div>
               </div>
             </div>

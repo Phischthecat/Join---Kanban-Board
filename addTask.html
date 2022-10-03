@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/media.css" />
+  <link rel="shortcut icon" href="img/joinlogo.svg" />
   <link rel="shortcut icon" href="icons/logo.png" />
   <link rel="stylesheet" href="css/addTask.css" />
   <script src="js/mini_backend.js"></script>
@@ -23,12 +24,61 @@
     </div>
 
     <div class="mainContainer">
+
+      <!--Header only for Add Task-->
+      <div class="kanbanBarAddTask">
+
+        <img src="img/joinlogo.svg" class="joinLogoAddTask">
+        <button class="btnCreate">
+          Create
+          <img src="img/ticked-off.svg">
+        </button>
+
+        <div class="actualUser">
+          <img class="questionMark" src="img/questionMark.navbar.svg">
+
+          <div class="circle">
+            <!-- <img src="" id="actualUser"> -->
+          </div>
+        </div>
+      </div>
+      <!--Header only for Add Task-->
+
       <div w3-include-html="kanbanBar.html"></div>
       <div class="addTaskContainer">
         <div w3-include-html="task-snippet.html"></div>
       </div>
     </div>
   </div>
+
+
+  <!-- Navbar only for Add Task-->
+  <nav class="navbarAddTask">
+    <div class="containerWithSectionsAddTask">
+      <ul>
+        <li>
+          <img class="iconsNav" src="img/summary.svg">
+          <a href="summary.html">Summary</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/board.navbar.svg">
+          <a href="board.html">Board</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/addtask.navbar.svg">
+          <a href="addTask.html">Add Task</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/contacts.navbar.svg">
+          <a href="contact.html">Contacts</a>
+        </li>
+        <li>
+          <a href="help.html"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Navbar only for Add Task-->
 </body>
 
 </html>
