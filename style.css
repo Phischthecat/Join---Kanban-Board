@@ -79,7 +79,7 @@ body {
 
 .subheadline span {
   border-left: 4px solid var(--mainColorLightBlue);
-  padding: 20px 30px;
+  padding-left: 20px;
 }
 
 .btn-blue {
@@ -105,6 +105,7 @@ body {
   font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
 }
+
 .btn-white img {
   filter: invert(0.8);
   rotate: 45deg;
@@ -124,8 +125,7 @@ body {
 }
 
 .btn-white:hover img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
-    brightness(91%) contrast(94%);
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg) brightness(91%) contrast(94%);
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
