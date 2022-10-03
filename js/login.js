@@ -1,83 +1,68 @@
-let newUser = [];
+let users = [];
 let loggedIn = true;
+let exists = false;
+let responsive = true;
+
+
+/**
+ * This function is used for controlling password and username
+ */
 
 function login() {
-  let actualUser = getId('userName').value;
-  let password = getId('password').value;
-  let loggedUser = JSON.parse(localStorage.getItem('newUser'));
-
-  if (
-    loggedUser[0].user === actualUser &&
-    loggedUser[0].password === password
-  ) {
-    window.location.href = './summary.html';
-    setDefault();
-  } else {
-    let error = getId('loginError');
-    error.innerHTML = '';
-    error.innerHTML += createErrorBoxLogin();
-    document.getElementById('password').value = '';
+  for (let i = 0; i < users.length; i++) {
+    let user = users[i]
+    if (user.userName == getId('userName').value && user.password == getId('password').value) {
+      window.location.href = './summary.html';
+      setDefault();
+    } else {
+      let error = getId('loginError');
+      error.innerHTML = '';
+      error.innerHTML += createErrorBoxLogin();
+      document.getElementById('password').value = '';
+    }
   }
 }
+
 
 /**
  * This function is used for checking or setting the registration
  */
-function getRegistrated() {
-  let actualUser = getId('userName').value;
-  let password = getId('password').value;
-  let email = getId('email').value;
-
-  let loggedUser = JSON.parse(localStorage.getItem('newUser'));
-
-  if (loggedUser === null) {
-    newUser = [
-      {
-        user: actualUser,
-        password: password,
-        email: email,
-      },
-    ];
-    saveInLocalStorage(newUser);
+async function getRegistrated() {
+  let actualUser = {
+    userName: getId('userName').value,
+    password: getId('password').value,
+    email: getId('email').value
+  }
+  checkConditions();
+  if (exists) {
+    users.push(actualUser);
+    await backend.setItem('users', users);
     setDefault();
     window.location.href = './summary.html';
   }
+}
 
-  if (
-    loggedUser[0].user === actualUser &&
-    loggedUser[0].password === password &&
-    loggedUser[0].email === email
-  ) {
-    let error = getId('errorMessage');
-    error.innerHTML = '';
-    error.innerHTML += createErrorBoxRegister();
+
+/**
+ * This functon is used to check if All Conditions are true  
+ */
+function checkConditions() {
+  if (users.length >= 0 && getId('userName') != '' && getId('password').value != '' && getId('email').value != '') {
+    exists = true;
+  } else {
+    users.forEach((user) => {
+      let error = getId('errorMessage');
+      if (user.userName == getId('userName').value) {
+        error.innerHTML = '';
+        error.innerHTML += createErrorName();
+      } else if (user.email == getId('email').value) {
+        error.innerHTML = '';
+        error.innerHTML += createErrorEmail();
+      }
+    })
   }
 }
 
-function createErrorBoxLogin() {
-  return /*html*/ `
-    <div class = "errorBox"><span><b>Invalid User or Password</b></span></div>
-    `;
-}
-
-/**
- * This function returns an html part which is used for an error message
- * @returns html part
- */
-function createErrorBoxRegister() {
-  return /*html*/ `
-    <div class = "errorBox"><span><b>This User already exists</b></span></div>
-`;
-}
-
-/**
- * This function is for setting an User in Local Storage and as soon as possible in the backend
- * @param {string} newUser
- */
-function saveInLocalStorage(newUser) {
-  newUser = JSON.stringify(newUser);
-  localStorage.setItem('newUser', newUser);
-}
 
 /**
  * This function redirects to register.html
@@ -111,7 +96,36 @@ function setDefault() {
   }
 }
 
+/**
+ * this function used for the logout
+ */
 function logout() {
   window.location.href = './index.html';
   localStorage.removeItem('loggedInKey');
+}
+
+
+function openForgotPart() {
+  let content = getId('content');
+  responsive = false;
+  content.innerHTML = '';
+  content.innerHTML += createForgetPart();
+}
+
+
+function checkForResponsive() {
+  setInterval(() => {
+    window.addEventListener("resize", removeClass());
+  }, 200);
+}
+
+
+function removeClass() {
+  if (window.innerWidth < 540 && responsive) {
+    getId('responsiveSpan').classList.remove('d-none');
+    getId('responsiveBtn').classList.remove('d-none');
+  } else if (window.innerWidth > 540 && responsive) {
+    getId('responsiveSpan').classList.add('d-none');
+    getId('responsiveBtn').classList.add('d-none');
+  }
 }

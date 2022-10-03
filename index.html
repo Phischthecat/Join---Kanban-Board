@@ -5,56 +5,88 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<<<<<<< HEAD
   <title>Join</title>
   <link rel="shortcut icon" href="img/joinlogo.svg" />
   <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="css/media.css">
   <script src="js/mini_backend.js"></script>
+=======
+  <title>JOIN</title>
+  <link rel="shortcut icon" href="icons/logo.png" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="js/mini_backend.js"></script>
+  <script src="js/templates.js"></script>
+>>>>>>> 6f944d6e970d4ad287ff21314ab335a3b41e082c
   <script src="script.js"></script>
   <script src="js/login.js"></script>
 </head>
 
-<body onload="init()" class="loginBody">
-  <div class="logo slide-out-bck-tl-login" id="logo">
+<body onload="init() , checkForResponsive()" class="loginBody">
+
+  <div class="logo slide-out-bck-tl-login headContainer" id="logo">
     <img src="img/joinlogo.png" />
-  </div>
 
-  <div id="loginError"></div>
+    <div class="registrate slide-in-bottom-login">
 
-  <div class="loginContainer slide-in-bottom-login" id="loginContainer">
-    <div class="loginBox">
-      <h1>Log In</h1>
+      <div><span>Not a Join User ?</span></div>
+      <button class="btn-blue" id="register" type="button" required onclick="signUp()">
+        Sign Up
+      </button>
+
     </div>
-
-    <form class="loginForm flexColumn" onsubmit="return false">
-      <input required type="text" class="inputFields" id="userName" minlength="5" placeholder="Username" name="uname" />
-
-      <div id="errorMessage"></div>
-
-      <input required type="password" class="inputFields" id="password" minlength="5" placeholder="Password"
-        name="psw" />
-
-      <span id="forgot">Forgot my Password</span>
-
-      <div class="btnBox">
-        <button class="btn-blue loginBtn" type="submit" required onclick="login()">
-          Login
-        </button>
-
-        <button class="btn-white guestBtn" type="button" required onclick="guestLogin()">
-          Guest Login
-        </button>
-      </div>
-    </form>
   </div>
 
-  <div class="registrate slide-in-bottom-login">
-    <div><span>Not a Join User ?</span></div>
+  <div id="content">
+    <div class="loginSection flex flexColumn">
+      <div id="loginError"></div>
 
-    <button class="btn-blue" id="register" type="button" required onclick="signUp()">
-      Sign Up
-    </button>
+      <div class="loginContainer flexColumn slide-in-bottom-login" id="loginContainer">
+
+        <div class="loginBox">
+          <h1>Log In</h1>
+        </div>
+
+        <hr class="line">
+
+        <form class="loginForm flexColumn" onsubmit="return false">
+
+          <input required type="text" class="inputFieldsLogin marginInput" id="userName" minlength="5"
+            placeholder="Username" name="uname" />
+
+          <div id="errorMessage"></div>
+
+          <input required type="password" class="inputFieldsLogin" id="password" minlength="5" placeholder="Password"
+            name="psw" />
+
+          <div class="forgotMessage cursor-pointer">
+            <span onclick="openForgotPart()">Forgot my Password</span>
+          </div>
+
+          <div class="btnBox">
+
+            <button class="btn-blue loginBtn" type="submit" required onclick="login()">
+              Login
+            </button>
+            <button class="btn-white guestBtn" type="button" required onclick="guestLogin()">
+              Guest Login
+            </button>
+
+          </div>
+
+        </form>
+      </div>
+
+
+      <div class="d-none responsiveSpan slide-in-bottom-login" id="responsiveSpan"><span>Not a Join User ?</span></div>
+      <button class="btn-blue d-none slide-in-bottom-login" id="responsiveBtn" type="button" required
+        onclick="signUp()">
+        Sign Up
+      </button>
+
+    </div>
   </div>
 </body>
 

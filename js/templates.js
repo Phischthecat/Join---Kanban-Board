@@ -1,5 +1,5 @@
 function createTaskCard(task) {
-  return /*html*/ `
+    return /*html*/ `
     <div class="taskCard" onclick="check(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
         <div class="category">
             <span>${task.category}</span>
@@ -20,8 +20,9 @@ function createTaskCard(task) {
 `;
 }
 
+
 function createFullView(task) {
-  return /*html*/ `
+    return /*html*/ `
         <div class="modalContainer">
             <div class="fullCard">
                 <div class="headerFullCard">
@@ -66,8 +67,9 @@ function createFullView(task) {
     `;
 }
 
+
 function createTaskBox() {
-  return /*html*/ `
+    return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
         <div class="boxContent">
             <div w3-include-html="task-snippet.html"></div>
@@ -76,15 +78,17 @@ function createTaskBox() {
     `;
 }
 
+
 function createBoxBtns(pickedContainer) {
-  return /*html*/ `
+    return /*html*/ `
       <button type="button" class="btn-white clearBtn" onclick="closeTaskBox()" id="clear">Cancel <img src="/img/secondary-plus.svg"></button>
       <button type="submit" class="btn-blue addTaskBtn" onclick="addTask('${pickedContainer}')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
   `;
 }
 
+
 function createNewContact() {
-  return /*html*/ `
+    return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
     <div class="boxContainer">
             <div class="overlayContainer">
@@ -116,8 +120,9 @@ function createNewContact() {
     `;
 }
 
-function editContact(contact) {
-  return /*html*/ `
+
+function editContact(initial, name, email, phone) {
+    return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
     <div class="boxContainer">
             <div class="overlayContainer">
@@ -146,5 +151,73 @@ function editContact(contact) {
             </div>
         </div>
     </div>
+    `;
+}
+
+
+/**
+ * This function returns a span which is used for an error message
+ * @returns html part
+ */
+function createErrorBoxLogin() {
+    return /*html*/ `
+      <div class = "errorBox"><span><b>Invalid User or Password</b></span></div>
+      `;
+}
+
+
+/**
+ * This function returns a span which is used for an error message
+ * @returns html part
+ */
+function createErrorName() {
+    return /*html*/ `
+      <div class = "errorBox"><span><b>This Username already exists</b></span></div>
+  `;
+}
+
+
+/**
+ * This function returns a span which is used for an error message
+ * @returns html part
+ */
+function createErrorEmail() {
+    return /*html*/ `
+    <div class = "errorBox"><span><b>This Email already exists</b></span></div>
+  `;
+}
+
+{/* <h1>I forgot My Password</h1> */ }
+
+function createForgetPart() {
+    return /*html*/ `
+    <div class="passwordMainContainer">
+
+        <div class="passwordContainer">
+
+            <div class="arrowPassword">
+                <img src="img/left-arrow.png" class="cursor-pointer" onclick="backToLogin()" />
+            </div>
+
+            <div class="flex headBox flexColumn">
+                <h1>I forgot my Password</h1>
+
+                <hr>
+
+                <div class="instructions">
+                    <span> Don't worry! We will send you an email with the instructions to reset your password.</span>
+                </div>
+
+                <div class="flex centerBox">
+                    <input required class="inputFieldsMain" type="email" id="emailbox" minlength="3" placeholder="Email" name="email" />
+                </div>
+
+                <div class="sendBtnBox flex">
+                    <button class="btn-blue mailBtn">Send me the Mail </button>
+                </div>
+            </div>
+
+        </div>
+    </div>    
     `;
 }
