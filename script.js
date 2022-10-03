@@ -2,6 +2,7 @@ async function init() {
   await downloadFromServer();
   allTasks = (await backend.getItem('tasks')) || [];
   users = (await backend.getItem('users')) || [];
+  contacts = (await backend.getItem('contacts')) || [];
   // users = [];
   // backend.setItem('users', users)
   includeHTML();
@@ -30,6 +31,10 @@ async function openTaskBox(pickedContainer) {
   }, 100);
   let box = document.getElementById('taskBox');
   box.innerHTML = createTaskBox();
+  setTimeout(() => {
+    getId('animation').classList.toggle('slide-in-right');
+    getId('animation').classList.toggle('fade-in');
+  }, 300);
   setTimeout(() => {
     if (box.classList.contains('d-none')) {
       box.classList.remove('d-none');
@@ -61,8 +66,12 @@ async function openContactBox(fct, contact) {
   setTimeout(() => {
     w3IncludeHTML();
   }, 100);
-  let box = document.getElementById('taskBox');
+  let box = getId('taskBox');
   box.innerHTML = fct(contact);
+  setTimeout(() => {
+    getId('animation').classList.toggle('slide-in-right');
+    getId('animation').classList.toggle('fade-in');
+  }, 300);
   if (box.classList.contains('d-none')) {
     box.classList.remove('d-none');
   }
@@ -81,7 +90,10 @@ function closeContactBox() {
  */
 function checkIfUserIsLoggedIn() {
   if (!window.location.href.endsWith('index.html')) {
-    if (localStorage.getItem('loggedInKey') === null && !window.location.href.endsWith('register.html')) {
+    if (
+      localStorage.getItem('loggedInKey') === null &&
+      !window.location.href.endsWith('register.html')
+    ) {
       window.location.href = './index.html';
     }
   }

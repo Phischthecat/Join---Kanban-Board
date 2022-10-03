@@ -8,7 +8,7 @@
 
 :root {
   --backGroundSection: #f6f7f8;
-  --borderColour: #D1D1D1;
+  --borderColour: #d1d1d1;
   --textColor: #6b717e;
   --mainColorDarkBlue: #2a3647;
   --urgentColour: #ff3b00;
@@ -78,9 +78,9 @@ body {
   white-space: nowrap;
 }
 
-.subheadline span {
-  border-left: 4px solid var(--mainColorLightBlue);
-  padding: 20px 30px;
+.blue-border {
+  border-right: 3px solid var(--mainColorLightBlue);
+  padding-right: 30px;
 }
 
 .btn-blue {
@@ -126,7 +126,8 @@ body {
 }
 
 .btn-white:hover img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg) brightness(91%) contrast(94%);
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
+    brightness(91%) contrast(94%);
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
@@ -140,12 +141,26 @@ body {
   overflow: hidden;
 }
 
+.fade-in {
+  background: transparent;
+  animation: backgroundFadeIn 1s forwards alternate;
+}
+
+@keyframes backgroundFadeIn {
+  from {
+    backhground-color: transparent;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+}
+
 .modalContainer {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 5;
-  background-color: rgba(0, 0, 0, 0.3);
+
   height: 100%;
   width: 100%;
   display: flex;
@@ -202,7 +217,8 @@ body {
 *
 **/
 .slide-in-bottom-login {
-  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    1.2s both !important;
 }
 
 @keyframes slide-in-bottom-login {
@@ -218,12 +234,14 @@ body {
 }
 
 .slide-out-bck-tl-login {
-  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    0.1s both;
 }
 
 @keyframes slide-out-bck-tl-login {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2))
+      translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 
