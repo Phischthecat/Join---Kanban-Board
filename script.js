@@ -34,6 +34,7 @@ async function openTaskBox(pickedContainer) {
   setTimeout(() => {
     getId('animation').classList.toggle('slide-in-right');
     getId('animation').classList.toggle('fade-in');
+    renderContactsToAddTask();
   }, 300);
   setTimeout(() => {
     if (box.classList.contains('d-none')) {
@@ -109,4 +110,15 @@ function gotToBoard() {
  */
 function getId(theId) {
   return document.getElementById(theId);
+}
+
+function renderContactsToAddTask() {
+  let contactSelection = getId('assignedToPeople');
+  contactSelection.innerHTML = /*html*/ `<option>You</option>`;
+  for (let i = 0; i < contacts.length; i++) {
+    const contact = contacts[i];
+    contactSelection.innerHTML += /*html*/ `
+    <option value="${contact.name}">${contact.name}</option>
+    `;
+  }
 }

@@ -14,6 +14,7 @@ async function initAddTask() {
   await init();
   setTimeout(() => {
     setDueDateOnToday();
+    renderContactsToAddTask();
   }, 300);
 }
 
