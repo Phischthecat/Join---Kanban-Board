@@ -70,7 +70,7 @@ function createTaskBox() {
   return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
         <div class="boxContent">
-            <div w3-include-html="task-snippet.html"></div>
+            <div w3-include-html="task-snippet copy.html"></div>
         </div>
     </div>
     `;
@@ -214,5 +214,192 @@ function createForgetPart() {
 
         </div>
     </div>    
+    `;
+}
+
+function contactsAssignedTo(i) {
+  const contact = contacts[i];
+  return /*html*/ `
+      <li class="item">
+        <span class="item-text">${contact.name}</span>
+        <span class="checkbox">
+          <i class="fa-solid fa-square check-icon"></i>
+        </span>
+      </li>
+      `;
+}
+
+function addTaskContainerHMTL() {
+  return /*html*/ `
+    <div class="modalContainer slide-in-right" id="animation">
+        <div class="boxContent">
+        <div class="headline">
+            <span class="kanbanTextAddTask"
+              >Kanban Project Management Tool</span
+            >
+            <h1>Add Task</h1>
+          </div>
+
+          <form id="formAddTask" class="flex" onsubmit="return false">
+            <div class="leftSplit">
+              <div class="title flexColumn">
+                <span class="text">Title</span>
+                <input
+                  id="taskTitle"
+                  required
+                  type="text"
+                  placeholder="Enter a title"
+                />
+              </div>
+
+              <div class="description flexColumn">
+                <span class="text">Description</span>
+                <textarea
+                  id="taskDescription"
+                  cols="30"
+                  rows="5"
+                  placeholder="Enter a description"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="categoryflexColumn flexColumn">
+                <span class="text">Category</span>
+                <select id="taskCategory" required>
+                  <option value="" selected>Choose category</option>
+                  <option value="newCategory">New Category</option>
+                  <option value="backoffice">Backoffice</option>
+                  <option value="sales">Sales</option>
+                </select>
+              </div>
+
+              <!-- <div class="categoryflexColumn flexColumn">
+                <span class="text">Category</span>
+                <div class="select-btn">
+                  <span class="btn-text">Choose category</span>
+                  <span class="arrow-down">
+                    <i class="fa-solid fa-caret-down"></i>
+                  </span>
+                </div>
+                <ul class="list-items">
+                  <li class="item">
+                    <span class="item-text" onclick="addNewCategory()">New category</span>
+                    <span class="checkbox">
+                      <i class="fa-solid fa-square check-icon"></i>
+                    </span>
+                  </li>
+                  <li class="item">
+                    <span class="item-text">Sales</span>
+                    <span class="checkbox">
+                      <i class="fa-solid fa-square check-icon"></i>
+                    </span>
+                  </li>
+                  <li class="item">
+                    <span class="item-text">Backoffice</span>
+                    <span class="checkbox">
+                      <i class="fa-solid fa-square check-icon"></i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div> -->
+
+              <div class="container flexColumn">
+                <span class="text">Assigned to</span>
+                <div class="select-btn">
+                  <span class="btn-text">Select contacts to assign</span>
+                  <span class="arrow-down">
+                    <i class="fa-solid fa-caret-down"></i>
+                  </span>
+                </div>
+                <ul class="list-items" id="assignedToList">
+                  <li class="item">
+                    <span class="item-text">You</span>
+                    <span class="checkbox">
+                      <i class="fa-solid fa-square check-icon"></i>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="rightSplit">
+              <div class="dueDate flexColumn">
+                <span class="text">Due date</span>
+                <input required id="taskDueDate" type="date" />
+              </div>
+
+              <div class="priority flexColumn" id="priority">
+                <span class="text">Prio</span>
+
+                <div class="priorityBox">
+                  <button
+                    type="button"
+                    class="statusButton"
+                    onclick="getPriority('urgent')"
+                    id="urgent"
+                  >
+                    <p>Urgent</p>
+                    <img src="img/urgent.addTask.svg" />
+                  </button>
+
+                  <button
+                    type="button"
+                    class="statusButton"
+                    onclick="getPriority('medium')"
+                    id="medium"
+                  >
+                    <p>Medium</p>
+                    <img src="img/medium.addTask.svg" />
+                  </button>
+
+                  <button
+                    type="button"
+                    class="statusButton"
+                    onclick="getPriority('low')"
+                    id="low"
+                  >
+                    <p>Low</p>
+                    <img src="img/low.addTask.svg" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="subTasks flexColumn">
+                <span class="text">Subtasks</span>
+                <input
+                  type="text"
+                  id="subtasks"
+                  placeholder="Add new subtask"
+                />
+              </div>
+
+              <div class="buttonContainer" id="buttonContainer">
+                <button
+                  type="button"
+                  class="btn-white clearBtn"
+                  onclick="clearFields()"
+                  id="clear"
+                >
+                  Clear <img src="img/secondary-plus.svg" />
+                </button>
+                <button
+                  type="submit"
+                  class="btn-blue createTaskBtn"
+                  onclick="addTask('toDo')"
+                  id="create"
+                >
+                  Create Task <img src="img/ticked-off.svg" />
+                </button>
+              </div>
+            </div>
+          </form>
+          <div id="messageToBoard" class="slide-in-bottom d-none">
+            <span> Task added to Board </span>
+            <img src="img/board.navbar.svg" />
+          </div>
+        
+</div>
+</div>
     `;
 }

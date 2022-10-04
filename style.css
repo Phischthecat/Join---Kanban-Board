@@ -24,12 +24,15 @@
   --transitionSpeed: 150ms;
 }
 
+* {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
 body {
+  font-size: 16px;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 16px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 ::placeholder {
@@ -72,11 +75,14 @@ body {
 }
 
 .subheadline {
-  font-size: 27px;
-  letter-spacing: 1px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.subheadline span {
+  font-size: 27px;
+  letter-spacing: 1px;
 }
 
 .blue-border {
@@ -210,6 +216,103 @@ body {
 
 #messageToBoard span {
   margin: 0;
+}
+
+.container {
+  position: relative;
+
+  width: 100%;
+}
+
+ul {
+  margin-top: 0;
+  /* overflow: auto;
+  max-height: 100px; */
+}
+
+.select-btn {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.select-btn .btn-text {
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+}
+
+.select-btn .arrow-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 21px;
+  width: 21px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.list-items {
+  position: relative;
+  background-color: #fff;
+  padding: 0;
+  display: none;
+}
+
+.select-btn.open .arrow-down {
+  transform: rotate(-180deg);
+}
+
+.select-btn.open ~ .list-items {
+  display: block;
+}
+
+.list-items .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  height: 40px;
+  padding-left: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.list-items .item:hover {
+  background-color: #e7edfe;
+}
+
+.item .item-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.item .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  width: 15px;
+  border-radius: 4px;
+  margin-right: 12px;
+  border: 1.5px solid #c0c0c0;
+  transition: all 0.3s ease-in-out;
+}
+
+.checkbox .check-icon {
+  font-size: 11px;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.item.checked .check-icon {
+  transform: scale(0.7);
 }
 
 /**

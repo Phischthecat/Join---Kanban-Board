@@ -1,21 +1,10 @@
 let allTasks = [];
 let urgency;
 
-/**
- * This Function is a simplified spelling for document.getElementById
- * @param {string} theId is used for the actual Id
- * @returns document.getElementById();
- */
-function getId(theId) {
-  return document.getElementById(theId);
-}
-
 async function initAddTask() {
   await init();
-  setTimeout(() => {
-    setDueDateOnToday();
-    renderContactsToAddTask();
-  }, 300);
+  setDueDateOnToday();
+  renderAssignedToContacts();
 }
 
 /**
@@ -105,18 +94,4 @@ function getPriority(prio) {
     getId('medium').classList.remove('mediumBtn');
     getId(prio).classList.add('lowBtn');
   }
-}
-
-function setDueDateOnToday() {
-  let date = document.getElementById('taskDueDate');
-  today = new Date();
-  date.value =
-    today.getFullYear() +
-    '-' +
-    (today.getMonth() + 1).toLocaleString('en-US', {
-      minimumIntegerDigits: 2,
-      useGrouping: false,
-    }) +
-    '-' +
-    today.getDate();
 }

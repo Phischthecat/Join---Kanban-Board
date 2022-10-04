@@ -24,19 +24,31 @@ async function includeHTML() {
   }
 }
 
+function setDueDateOnToday() {
+  let date = document.getElementById('taskDueDate');
+  today = new Date();
+  date.value =
+    today.getFullYear() +
+    '-' +
+    (today.getMonth() + 1).toLocaleString('en-US', {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+    }) +
+    '-' +
+    today.getDate().toLocaleString('en-US', {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+    });
+}
+
 async function openTaskBox(pickedContainer) {
   document.body.style.overflow = 'hidden';
-  setTimeout(() => {
-    w3IncludeHTML();
-  }, 100);
   let box = document.getElementById('taskBox');
-  box.innerHTML = createTaskBox();
+  box.innerHTML = addTaskContainerHMTL();
   setTimeout(() => {
     getId('animation').classList.toggle('slide-in-right');
     getId('animation').classList.toggle('fade-in');
-    renderContactsToAddTask();
-  }, 300);
-  setTimeout(() => {
+    renderAssignedToContacts;
     if (box.classList.contains('d-none')) {
       box.classList.remove('d-none');
     }
@@ -112,13 +124,24 @@ function getId(theId) {
   return document.getElementById(theId);
 }
 
-function renderContactsToAddTask() {
-  let contactSelection = getId('assignedToPeople');
-  contactSelection.innerHTML = /*html*/ `<option>You</option>`;
+async function renderAssignedToContacts() {
+  let contactSelection = document.getElementById('assignedToList');
+  contactSelection.innerHTML = '';
   for (let i = 0; i < contacts.length; i++) {
-    const contact = contacts[i];
-    contactSelection.innerHTML += /*html*/ `
-    <option value="${contact.name}">${contact.name}</option>
-    `;
+    contactSelection.innerHTML += contactsAssignedTo(i);
   }
 }
+
+let selectBtns = document.querySelectorAll('.select-btn');
+
+selectBtns.forEach((selectBtn) => {
+  selectBtn.addEventListener('click', () => {
+    selectBtn.classList.toggle('open');
+    const items = document.querySelectorAll('.item');
+    items.forEach((item) => {
+      item.addEventListener('click', () => {
+        item.classList.toggle('checked');
+      });
+    });
+  });
+});
