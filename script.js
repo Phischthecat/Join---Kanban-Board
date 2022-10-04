@@ -81,7 +81,6 @@ function closeContactBox() {
   document.getElementById('animation').classList.toggle('slide-out-right');
   setTimeout(() => {
     document.getElementById('taskBox').classList.toggle('d-none');
-    document.body.style.overflow = 'auto';
   }, 1000);
 }
 

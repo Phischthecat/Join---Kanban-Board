@@ -40,11 +40,18 @@ async function addContact() {
   initContact();
 }
 
-//todo_phil
-// async function saveContact() {
-//   let name = getId('newContactName').value;
-//   let initial = name.charAt(0) + name.charAt(name.indexOf(' ') + 1);
-// }
+async function saveContact(i) {
+  let fullContact = getId('contactView');
+  contacts[i].initial = getId('editContactInitial').innerHTML.trim();
+  contacts[i].name = getId('editContactName').value;
+  contacts[i].email = getId('editContactEmail').value;
+  contacts[i].phone = getId('editContactPhone').value;
+  await backend.setItem('contacts', contacts);
+  closeContactBox();
+  openDialogForCreate('Contact successfully edited');
+  initContact();
+  showContact(fullContact, i);
+}
 
 function openDialogForCreate(text) {
   let message = getId('messageToBoard');

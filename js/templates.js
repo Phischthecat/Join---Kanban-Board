@@ -129,13 +129,13 @@ function editContact(i) {
                 </div>
                 <div class="addContactSection">
                     <div>
-                        <div class="initialsFullContact initialCircle">
+                        <div id="editContactInitial" class="initialsFullContact initialCircle">
                             ${contact.initial}
                         </div>
                     </div>
                         <div class="contactInputSection">
                             <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
-                            <form id="editContactForm" onsubmit="saveContact(); return false;">
+                            <form id="editContactForm" onsubmit="saveContact(${i}); return false;">
                             <input class="nameModal" id="editContactName" type="text" value="${contact.name}">
                             <input class="emailModal" id="editContactEmail" type="email" value="${contact.email}">
                             <input class="phoneModal" id="editContactPhone" type="tel" value="${contact.phone}">
