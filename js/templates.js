@@ -217,6 +217,26 @@ function createForgetPart() {
     `;
 }
 
+function createChoosenCategorys(i) {
+  const category = categorys[i];
+  return /*html*/ `
+  <li class="categoryItem item">
+                    <span class="item-text">${category.name}</span>
+                    <span class="categoryCheckbox" style="color:${category.color}">
+                      <i class="fa-solid fa-circle"></i>
+                    </span>
+                  </li>
+  `;
+}
+
+function createCategoryDefault() {
+  return /*html*/ `
+  <li class="categoryItem item" onclick="addNewCategory()">
+                    <span class="item-text"> New category</span>
+                  </li>
+  `;
+}
+
 function contactsAssignedTo(i) {
   const contact = contacts[i];
   return /*html*/ `

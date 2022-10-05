@@ -4,6 +4,7 @@ let urgency;
 async function initAddTask() {
   await init();
   setDueDateOnToday();
+  renderChoosenCategorys();
   renderAssignedToContacts();
 }
 

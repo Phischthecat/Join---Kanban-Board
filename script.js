@@ -1,3 +1,15 @@
+// [#0038ff,#e200be,#ff8a00,#2ad300,#ff0000,#8aa4ff] Category colors
+let categorys = [
+  {
+    name: 'Sales',
+    color: '#fc71ff',
+  },
+  {
+    name: 'Backoffice',
+    color: '#1fd7c1',
+  },
+];
+
 async function init() {
   await downloadFromServer();
   allTasks = (await backend.getItem('tasks')) || [];
@@ -125,7 +137,7 @@ function getId(theId) {
 }
 
 async function renderAssignedToContacts() {
-  let contactSelection = document.getElementById('assignedToList');
+  let contactSelection = getId('assignedToList');
   contactSelection.innerHTML = '';
   for (let i = 0; i < contacts.length; i++) {
     contactSelection.innerHTML += contactsAssignedTo(i);
@@ -145,3 +157,53 @@ selectBtns.forEach((selectBtn) => {
     });
   });
 });
+
+function renderChoosenCategorys() {
+  let categoryList = getId('categoryList');
+  categoryList.innerHTML = createCategoryDefault();
+  for (let i = 0; i < categorys.length; i++) {
+    categoryList.innerHTML += createChoosenCategorys(i);
+  }
+}
+
+function addNewCategory() {
+  let newCategory = getId('categorySelect');
+  newCategory.removeAttribute('class');
+  newCategory.innerHTML = createInputForNewCategory();
+}
+
+function createInputForNewCategory() {
+  return /*html*/ `
+  <div class="newCategoryContainer">
+    <input class="newCategoryInput" type="text">
+    <span class="cancel-btn" onclick="renderCategorySelection()">
+    <i class="fa-solid fa-xmark"></i>
+    </span>
+    <span class="check-btn" onclick="saveNewCategory()">
+    <i class="fa-solid fa-check"></i>
+    </span>    
+
+  </div>
+    `;
+}
+
+function renderCategorySelection() {
+  let categorySelection = getId('categorySelect');
+  categorySelection.innerHTML = createCategorySelection();
+  categorySelection.classList.add('select-btn');
+}
+
+function createCategorySelection() {
+  return /*html*/ `
+  <span class="btn-text">Choose category</span>
+                  <span class="arrow-down">
+                    <i class="fa-solid fa-caret-down"></i>
+                  </span>
+  `;
+}
+
+function saveNewCategory() {
+  console.log(document.querySelector('.newCategoryInput').value);
+  renderCategorySelection();
+  renderChoosenCategorys();
+}

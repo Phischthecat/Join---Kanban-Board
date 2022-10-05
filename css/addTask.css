@@ -18,7 +18,8 @@
   margin-top: 30px;
 }
 
-input,
+.title input,
+.subTasks input,
 select,
 textarea {
   border-radius: 5px;
@@ -31,7 +32,8 @@ textarea {
   padding-left: 15px;
 }
 
-input,
+.title input,
+.subTasks input,
 select {
   height: 40px;
   padding-left: 15px;
@@ -132,7 +134,7 @@ select {
 .containerWithSectionsAddTask li {
   flex-direction: column;
   padding-left: 20px;
-  padding-right: 20px
+  padding-right: 20px;
 }
 
 .kanbanBarAddTask {
