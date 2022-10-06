@@ -1,125 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Board</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="css/board.css" />
-    <link rel="stylesheet" href="css/navbar.css" />
-    <link rel="stylesheet" href="css/addTask.css" />
-    <link rel="shortcut icon" href="icons/logo.png" />
-    <script src="js/mini_backend.js"></script>
-    <script src="script.js"></script>
-    <script src="http://www.w3schools.com/lib/w3data.js"></script>
-    <script src="js/templates.js"></script>
-    <script src="js/board.js"></script>
-  </head>
 
-  <body onload="initTodos();">
-    <div id="taskBox"></div>
-    <div class="flex">
-      <div>
-        <div w3-include-html="navbar.html" class="flex"></div>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Board</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/media.css">
+  <link rel="stylesheet" href="css/board.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/addTask.css" />
+  <link rel="shortcut icon" href="img/joinlogo.svg" />
+  <script src="js/mini_backend.js"></script>
+  <script src="script.js"></script>
+  <script src="http://www.w3schools.com/lib/w3data.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/board.js"></script>
+</head>
 
-      <div class="mainContainer">
-        <div w3-include-html="kanbanBar.html"></div>
+<body onload="initTodos();">
+  <div id="taskBox"></div>
+  <div class="flex">
+    <div>
+      <div w3-include-html="navbar.html" class="flex"></div>
+    </div>
 
-        <div class="boardContainer">
-          <div class="align-center">
-            <div class="headline">
-              <h1>Board</h1>
-            </div>
 
-            <div class="searchContainer">
-              <input type="text" id="search" placeholder="find Task" />
-              <button onclick="openTaskBox()" class="btn-blue addTaskBtn">
-                Add Task <img src="img/secondary-plus.svg" />
-              </button>
-            </div>
+
+    <div class="mainContainer">
+
+      <!--Header only for Board Page-->
+      <header class="headerBoard d-none">
+        <img src="img/joinlogo.svg" class="joinLogoBoard">
+
+        <div class="actualUserBoard">
+
+          <div class="circle">
+            <!-- <img src="" id="actualUser"> -->
+          </div>
+        </div>
+      </header>
+      <!--Header only for Board Page-->
+
+      <div w3-include-html="kanbanBar.html"></div>
+
+      <div class="boardContainer">
+        <div class="align-center">
+          <div class="headline">
+            <!--Only for Mobile-->
+            <span class="kanbanTextBoard d-none">Kanban Project Management Tool</span>
+            <!--Only for Mobile-->
+            <img class="plusImgMobile d-none" src="img/plus.btn.svg" onclick="openTaskBox()" />
+            <h1>Board</h1>
+            <!--Only for Mobile-->
+            <input type="text" class="inputSearchMobile d-none" placeholder="Find Task" />
+            <!--Only for Mobile-->
           </div>
 
-          <div class="dragAndDropContainer">
-            <div class="flexColumn">
-              <div class="nameColumn">
-                <span>To do</span>
-                <img
-                  class="cursor-pointer"
-                  src="img/plus.btn.svg"
-                  onclick="openTaskBox('toDo')"
-                />
-              </div>
+          <div class="searchContainer">
+            <input type="text" id="search" placeholder="find Task" />
+            <button onclick="openTaskBox()" class="btn-blue addTaskBtn">
+              Add Task <img src="img/secondary-plus.svg" />
+            </button>
+          </div>
+        </div>
 
-              <div
-                class="column"
-                id="toDo"
-                ondrag="showPossibleDropzones('toDo')"
-                ondragover="allowDrop(event);"
-                ondrop="moveTo('toDo'), removePossibleDropzones()"
-              ></div>
+        <div class="dragAndDropContainer">
+          <div class="flexColumn">
+            <div class="nameColumn">
+              <span>To do</span>
+              <img class="cursor-pointer" src="img/plus.btn.svg" onclick="openTaskBox('toDo')" />
             </div>
 
-            <div class="flexColumn">
-              <div class="nameColumn">
-                <span>In Progress</span>
-                <img
-                  class="cursor-pointer"
-                  src="img/plus.btn.svg"
-                  onclick="openTaskBox('inProgress')"
-                />
-              </div>
+            <div class="column" id="toDo" ondrag="showPossibleDropzones('toDo')" ondragover="allowDrop(event);"
+              ondrop="moveTo('toDo'), removePossibleDropzones()"></div>
+          </div>
 
-              <div
-                class="column"
-                id="inProgress"
-                ondrag="showPossibleDropzones('inProgress')"
-                ondragover="allowDrop(event); "
-                ondrop="moveTo('inProgress'), removePossibleDropzones()"
-              ></div>
+          <div class="flexColumn">
+            <div class="nameColumn">
+              <span>In Progress</span>
+              <img class="cursor-pointer" src="img/plus.btn.svg" onclick="openTaskBox('inProgress')" />
             </div>
 
-            <div class="flexColumn">
-              <div class="nameColumn">
-                <span>Awaiting Feedback</span>
-                <img
-                  class="cursor-pointer"
-                  src="img/plus.btn.svg"
-                  onclick="openTaskBox('awaitingFeedback')"
-                />
-              </div>
+            <div class="column" id="inProgress" ondrag="showPossibleDropzones('inProgress')"
+              ondragover="allowDrop(event); " ondrop="moveTo('inProgress'), removePossibleDropzones()"></div>
+          </div>
 
-              <div
-                class="column"
-                id="awaitingFeedback"
-                ondrag="showPossibleDropzones('awaitingFeedback')"
-                ondragover="allowDrop(event);"
-                ondrop="moveTo('awaitingFeedback'), removePossibleDropzones()"
-              ></div>
+          <div class="flexColumn">
+            <div class="nameColumn">
+              <span>Awaiting Feedback</span>
+              <img class="cursor-pointer" src="img/plus.btn.svg" onclick="openTaskBox('awaitingFeedback')" />
             </div>
 
-            <div class="flexColumn">
-              <div class="nameColumn">
-                <span>Done</span>
-                <img
-                  class="cursor-pointer"
-                  src="img/plus.btn.svg"
-                  onclick="openTaskBox('done')"
-                />
-              </div>
+            <div class="column" id="awaitingFeedback" ondrag="showPossibleDropzones('awaitingFeedback')"
+              ondragover="allowDrop(event);" ondrop="moveTo('awaitingFeedback'), removePossibleDropzones()"></div>
+          </div>
 
-              <div
-                class="column"
-                id="done"
-                ondrag="showPossibleDropzones('done')"
-                ondragover="allowDrop(event);"
-                ondrop="moveTo('done'), removePossibleDropzones()"
-              ></div>
+          <div class="flexColumn">
+            <div class="nameColumn">
+              <span>Done</span>
+              <img class="cursor-pointer" src="img/plus.btn.svg" onclick="openTaskBox('done')" />
             </div>
+
+            <div class="column" id="done" ondrag="showPossibleDropzones('done')" ondragover="allowDrop(event);"
+              ondrop="moveTo('done'), removePossibleDropzones()"></div>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+  <!--Navbar only fot Board-->
+  <nav class="navbarBoard d-none">
+    <div class="containerWithSectionsBoard">
+      <ul>
+        <li>
+          <img class="iconsNav" src="img/summary.svg">
+          <a href="summary.html">Summary</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/board.navbar.svg">
+          <a href="board.html">Board</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/addtask.navbar.svg">
+          <a href="addTask.html">Add Task</a>
+        </li>
+        <li>
+          <img class="iconsNav" src="img/contacts.navbar.svg">
+          <a href="contact.html">Contacts</a>
+        </li>
+        <li>
+          <a href="help.html"></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!--Navbar only fot Board-->
+</body>
+
 </html>

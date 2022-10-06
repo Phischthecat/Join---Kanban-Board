@@ -133,8 +133,7 @@ body {
 }
 
 .btn-white:hover img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
-    brightness(91%) contrast(94%);
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg) brightness(91%) contrast(94%);
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
@@ -158,6 +157,7 @@ body {
   from {
     backhground-color: transparent;
   }
+
   to {
     background-color: rgba(0, 0, 0, 0.3);
   }
@@ -188,7 +188,7 @@ body {
 }
 
 .summaryArea {
-  width: 100%;
+  padding: 45px;
 }
 
 .contactArea,
@@ -197,7 +197,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 75px;
+  padding: 45px;
 }
 
 #messageToBoard {
@@ -278,7 +278,7 @@ body {
   transform: rotate(-180deg);
 }
 
-.select-btn.open ~ .list-items {
+.select-btn.open~.list-items {
   display: block;
   border: 1px solid var(--colorLightGrey);
   border-top: unset;
@@ -403,8 +403,7 @@ body {
 *
 **/
 .slide-in-bottom-login {
-  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    1.2s both !important;
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
 }
 
 @keyframes slide-in-bottom-login {
@@ -420,14 +419,12 @@ body {
 }
 
 .slide-out-bck-tl-login {
-  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    0.1s both;
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
 }
 
 @keyframes slide-out-bck-tl-login {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2))
-      translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 
