@@ -144,8 +144,9 @@ body {
 
 .mainContainer {
   width: 100%;
+  height: 100vh;
   background-color: var(--backGroundSection);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .fade-in {
@@ -246,9 +247,9 @@ body {
 }
 
 .select-btn .btn-text {
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 400;
-  color: #333;
+  color: var(--colorLightGrey);
 }
 
 .select-btn .arrow-down {
@@ -281,6 +282,7 @@ body {
   display: block;
   border: 1px solid var(--colorLightGrey);
   border-top: unset;
+  transform: scaleX(1);
 }
 
 .list-items .item {
@@ -321,7 +323,7 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
-.item .categoryCheckbox {
+.categoryCheckbox {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -375,6 +377,24 @@ body {
   border-right: 1px solid var(--colorLightGrey);
   padding-right: 2.5px;
   margin-right: 2.5px;
+}
+
+.categoryColors {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 16px;
+}
+
+.colorBubble {
+  padding-right: 10px;
+  cursor: pointer;
+}
+
+.selectedCategory {
+  display: flex;
 }
 
 /**

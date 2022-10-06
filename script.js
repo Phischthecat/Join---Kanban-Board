@@ -1,4 +1,12 @@
-// [#0038ff,#e200be,#ff8a00,#2ad300,#ff0000,#8aa4ff] Category colors
+let categoryColors = [
+  '#0038ff',
+  '#e200be',
+  '#ff8a00',
+  '#2ad300',
+  '#ff0000',
+  '#8aa4ff',
+];
+
 let categorys = [
   {
     name: 'Sales',
@@ -9,6 +17,8 @@ let categorys = [
     color: '#1fd7c1',
   },
 ];
+
+let choosenColor;
 
 async function init() {
   await downloadFromServer();
@@ -170,40 +180,88 @@ function addNewCategory() {
   let newCategory = getId('categorySelect');
   newCategory.removeAttribute('class');
   newCategory.innerHTML = createInputForNewCategory();
+  renderNewCategoryColors();
 }
 
 function createInputForNewCategory() {
   return /*html*/ `
   <div class="newCategoryContainer">
-    <input class="newCategoryInput" type="text">
+    <input class="newCategoryInput" type="text" placeholder="New category name">
     <span class="cancel-btn" onclick="renderCategorySelection()">
     <i class="fa-solid fa-xmark"></i>
     </span>
     <span class="check-btn" onclick="saveNewCategory()">
     <i class="fa-solid fa-check"></i>
     </span>    
-
   </div>
+  <div id="categoryColorContainer" class="categoryColors"></div>
     `;
+}
+
+function renderNewCategoryColors() {
+  let colorContainer = getId('categoryColorContainer');
+  colorContainer.innerHTML = '';
+  for (let i = 0; i < categoryColors.length; i++) {
+    colorContainer.innerHTML += createNewCategoryColors(i);
+  }
+}
+
+function createNewCategoryColors(i) {
+  const categoryColor = categoryColors[i];
+  return /*html*/ `
+  <span class="categoryCheckbox colorBubble" onclick="categoryColorChoose(${i})">
+    <i class="fa-solid fa-circle" style="color:${categoryColor}"></i>
+  </span>
+  `;
+}
+
+function categoryColorChoose(colorId) {
+  choosenColor = categoryColors[colorId];
+  saveNewCategory();
 }
 
 function renderCategorySelection() {
   let categorySelection = getId('categorySelect');
   categorySelection.innerHTML = createCategorySelection();
   categorySelection.classList.add('select-btn');
+  categorySelection.classList.replace('open');
 }
 
 function createCategorySelection() {
   return /*html*/ `
   <span class="btn-text">Choose category</span>
-                  <span class="arrow-down">
+  <span class="arrow-down">
+    <i class="fa-solid fa-caret-down"></i>
+  </span>
+  `;
+}
+
+function renderSelectedCategory(input) {
+  let categorySelection = getId('categorySelect');
+  categorySelection.innerHTML = createSelectedCategory(input);
+  categorySelection.className = 'select-btn';
+}
+
+function createSelectedCategory(input) {
+  return /*html*/ `
+  <div class="selectedCategory">
+    <span class="item-text">${input}</span>
+    <span class="categoryCheckbox">
+      <i class="fa-solid fa-circle" style="color:${choosenColor}"></i>
+    </span>
+  </div>
+  <span class="arrow-down">
                     <i class="fa-solid fa-caret-down"></i>
                   </span>
   `;
 }
 
 function saveNewCategory() {
-  console.log(document.querySelector('.newCategoryInput').value);
-  renderCategorySelection();
+  let input = document.querySelector('.newCategoryInput').value;
+  categorys.push({
+    name: input,
+    color: choosenColor,
+  });
+  renderSelectedCategory(input);
   renderChoosenCategorys();
 }

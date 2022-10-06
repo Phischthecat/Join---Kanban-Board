@@ -20,6 +20,7 @@
 
 .title input,
 .subTasks input,
+.dueDate input,
 select,
 textarea {
   border-radius: 5px;
@@ -34,9 +35,18 @@ textarea {
 
 .title input,
 .subTasks input,
+.dueDate input,
 select {
   height: 40px;
   padding-left: 15px;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  background: url(../img/calender.svg) no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+  padding-right: 10px;
 }
 
 .priorityBox {
@@ -156,15 +166,6 @@ select {
 }
 
 .btnCreate {
-  cursor: pointer;
-  background-color: var(--mainColorDarkBlue);
-  color: white;
-  height: 50px;
-  border: unset;
-  border-radius: 10px;
-  padding: 4px 16px;
-  font-size: 16px;
-  transition: all var(--transitionSpeed) ease-in-out;
   margin-right: 20px;
 }
 
