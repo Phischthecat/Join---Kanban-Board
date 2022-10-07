@@ -79,35 +79,47 @@
 
               <div class="container">
                 <span class="text">Category</span>
-                <div id="categorySelect" class="select-btn">
-                  <span class="btn-text">Choose category</span>
-                  <span class="arrow-down">
-                    <i class="fa-solid fa-caret-down"></i>
-                  </span>
+                <div id="categorySelect">
+                  <div
+                    id="selectBtn0"
+                    class="select-btn"
+                    onclick="openDropdownMenu(0)"
+                  >
+                    <span class="btn-text">Choose category</span>
+                    <span class="arrow-down">
+                      <i class="fa-solid fa-caret-down"></i>
+                    </span>
+                  </div>
+                  <ul class="list-items" id="categoryList">
+                    <li class="categoryItem" onclick="addNewCategory()">
+                      <span class="item-text"> New category</span>
+                    </li>
+                    <li class="categoryItem">
+                      <span class="item-text">Sales</span>
+                      <span class="categoryCheckbox">
+                        <i class="fa-solid fa-circle"></i>
+                      </span>
+                    </li>
+                    <li class="categoryItem">
+                      <span class="item-text">Backoffice</span>
+                      <span class="categoryCheckbox">
+                        <i class="fa-solid fa-circle"></i>
+                      </span>
+                    </li>
+                  </ul>
                 </div>
-                <ul class="list-items" id="categoryList">
-                  <li class="categoryItem item" onclick="addNewCategory()">
-                    <span class="item-text"> New category</span>
-                  </li>
-                  <li class="categoryItem item">
-                    <span class="item-text">Sales</span>
-                    <span class="categoryCheckbox">
-                      <i class="fa-solid fa-circle"></i>
-                    </span>
-                  </li>
-                  <li class="categoryItem item">
-                    <span class="item-text">Backoffice</span>
-                    <span class="categoryCheckbox">
-                      <i class="fa-solid fa-circle"></i>
-                    </span>
-                  </li>
-                </ul>
               </div>
 
               <div class="container">
                 <span class="text">Assigned to</span>
-                <div class="select-btn">
-                  <span class="btn-text">Select contacts to assign</span>
+                <div
+                  id="selectBtn1"
+                  class="select-btn"
+                  onclick="openDropdownMenu(1)"
+                >
+                  <span id="assignedToBtnText" class="btn-text"
+                    >Select contacts to assign</span
+                  >
                   <span class="arrow-down">
                     <i class="fa-solid fa-caret-down"></i>
                   </span>
@@ -120,6 +132,7 @@
                     </span>
                   </li>
                 </ul>
+                <div id="assignedToContacts" class="assignedToContacts"></div>
               </div>
             </div>
 
@@ -181,7 +194,10 @@
                   onclick="clearFields()"
                   id="clear"
                 >
-                  Clear <img src="img/secondary-plus.svg" />
+                  Clear
+                  <span class="cancel-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
                 </button>
                 <button
                   type="submit"
@@ -189,7 +205,10 @@
                   onclick="addTask('toDo')"
                   id="create"
                 >
-                  Create Task <img src="img/ticked-off.svg" />
+                  Create Task
+                  <span class="check-btn">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
                 </button>
               </div>
             </div>

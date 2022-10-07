@@ -110,18 +110,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
   gap: 10px;
 }
 
-.clearBtn {
-  width: 135px;
-}
-
-.addTaskBtn {
-  width: 180px;
-}
-
-.addTaskBtn img {
-  width: 12px;
-}
-
 .navbarAddTask {
   background-color: #293647;
   display: flex;

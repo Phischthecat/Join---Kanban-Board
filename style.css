@@ -9,7 +9,7 @@
 :root {
   --backGroundSection: #f6f7f8;
   --borderColour: #d1d1d1;
-  --textColor: #6b717e;
+  --textColor: #000;
   --mainColorDarkBlue: #2a3647;
   --urgentColour: #ff3b00;
   --mediumColour: #ffb32a;
@@ -22,6 +22,7 @@
   --btnColor: #293647;
   --boxShadow: #d3d3d3;
   --transitionSpeed: 150ms;
+  --boxShadowBubble: #c4c4c5;
 }
 
 * {
@@ -97,9 +98,10 @@ body {
   height: 50px;
   border: unset;
   border-radius: 10px;
-  padding: 4px 16px;
+  padding: 0 10px;
   font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
+  min-width: 115px;
 }
 
 .btn-white {
@@ -109,9 +111,10 @@ body {
   height: 50px;
   border-radius: 10px;
   border: 1px solid var(--mainColorDarkBlue);
-  padding: 4px 16px;
+  padding: 0 10px;
   font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
+  min-width: 115px;
 }
 
 .btn-white img {
@@ -136,6 +139,22 @@ body {
   filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
     brightness(91%) contrast(94%);
   transition: all var(--transitionSpeed) ease-in-out;
+}
+
+.initials {
+  height: 42px;
+  width: 42px;
+  font-size: 12px;
+}
+
+.initialCircle {
+  background-color: orange;
+  border-radius: 100%;
+  border: 1px solid white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pageHeader {
@@ -247,9 +266,12 @@ body {
 }
 
 .select-btn .btn-text {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 400;
-  color: var(--colorLightGrey);
+  color: var(--textColor);
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
 }
 
 .select-btn .arrow-down {
@@ -282,7 +304,6 @@ body {
   display: block;
   border: 1px solid var(--colorLightGrey);
   border-top: unset;
-  transform: scaleX(1);
 }
 
 .list-items .item {
@@ -297,7 +318,14 @@ body {
 }
 
 .list-items .categoryItem {
+  display: flex;
+  align-items: center;
   justify-content: flex-start;
+  list-style: none;
+  height: 40px;
+  padding-left: 16px;
+  cursor: pointer;
+  transition: 0.3s;
   gap: 10px;
 }
 
@@ -305,10 +333,12 @@ body {
   background-color: var(--colorLightGrey);
 }
 
-.item .item-text {
+.item-text {
   font-size: 16px;
   font-weight: 400;
   color: #333;
+  display: flex;
+  gap: 10px;
 }
 
 .item .checkbox {
@@ -327,12 +357,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 10px;
-  width: 10px;
-  color: blue;
-  border: 2px solid #fff;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #fff;
   border-radius: 50%;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .checkbox .check-icon {
@@ -386,15 +415,20 @@ body {
   align-items: center;
   justify-content: flex-start;
   padding-left: 16px;
+  gap: 0.5rem;
 }
 
 .colorBubble {
-  padding-right: 10px;
   cursor: pointer;
 }
 
-.selectedCategory {
-  display: flex;
+.colorBubble.checked {
+  box-shadow: 0px 5px 5px var(--boxShadowBubble);
+}
+
+.assignedToContacts {
+  margin-top: 5px;
+  padding-left: 16px;
 }
 
 /**

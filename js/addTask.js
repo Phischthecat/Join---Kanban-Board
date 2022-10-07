@@ -4,7 +4,7 @@ let urgency;
 async function initAddTask() {
   await init();
   setDueDateOnToday();
-  renderChoosenCategorys();
+  renderCategorys();
   renderAssignedToContacts();
 }
 
@@ -36,7 +36,7 @@ function getValuesForTasks() {
  * This function is used to create the Task and add it to the storage
  *  * @param {string} taskStatus -- after creating a task the user is asked to push the task into backlog or toDo
  */
-function addTask(taskStatus) {
+async function addTask(taskStatus) {
   [
     title,
     category,
@@ -60,7 +60,7 @@ function addTask(taskStatus) {
     status: taskStatus,
   };
   allTasks.push(task);
-  backend.setItem('tasks', allTasks);
+  await backend.setItem('tasks', allTasks);
   console.log(allTasks);
   animateToBoard();
   clearFields();

@@ -25,6 +25,7 @@ async function init() {
   allTasks = (await backend.getItem('tasks')) || [];
   users = (await backend.getItem('users')) || [];
   contacts = (await backend.getItem('contacts')) || [];
+  categorys = (await backend.getItem('categorys')) || [];
   // users = [];
   // backend.setItem('users', users)
   includeHTML();
@@ -154,21 +155,37 @@ async function renderAssignedToContacts() {
   }
 }
 
-let selectBtns = document.querySelectorAll('.select-btn');
+function openDropdownMenu(id) {
+  getId('selectBtn' + id).classList.toggle('open');
+  getId('assignedToContacts').classList.toggle('d-none');
+}
 
-selectBtns.forEach((selectBtn) => {
-  selectBtn.addEventListener('click', () => {
-    selectBtn.classList.toggle('open');
-    const items = document.querySelectorAll('.item');
-    items.forEach((item) => {
-      item.addEventListener('click', () => {
-        item.classList.toggle('checked');
-      });
-    });
-  });
-});
+function checked(event, i) {
+  event.target.classList.toggle('checked');
 
-function renderChoosenCategorys() {
+  let checkedContacts = document.querySelectorAll('.checked'),
+    btnText = getId('assignedToBtnText');
+  if (checkedContacts && checkedContacts.length > 0) {
+    btnText.innerText = `${checkedContacts.length} Selected`;
+    // renderAssignedContactInitials(i, checkedContacts);
+  } else {
+    btnText.innerText = 'Select contacts to assign';
+  }
+}
+
+// function renderAssignedContactInitials(index, checkedContacts) {
+//   let initial = contacts.find((n) => n.name == checkedContacts[0].id);
+//   console.log(checkedContacts[0].id);
+//   let assignedContacts = getId('assignedToContacts');
+//   assignedContacts.innerHTML = '';
+//   for (let i = 0; i < checkedContacts.length; i++) {
+//     assignedContacts.innerHTML += /*html*/ `
+//     <div class="initials initialCircle">${contacts[index].initial}</div>
+//     `;
+//   }
+// }
+
+function renderCategorys() {
   let categoryList = getId('categoryList');
   categoryList.innerHTML = createCategoryDefault();
   for (let i = 0; i < categorys.length; i++) {
@@ -178,24 +195,13 @@ function renderChoosenCategorys() {
 
 function addNewCategory() {
   let newCategory = getId('categorySelect');
-  newCategory.removeAttribute('class');
   newCategory.innerHTML = createInputForNewCategory();
   renderNewCategoryColors();
 }
 
-function createInputForNewCategory() {
-  return /*html*/ `
-  <div class="newCategoryContainer">
-    <input class="newCategoryInput" type="text" placeholder="New category name">
-    <span class="cancel-btn" onclick="renderCategorySelection()">
-    <i class="fa-solid fa-xmark"></i>
-    </span>
-    <span class="check-btn" onclick="saveNewCategory()">
-    <i class="fa-solid fa-check"></i>
-    </span>    
-  </div>
-  <div id="categoryColorContainer" class="categoryColors"></div>
-    `;
+function cancelNewCategory() {
+  renderCategorySelection();
+  renderCategorys();
 }
 
 function renderNewCategoryColors() {
@@ -206,62 +212,32 @@ function renderNewCategoryColors() {
   }
 }
 
-function createNewCategoryColors(i) {
-  const categoryColor = categoryColors[i];
-  return /*html*/ `
-  <span class="categoryCheckbox colorBubble" onclick="categoryColorChoose(${i})">
-    <i class="fa-solid fa-circle" style="color:${categoryColor}"></i>
-  </span>
-  `;
-}
-
 function categoryColorChoose(colorId) {
+  let colorBubbles = document.querySelectorAll('.colorBubble');
+  colorBubbles.forEach((colorBubble) => {
+    colorBubble.classList.remove('checked');
+  });
+  getId('color' + colorId).classList.add('checked');
   choosenColor = categoryColors[colorId];
-  saveNewCategory();
 }
 
 function renderCategorySelection() {
   let categorySelection = getId('categorySelect');
   categorySelection.innerHTML = createCategorySelection();
-  categorySelection.classList.add('select-btn');
-  categorySelection.classList.replace('open');
-}
-
-function createCategorySelection() {
-  return /*html*/ `
-  <span class="btn-text">Choose category</span>
-  <span class="arrow-down">
-    <i class="fa-solid fa-caret-down"></i>
-  </span>
-  `;
 }
 
 function renderSelectedCategory(input) {
   let categorySelection = getId('categorySelect');
   categorySelection.innerHTML = createSelectedCategory(input);
-  categorySelection.className = 'select-btn';
 }
 
-function createSelectedCategory(input) {
-  return /*html*/ `
-  <div class="selectedCategory">
-    <span class="item-text">${input}</span>
-    <span class="categoryCheckbox">
-      <i class="fa-solid fa-circle" style="color:${choosenColor}"></i>
-    </span>
-  </div>
-  <span class="arrow-down">
-                    <i class="fa-solid fa-caret-down"></i>
-                  </span>
-  `;
-}
-
-function saveNewCategory() {
+async function saveNewCategory() {
   let input = document.querySelector('.newCategoryInput').value;
   categorys.push({
     name: input,
     color: choosenColor,
   });
+  await backend.setItem('categorys', categorys);
   renderSelectedCategory(input);
-  renderChoosenCategorys();
+  renderCategorys();
 }

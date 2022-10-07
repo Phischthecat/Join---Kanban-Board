@@ -28,10 +28,6 @@
   margin-right: 10px;
 }
 
-.addTaskBtn {
-  width: 137px;
-}
-
 .add:hover {
   background-color: #36afe4;
   cursor: pointer;

@@ -237,18 +237,6 @@ function createCategoryDefault() {
   `;
 }
 
-function contactsAssignedTo(i) {
-  const contact = contacts[i];
-  return /*html*/ `
-      <li class="item">
-        <span class="item-text">${contact.name}</span>
-        <span class="checkbox">
-          <i class="fa-solid fa-square check-icon"></i>
-        </span>
-      </li>
-      `;
-}
-
 function addTaskContainerHMTL() {
   return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
@@ -422,4 +410,67 @@ function addTaskContainerHMTL() {
 </div>
 </div>
     `;
+}
+
+function createInputForNewCategory() {
+  return /*html*/ `
+  <div class="newCategoryContainer">
+    <input class="newCategoryInput" type="text" placeholder="New category name">
+    <span class="cancel-btn" onclick="cancelNewCategory()" title="Cancel">
+    <i class="fa-solid fa-xmark"></i>
+    </span>
+    <span class="check-btn" onclick="saveNewCategory()" title="Save new category">
+    <i class="fa-solid fa-check"></i>
+    </span>    
+  </div>
+  <div id="categoryColorContainer" class="categoryColors"></div>
+    `;
+}
+
+function createNewCategoryColors(i) {
+  const categoryColor = categoryColors[i];
+  return /*html*/ `
+  <span id="color${i}" class="categoryCheckbox colorBubble" onclick="categoryColorChoose(${i})">
+    <i class="fa-solid fa-circle" style="color:${categoryColor}"></i>
+  </span>
+  `;
+}
+
+function createCategorySelection() {
+  return /*html*/ `
+  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
+    <span class="btn-text">Choose category</span>
+    <span class="arrow-down">
+      <i class="fa-solid fa-caret-down"></i>
+    </span>
+  </div>
+  <ul class="list-items" id="categoryList"></ul>
+  `;
+}
+
+function createSelectedCategory(input) {
+  return /*html*/ `
+  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
+    <span class="item-text">${input}<span class="categoryCheckbox">
+      <i class="fa-solid fa-circle" style="color:${choosenColor}"></i>
+    </span>
+  </span>
+    <span class="arrow-down">
+      <i class="fa-solid fa-caret-down"></i>
+    </span>
+  </div>
+  <ul class="list-items" id="categoryList"></ul>
+  `;
+}
+
+function contactsAssignedTo(i) {
+  const contact = contacts[i];
+  return /*html*/ `
+      <li class="item" id="${contact.name}" onclick="checked(event, ${i})">
+        <span class="item-text">${contact.name}</span>
+        <span class="checkbox">
+          <i class="fa-solid fa-square check-icon"></i>
+        </span>
+      </li>
+      `;
 }
