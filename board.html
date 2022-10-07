@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Board</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/media.css" />
     <link rel="stylesheet" href="css/board.css" />
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/addTask.css" />
-    <link rel="shortcut icon" href="icons/logo.png" />
+    <link rel="shortcut icon" href="img/joinlogo.svg" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -29,12 +30,41 @@
       </div>
 
       <div class="mainContainer">
+        <!--Header only for Board Page-->
+        <header class="headerBoard d-none">
+          <img src="img/joinlogo.svg" class="joinLogoBoard" />
+
+          <div class="actualUserBoard">
+            <div class="circle">
+              <!-- <img src="" id="actualUser"> -->
+            </div>
+          </div>
+        </header>
+        <!--Header only for Board Page-->
+
         <div w3-include-html="kanbanBar.html"></div>
 
         <div class="boardContainer">
           <div class="align-center">
             <div class="headline">
+              <!--Only for Mobile-->
+              <span class="kanbanTextBoard d-none"
+                >Kanban Project Management Tool</span
+              >
+              <!--Only for Mobile-->
+              <img
+                class="plusImgMobile d-none"
+                src="img/plus.btn.svg"
+                onclick="openTaskBox()"
+              />
               <h1>Board</h1>
+              <!--Only for Mobile-->
+              <input
+                type="text"
+                class="inputSearchMobile d-none"
+                placeholder="Find Task"
+              />
+              <!--Only for Mobile-->
             </div>
 
             <div class="searchContainer">
@@ -125,5 +155,32 @@
         </div>
       </div>
     </div>
+    <!--Navbar only fot Board-->
+    <nav class="navbarBoard d-none">
+      <div class="containerWithSectionsBoard">
+        <ul>
+          <li>
+            <img class="iconsNav" src="img/summary.svg" />
+            <a href="summary.html">Summary</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/board.navbar.svg" />
+            <a href="board.html">Board</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/addtask.navbar.svg" />
+            <a href="addTask.html">Add Task</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/contacts.navbar.svg" />
+            <a href="contact.html">Contacts</a>
+          </li>
+          <li>
+            <a href="help.html"></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!--Navbar only fot Board-->
   </body>
 </html>

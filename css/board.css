@@ -1,6 +1,9 @@
 .boardContainer {
-  padding: 75px;
+  padding-left: 75px;
+  padding-right: 75px;
+  padding-top: 75px;
 }
+
 
 .align-center {
   display: flex;
@@ -52,6 +55,7 @@
 .dragAndDropContainer {
   height: 490px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
@@ -234,4 +238,66 @@
 
 .buttonContainer {
   width: 300px !important;
+}
+
+.joinLogoBoard {
+  width: 40px;
+  height: 40px;
+  padding-left: 25px;
+  filter: invert(1);
+}
+
+.headerBoard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+  width: 100%;
+  height: 75px;
+}
+
+.actualUserBoard {
+  padding-right: 25px;
+}
+
+.navbarBoard {
+  background-color: #293647;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerWithSectionsBoard ul {
+  display: flex;
+  margin-bottom: 0;
+}
+
+.containerWithSectionsBoard li {
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.containerWithSectionsBoard ul li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.inputSearchMobile {
+  height: 40px;
+  width: 230px;
+  background-image: url('/img/search.svg');
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 200px;
+  background-size: 15px;
+  font-size: 16px;
+  padding-left: 15px;
+  border-radius: 10px;
+  border: 1px solid #a8a8a8;
+  margin-left: 8px;
 }
