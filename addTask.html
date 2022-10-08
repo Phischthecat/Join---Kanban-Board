@@ -1,84 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Task</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <link rel="shortcut icon" href="img/joinlogo.svg" />
+    <link rel="shortcut icon" href="icons/logo.png" />
+    <link rel="stylesheet" href="css/addTask.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="js/mini_backend.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/addTask.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Add Task</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/media.css" />
-  <link rel="shortcut icon" href="img/joinlogo.svg" />
-  <link rel="shortcut icon" href="icons/logo.png" />
-  <link rel="stylesheet" href="css/addTask.css" />
-  <script src="js/mini_backend.js"></script>
-  <script src="script.js"></script>
-  <script src="js/addTask.js"></script>
-</head>
+  <body onload="initAddTask();">
+    <div class="flex">
+      <div>
+        <div w3-include-html="navbar.html" class="flex"></div>
+      </div>
 
-<body onload="initAddTask();">
-  <div class="flex">
-    <div>
-      <div w3-include-html="navbar.html" class="flex"></div>
-    </div>
+      <div class="mainContainer">
+        <!--Header only for Add Task-->
+        <div class="kanbanBarAddTask">
+          <img src="img/joinlogo.svg" class="joinLogoAddTask" />
+          <button class="btn-blue btnCreate">
+            Create
+            <img src="img/ticked-off.svg" />
+          </button>
 
-    <div class="mainContainer">
+          <div class="actualUser">
+            <img class="questionMark" src="img/questionMark.navbar.svg" />
 
-      <!--Header only for Add Task-->
-      <div class="kanbanBarAddTask">
+            <div class="circle">
+              <!-- <img src="" id="actualUser"> -->
+            </div>
+          </div>
+        </div>
+        <!--Header only for Add Task-->
 
-        <img src="img/joinlogo.svg" class="joinLogoAddTask">
-        <button class="btnCreate">
-          Create
-          <img src="img/ticked-off.svg">
-        </button>
+        <div w3-include-html="kanbanBar.html"></div>
+        <div class="addTaskContainer">
+          <div class="headline">
+            <span class="kanbanTextAddTask"
+              >Kanban Project Management Tool</span
+            >
+            <h1>Add Task</h1>
+          </div>
 
-        <div class="actualUser">
-          <img class="questionMark" src="img/questionMark.navbar.svg">
+          <form id="formAddTask" class="flex" onsubmit="return false">
+            <div class="leftSplit">
+              <div class="title flexColumn">
+                <span class="text">Title</span>
+                <input
+                  id="taskTitle"
+                  required
+                  type="text"
+                  placeholder="Enter a title"
+                />
+              </div>
 
-          <div class="circle">
-            <!-- <img src="" id="actualUser"> -->
+              <div class="flexColumn">
+                <span class="text">Description</span>
+                <textarea
+                  id="taskDescription"
+                  cols="30"
+                  rows="5"
+                  placeholder="Enter a description"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="container">
+                <span class="text">Category</span>
+                <div id="categorySelect">
+                  <div
+                    id="selectBtn0"
+                    class="select-btn"
+                    onclick="openDropdownMenu(0)"
+                  >
+                    <span class="btn-text">Choose category</span>
+                    <span class="arrow-down">
+                      <i class="fa-solid fa-caret-down"></i>
+                    </span>
+                  </div>
+                  <ul class="list-items" id="categoryList">
+                    <li class="categoryItem" onclick="addNewCategory()">
+                      <span class="item-text"> New category</span>
+                    </li>
+                    <li class="categoryItem">
+                      <span class="item-text">Sales</span>
+                      <span class="categoryCheckbox">
+                        <i class="fa-solid fa-circle"></i>
+                      </span>
+                    </li>
+                    <li class="categoryItem">
+                      <span class="item-text">Backoffice</span>
+                      <span class="categoryCheckbox">
+                        <i class="fa-solid fa-circle"></i>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="container">
+                <span class="text">Assigned to</span>
+                <div
+                  id="selectBtn1"
+                  class="select-btn"
+                  onclick="openDropdownMenu(1)"
+                >
+                  <span id="assignedToBtnText" class="btn-text"
+                    >Select contacts to assign</span
+                  >
+                  <span class="arrow-down">
+                    <i class="fa-solid fa-caret-down"></i>
+                  </span>
+                </div>
+                <ul class="list-items" id="assignedToList">
+                  <li class="item">
+                    <span class="item-text">You</span>
+                    <span class="checkbox">
+                      <i class="fa-solid fa-square check-icon"></i>
+                    </span>
+                  </li>
+                </ul>
+                <div id="assignedToContacts" class="assignedToContacts"></div>
+              </div>
+            </div>
+
+            <div class="rightSplit">
+              <div class="dueDate flexColumn">
+                <span class="text">Due date</span>
+                <input required id="taskDueDate" type="date" />
+              </div>
+
+              <div class="priority flexColumn" id="priority">
+                <span class="text">Prio</span>
+
+                <div class="priorityBox">
+                  <button
+                    type="button"
+                    class="statusButton"
+                    onclick="getPriority('urgent')"
+                    id="urgent"
+                  >
+                    <p>Urgent</p>
+                    <img src="img/urgent.addTask.svg" />
+                  </button>
+
+                  <button
+                    type="button"
+                    class="statusButton"
+                    onclick="getPriority('medium')"
+                    id="medium"
+                  >
+                    <p>Medium</p>
+                    <img src="img/medium.addTask.svg" />
+                  </button>
+
+                  <button
+                    type="button"
+                    class="statusButton"
+                    onclick="getPriority('low')"
+                    id="low"
+                  >
+                    <p>Low</p>
+                    <img src="img/low.addTask.svg" />
+                  </button>
+                </div>
+              </div>
+
+              <div class="subTasks flexColumn">
+                <span class="text">Subtasks</span>
+                <input
+                  type="text"
+                  id="subtasks"
+                  placeholder="Add new subtask"
+                />
+              </div>
+
+              <div class="buttonContainer" id="buttonContainer">
+                <button
+                  type="button"
+                  class="btn-white clearBtn"
+                  onclick="clearFields()"
+                  id="clear"
+                >
+                  Clear
+                  <span class="cancel-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
+                </button>
+                <button
+                  type="submit"
+                  class="btn-blue createTaskBtn"
+                  onclick="addTask('toDo')"
+                  id="create"
+                >
+                  Create Task
+                  <span class="check-btn">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
+                </button>
+              </div>
+            </div>
+          </form>
+          <div id="messageToBoard" class="slide-in-bottom d-none">
+            <span> Task added to Board </span>
+            <img src="img/board.navbar.svg" />
           </div>
         </div>
       </div>
-      <!--Header only for Add Task-->
+    </div>
 
-      <div w3-include-html="kanbanBar.html"></div>
-      <div class="addTaskContainer">
-        <div w3-include-html="task-snippet.html"></div>
+    <!-- Navbar only for Add Task-->
+    <nav class="navbarAddTask">
+      <div class="containerWithSectionsAddTask">
+        <ul>
+          <li>
+            <img class="iconsNav" src="img/summary.svg" />
+            <a href="summary.html">Summary</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/board.navbar.svg" />
+            <a href="board.html">Board</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/addtask.navbar.svg" />
+            <a href="addTask.html">Add Task</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/contacts.navbar.svg" />
+            <a href="contact.html">Contacts</a>
+          </li>
+          <li>
+            <a href="help.html"></a>
+          </li>
+        </ul>
       </div>
-    </div>
-  </div>
-
-
-  <!-- Navbar only for Add Task-->
-  <nav class="navbarAddTask">
-    <div class="containerWithSectionsAddTask">
-      <ul>
-        <li>
-          <img class="iconsNav" src="img/summary.svg">
-          <a href="summary.html">Summary</a>
-        </li>
-        <li>
-          <img class="iconsNav" src="img/board.navbar.svg">
-          <a href="board.html">Board</a>
-        </li>
-        <li>
-          <img class="iconsNav" src="img/addtask.navbar.svg">
-          <a href="addTask.html">Add Task</a>
-        </li>
-        <li>
-          <img class="iconsNav" src="img/contacts.navbar.svg">
-          <a href="contact.html">Contacts</a>
-        </li>
-        <li>
-          <a href="help.html"></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Navbar only for Add Task-->
-</body>
-
+    </nav>
+    <!-- Navbar only for Add Task-->
+    <script src="script.js"></script>
+  </body>
 </html>

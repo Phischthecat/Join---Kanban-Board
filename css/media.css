@@ -1312,7 +1312,6 @@
     }
 }
 
-
 @media (max-width: 292px) {
     .headline h1 {
         font-size: 27px;
@@ -1329,3 +1328,655 @@
 }
 
 /********* Media Queries for Add Task *********/
+
+
+/********* Media Queries for Board *********/
+@media (max-width: 1220px) {
+    .boardContainer {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+}
+
+@media (max-width: 1180px) {
+    .boardContainer {
+        padding-left: 35px !important;
+        padding-right: 35px !important;
+    }
+}
+
+@media (max-width: 1130px) {
+    .boardContainer {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+}
+
+@media (max-width: 1100px) {
+    .boardContainer {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .headline h1 {
+        font-size: 51px;
+    }
+
+    .dragAndDropContainer {
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 845px) {
+    .headline h1 {
+        font-size: 41px;
+    }
+
+    .addTaskBtn {
+        width: 140px !important;
+    }
+
+    #search {
+        width: 140px;
+        background-position-x: 120px !important;
+    }
+}
+
+@media (max-width: 800px) {
+    .kanbanBar {
+        display: none !important;
+    }
+
+    .headerBoard {
+        display: flex !important;
+    }
+
+    #navbar {
+        display: none !important;
+    }
+
+    .navbarBoard {
+        display: flex !important;
+    }
+
+    .kanbanTextBoard {
+        display: flex !important;
+        padding-left: 8px;
+    }
+
+    .searchContainer {
+        display: none;
+    }
+
+    .headline {
+        margin-left: -8px;
+    }
+
+    .headline h1 {
+        padding-bottom: 25px;
+    }
+
+    .boardContainer {
+        padding-top: 40px !important;
+    }
+
+    .plusImgMobile {
+        cursor: pointer;
+        display: flex !important;
+        position: absolute;
+        right: 5px;
+        top: 50px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .align-center {
+        position: relative;
+    }
+
+    .inputSearchMobile {
+        display: flex !important;
+    }
+
+    .column {
+        width: 720px !important;
+        height: 220px !important;
+    }
+
+    .taskCard {
+        width: 685px !important;
+    }
+
+    .nameColumn {
+        width: 100% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 5px !important;
+    }
+
+    .nameColumn img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+}
+
+@media (max-width: 795px) {
+    .taskCard {
+        width: 650px !important;
+    }
+
+    .nameColumn {
+        width: 97% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 20px !important;
+    }
+
+    .headline {
+        margin-left: 8px;
+    }
+
+    .plusImgMobile {
+        right: 20px;
+    }
+}
+
+@media (max-width: 770px) {
+    .column {
+        width: 700px !important;
+    }
+
+    .taskCard {
+        width: 615px !important;
+    }
+
+    .nameColumn {
+        width: 97% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 30px !important;
+    }
+
+    .plusImgMobile {
+        right: 28px;
+    }
+
+    .headline {
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 750px) {
+    .column {
+        width: 680px !important;
+    }
+
+    .taskCard {
+        width: 585px !important;
+    }
+
+    .nameColumn {
+        width: 93% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 40px !important;
+    }
+
+    .headline {
+        margin-left: 30px;
+    }
+
+    .plusImgMobile {
+        right: 32px;
+    }
+}
+
+@media (max-width: 730px) {
+    .column {
+        width: 645px !important;
+    }
+
+    .taskCard {
+        width: 570px !important;
+    }
+
+    .nameColumn {
+        width: 97% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 28px !important;
+    }
+
+    .headline {
+        margin-left: 15px;
+    }
+
+    .plusImgMobile {
+        right: 36px;
+    }
+}
+
+@media (max-width: 695px) {
+    .column {
+        width: 630px !important;
+    }
+
+    .taskCard {
+        width: 535px !important;
+    }
+
+    .nameColumn {
+        width: 95% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 35px !important;
+    }
+
+    .headline {
+        margin-left: 23px;
+    }
+
+    .plusImgMobile {
+        right: 38px;
+    }
+}
+
+@media (max-width: 678px) {
+    .column {
+        width: 600px !important;
+    }
+
+    .taskCard {
+        width: 500px !important;
+    }
+
+    .nameColumn {
+        width: 95% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 35px !important;
+    }
+
+    .headline {
+        margin-left: 25px;
+    }
+
+    .plusImgMobile {
+        right: 35px;
+    }
+}
+
+@media (max-width: 650px) {
+    .column {
+        width: 570px !important;
+    }
+
+    .taskCard {
+        width: 480px !important;
+    }
+
+    .nameColumn {
+        width: 95% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 35px !important;
+    }
+
+    .headline {
+        margin-left: 25px;
+    }
+
+    .plusImgMobile {
+        right: 42px;
+    }
+}
+
+@media (max-width: 620px) {
+    .column {
+        width: 535px !important;
+    }
+
+    .taskCard {
+        width: 440px !important;
+    }
+}
+
+@media (max-width: 585px) {
+    .column {
+        width: 500px !important;
+    }
+
+    .taskCard {
+        width: 410px !important;
+    }
+}
+
+@media (max-width: 555px) {
+    .column {
+        width: 465px !important;
+    }
+
+    .taskCard {
+        width: 365px !important;
+    }
+
+    .plusImgMobile {
+        right: 47px;
+    }
+}
+
+@media (max-width: 515px) {
+    .column {
+        width: 423px !important;
+    }
+
+    .taskCard {
+        width: 335px !important;
+    }
+}
+
+@media (max-width: 502px) {
+    .category {
+        font-size: 16px;
+    }
+
+    .descriptionBoard {
+        font-size: 16px;
+    }
+
+    .column {
+        width: 415px !important;
+    }
+
+    .taskCard {
+        width: 315px !important;
+    }
+
+    .nameColumn {
+        width: 93% !important;
+    }
+
+    .plusImgMobile {
+        right: 47px;
+    }
+}
+
+
+@media (max-width: 497px) {
+    .iconsNav {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    nav a {
+        font-size: 14px;
+    }
+
+    .containerWithSectionsBoard ul {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 475px) {
+    .plusImgMobile {
+        right: 22px;
+    }
+}
+
+@media (max-width: 465px) {
+    .column {
+        width: 400px !important;
+    }
+
+    .taskCard {
+        width: 300px !important;
+    }
+
+    .nameColumn {
+        width: 93% !important;
+    }
+
+    .plusImgMobile {
+        right: 25px;
+    }
+}
+
+@media (max-width: 455px) {
+    .kanbanTextBoard {
+        font-size: 14px;
+    }
+
+    .headline h1 {
+        font-size: 31px;
+    }
+
+    .column {
+        width: 380px !important;
+    }
+
+    .taskCard {
+        width: 285px !important;
+    }
+
+    .plusImgMobile {
+        right: 35px;
+    }
+}
+
+@media (max-width: 440px) {
+    .inputSearchMobile {
+        width: 200px !important;
+        background-position-x: 170px !important;
+    }
+
+    .column {
+        width: 350px !important;
+    }
+
+    .taskCard {
+        width: 240px !important;
+    }
+
+    .plusImgMobile {
+        right: 47px;
+    }
+}
+
+
+@media (max-width: 440px) {
+    .inputSearchMobile {
+        width: 200px !important;
+        background-position-x: 170px !important;
+    }
+
+    .iconsNav {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
+
+    .column {
+        width: 350px !important;
+    }
+
+    .taskCard {
+        width: 240px !important;
+    }
+
+    .plusImgMobile {
+        right: 47px;
+    }
+}
+
+@media (max-width: 425px) {
+    .inputSearchMobile {
+        width: 170px !important;
+        background-position-x: 145px !important;
+    }
+
+    .column {
+        width: 320px !important;
+    }
+
+    .taskCard {
+        width: 230px !important;
+    }
+
+    .plusImgMobile {
+        right: 61px;
+    }
+}
+
+@media (max-width: 412px) {
+    .containerWithSectionsBoard li {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .inputSearchMobile {
+        width: 140px !important;
+        background-position-x: 120px !important;
+    }
+
+    .column {
+        width: 290px !important;
+    }
+
+    .taskCard {
+        width: 200px !important;
+    }
+
+    .plusImgMobile {
+        right: 75px;
+    }
+}
+
+@media (max-width: 390px) {
+    .inputSearchMobile {
+        width: 110px !important;
+        background-position-x: 100px !important;
+    }
+
+    .kanbanTextBoard {
+        font-size: 13px;
+    }
+
+    .headline h1 {
+        font-size: 20px;
+    }
+
+    .column {
+        width: 260px !important;
+    }
+
+    .taskCard {
+        width: 170px !important;
+    }
+
+    .plusImgMobile {
+        right: 82px;
+    }
+}
+
+@media (max-width: 362px) {
+    .iconsNav {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .containerWithSectionsBoard li {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+    }
+
+    .headline h1 {
+        font-size: 25px;
+    }
+
+    .column {
+        width: 230px !important;
+    }
+
+    .taskCard {
+        width: 145px !important;
+    }
+
+    .plusImgMobile {
+        right: 79px;
+    }
+}
+
+@media (max-width: 345px) {
+    .plusImgMobile {
+        right: 64px;
+    }
+}
+
+@media (max-width: 333px) {
+    .containerWithSectionsBoard li {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .plusImgMobile {
+        right: 50px;
+    }
+}
+
+
+@media (max-width: 315px) {
+    .plusImgMobile {
+        right: 35px;
+    }
+}
+
+@media (max-width: 312px) {
+    nav a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 300px) {
+    .boardContainer {
+        padding-left: 0px !important;
+        padding-right: 30px !important;
+    }
+
+    .plusImgMobile {
+        right: 20px;
+    }
+}
+
+@media (max-width: 297px) {
+    .kanbanTextBoard {
+        font-size: 12px;
+    }
+
+    .containerWithSectionsBoard li {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+
+    .plusImgMobile {
+        right: 15px;
+    }
+}
+
+@media (max-width: 280px) {
+    .plusImgMobile {
+        right: 0;
+    }
+}
+
+/********* Media Queries for Board *********/

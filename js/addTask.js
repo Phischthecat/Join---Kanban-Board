@@ -1,20 +1,11 @@
 let allTasks = [];
 let urgency;
 
-/**
- * This Function is a simplified spelling for document.getElementById
- * @param {string} theId is used for the actual Id
- * @returns document.getElementById();
- */
-function getId(theId) {
-  return document.getElementById(theId);
-}
-
 async function initAddTask() {
   await init();
-  setTimeout(() => {
-    setDueDateOnToday();
-  }, 300);
+  setDueDateOnToday();
+  renderCategorys();
+  renderAssignedToContacts();
 }
 
 /**
@@ -45,7 +36,7 @@ function getValuesForTasks() {
  * This function is used to create the Task and add it to the storage
  *  * @param {string} taskStatus -- after creating a task the user is asked to push the task into backlog or toDo
  */
-function addTask(taskStatus) {
+async function addTask(taskStatus) {
   [
     title,
     category,
@@ -69,7 +60,7 @@ function addTask(taskStatus) {
     status: taskStatus,
   };
   allTasks.push(task);
-  backend.setItem('tasks', allTasks);
+  await backend.setItem('tasks', allTasks);
   console.log(allTasks);
   animateToBoard();
   clearFields();
@@ -88,17 +79,20 @@ function animateToBoard() {
   }, 1200);
 }
 
-
-function setDueDateOnToday() {
-  let date = document.getElementById('taskDueDate');
-  today = new Date();
-  date.value =
-    today.getFullYear() +
-    '-' +
-    (today.getMonth() + 1).toLocaleString('en-US', {
-      minimumIntegerDigits: 2,
-      useGrouping: false,
-    }) +
-    '-' +
-    today.getDate();
+function getPriority(prio) {
+  if (prio == 'urgent') {
+    getId(prio).classList.add('urgentBtn');
+    getId('medium').classList.remove('mediumBtn');
+    getId('low').classList.remove('lowBtn');
+    urgency = prio;
+  } else if (prio == 'medium') {
+    getId('urgent').classList.remove('urgentBtn');
+    getId(prio).classList.add('mediumBtn');
+    getId('low').classList.remove('lowBtn');
+    urgency = prio;
+  } else if (prio == 'low') {
+    getId('urgent').classList.remove('urgentBtn');
+    getId('medium').classList.remove('mediumBtn');
+    getId(prio).classList.add('lowBtn');
+  }
 }

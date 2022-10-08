@@ -1,8 +1,31 @@
+let categoryColors = [
+  '#0038ff',
+  '#e200be',
+  '#ff8a00',
+  '#2ad300',
+  '#ff0000',
+  '#8aa4ff',
+];
+
+let categorys = [
+  {
+    name: 'Sales',
+    color: '#fc71ff',
+  },
+  {
+    name: 'Backoffice',
+    color: '#1fd7c1',
+  },
+];
+
+let choosenColor;
+
 async function init() {
   await downloadFromServer();
   allTasks = (await backend.getItem('tasks')) || [];
   users = (await backend.getItem('users')) || [];
   contacts = (await backend.getItem('contacts')) || [];
+  categorys = (await backend.getItem('categorys')) || [];
   // users = [];
   // backend.setItem('users', users)
   includeHTML();
@@ -24,14 +47,31 @@ async function includeHTML() {
   }
 }
 
+function setDueDateOnToday() {
+  let date = document.getElementById('taskDueDate');
+  today = new Date();
+  date.value =
+    today.getFullYear() +
+    '-' +
+    (today.getMonth() + 1).toLocaleString('en-US', {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+    }) +
+    '-' +
+    today.getDate().toLocaleString('en-US', {
+      minimumIntegerDigits: 2,
+      useGrouping: false,
+    });
+}
+
 async function openTaskBox(pickedContainer) {
   document.body.style.overflow = 'hidden';
-  setTimeout(() => {
-    w3IncludeHTML();
-  }, 100);
   let box = document.getElementById('taskBox');
-  box.innerHTML = createTaskBox();
+  box.innerHTML = addTaskContainerHMTL();
   setTimeout(() => {
+    getId('animation').classList.toggle('slide-in-right');
+    getId('animation').classList.toggle('fade-in');
+    renderAssignedToContacts;
     if (box.classList.contains('d-none')) {
       box.classList.remove('d-none');
     }
@@ -62,8 +102,12 @@ async function openContactBox(fct, contact) {
   setTimeout(() => {
     w3IncludeHTML();
   }, 100);
-  let box = document.getElementById('taskBox');
+  let box = getId('taskBox');
   box.innerHTML = fct(contact);
+  setTimeout(() => {
+    getId('animation').classList.toggle('slide-in-right');
+    getId('animation').classList.toggle('fade-in');
+  }, 300);
   if (box.classList.contains('d-none')) {
     box.classList.remove('d-none');
   }
@@ -73,7 +117,6 @@ function closeContactBox() {
   document.getElementById('animation').classList.toggle('slide-out-right');
   setTimeout(() => {
     document.getElementById('taskBox').classList.toggle('d-none');
-    document.body.style.overflow = 'auto';
   }, 1000);
 }
 
@@ -82,7 +125,10 @@ function closeContactBox() {
  */
 function checkIfUserIsLoggedIn() {
   if (!window.location.href.endsWith('index.html')) {
-    if (localStorage.getItem('loggedInKey') === null && !window.location.href.endsWith('register.html')) {
+    if (
+      localStorage.getItem('loggedInKey') === null &&
+      !window.location.href.endsWith('register.html')
+    ) {
       window.location.href = './index.html';
     }
   }
@@ -101,21 +147,97 @@ function getId(theId) {
   return document.getElementById(theId);
 }
 
-
-function getPriority(prio) {
-  if (prio == 'urgent') {
-    getId(prio).classList.add('urgentBtn');
-    getId('medium').classList.remove('mediumBtn');
-    getId('low').classList.remove('lowBtn');
-    urgency = prio;
-  } else if (prio == 'medium') {
-    getId('urgent').classList.remove('urgentBtn');
-    getId(prio).classList.add('mediumBtn');
-    getId('low').classList.remove('lowBtn');
-    urgency = prio;
-  } else if (prio == 'low') {
-    getId('urgent').classList.remove('urgentBtn');
-    getId('medium').classList.remove('mediumBtn');
-    getId(prio).classList.add('lowBtn');
+async function renderAssignedToContacts() {
+  let contactSelection = getId('assignedToList');
+  contactSelection.innerHTML = '';
+  for (let i = 0; i < contacts.length; i++) {
+    contactSelection.innerHTML += contactsAssignedTo(i);
   }
+}
+
+function openDropdownMenu(id) {
+  getId('selectBtn' + id).classList.toggle('open');
+  getId('assignedToContacts').classList.toggle('d-none');
+}
+
+function checked(event, i) {
+  event.target.classList.toggle('checked');
+
+  let checkedContacts = document.querySelectorAll('.checked'),
+    btnText = getId('assignedToBtnText');
+  if (checkedContacts && checkedContacts.length > 0) {
+    btnText.innerText = `${checkedContacts.length} Selected`;
+    // renderAssignedContactInitials(i, checkedContacts);
+  } else {
+    btnText.innerText = 'Select contacts to assign';
+  }
+}
+
+// function renderAssignedContactInitials(index, checkedContacts) {
+//   let initial = contacts.find((n) => n.name == checkedContacts[0].id);
+//   console.log(checkedContacts[0].id);
+//   let assignedContacts = getId('assignedToContacts');
+//   assignedContacts.innerHTML = '';
+//   for (let i = 0; i < checkedContacts.length; i++) {
+//     assignedContacts.innerHTML += /*html*/ `
+//     <div class="initials initialCircle">${contacts[index].initial}</div>
+//     `;
+//   }
+// }
+
+function renderCategorys() {
+  let categoryList = getId('categoryList');
+  categoryList.innerHTML = createCategoryDefault();
+  for (let i = 0; i < categorys.length; i++) {
+    categoryList.innerHTML += createChoosenCategorys(i);
+  }
+}
+
+function addNewCategory() {
+  let newCategory = getId('categorySelect');
+  newCategory.innerHTML = createInputForNewCategory();
+  renderNewCategoryColors();
+}
+
+function cancelNewCategory() {
+  renderCategorySelection();
+  renderCategorys();
+}
+
+function renderNewCategoryColors() {
+  let colorContainer = getId('categoryColorContainer');
+  colorContainer.innerHTML = '';
+  for (let i = 0; i < categoryColors.length; i++) {
+    colorContainer.innerHTML += createNewCategoryColors(i);
+  }
+}
+
+function categoryColorChoose(colorId) {
+  let colorBubbles = document.querySelectorAll('.colorBubble');
+  colorBubbles.forEach((colorBubble) => {
+    colorBubble.classList.remove('checked');
+  });
+  getId('color' + colorId).classList.add('checked');
+  choosenColor = categoryColors[colorId];
+}
+
+function renderCategorySelection() {
+  let categorySelection = getId('categorySelect');
+  categorySelection.innerHTML = createCategorySelection();
+}
+
+function renderSelectedCategory(input) {
+  let categorySelection = getId('categorySelect');
+  categorySelection.innerHTML = createSelectedCategory(input);
+}
+
+async function saveNewCategory() {
+  let input = document.querySelector('.newCategoryInput').value;
+  categorys.push({
+    name: input,
+    color: choosenColor,
+  });
+  await backend.setItem('categorys', categorys);
+  renderSelectedCategory(input);
+  renderCategorys();
 }

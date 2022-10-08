@@ -8,8 +8,8 @@
 
 :root {
   --backGroundSection: #f6f7f8;
-  --borderColour: #D1D1D1;
-  --textColor: #6b717e;
+  --borderColour: #d1d1d1;
+  --textColor: #000;
   --mainColorDarkBlue: #2a3647;
   --urgentColour: #ff3b00;
   --mediumColour: #ffb32a;
@@ -22,13 +22,18 @@
   --btnColor: #293647;
   --boxShadow: #d3d3d3;
   --transitionSpeed: 150ms;
+  --boxShadowBubble: #c4c4c5;
+}
+
+* {
+  font-family: 'Inter', Arial, sans-serif;
 }
 
 body {
+  font-size: 16px;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Inter', Arial, sans-serif;
-  font-size: 16px;
+  /* overflow: hidden; */
 }
 
 ::placeholder {
@@ -71,16 +76,19 @@ body {
 }
 
 .subheadline {
-  font-size: 27px;
-  letter-spacing: 1px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .subheadline span {
-  border-left: 4px solid var(--mainColorLightBlue);
-  padding-left: 20px;
+  font-size: 27px;
+  letter-spacing: 1px;
+}
+
+.blue-border {
+  border-right: 4px solid var(--mainColorLightBlue);
+  padding-right: 20px;
 }
 
 .btn-blue {
@@ -90,9 +98,10 @@ body {
   height: 50px;
   border: unset;
   border-radius: 10px;
-  padding: 4px 16px;
+  padding: 0 10px;
   font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
+  min-width: 115px;
 }
 
 .btn-white {
@@ -102,9 +111,10 @@ body {
   height: 50px;
   border-radius: 10px;
   border: 1px solid var(--mainColorDarkBlue);
-  padding: 4px 16px;
+  padding: 0 10px;
   font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
+  min-width: 115px;
 }
 
 .btn-white img {
@@ -130,14 +140,46 @@ body {
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
+.initials {
+  height: 42px;
+  width: 42px;
+  font-size: 12px;
+}
+
+.initialCircle {
+  background-color: orange;
+  border-radius: 100%;
+  border: 1px solid white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pageHeader {
   font-size: 61px;
 }
 
 .mainContainer {
   width: 100%;
+  height: 100vh;
   background-color: var(--backGroundSection);
-  overflow: hidden;
+  overflow: auto;
+}
+
+.fade-in {
+  background: transparent;
+  animation: backgroundFadeIn 1s forwards alternate;
+}
+
+@keyframes backgroundFadeIn {
+  from {
+    backhground-color: transparent;
+  }
+
+  to {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .modalContainer {
@@ -145,7 +187,7 @@ body {
   top: 0;
   left: 0;
   z-index: 5;
-  background-color: rgba(0, 0, 0, 0.3);
+
   height: 100%;
   width: 100%;
   display: flex;
@@ -165,7 +207,7 @@ body {
 }
 
 .summaryArea {
-  width: 100%;
+  padding: 45px;
 }
 
 .contactArea,
@@ -174,7 +216,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 75px;
+  padding: 45px;
 }
 
 #messageToBoard {
@@ -194,6 +236,199 @@ body {
 
 #messageToBoard span {
   margin: 0;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.container ul {
+  margin-top: 0;
+  overflow: auto;
+  max-height: 120px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.select-btn {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  border: 1px solid var(--colorLightGrey);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  margin-top: 5px;
+}
+
+.select-btn .btn-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--textColor);
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
+}
+
+.select-btn .arrow-down {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 21px;
+  width: 21px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.list-items {
+  position: relative;
+  background-color: #fff;
+  padding: 0;
+  display: none;
+}
+
+.select-btn.open {
+  border-bottom: unset;
+  border-radius: 5px 5px 0 0;
+}
+
+.select-btn.open .arrow-down {
+  transform: rotate(-180deg);
+}
+
+.select-btn.open~.list-items {
+  display: block;
+  border: 1px solid var(--colorLightGrey);
+  border-top: unset;
+}
+
+.list-items .item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  height: 40px;
+  padding-left: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.list-items .categoryItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  list-style: none;
+  height: 40px;
+  padding-left: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  gap: 10px;
+}
+
+.list-items .item:hover {
+  background-color: var(--colorLightGrey);
+}
+
+.item-text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  display: flex;
+  gap: 10px;
+}
+
+.item .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10px;
+  width: 10px;
+  border-radius: 4px;
+  margin-right: 12px;
+  border: 1.5px solid #c0c0c0;
+  transition: all 0.3s ease-in-out;
+}
+
+.categoryCheckbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  width: 15px;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.checkbox .check-icon {
+  font-size: 6px;
+  transform: scale(0);
+  transition: all 0.3s ease-in-out;
+}
+
+.item.checked .check-icon {
+  transform: scale(1);
+}
+
+.newCategoryContainer {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--colorLightGrey);
+  background-color: #fff;
+}
+
+.newCategoryInput {
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border: unset;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+
+  padding-left: 15px;
+}
+
+.newCategoryContainer span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  cursor: pointer;
+}
+
+.newCategoryContainer span:first-of-type {
+  border-right: 1px solid var(--colorLightGrey);
+  padding-right: 2.5px;
+  margin-right: 2.5px;
+}
+
+.categoryColors {
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 16px;
+  gap: 0.5rem;
+}
+
+.colorBubble {
+  cursor: pointer;
+}
+
+.colorBubble.checked {
+  box-shadow: 0px 5px 5px var(--boxShadowBubble);
+}
+
+.assignedToContacts {
+  margin-top: 5px;
+  padding-left: 16px;
 }
 
 /**

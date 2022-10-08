@@ -18,7 +18,9 @@
   margin-top: 30px;
 }
 
-input,
+.title input,
+.subTasks input,
+.dueDate input,
 select,
 textarea {
   border-radius: 5px;
@@ -31,10 +33,20 @@ textarea {
   padding-left: 15px;
 }
 
-input,
+.title input,
+.subTasks input,
+.dueDate input,
 select {
   height: 40px;
   padding-left: 15px;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  background: url(../img/calender.svg) no-repeat;
+  background-size: contain;
+  width: 15px;
+  height: 15px;
+  padding-right: 10px;
 }
 
 .priorityBox {
@@ -98,18 +110,6 @@ select {
   gap: 10px;
 }
 
-.clearBtn {
-  width: 135px;
-}
-
-.addTaskBtn {
-  width: 180px;
-}
-
-.addTaskBtn img {
-  width: 12px;
-}
-
 .navbarAddTask {
   background-color: #293647;
   display: flex;
@@ -132,7 +132,7 @@ select {
 .containerWithSectionsAddTask li {
   flex-direction: column;
   padding-left: 20px;
-  padding-right: 20px
+  padding-right: 20px;
 }
 
 .kanbanBarAddTask {
@@ -154,15 +154,6 @@ select {
 }
 
 .btnCreate {
-  cursor: pointer;
-  background-color: var(--mainColorDarkBlue);
-  color: white;
-  height: 50px;
-  border: unset;
-  border-radius: 10px;
-  padding: 4px 16px;
-  font-size: 16px;
-  transition: all var(--transitionSpeed) ease-in-out;
   margin-right: 20px;
 }
 

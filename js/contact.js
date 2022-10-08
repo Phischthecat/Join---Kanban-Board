@@ -40,11 +40,18 @@ async function addContact() {
   initContact();
 }
 
-//todo_phil
-// async function saveContact() {
-//   let name = getId('newContactName').value;
-//   let initial = name.charAt(0) + name.charAt(name.indexOf(' ') + 1);
-// }
+async function saveContact(i) {
+  let fullContact = getId('contactView');
+  contacts[i].initial = getId('editContactInitial').innerHTML.trim();
+  contacts[i].name = getId('editContactName').value;
+  contacts[i].email = getId('editContactEmail').value;
+  contacts[i].phone = getId('editContactPhone').value;
+  await backend.setItem('contacts', contacts);
+  closeContactBox();
+  openDialogForCreate('Contact successfully edited');
+  initContact();
+  showContact(fullContact, i);
+}
 
 function openDialogForCreate(text) {
   let message = getId('messageToBoard');
@@ -110,7 +117,27 @@ function generateContacts(letter) {
 
 function showFullContact(i) {
   let fullContact = getId('contactView');
+  if (fullContact.classList.contains('slide-in-right')) {
+    changeContact(fullContact, i);
+  } else {
+    fullContact.classList.add('slide-in-right');
+    showContact(fullContact, i);
+  }
+}
+
+function changeContact(fullContact, i) {
+  fullContact.classList.remove('slide-in-right');
+  fullContact.classList.add('slide-out-right');
+  setTimeout(() => {
+    fullContact.classList.remove('slide-out-right');
+    fullContact.classList.add('slide-in-right');
+    showContact(fullContact, i);
+  }, 750);
+}
+
+function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
+  fullContact.classList.remove('d-none');
 }
 
 function createFullContact(i) {
@@ -138,7 +165,7 @@ function createFullContact(i) {
                     <h2>Contact Information</h2>
                     <div
                       class="editContact cursor-pointer"
-                      onclick="openContactBox(editContact, contacts[${i}])"
+                      onclick="openContactBox(editContact, ${i})"
                     >
                       <img src="./img/pencil.svg" alt="pencil" />
                       Edit Contact
