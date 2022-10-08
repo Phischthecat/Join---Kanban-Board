@@ -100,3 +100,22 @@ function gotToBoard() {
 function getId(theId) {
   return document.getElementById(theId);
 }
+
+
+function getPriority(prio) {
+  if (prio == 'urgent') {
+    getId(prio).classList.add('urgentBtn');
+    getId('medium').classList.remove('mediumBtn');
+    getId('low').classList.remove('lowBtn');
+    urgency = prio;
+  } else if (prio == 'medium') {
+    getId('urgent').classList.remove('urgentBtn');
+    getId(prio).classList.add('mediumBtn');
+    getId('low').classList.remove('lowBtn');
+    urgency = prio;
+  } else if (prio == 'low') {
+    getId('urgent').classList.remove('urgentBtn');
+    getId('medium').classList.remove('mediumBtn');
+    getId(prio).classList.add('lowBtn');
+  }
+}
