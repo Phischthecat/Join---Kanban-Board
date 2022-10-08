@@ -160,30 +160,35 @@ function openDropdownMenu(id) {
   getId('assignedToContacts').classList.toggle('d-none');
 }
 
-function checked(event, i) {
-  event.target.classList.toggle('checked');
-
+function checked(name) {
+  console.log(name);
+  getId(name).classList.toggle('checked');
   let checkedContacts = document.querySelectorAll('.checked'),
     btnText = getId('assignedToBtnText');
+  console.log(checkedContacts);
   if (checkedContacts && checkedContacts.length > 0) {
     btnText.innerText = `${checkedContacts.length} Selected`;
-    // renderAssignedContactInitials(i, checkedContacts);
   } else {
     btnText.innerText = 'Select contacts to assign';
   }
+  renderAssignedContactInitials(checkedContacts);
 }
 
-// function renderAssignedContactInitials(index, checkedContacts) {
-//   let initial = contacts.find((n) => n.name == checkedContacts[0].id);
-//   console.log(checkedContacts[0].id);
-//   let assignedContacts = getId('assignedToContacts');
-//   assignedContacts.innerHTML = '';
-//   for (let i = 0; i < checkedContacts.length; i++) {
-//     assignedContacts.innerHTML += /*html*/ `
-//     <div class="initials initialCircle">${contacts[index].initial}</div>
-//     `;
-//   }
-// }
+function renderAssignedContactInitials(checkedContacts) {
+  let assignedContacts = getId('assignedToContacts');
+  assignedContacts.innerHTML = '';
+  for (let i = 0; i < checkedContacts.length; i++) {
+    if ((contact = contacts.find((n) => n.name == checkedContacts[i].id))) {
+      assignedContacts.innerHTML += createAssignedContactInitials(contact);
+    }
+  }
+}
+
+function createAssignedContactInitials(contact) {
+  return /*html*/ `
+    <div class="initials initialCircle" style="background-color:#${contact.color}">${contact.initial}</div>
+    `;
+}
 
 function renderCategorys() {
   let categoryList = getId('categoryList');

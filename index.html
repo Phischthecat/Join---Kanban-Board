@@ -1,86 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join</title>
+    <link rel="shortcut icon" href="img/joinlogo.svg" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="css/login.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <script src="js/mini_backend.js"></script>
+    <script src="script.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/login.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join</title>
-  <link rel="shortcut icon" href="img/joinlogo.svg" />
-  <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/media.css">
-  <script src="js/mini_backend.js"></script>
-  <script src="script.js"></script>
-  <script src="js/login.js"></script>
-</head>
+  <body onload="init() , checkForResponsive()" class="loginBody">
+    <div class="logo slide-out-bck-tl-login headContainer" id="logo">
+      <img src="img/joinlogo.png" />
 
-<body onload="init() , checkForResponsive()" class="loginBody">
-
-  <div class="logo slide-out-bck-tl-login headContainer" id="logo">
-    <img src="img/joinlogo.png" />
-
-    <div class="registrate slide-in-bottom-login">
-
-      <div><span>Not a Join User ?</span></div>
-      <button class="btn-blue" id="register" type="button" required onclick="signUp()">
-        Sign Up
-      </button>
-
+      <div class="registrate slide-in-bottom-login">
+        <div><span>Not a Join User ?</span></div>
+        <button
+          class="btn-blue"
+          id="register"
+          type="button"
+          required
+          onclick="signUp()"
+        >
+          Sign Up
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div id="content">
-    <div class="loginSection flex flexColumn">
-      <div id="loginError"></div>
+    <div id="content">
+      <div class="loginSection flex flexColumn">
+        <div id="loginError"></div>
 
-      <div class="loginContainer flexColumn slide-in-bottom-login" id="loginContainer">
+        <div
+          class="loginContainer flexColumn slide-in-bottom-login"
+          id="loginContainer"
+        >
+          <div class="loginBox">
+            <h1>Log In</h1>
+          </div>
 
-        <div class="loginBox">
-          <h1>Log In</h1>
+          <hr class="line" />
+
+          <form class="loginForm flexColumn" onsubmit="return false">
+            <input
+              required
+              type="text"
+              class="inputFieldsLogin marginInput"
+              id="userName"
+              minlength="5"
+              placeholder="Username"
+              name="uname"
+            />
+
+            <div id="errorMessage"></div>
+
+            <input
+              required
+              type="password"
+              class="inputFieldsLogin"
+              id="password"
+              minlength="5"
+              placeholder="Password"
+              name="psw"
+            />
+
+            <div class="forgotMessage cursor-pointer">
+              <span onclick="openForgotPart()">Forgot my Password</span>
+            </div>
+
+            <div class="btnBox">
+              <button
+                class="btn-blue loginBtn"
+                type="submit"
+                required
+                onclick="login()"
+              >
+                Login
+              </button>
+              <button
+                class="btn-white guestBtn"
+                type="button"
+                required
+                onclick="guestLogin()"
+              >
+                Guest Login
+              </button>
+            </div>
+          </form>
         </div>
 
-        <hr class="line">
-
-        <form class="loginForm flexColumn" onsubmit="return false">
-
-          <input required type="text" class="inputFieldsLogin marginInput" id="userName" minlength="5"
-            placeholder="Username" name="uname" />
-
-          <div id="errorMessage"></div>
-
-          <input required type="password" class="inputFieldsLogin" id="password" minlength="5" placeholder="Password"
-            name="psw" />
-
-          <div class="forgotMessage cursor-pointer">
-            <span onclick="openForgotPart()">Forgot my Password</span>
-          </div>
-
-          <div class="btnBox">
-
-            <button class="btn-blue loginBtn" type="submit" required onclick="login()">
-              Login
-            </button>
-            <button class="btn-white guestBtn" type="button" required onclick="guestLogin()">
-              Guest Login
-            </button>
-
-          </div>
-
-        </form>
+        <div
+          class="d-none responsiveSpan slide-in-bottom-login"
+          id="responsiveSpan"
+        >
+          <span>Not a Join User ?</span>
+        </div>
+        <button
+          class="btn-blue d-none slide-in-bottom-login"
+          id="responsiveBtn"
+          type="button"
+          required
+          onclick="signUp()"
+        >
+          Sign Up
+        </button>
       </div>
-
-
-      <div class="d-none responsiveSpan slide-in-bottom-login" id="responsiveSpan"><span>Not a Join User ?</span></div>
-      <button class="btn-blue d-none slide-in-bottom-login" id="responsiveBtn" type="button" required
-        onclick="signUp()">
-        Sign Up
-      </button>
-
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
 
 <!-- <a href="https://www.flaticon.com/free-icons/password" title="password icons">Password icons created by Prosymbols Premium - Flaticon</a>      -->

@@ -466,7 +466,7 @@ function createSelectedCategory(input) {
 function contactsAssignedTo(i) {
   const contact = contacts[i];
   return /*html*/ `
-      <li class="item" id="${contact.name}" onclick="checked(event, ${i})">
+      <li class="item" id="${contact.name}" onclick="checked('${contact.name}')">
         <span class="item-text">${contact.name}</span>
         <span class="checkbox">
           <i class="fa-solid fa-square check-icon"></i>
