@@ -17,12 +17,13 @@ let categorys = [
     color: '#1fd7c1',
   },
 ];
-
 let choosenColor;
+let categoryIndex;
+let checkedContactsList = [];
 
 async function init() {
   await downloadFromServer();
-  allTasks = (await backend.getItem('tasks')) || [];
+  allTasks = (await backend.getItem('allTasks')) || [];
   users = (await backend.getItem('users')) || [];
   contacts = (await backend.getItem('contacts')) || [];
   categorys = (await backend.getItem('categorys')) || [];
@@ -161,11 +162,9 @@ function openDropdownMenu(id) {
 }
 
 function checked(name) {
-  console.log(name);
   getId(name).classList.toggle('checked');
   let checkedContacts = document.querySelectorAll('.checked'),
     btnText = getId('assignedToBtnText');
-  console.log(checkedContacts);
   if (checkedContacts && checkedContacts.length > 0) {
     btnText.innerText = `${checkedContacts.length} Selected`;
   } else {
@@ -194,8 +193,16 @@ function renderCategorys() {
   let categoryList = getId('categoryList');
   categoryList.innerHTML = createCategoryDefault();
   for (let i = 0; i < categorys.length; i++) {
-    categoryList.innerHTML += createChoosenCategorys(i);
+    categoryList.innerHTML += createCategorys(i);
   }
+}
+
+function renderChoosenCategory(i) {
+  categoryIndex = i;
+  const category = categorys[i];
+  choosenColor = category.color;
+  renderSelectedCategory(category.name);
+  renderCategorys();
 }
 
 function addNewCategory() {
@@ -231,9 +238,9 @@ function renderCategorySelection() {
   categorySelection.innerHTML = createCategorySelection();
 }
 
-function renderSelectedCategory(input) {
+function renderSelectedCategory(input, index) {
   let categorySelection = getId('categorySelect');
-  categorySelection.innerHTML = createSelectedCategory(input);
+  categorySelection.innerHTML = createSelectedCategory(input, index);
 }
 
 async function saveNewCategory() {
@@ -242,6 +249,7 @@ async function saveNewCategory() {
     name: input,
     color: choosenColor,
   });
+  categoryIndex = categorys.findIndex((n) => n.name == input);
   await backend.setItem('categorys', categorys);
   renderSelectedCategory(input);
   renderCategorys();

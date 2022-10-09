@@ -217,26 +217,6 @@ function createForgetPart() {
     `;
 }
 
-function createChoosenCategorys(i) {
-  const category = categorys[i];
-  return /*html*/ `
-  <li class="categoryItem item">
-                    <span class="item-text">${category.name}</span>
-                    <span class="categoryCheckbox" style="color:${category.color}">
-                      <i class="fa-solid fa-circle"></i>
-                    </span>
-                  </li>
-  `;
-}
-
-function createCategoryDefault() {
-  return /*html*/ `
-  <li class="categoryItem item" onclick="addNewCategory()">
-                    <span class="item-text"> New category</span>
-                  </li>
-  `;
-}
-
 function addTaskContainerHMTL() {
   return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
@@ -410,6 +390,26 @@ function addTaskContainerHMTL() {
 </div>
 </div>
     `;
+}
+
+function createCategorys(i) {
+  const category = categorys[i];
+  return /*html*/ `
+  <li class="categoryItem item" onclick="renderChoosenCategory(${i})">
+                    <span class="item-text">${category.name}</span>
+                    <span class="categoryCheckbox" style="color:${category.color}">
+                      <i class="fa-solid fa-circle"></i>
+                    </span>
+                  </li>
+  `;
+}
+
+function createCategoryDefault() {
+  return /*html*/ `
+  <li class="categoryItem item" onclick="addNewCategory()">
+                    <span class="item-text"> New category</span>
+                  </li>
+  `;
 }
 
 function createInputForNewCategory() {
