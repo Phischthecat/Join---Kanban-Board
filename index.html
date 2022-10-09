@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="css/media.css">
   <script src="js/mini_backend.js"></script>
+  <script src="js/templates.js"></script>
   <script src="script.js"></script>
   <script src="js/login.js"></script>
 </head>
@@ -22,10 +23,12 @@
 
     <div class="registrate slide-in-bottom-login">
 
-      <div><span>Not a Join User ?</span></div>
-      <button class="btn-blue" id="register" type="button" required onclick="signUp()">
-        Sign Up
-      </button>
+      <div class="signInBox flex" id="loginBox">
+        <div><span>Not a Join User ?</span></div>
+        <button class="btn-blue" id="register" type="button" required onclick="signUp()">
+          Sign Up
+        </button>
+      </div>
 
     </div>
   </div>

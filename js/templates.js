@@ -22,7 +22,7 @@ function createTaskCard(task) {
 
 function createFullView(task) {
   return /*html*/ `
-        <div class="modalContainer">
+        <div class="modalContainer fade-in startTop">
             <div class="fullCard">
                 <div class="headerFullCard">
                     <div class="categoryText">
@@ -58,13 +58,14 @@ function createFullView(task) {
                 <div class="assignedContainer">
                     <span><b>Assigned To:</b></span>
                         <div class="scrollUsers">
-                            <div id="asignedUSer"></div>
+                            <div id="assignedUser"></div>
                         </div>
                 </div>
             </div>
         </div>
     `;
 }
+
 
 function createTaskBox() {
   return /*html*/ `
