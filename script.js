@@ -17,12 +17,13 @@ let categorys = [
     color: '#1fd7c1',
   },
 ];
-
 let choosenColor;
+let categoryIndex;
+let checkedContactsList = [];
 
 async function init() {
   await downloadFromServer();
-  allTasks = (await backend.getItem('tasks')) || [];
+  allTasks = (await backend.getItem('allTasks')) || [];
   users = (await backend.getItem('users')) || [];
   contacts = (await backend.getItem('contacts')) || [];
   categorys = (await backend.getItem('categorys')) || [];
@@ -160,37 +161,48 @@ function openDropdownMenu(id) {
   getId('assignedToContacts').classList.toggle('d-none');
 }
 
-function checked(event, i) {
-  event.target.classList.toggle('checked');
-
+function checked(name) {
+  getId(name).classList.toggle('checked');
   let checkedContacts = document.querySelectorAll('.checked'),
     btnText = getId('assignedToBtnText');
   if (checkedContacts && checkedContacts.length > 0) {
     btnText.innerText = `${checkedContacts.length} Selected`;
-    // renderAssignedContactInitials(i, checkedContacts);
   } else {
     btnText.innerText = 'Select contacts to assign';
   }
+  renderAssignedContactInitials(checkedContacts);
 }
 
-// function renderAssignedContactInitials(index, checkedContacts) {
-//   let initial = contacts.find((n) => n.name == checkedContacts[0].id);
-//   console.log(checkedContacts[0].id);
-//   let assignedContacts = getId('assignedToContacts');
-//   assignedContacts.innerHTML = '';
-//   for (let i = 0; i < checkedContacts.length; i++) {
-//     assignedContacts.innerHTML += /*html*/ `
-//     <div class="initials initialCircle">${contacts[index].initial}</div>
-//     `;
-//   }
-// }
+function renderAssignedContactInitials(checkedContacts) {
+  let assignedContacts = getId('assignedToContacts');
+  assignedContacts.innerHTML = '';
+  for (let i = 0; i < checkedContacts.length; i++) {
+    if ((contact = contacts.find((n) => n.name == checkedContacts[i].id))) {
+      assignedContacts.innerHTML += createAssignedContactInitials(contact);
+    }
+  }
+}
+
+function createAssignedContactInitials(contact) {
+  return /*html*/ `
+    <div class="initials initialCircle" style="background-color:#${contact.color}">${contact.initial}</div>
+    `;
+}
 
 function renderCategorys() {
   let categoryList = getId('categoryList');
   categoryList.innerHTML = createCategoryDefault();
   for (let i = 0; i < categorys.length; i++) {
-    categoryList.innerHTML += createChoosenCategorys(i);
+    categoryList.innerHTML += createCategorys(i);
   }
+}
+
+function renderChoosenCategory(i) {
+  categoryIndex = i;
+  const category = categorys[i];
+  choosenColor = category.color;
+  renderSelectedCategory(category.name);
+  renderCategorys();
 }
 
 function addNewCategory() {
@@ -226,9 +238,9 @@ function renderCategorySelection() {
   categorySelection.innerHTML = createCategorySelection();
 }
 
-function renderSelectedCategory(input) {
+function renderSelectedCategory(input, index) {
   let categorySelection = getId('categorySelect');
-  categorySelection.innerHTML = createSelectedCategory(input);
+  categorySelection.innerHTML = createSelectedCategory(input, index);
 }
 
 async function saveNewCategory() {
@@ -237,6 +249,7 @@ async function saveNewCategory() {
     name: input,
     color: choosenColor,
   });
+  categoryIndex = categorys.findIndex((n) => n.name == input);
   await backend.setItem('categorys', categorys);
   renderSelectedCategory(input);
   renderCategorys();

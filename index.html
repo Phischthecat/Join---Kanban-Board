@@ -9,27 +9,22 @@
   <link rel="shortcut icon" href="img/joinlogo.svg" />
   <link rel="stylesheet" type="text/css" media="screen" href="css/login.css" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/media.css">
+  <link rel="stylesheet" href="css/media.css" />
   <script src="js/mini_backend.js"></script>
-  <script src="js/templates.js"></script>
   <script src="script.js"></script>
+  <script src="js/templates.js"></script>
   <script src="js/login.js"></script>
 </head>
 
 <body onload="init() , checkForResponsive()" class="loginBody">
-
   <div class="logo slide-out-bck-tl-login headContainer" id="logo">
     <img src="img/joinlogo.png" />
 
     <div class="registrate slide-in-bottom-login">
-
-      <div class="signInBox flex" id="loginBox">
-        <div><span>Not a Join User ?</span></div>
-        <button class="btn-blue" id="register" type="button" required onclick="signUp()">
-          Sign Up
-        </button>
-      </div>
-
+      <div><span>Not a Join User ?</span></div>
+      <button class="btn-blue" id="register" type="button" required onclick="signUp()">
+        Sign Up
+      </button>
     </div>
   </div>
 
@@ -38,15 +33,13 @@
       <div id="loginError"></div>
 
       <div class="loginContainer flexColumn slide-in-bottom-login" id="loginContainer">
-
         <div class="loginBox">
           <h1>Log In</h1>
         </div>
 
-        <hr class="line">
+        <hr class="line" />
 
         <form class="loginForm flexColumn" onsubmit="return false">
-
           <input required type="text" class="inputFieldsLogin marginInput" id="userName" minlength="5"
             placeholder="Username" name="uname" />
 
@@ -60,26 +53,23 @@
           </div>
 
           <div class="btnBox">
-
             <button class="btn-blue loginBtn" type="submit" required onclick="login()">
               Login
             </button>
             <button class="btn-white guestBtn" type="button" required onclick="guestLogin()">
               Guest Login
             </button>
-
           </div>
-
         </form>
       </div>
 
-
-      <div class="d-none responsiveSpan slide-in-bottom-login" id="responsiveSpan"><span>Not a Join User ?</span></div>
+      <div class="d-none responsiveSpan slide-in-bottom-login" id="responsiveSpan">
+        <span>Not a Join User ?</span>
+      </div>
       <button class="btn-blue d-none slide-in-bottom-login" id="responsiveBtn" type="button" required
         onclick="signUp()">
         Sign Up
       </button>
-
     </div>
   </div>
 </body>

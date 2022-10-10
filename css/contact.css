@@ -37,9 +37,12 @@
 }
 
 .contactInfo:hover {
-  background-color: var(--mainColorDarkBlue);
+  background-color: var(--colorLightGrey);
   border-radius: 10px;
-  color: white;
+}
+
+.contactInfo:hover .initialCircle {
+  border: 1px solid white;
 }
 
 .contactInfo .name {

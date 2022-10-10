@@ -62,6 +62,7 @@ function showFullView(task) {
   } else {
     card.innerHTML += createFullView(task);
     showUrgency(task);
+    showContacts(task);
   }
 }
 
@@ -73,6 +74,16 @@ function showUrgency(task) {
         <img src="/img/${task.priority}.addTask.svg">
     `;
   styleUrgency(task);
+}
+
+function showContacts(task) {
+  let assignedContacts = document.getElementById('assignedUser');
+  assignedContacts.innerHTML = '';
+  for (let i = 0; i < task.assignedTo.length; i++) {
+    assignedContacts.innerHTML += /*html*/`
+    <div><span>${task.assignedTo[i].name}</span></div>
+    `
+  }
 }
 
 function styleUrgency(task) {

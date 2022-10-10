@@ -12,17 +12,21 @@ async function initAddTask() {
  * This function is used to return the ids and/or values of the input fields for the current task
  */
 function getValuesForTasks() {
+  let assignedToContacts = [];
+  let checkedContacts = document.querySelectorAll('.checked');
+  for (let i = 0; i < checkedContacts.length; i++) {
+    let contact = contacts.find((n) => n.name == checkedContacts[i].id);
+    assignedToContacts.push(contact);
+  }
   let title = getId('taskTitle');
   let description = getId('taskDescription');
-  let category = getId('taskCategory');
   let dueDate = getId('taskDueDate');
   let createdDate = new Date().getTime(); //only text-format could be safed in storage --> change object to getTime (UnixTimestamp since 01.01.1970)
   let specificId = new Date().getTime();
-  let assignedTo = getId('assignedToPeople');
+  let assignedTo = assignedToContacts;
   let priority = '';
   return [
     title,
-    category,
     description,
     dueDate,
     createdDate,
@@ -37,21 +41,13 @@ function getValuesForTasks() {
  *  * @param {string} taskStatus -- after creating a task the user is asked to push the task into backlog or toDo
  */
 async function addTask(taskStatus) {
-  [
-    title,
-    category,
-    description,
-    dueDate,
-    createdDate,
-    assignedTo,
-    specificId,
-    priority,
-  ] = getValuesForTasks();
+  [title, description, dueDate, createdDate, assignedTo, specificId, priority] =
+    getValuesForTasks();
   let task = {
     specificId: specificId,
     dragAndDropId: '',
     title: title.value,
-    category: category.value,
+    category: categorys[categoryIndex],
     description: description.value,
     dueDate: dueDate.value,
     createdDate: createdDate,
@@ -60,7 +56,7 @@ async function addTask(taskStatus) {
     status: taskStatus,
   };
   allTasks.push(task);
-  await backend.setItem('tasks', allTasks);
+  await backend.setItem('allTasks', allTasks);
   console.log(allTasks);
   animateToBoard();
   clearFields();

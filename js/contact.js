@@ -6,6 +6,7 @@ let contactListLetters = [];
 //     name: 'Phil Schmucker',
 //     email: 'ps@web.de',
 //     phone: '123456',
+
 //   },
 //   {
 //     initial: 'RD',
@@ -23,11 +24,21 @@ async function initContact() {
   generateContactSectionsForLetters();
 }
 
+function generateRandomColor() {
+  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  if (randomColor.length == 5) {
+    return (randomColor = '0' + randomColor);
+  } else {
+    return randomColor;
+  }
+}
+
 async function addContact() {
   let name = getId('newContactName').value;
   let initial = name.charAt(0) + name.charAt(name.indexOf(' ') + 1);
   let contact = {
     initial: initial.toUpperCase(),
+    color: generateRandomColor(),
     name: name,
     email: getId('newContactEmail').value,
     phone: getId('newContactPhone').value,
@@ -86,7 +97,9 @@ function createContactSectionOfLetter(letter) {
 function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
-    <div class="initials initialCircle">${contact.initial.toUpperCase()}</div>
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
+    }">${contact.initial.toUpperCase()}</div>
     <div>
       <div class="name">${contact.name}</div>
       <div class="email">${contact.email}</div>
