@@ -118,7 +118,7 @@
 }
 
 .fullCard {
-  width: 500px;
+  width: 620px;
   background-color: white;
   box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
   border-radius: 30px;
@@ -126,6 +126,7 @@
   margin-top: 50px;
   border-radius: 30px;
   padding: 30px;
+  justify-content: space-between;
 }
 
 .startTop {
@@ -213,6 +214,77 @@
 .assignedContainer {
   margin-top: 20px;
   font-size: 21px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.changeTaskBtn {
+  height: 57px;
+  width: 57px;
+  background-color: var(--mainColorDarkBlue);
+  border-radius: 10px;
+  border: none;
+}
+
+.changedCard {
+  width: 100%;
+  justify-content: center;
+}
+
+.changeInputs {
+  width: 360px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  outline: none;
+  resize: none;
+  height: 40px;
+  padding-left: 15px;
+}
+
+.changedTextarea {
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  outline: none;
+  resize: none;
+  overflow: auto;
+  padding-left: 15px !important;
+  height: 75px;
+}
+
+.changePrio {
+  width: 380px;
+  justify-content: space-between;
+}
+
+.changeBtn {
+  box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+  height: 40px;
+  width: 110px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: none;
+  background-color: white;
+}
+
+.assignedUser {
+  margin-top: 20px;
+}
+
+.fullCardAssignedTo {
+  display: flex;
+  width: 250px;
+  align-items: center;
+  gap: 30px;
+  padding-bottom: 20px;
+}
+
+.fullCardRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .boxContent {

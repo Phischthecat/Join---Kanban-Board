@@ -5,7 +5,11 @@ async function initTodos() {
   await init();
   setDragAndDropId();
   // allTasks = [];
-  // backend.setItem('tasks', allTasks);
+  // await backend.setItem('tasks', allTasks);
+  // categorys = [];
+  // await backend.setItem('categorys', categorys);
+  // contacts = [];
+  // await backend.setItem('contacts', contacts);
   updateHTML();
 }
 
@@ -62,7 +66,6 @@ function showFullView(task) {
   } else {
     card.innerHTML += createFullView(task);
     showUrgency(task);
-    showContacts(task);
   }
 }
 
@@ -74,16 +77,23 @@ function showUrgency(task) {
         <img src="/img/${task.priority}.addTask.svg">
     `;
   styleUrgency(task);
+  showContacts(task);
 }
 
 function showContacts(task) {
   let assignedContacts = document.getElementById('assignedUser');
   assignedContacts.innerHTML = '';
   for (let i = 0; i < task.assignedTo.length; i++) {
-    assignedContacts.innerHTML += /*html*/`
-    <div><span>${task.assignedTo[i].name}</span></div>
-    `
+    let taskContact = task.assignedTo[i];
+    assignedContacts.innerHTML += createAssignedToFullCard(taskContact);
   }
+}
+
+function changeTask(specific) {
+  let task = allTasks.find((id) => id['specificId'] == specific);
+  let card = document.getElementById('fullCard');
+  card.innerHTML = '';
+  card.innerHTML += createChangedTask(task);
 }
 
 function styleUrgency(task) {

@@ -56,6 +56,10 @@ nav ul li a {
   border: 2px solid black;
 }
 
+.circle img {
+  height: 30px;
+}
+
 .questionMark {
   height: 20px;
   width: 20px;
