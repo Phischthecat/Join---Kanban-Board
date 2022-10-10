@@ -2,7 +2,7 @@ function createTaskCard(task) {
   return /*html*/ `
     <div class="taskCard" onclick="check(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
         <div class="category">
-            <span>${task.category}</span>
+            <span>${task.category.name}</span>
         </div>
 
         <div class="descriptionBoard">
@@ -15,22 +15,19 @@ function createTaskCard(task) {
             <div id="urgencyTask"></div>
         </div>
         
-        <div id="${task.specificId}"></div>
-    </div>
+      </div>
+      <div id="${task.specificId}"></div>
 `;
 }
 
 function createFullView(task) {
   return /*html*/ `
-        <div class="modalContainer">
-            <div class="fullCard">
+        <div class="modalContainer fade-in startTop">
+            <div class="fullCard flex" id="fullCard">
+              <div class="fullCardLeft">
                 <div class="headerFullCard">
                     <div class="categoryText">
-                        <span>${task.category}</span>
-                    </div>
-
-                    <div class="plus">
-                        <img onclick="closeFullView(${task.specificId})" src="img/secondary-plus.svg">
+                        <span>${task.category.name}</span>
                     </div>
                 </div>
 
@@ -57,14 +54,104 @@ function createFullView(task) {
 
                 <div class="assignedContainer">
                     <span><b>Assigned To:</b></span>
-                        <div class="scrollUsers">
-                            <div id="asignedUSer"></div>
-                        </div>
+                      <div id="assignedUser" class="assignedUser"></div>
                 </div>
             </div>
+            
+            <div class="fullCardRight">
+              <div class="plus">
+                <img onclick="closeFullView(${task.specificId})" src="img/secondary-plus.svg">
+              </div>
+              <button class="changeTaskBtn cursor-pointer" onclick="changeTask(${task.specificId})"><img src="img/pencil.svg"></button>
+            </div>
+          </div>
         </div>
     `;
 }
+
+
+function createAssignedToFullCard(taskContact) {
+  return /*html*/`
+    <div class="fullCardAssignedTo">
+    <div class="initials initialCircle" style="background-color:#${taskContact.color}">${taskContact.initial}</div>
+      <span>${taskContact.name}</span>
+    </div>
+    `
+}
+
+
+function createChangedTask(task) {
+  return /*html*/ `
+    <div class="flex changedCard">
+      <div class="fullCardLeft">
+      <div class="title flexColumn">
+                <span class="text">Title</span>
+                <input class="changeInputs"
+                  id="editTitle"
+                  type="text"
+                  placeholder="Enter a Title"
+                  value="${task.title}"
+                />
+
+                <span class="text">Description</span>
+                <textarea class="changedTextarea"
+                  id="editDescription"
+                  type="text"
+                  placeholder="Enter a Description"
+                 > ${task.description}
+                </textarea>
+
+                <span class="text">Due date</span>
+                <input id="changedDate" type="date" value="${task.dueDate}"/>
+                
+                <span class="text">Prio</span>
+                <div class="changePrio flex">
+
+                  <button
+                    type="button"
+                    class="changeBtn"
+                    onclick="getPriority('urgent')"
+                    id="urgent"
+                  >
+                    <p>Urgent</p>
+                    <img src="img/urgent.addTask.svg" />
+                  </button>
+
+                  <button
+                    type="button"
+                    class="changeBtn"
+                    onclick="getPriority('medium')"
+                    id="medium"
+                  >
+                    <p>Medium</p>
+                    <img src="img/medium.addTask.svg" />
+                  </button>
+
+                  <button
+                    type="button"
+                    class="changeBtn"
+                    onclick="getPriority('low')"
+                    id="low"
+                  >
+                    <p>Low</p>
+                    <img src="img/low.addTask.svg" />
+                  </button>
+                </div>
+
+                
+                
+              </div>
+      </div>
+
+      <div class="fullCardRight">
+      <div class="plus">
+                <img onclick="closeFullView(${task.specificId})" src="img/secondary-plus.svg">
+              </div>
+      </div>
+    </div>
+  `
+}
+
 
 function createTaskBox() {
   return /*html*/ `

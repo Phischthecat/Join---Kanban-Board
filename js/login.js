@@ -108,6 +108,7 @@ function logout() {
 function openForgotPart() {
   let content = getId('content');
   responsive = false;
+  getId('loginBox').classList.add('d-none')
   content.innerHTML = '';
   content.innerHTML += createForgetPart();
 }
