@@ -89,12 +89,20 @@ function changeOption(specific) {
   card.innerHTML = '';
   card.innerHTML += createChangeOption(task);
   renderAssignedToContacts();
+  let choosenContacts = document.querySelectorAll('.item');
+  choosenContacts.forEach((choosenContact) => {
+    if (task.assignedTo.find((a) => a.name == choosenContact.id)) {
+      choosenContact.classList.add('checked');
+    }
+  });
+  renderAssignedContactInitials(task.assignedTo);
 }
 
 async function changeTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
   task.title = getId('editTitle').value;
   task.description = getId('editDescription').value;
+  task.assignedTo = filterAssignedContacts();
   // await backend.setItem('allTasks', allTasks);
   console.log(task);
 }
