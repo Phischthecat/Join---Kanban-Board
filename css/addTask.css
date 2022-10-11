@@ -12,12 +12,6 @@
   margin-right: 10%;
 }
 
-.text {
-  color: var(--textColor);
-  margin-bottom: 5px;
-  margin-top: 30px;
-}
-
 .title input,
 .subTasks input,
 .dueDate input,

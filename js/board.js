@@ -1,11 +1,10 @@
 let currentDraggedElement;
-let idForClosing = [];
 
 async function initTodos() {
   await init();
   setDragAndDropId();
   // allTasks = [];
-  // await backend.setItem('tasks', allTasks);
+  // await backend.setItem('allTasks', allTasks);
   // categorys = [];
   // await backend.setItem('categorys', categorys);
   // contacts = [];
@@ -48,18 +47,13 @@ function updateContainer(container) {
   document.getElementById(container).innerHTML = '';
   for (let i = 0; i < filteredTask.length; i++) {
     let task = filteredTask[i];
-    idForClosing.push(task.specificId);
     document.getElementById(container).innerHTML += createTaskCard(task);
   }
 }
 
-function check(externalId) {
+function showFullView(externalId) {
   let task = allTasks.find((id) => id['specificId'] == externalId);
-  showFullView(task);
-}
-
-function showFullView(task) {
-  let card = document.getElementById(task.specificId);
+  let card = document.getElementById('taskBox');
   card.innerHTML = '';
   if (card.classList.contains('d-none')) {
     card.classList.remove('d-none');
@@ -89,11 +83,20 @@ function showContacts(task) {
   }
 }
 
-function changeTask(specific) {
+function changeOption(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
   let card = document.getElementById('fullCard');
   card.innerHTML = '';
-  card.innerHTML += createChangedTask(task);
+  card.innerHTML += createChangeOption(task);
+  renderAssignedToContacts();
+}
+
+async function changeTask(specific) {
+  let task = allTasks.find((id) => id['specificId'] == specific);
+  task.title = getId('editTitle').value;
+  task.description = getId('editDescription').value;
+  // await backend.setItem('allTasks', allTasks);
+  console.log(task);
 }
 
 function styleUrgency(task) {
@@ -114,8 +117,8 @@ function styleUrgency(task) {
   }
 }
 
-function closeFullView(taskId) {
-  document.getElementById(taskId).classList.add('d-none');
+function closeFullView() {
+  document.getElementById('taskBox').classList.add('d-none');
 }
 
 function showPossibleDropzones() {

@@ -1,6 +1,6 @@
 function createTaskCard(task) {
   return /*html*/ `
-    <div class="taskCard" onclick="check(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
+    <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
         <div class="category">
             <span>${task.category.name}</span>
         </div>
@@ -16,7 +16,6 @@ function createTaskCard(task) {
         </div>
         
       </div>
-      <div id="${task.specificId}"></div>
 `;
 }
 
@@ -60,9 +59,9 @@ function createFullView(task) {
             
             <div class="fullCardRight">
               <div class="plus">
-                <img onclick="closeFullView(${task.specificId})" src="img/secondary-plus.svg">
+                <img onclick="closeFullView()" src="img/secondary-plus.svg">
               </div>
-              <button class="changeTaskBtn cursor-pointer" onclick="changeTask(${task.specificId})"><img src="img/pencil.svg"></button>
+              <button class="changeTaskBtn cursor-pointer" onclick="changeOption(${task.specificId})"><img src="img/pencil.svg"></button>
             </div>
           </div>
         </div>
@@ -78,7 +77,7 @@ function createAssignedToFullCard(taskContact) {
     `;
 }
 
-function createChangedTask(task) {
+function createChangeOption(task) {
   return /*html*/ `
     <div class="flex changedCard">
       <div class="fullCardLeft">
@@ -96,8 +95,7 @@ function createChangedTask(task) {
                   id="editDescription"
                   type="text"
                   placeholder="Enter a Description"
-                 > ${task.description}
-                </textarea>
+                 >${task.description}</textarea>
 
                 <span class="text">Due date</span>
                 <input id="changedDate" type="date" value="${task.dueDate}"/>
@@ -167,9 +165,21 @@ function createChangedTask(task) {
 
       <div class="fullCardRight">
       <div class="plus">
-                <img onclick="closeFullView(${task.specificId})" src="img/secondary-plus.svg">
+                <img onclick="closeFullView()" src="img/secondary-plus.svg">
               </div>
       </div>
+
+      <button
+                  type="submit"
+                  class="btn-blue createTaskBtn"
+                  onclick="changeTask(${task.specificId})"
+                  id="create"
+                >
+                  Ok
+                  <span class="check-btn">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
+                </button>
     </div>
   `;
 }
@@ -579,8 +589,7 @@ function createContactSectionOfLetter(letter) {
 function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
-    <div class="initials initialCircle" style="background-color:#${
-      contact.color
+    <div class="initials initialCircle" style="background-color:#${contact.color
     }">${contact.initial.toUpperCase()}</div>
     <div>
       <div class="name">${contact.name}</div>

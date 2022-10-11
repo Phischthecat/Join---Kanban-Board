@@ -265,5 +265,6 @@ function getPriority(prio) {
     getId('urgent').classList.remove('urgentBtn');
     getId('medium').classList.remove('mediumBtn');
     getId(prio).classList.add('lowBtn');
+    urgency = prio;
   }
 }
