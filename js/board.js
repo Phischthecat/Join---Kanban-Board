@@ -87,10 +87,19 @@ function changeOption(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
   let card = document.getElementById('fullCard');
   card.innerHTML = '';
-  card.innerHTML += createChangeOption(task);
-  renderAssignedToContacts();
-  renderAssignedContactInitials(task.assignedTo);
-  getPriority(task.priority);
+  setTimeout(() => {
+    card.innerHTML += createChangeOption(task);
+    renderAssignedToContacts();
+    renderAssignedContactInitials(task.assignedTo);
+    getPriority(task.priority);
+    let choosenContacts = document.querySelectorAll('.item');
+    choosenContacts.forEach((choosenContact) => {
+      if (task.assignedTo.find((a) => a.name == choosenContact.id)) {
+        choosenContact.classList.add('checked');
+      }
+    });
+    renderAssignedContactInitials(task.assignedTo);
+  }, 200);
 }
 
 async function changeTask(specific) {
@@ -99,9 +108,9 @@ async function changeTask(specific) {
   task.description = getId('editDescription').value;
   task.dueDate = getId('changedDate').value;
   task.priority = urgency;
-
-  // await backend.setItem('allTasks', allTasks);
-  console.log(task);
+  task.assignedTo = filterAssignedContacts();
+  await backend.setItem('allTasks', allTasks);
+  showFullView(task.specificId);
 }
 
 function styleUrgency(task) {
@@ -123,7 +132,10 @@ function styleUrgency(task) {
 }
 
 function closeFullView() {
-  document.getElementById('taskBox').classList.add('d-none');
+  setTimeout(() => {
+    document.getElementById('taskBox').classList.add('d-none');
+  }, 200);
+  initTodos();
 }
 
 function showPossibleDropzones() {

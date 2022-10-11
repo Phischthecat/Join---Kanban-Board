@@ -1,22 +1,22 @@
 function createTaskCard(task) {
   return /*html*/ `
-    <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
-        <div class="category">
-            <span>${task.category.name}</span>
-        </div>
+      <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
+          <div class="category" style="background-color:${task.category.color}">
+              <span>${task.category.name}</span>
+          </div>
 
-        <div class="descriptionBoard">
-            <span>${task.title}</span>
-            <span>${task.description}</span>
-        </div>
+          <div class="descriptionBoard">
+              <span>${task.title}</span>
+              <span>${task.description}</span>
+          </div>
 
-        <div class="assignedUsers">
-            <div id="assignedUsers"></div>
-            <div id="urgencyTask"></div>
+          <div class="assignedUsers">
+              <div id="assignedUsers"></div>
+              <div id="urgencyTask"></div>
+          </div>
+
         </div>
-        
-      </div>
-`;
+  `;
 }
 
 function createFullView(task) {
@@ -25,7 +25,7 @@ function createFullView(task) {
             <div class="fullCard flex" id="fullCard">
               <div class="fullCardLeft">
                 <div class="headerFullCard">
-                    <div class="categoryText">
+                    <div class="categoryText" style="background-color:${task.category.color}">
                         <span>${task.category.name}</span>
                     </div>
                 </div>
@@ -166,19 +166,19 @@ function createChangeOption(task) {
       <div class="plus">
                 <img onclick="closeFullView()" src="img/secondary-plus.svg">
               </div>
-      </div>
-
-      <button
-                  type="submit"
-                  class="btn-blue createTaskBtn"
-                  onclick="changeTask(${task.specificId})"
-                  id="create"
-                >
-                  Ok
-                  <span class="check-btn">
-                    <i class="fa-solid fa-check"></i>
-                  </span>
-                </button>
+              
+              <button
+              type="submit"
+              class="btn-blue createTaskBtn"
+              onclick="changeTask(${task.specificId})"
+              id="create"
+              >
+              Ok
+              <span class="check-btn">
+                <i class="fa-solid fa-check"></i>
+              </span>
+            </button>
+          </div>
     </div>
   `;
 }

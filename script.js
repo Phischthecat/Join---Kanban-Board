@@ -116,6 +116,16 @@ function closeContactBox() {
   }, 1000);
 }
 
+function filterAssignedContacts() {
+  let assignedToContacts = [];
+  let checkedContacts = document.querySelectorAll('.checked');
+  for (let i = 0; i < checkedContacts.length; i++) {
+    let contact = contacts.find((n) => n.name == checkedContacts[i].id);
+    assignedToContacts.push(contact);
+  }
+  return assignedToContacts;
+}
+
 /**
  * This function is for checking if the User is logged In or not so that he can´t evade the Login Section
  */
@@ -172,7 +182,11 @@ function renderAssignedContactInitials(checkedContacts) {
   let assignedContacts = getId('assignedToContacts');
   assignedContacts.innerHTML = '';
   for (let i = 0; i < checkedContacts.length; i++) {
-    if ((contact = contacts.find((n) => n.name == [checkedContacts[i].id || checkedContacts[i].name]))) {
+    if (
+      (contact = contacts.find(
+        (n) => n.name == [checkedContacts[i].id || checkedContacts[i].name]
+      ))
+    ) {
       assignedContacts.innerHTML += createAssignedContactInitials(contact);
     }
   }

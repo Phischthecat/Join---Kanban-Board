@@ -8,22 +8,26 @@ async function initAddTask() {
   renderAssignedToContacts();
 }
 
-/**
- * This function is used to return the ids and/or values of the input fields for the current task
- */
-function getValuesForTasks() {
+function filterAssignedContacts() {
   let assignedToContacts = [];
   let checkedContacts = document.querySelectorAll('.checked');
   for (let i = 0; i < checkedContacts.length; i++) {
     let contact = contacts.find((n) => n.name == checkedContacts[i].id);
     assignedToContacts.push(contact);
   }
+  return assignedToContacts;
+}
+
+/**
+ * This function is used to return the ids and/or values of the input fields for the current task
+ */
+function getValuesForTasks() {
   let title = getId('taskTitle');
   let description = getId('taskDescription');
   let dueDate = getId('taskDueDate');
   let createdDate = new Date().getTime(); //only text-format could be safed in storage --> change object to getTime (UnixTimestamp since 01.01.1970)
   let specificId = new Date().getTime();
-  let assignedTo = assignedToContacts;
+  let assignedTo = filterAssignedContacts();
   let priority = '';
   return [
     title,
