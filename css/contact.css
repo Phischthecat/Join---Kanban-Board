@@ -254,3 +254,67 @@
   display: flex;
   justify-content: center;
 }
+
+.joinlogoContact {
+  width: 40px;
+  height: 40px;
+  padding-left: 25px;
+  filter: invert(1);
+}
+
+.actualUserContact {
+  padding-right: 25px;
+}
+
+.kanbanBarContact {
+  width: 100%;
+  height: 75px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
+  background-color: white;
+}
+
+.navbarContact {
+  background-color: #293647;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.containerWithSectionsContact ul li {
+  list-style: none;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.containerWithSectionsContact ul {
+  display: flex;
+  margin-bottom: 0;
+}
+
+.containerWithSectionsContact li {
+  flex-direction: column;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.newContactBtnMobile {
+  width: 200px;
+  height: 50px;
+  margin-left: 10px;
+  vertical-align: text-bottom;
+}
+
+.newContactBtnMobile img {
+  width: 20px;
+  margin-left: 10px;
+  vertical-align: text-bottom;
+}
+
+.d-none {
+  display: none;
+}

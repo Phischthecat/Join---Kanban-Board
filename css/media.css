@@ -1980,3 +1980,169 @@
 }
 
 /********* Media Queries for Board *********/
+
+
+/********* Media Queries for Board *********/
+@media (max-width: 1226px) {
+    .header {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 1050px) {
+    .contactArea {
+        width: 45%;
+    }
+}
+
+@media (max-width: 980px) {
+    .contactArea {
+        width: 40%;
+    }
+}
+
+@media (max-width: 920px) {
+    .contactArea {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 880px) {
+    .header {
+        gap: 20px;
+    }
+
+    .headline h1 {
+        font-size: 41px;
+    }
+
+    .subheadline span {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 856px) {
+    .contactArea {
+        padding: 15px;
+    }
+
+    .btnContainer {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 835px) {
+    .headline h1 {
+        font-size: 31px;
+    }
+
+    .subheadline span {
+        font-size: 22px;
+    }
+
+    .contactList {
+        padding: 10px 20px !important;
+    }
+}
+
+@media (max-width: 800px) {
+    #navbar {
+        display: none !important;
+    }
+
+    .kanbanBarContact {
+        display: flex !important;
+    }
+
+    .navbarContact {
+        display: flex !important;
+    }
+
+    .contactArea {
+        display: none;
+    }
+
+    .btnContainerMobile {
+        display: flex !important;
+        justify-content: end;
+        font-size: 20px;
+        padding-top: 15px;
+        padding-right: 15px;
+    }
+
+    .newContactBtnMobile {
+        font-weight: bolder;
+        font-size: 20px;
+    }
+
+    .contactContainer {
+        justify-content: center;
+    }
+
+    .contactList {
+        width: 90% !important;
+        box-shadow: unset !important;
+    }
+
+    .mainContainerContact {
+        overflow: auto;
+    }
+}
+
+@media (max-width: 470px) {
+    .containerWithSectionsContact ul {
+        padding-left: 0;
+    }
+
+    .containerWithSectionsContact li {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+@media (max-width: 365px) {
+    .containerWithSectionsContact li {
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .contactList {
+        padding: 10px 0px !important;
+    }
+
+    .contactInfo {
+        padding: 0 !important;
+    }
+}
+
+
+@media (max-width: 325px) {
+    .btnContainerMobile {
+        padding-bottom: 30px;
+    }
+
+    .contactInfo {
+        flex-direction: column !important;
+        align-items: center !important;
+    }
+
+    .initials {
+        margin-right: 35px;
+    }
+
+    .contactInfo .name {
+        width: unset !important;
+    }
+
+    .contactList {
+        overflow: hidden;
+    }
+}
+
+@media (max-width: 300px) {
+    nav a {
+        font-size: 10px;
+    }
+}
+
+/********* Media Queries for Board *********/
