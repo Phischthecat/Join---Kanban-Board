@@ -139,7 +139,31 @@ function createChangedTask(task) {
                 </div>
 
                 
-                
+                <div class="container">
+                <span class="text">Assigned to</span>
+                <div
+                  id="selectBtn1"
+                  class="select-btn"
+                  onclick="openDropdownMenu(1)"
+                >
+                  <span id="assignedToBtnText" class="btn-text"
+                    >Select contacts to assign</span
+                  >
+                  <span class="arrow-down">
+                    <i class="fa-solid fa-caret-down"></i>
+                  </span>
+                </div>
+                <ul class="list-items" id="assignedToList">
+                  <li class="item">
+                    <span class="item-text">You</span>
+                    <span class="checkbox">
+                      <i class="fa-solid fa-square check-icon"></i>
+                    </span>
+                  </li>
+                </ul>
+                <div id="assignedToContacts" class="assignedToContacts"></div>
+              </div>
+            </div>
               </div>
       </div>
 
