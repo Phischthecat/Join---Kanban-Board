@@ -94,8 +94,7 @@ function createChangeOption(task) {
                 <textarea class="changedTextarea"
                   id="editDescription"
                   type="text"
-                  placeholder="Enter a Description"
-                 >${task.description}</textarea>
+                  placeholder="Enter a Description">${task.description}</textarea>
 
                 <span class="text">Due date</span>
                 <input id="changedDate" type="date" value="${task.dueDate}"/>

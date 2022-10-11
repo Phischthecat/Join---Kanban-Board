@@ -172,7 +172,7 @@ function renderAssignedContactInitials(checkedContacts) {
   let assignedContacts = getId('assignedToContacts');
   assignedContacts.innerHTML = '';
   for (let i = 0; i < checkedContacts.length; i++) {
-    if ((contact = contacts.find((n) => n.name == checkedContacts[i].id))) {
+    if ((contact = contacts.find((n) => n.name == [checkedContacts[i].id || checkedContacts[i].name]))) {
       assignedContacts.innerHTML += createAssignedContactInitials(contact);
     }
   }

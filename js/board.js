@@ -89,12 +89,17 @@ function changeOption(specific) {
   card.innerHTML = '';
   card.innerHTML += createChangeOption(task);
   renderAssignedToContacts();
+  renderAssignedContactInitials(task.assignedTo);
+  getPriority(task.priority);
 }
 
 async function changeTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
   task.title = getId('editTitle').value;
   task.description = getId('editDescription').value;
+  task.dueDate = getId('changedDate').value;
+  task.priority = urgency;
+
   // await backend.setItem('allTasks', allTasks);
   console.log(task);
 }
