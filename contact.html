@@ -1,139 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="shortcut icon" href="img/joinlogo.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <link rel="shortcut icon" href="icons/logo.png" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/board.css" />
+    <link rel="stylesheet" href="css/addTask.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <script src="js/mini_backend.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/addTask.js"></script>
+    <script src="script.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact</title>
-<<<<<<< HEAD
-  <link rel="shortcut icon" href="img/joinlogo.svg" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/media.css">
-=======
-  <link rel="shortcut icon" href="icons/logo.png" />
-  <link rel="stylesheet" href="style.css" />
->>>>>>> be844ffbd7854f7ad25f48eae0bb89215e0ee860
-  <link rel="stylesheet" href="css/contact.css" />
-  <link rel="stylesheet" href="css/board.css" />
-  <link rel="stylesheet" href="css/addTask.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-  <script src="js/mini_backend.js"></script>
-  <script src="js/addTask.js"></script>
-  <script src="script.js"></script>
-  <script src="http://www.w3schools.com/lib/w3data.js"></script>
-  <script src="js/templates.js"></script>
-  <script src="js/contact.js"></script>
-</head>
-<<<<<<< HEAD
-
-<body onload="initContact();">
-  <div class="flex">
-    <div id="taskBox"></div>
-    <div id="messageToBoard" class="slide-in-bottom d-none">
-      <span></span>
-    </div>
-
-    <div>
-      <div w3-include-html="navbar.html" class="flex"></div>
-    </div>
-
-
-    <div class="mainContainerContact">
-
-      <!--Header only for Contact-->
-      <div class="kanbanBarContact d-none">
-
-        <img class="joinlogoContact" src="img/joinlogo.svg">
-
-        <div class="actualUserContact">
-
-          <div class="circle">
-            <!-- <img src="" id="actualUser"> -->
-          </div>
-        </div>
+  <body onload="initContact();">
+    <div class="flex">
+      <div id="taskBox"></div>
+      <div id="messageToBoard" class="slide-in-bottom d-none">
+        <span></span>
       </div>
-      <!--Header only for Contact-->
 
-      <!--Only for Mobile-->
-      <div class="btnContainerMobile d-none">
-        <button type="button" class="btn-blue newContactBtnMobile" onclick="openContactBox(createNewContact)">
-          New contact<img src="img/addNewContact.svg" />
-        </button>
+      <div>
+        <div w3-include-html="navbar.html" class="flex"></div>
       </div>
-      <!--Only for Mobile-->
 
-=======
+      <div class="mainContainerContact">
+        <!--Header only for Contact-->
+        <div class="kanbanBarContact d-none">
+          <img class="joinlogoContact" src="img/joinlogo.svg" />
 
-<body onload="initContact();">
-  <div class="flex">
-    <div id="taskBox"></div>
-    <div id="messageToBoard" class="slide-in-bottom d-none">
-      <span></span>
-    </div>
-
-    <div>
-      <div w3-include-html="navbar.html" class="flex"></div>
-    </div>
-
-    <div class="mainContainerContact">
->>>>>>> be844ffbd7854f7ad25f48eae0bb89215e0ee860
-      <div w3-include-html="kanbanBar.html"></div>
-      <div class="contactContainer">
-        <div id="contactList" class="contactList"></div>
-        <div class="contactArea">
-          <div>
-            <div class="header">
-              <div class="headline blue-border">
-                <h1>Contacts</h1>
-              </div>
-              <div class="subheadline">
-                <span>Better with a team</span>
-              </div>
+          <div class="actualUserContact">
+            <div class="circle">
+              <!-- <img src="" id="actualUser"> -->
             </div>
-            <div id="contactView" class="contactView"></div>
           </div>
-          <div class="btnContainer">
-            <button type="button" class="btn-blue newContactBtn" onclick="openContactBox(createNewContact)">
-              New contact<img src="img/addNewContact.svg" />
-            </button>
+        </div>
+        <!--Header only for Contact-->
+
+        <!--Only for Mobile-->
+        <div class="btnContainerMobile d-none">
+          <button
+            type="button"
+            class="btn-blue newContactBtnMobile"
+            onclick="openContactBox(createNewContact)"
+          >
+            New contact<img src="img/addNewContact.svg" />
+          </button>
+        </div>
+        <!--Only for Mobile-->
+
+        <div w3-include-html="kanbanBar.html"></div>
+        <div class="contactContainer">
+          <div id="contactList" class="contactList"></div>
+          <div class="contactArea">
+            <div>
+              <div class="header">
+                <div class="headline blue-border">
+                  <h1>Contacts</h1>
+                </div>
+                <div class="subheadline">
+                  <span>Better with a team</span>
+                </div>
+              </div>
+              <div id="contactView" class="contactView"></div>
+            </div>
+            <div class="btnContainer">
+              <button
+                type="button"
+                class="btn-blue newContactBtn"
+                onclick="openContactBox(createNewContact)"
+              >
+                New contact<img src="img/addNewContact.svg" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-<<<<<<< HEAD
 
-  <!-- Navbar only for Contact-->
-  <nav class="navbarContact d-none">
-    <div class="containerWithSectionsContact">
-      <ul>
-        <li>
-          <img class="iconsNav" src="img/summary.svg" />
-          <a href="summary.html">Summary</a>
-        </li>
-        <li>
-          <img class="iconsNav" src="img/board.navbar.svg" />
-          <a href="board.html">Board</a>
-        </li>
-        <li>
-          <img class="iconsNav" src="img/addtask.navbar.svg" />
-          <a href="addTask.html">Add Task</a>
-        </li>
-        <li>
-          <img class="iconsNav" src="img/contacts.navbar.svg" />
-          <a href="contact.html">Contacts</a>
-        </li>
-        <li>
-          <a href="help.html"></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Navbar only for Contact-->
-
-=======
->>>>>>> be844ffbd7854f7ad25f48eae0bb89215e0ee860
-</body>
-
+    <!-- Navbar only for Contact-->
+    <nav class="navbarContact d-none">
+      <div class="containerWithSectionsContact">
+        <ul>
+          <li>
+            <img class="iconsNav" src="img/summary.svg" />
+            <a href="summary.html">Summary</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/board.navbar.svg" />
+            <a href="board.html">Board</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/addtask.navbar.svg" />
+            <a href="addTask.html">Add Task</a>
+          </li>
+          <li>
+            <img class="iconsNav" src="img/contacts.navbar.svg" />
+            <a href="contact.html">Contacts</a>
+          </li>
+          <li>
+            <a href="help.html"></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- Navbar only for Contact-->
+  </body>
 </html>

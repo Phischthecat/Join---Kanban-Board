@@ -69,16 +69,14 @@ function createFullView(task) {
     `;
 }
 
-
 function createAssignedToFullCard(taskContact) {
-  return /*html*/`
+  return /*html*/ `
     <div class="fullCardAssignedTo">
     <div class="initials initialCircle" style="background-color:#${taskContact.color}">${taskContact.initial}</div>
       <span>${taskContact.name}</span>
     </div>
-    `
+    `;
 }
-
 
 function createChangedTask(task) {
   return /*html*/ `
@@ -149,9 +147,8 @@ function createChangedTask(task) {
               </div>
       </div>
     </div>
-  `
+  `;
 }
-
 
 function createTaskBox() {
   return /*html*/ `
@@ -161,13 +158,6 @@ function createTaskBox() {
         </div>
     </div>
     `;
-}
-
-function createBoxBtns(pickedContainer) {
-  return /*html*/ `
-      <button type="button" class="btn-white clearBtn" onclick="closeTaskBox()" id="clear">Cancel <img src="/img/secondary-plus.svg"></button>
-      <button type="submit" class="btn-blue addTaskBtn" onclick="addTask('${pickedContainer}')" id="create">Create Task <img src="/img/ticked-off.svg"></button>
-  `;
 }
 
 function createNewContact() {
@@ -327,7 +317,7 @@ function addTaskContainerHMTL() {
                 />
               </div>
 
-              <div class="description flexColumn">
+              <div class="flexColumn">
                 <span class="text">Description</span>
                 <textarea
                   id="taskDescription"
@@ -338,51 +328,33 @@ function addTaskContainerHMTL() {
                 ></textarea>
               </div>
 
-              <div class="categoryflexColumn flexColumn">
+              <div class="container">
                 <span class="text">Category</span>
-                <select id="taskCategory" required>
-                  <option value="" selected>Choose category</option>
-                  <option value="newCategory">New Category</option>
-                  <option value="backoffice">Backoffice</option>
-                  <option value="sales">Sales</option>
-                </select>
-              </div>
-
-              <!-- <div class="categoryflexColumn flexColumn">
-                <span class="text">Category</span>
-                <div class="select-btn">
-                  <span class="btn-text">Choose category</span>
-                  <span class="arrow-down">
-                    <i class="fa-solid fa-caret-down"></i>
-                  </span>
+                <div id="categorySelect">
+                  <div
+                    id="selectBtn0"
+                    class="select-btn"
+                    onclick="openDropdownMenu(0)"
+                  >
+                    <span class="btn-text">Choose category</span>
+                    <span class="arrow-down">
+                      <i class="fa-solid fa-caret-down"></i>
+                    </span>
+                  </div>
+                  <ul class="list-items" id="categoryList"></ul>
                 </div>
-                <ul class="list-items">
-                  <li class="item">
-                    <span class="item-text" onclick="addNewCategory()">New category</span>
-                    <span class="checkbox">
-                      <i class="fa-solid fa-square check-icon"></i>
-                    </span>
-                  </li>
-                  <li class="item">
-                    <span class="item-text">Sales</span>
-                    <span class="checkbox">
-                      <i class="fa-solid fa-square check-icon"></i>
-                    </span>
-                  </li>
-                  <li class="item">
-                    <span class="item-text">Backoffice</span>
-                    <span class="checkbox">
-                      <i class="fa-solid fa-square check-icon"></i>
-                    </span>
-                  </li>
-                </ul>
               </div>
-            </div> -->
 
-              <div class="container flexColumn">
+              <div class="container">
                 <span class="text">Assigned to</span>
-                <div class="select-btn">
-                  <span class="btn-text">Select contacts to assign</span>
+                <div
+                  id="selectBtn1"
+                  class="select-btn"
+                  onclick="openDropdownMenu(1)"
+                >
+                  <span id="assignedToBtnText" class="btn-text"
+                    >Select contacts to assign</span
+                  >
                   <span class="arrow-down">
                     <i class="fa-solid fa-caret-down"></i>
                   </span>
@@ -395,6 +367,7 @@ function addTaskContainerHMTL() {
                     </span>
                   </li>
                 </ul>
+                <div id="assignedToContacts" class="assignedToContacts d-none"></div>
               </div>
             </div>
 
@@ -453,10 +426,13 @@ function addTaskContainerHMTL() {
                 <button
                   type="button"
                   class="btn-white clearBtn"
-                  onclick="clearFields()"
+                  onclick="closeTaskBox()"
                   id="clear"
                 >
-                  Clear <img src="img/secondary-plus.svg" />
+                  Cancel
+                  <span class="cancel-btn">
+                    <i class="fa-solid fa-xmark"></i>
+                  </span>
                 </button>
                 <button
                   type="submit"
@@ -464,7 +440,10 @@ function addTaskContainerHMTL() {
                   onclick="addTask('toDo')"
                   id="create"
                 >
-                  Create Task <img src="img/ticked-off.svg" />
+                  Create Task
+                  <span class="check-btn">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
                 </button>
               </div>
             </div>
@@ -472,9 +451,8 @@ function addTaskContainerHMTL() {
           <div id="messageToBoard" class="slide-in-bottom d-none">
             <span> Task added to Board </span>
             <img src="img/board.navbar.svg" />
-          </div>
-        
-</div>
+          </div>        
+  </div>
 </div>
     `;
 }
@@ -560,4 +538,78 @@ function contactsAssignedTo(i) {
         </span>
       </li>
       `;
+}
+
+function createContactSectionOfLetter(letter) {
+  return /* html*/ `
+<div class="contactSection">
+  <div class="contactSectionHeader">
+    <h2>${letter}</h2>
+    <hr />
+  </div>
+  <div id="contactsOf${letter}" class="contactsOf"></div>
+</div>
+  `;
+}
+
+function createContact(contact, i) {
+  return /* html */ `
+  <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
+    }">${contact.initial.toUpperCase()}</div>
+    <div>
+      <div class="name">${contact.name}</div>
+      <div class="email">${contact.email}</div>
+    </div>
+  </div>
+  `;
+}
+
+function createFullContact(i) {
+  let contact = contacts[i];
+  return /*html*/ `
+  <div class="headerFullContact">
+                  <div
+                    id="initialsFullContact"
+                    class="initialsFullContact initialCircle"
+                    style="background-color:#${contact.color}"
+                  >
+                    ${contact.initial}
+                  </div>
+                  <div class="nameContainer">
+                    <div class="nameFullContact">${contact.name}</div>
+                    <div
+                      class="addTaskLink cursor-pointer"
+                      onclick="openTaskBox('toDo')"
+                    >
+                      <span>+</span> Add Task
+                    </div>
+                  </div>
+                </div>
+                <div class="contactFullInfo">
+                  <div class="contactFullInfoHeader">
+                    <h2>Contact Information</h2>
+                    <div
+                      class="editContact cursor-pointer"
+                      onclick="openContactBox(editContact, ${i})"
+                    >
+                      <img src="./img/pencil.svg" alt="pencil" />
+                      Edit Contact
+                    </div>
+                  </div>
+                  <div class="emailFullContact">
+                    <h3>Email</h3>
+                    <a class="email" href="mailto:antom@gmail.com"
+                      >${contact.email}</a
+                    >
+                  </div>
+                  <div class="phoneFullContact">
+                    <h3>Phone</h3>
+                    <a href="tel:+49${contact.phone}">${contact.phone}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+  `;
 }

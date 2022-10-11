@@ -7,16 +7,16 @@ let categoryColors = [
   '#8aa4ff',
 ];
 
-let categorys = [
-  {
-    name: 'Sales',
-    color: '#fc71ff',
-  },
-  {
-    name: 'Backoffice',
-    color: '#1fd7c1',
-  },
-];
+// let categorys = [
+//   {
+//     name: 'Sales',
+//     color: '#fc71ff',
+//   },
+//   {
+//     name: 'Backoffice',
+//     color: '#1fd7c1',
+//   },
+// ];
 let choosenColor;
 let categoryIndex;
 let checkedContactsList = [];
@@ -69,15 +69,15 @@ async function openTaskBox(pickedContainer) {
   document.body.style.overflow = 'hidden';
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL();
+  renderCategorys();
+  renderAssignedToContacts();
   setTimeout(() => {
     getId('animation').classList.toggle('slide-in-right');
     getId('animation').classList.toggle('fade-in');
-    renderAssignedToContacts;
+    getId('animation').classList.toggle('background');
     if (box.classList.contains('d-none')) {
       box.classList.remove('d-none');
     }
-    document.getElementById('animation').classList.toggle('background');
-    showBtn(pickedContainer);
   }, 150);
 }
 
@@ -91,11 +91,6 @@ function closeTaskBox() {
     taskBox.classList.toggle('d-none');
     document.body.style.overflow = 'auto';
   }, 1000);
-}
-
-async function showBtn(pickedContainer) {
-  document.getElementById('buttonContainer').innerHTML =
-    createBoxBtns(pickedContainer);
 }
 
 async function openContactBox(fct, contact) {
