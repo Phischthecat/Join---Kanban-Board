@@ -2,6 +2,7 @@ let currentDraggedElement;
 
 async function initTodos() {
   await init();
+  // muss noch abgeändert werden und separat geladen werden
   setDragAndDropId();
   // allTasks = [];
   // await backend.setItem('allTasks', allTasks);
@@ -98,7 +99,6 @@ function changeOption(specific) {
         choosenContact.classList.add('checked');
       }
     });
-    renderAssignedContactInitials(task.assignedTo);
   }, 200);
 }
 
