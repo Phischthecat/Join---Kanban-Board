@@ -183,16 +183,6 @@ function createChangeOption(task) {
   `;
 }
 
-function createTaskBox() {
-  return /*html*/ `
-    <div class="modalContainer slide-in-right" id="animation">
-        <div class="boxContent">
-            <div w3-include-html="task-snippet copy.html"></div>
-        </div>
-    </div>
-    `;
-}
-
 function createNewContact() {
   return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
@@ -588,7 +578,8 @@ function createContactSectionOfLetter(letter) {
 function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
-    <div class="initials initialCircle" style="background-color:#${contact.color
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
     }">${contact.initial.toUpperCase()}</div>
     <div>
       <div class="name">${contact.name}</div>

@@ -57,17 +57,19 @@ async function addTask(taskStatus) {
     createdDate: createdDate,
     assignedTo: assignedTo,
     priority: urgency,
+    subtasks: addTaskSubtasks,
     status: taskStatus,
   };
   allTasks.push(task);
   await backend.setItem('allTasks', allTasks);
   console.log(allTasks);
-  animateToBoard();
+  // animateToBoard();
   clearFields();
 }
 
 function clearFields() {
   getId('formAddTask').reset();
+  addTaskSubtasks = [];
   setDueDateOnToday();
 }
 

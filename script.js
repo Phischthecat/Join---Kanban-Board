@@ -20,6 +20,7 @@ let categoryColors = [
 let choosenColor;
 let categoryIndex;
 let checkedContactsList = [];
+let addTaskSubtasks = [];
 
 async function init() {
   await downloadFromServer();
@@ -281,4 +282,64 @@ function getPriority(prio) {
     getId(prio).classList.add('lowBtn');
     urgency = prio;
   }
+}
+
+function renderSubtaskSection() {
+  let subtasksIcons = getId('substasksIcons');
+  document.querySelector('.newSubtasksInput').value = '';
+  subtasksIcons.innerHTML = /*html*/ `
+  <div class="subtasksPlus" title="Add new subtasks">
+    <i class="fa-regular fa-plus"></i>
+  </div>
+  `;
+}
+
+function cancelNewSubtasks() {
+  renderSubtaskSection();
+  addTaskSubtasks = [];
+}
+
+function saveNewSubtasks() {
+  let input = document.querySelector('.newSubtasksInput').value.trim();
+  if (!addTaskSubtasks.find((n) => n.description == input) && input) {
+    addTaskSubtasks.push({
+      description: input,
+      checked: true,
+    });
+    createSubtasksSection();
+  }
+  renderSubtaskSection();
+}
+
+function createSubtasksSection() {
+  let subtasksContainer = getId('subtasksContainer');
+  subtasksContainer.innerHTML = '';
+  for (let i = 0; i < addTaskSubtasks.length; i++) {
+    const subtask = addTaskSubtasks[i];
+    subtasksContainer.innerHTML += /*html*/ `
+    <div class="subtask">
+      <input type="checkbox" id="sub${i}">${subtask.description}
+    </div>
+    `;
+  }
+}
+
+function changeSubTasksIcons() {
+  let subtasksIcons = getId('substasksIcons');
+  subtasksIcons.innerHTML = /*html*/ `
+  <span
+    class="cancel-btn"
+    onclick="cancelNewSubtasks()"
+    title="Cancel"
+  >
+    <i class="fa-solid fa-xmark"></i>
+  </span>
+  <span
+    class="check-btn"
+    onclick="saveNewSubtasks()"
+    title="Save new subtasks"
+    >
+    <i class="fa-solid fa-check"></i>
+  </span>
+  `;
 }

@@ -139,7 +139,8 @@ body {
 }
 
 .btn-white:hover img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg) brightness(91%) contrast(94%);
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
+    brightness(91%) contrast(94%);
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
@@ -246,12 +247,17 @@ body {
 .container ul {
   margin-top: 0;
   overflow: auto;
-  max-height: 120px;
+  max-height: 125px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .select-btn {
+  position: relative;
   display: flex;
   height: 40px;
   align-items: center;
@@ -299,7 +305,7 @@ body {
   transform: rotate(-180deg);
 }
 
-.select-btn.open~.list-items {
+.select-btn.open ~ .list-items {
   display: block;
   border: 1px solid var(--colorLightGrey);
   border-top: unset;
@@ -373,7 +379,8 @@ body {
   transform: scale(1);
 }
 
-.newCategoryContainer {
+.newCategoryContainer,
+.newSubtasksInputContainer {
   display: flex;
   align-items: center;
   height: 100%;
@@ -382,7 +389,8 @@ body {
   background-color: #fff;
 }
 
-.newCategoryInput {
+.newCategoryInput,
+.newSubtasksInput {
   height: 40px;
   width: 100%;
   outline: none;
@@ -393,7 +401,8 @@ body {
   padding-left: 15px;
 }
 
-.newCategoryContainer span {
+.newCategoryContainer span,
+.newSubtasksInputContainer span {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -401,10 +410,11 @@ body {
   cursor: pointer;
 }
 
-.newCategoryContainer span:first-of-type {
-  border-right: 1px solid var(--colorLightGrey);
-  padding-right: 2.5px;
-  margin-right: 2.5px;
+.newCategoryContainer span:last-of-type,
+.newSubtasksInputContainer span:last-of-type {
+  border-left: 1px solid var(--colorLightGrey);
+  padding-left: 2.5px;
+  margin-left: 2.5px;
 }
 
 .categoryColors {
@@ -433,13 +443,34 @@ body {
   cursor: default;
 }
 
+.subtasksContainer {
+  overflow: auto;
+  max-height: 25vh;
+}
+
+.subtasksPlus {
+  padding-right: 10px;
+}
+
+.substasksIcons {
+  display: flex;
+}
+
+.subtask {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  gap: 10px;
+}
+
 /**
 *
 ******************   KeyFrames for Login ****************** 
 *
 **/
 .slide-in-bottom-login {
-  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    1.2s both !important;
 }
 
 @keyframes slide-in-bottom-login {
@@ -455,12 +486,14 @@ body {
 }
 
 .slide-out-bck-tl-login {
-  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    0.1s both;
 }
 
 @keyframes slide-out-bck-tl-login {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2))
+      translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 

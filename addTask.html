@@ -137,56 +137,69 @@
             </div>
 
             <div class="rightSplit">
-              <div class="dueDate flexColumn">
-                <span class="text">Due date</span>
-                <input required id="taskDueDate" type="date" />
-              </div>
+              <div>
+                <div class="dueDate flexColumn">
+                  <span class="text">Due date</span>
+                  <input required id="taskDueDate" type="date" />
+                </div>
 
-              <div class="priority flexColumn" id="priority">
-                <span class="text">Prio</span>
+                <div class="priority flexColumn" id="priority">
+                  <span class="text">Prio</span>
 
-                <div class="priorityBox">
-                  <button
-                    type="button"
-                    class="statusButton"
-                    onclick="getPriority('urgent')"
-                    id="urgent"
+                  <div class="priorityBox">
+                    <button
+                      type="button"
+                      class="statusButton"
+                      onclick="getPriority('urgent')"
+                      id="urgent"
+                    >
+                      <p>Urgent</p>
+                      <img src="img/urgent.addTask.svg" />
+                    </button>
+
+                    <button
+                      type="button"
+                      class="statusButton"
+                      onclick="getPriority('medium')"
+                      id="medium"
+                    >
+                      <p>Medium</p>
+                      <img src="img/medium.addTask.svg" />
+                    </button>
+
+                    <button
+                      type="button"
+                      class="statusButton"
+                      onclick="getPriority('low')"
+                      id="low"
+                    >
+                      <p>Low</p>
+                      <img src="img/low.addTask.svg" />
+                    </button>
+                  </div>
+                </div>
+
+                <div class="subTasks flexColumn">
+                  <span class="text">Subtasks</span>
+                  <div
+                    id="subtaskInputContainer"
+                    class="newSubtasksInputContainer"
+                    onclick="changeSubTasksIcons()"
                   >
-                    <p>Urgent</p>
-                    <img src="img/urgent.addTask.svg" />
-                  </button>
-
-                  <button
-                    type="button"
-                    class="statusButton"
-                    onclick="getPriority('medium')"
-                    id="medium"
-                  >
-                    <p>Medium</p>
-                    <img src="img/medium.addTask.svg" />
-                  </button>
-
-                  <button
-                    type="button"
-                    class="statusButton"
-                    onclick="getPriority('low')"
-                    id="low"
-                  >
-                    <p>Low</p>
-                    <img src="img/low.addTask.svg" />
-                  </button>
+                    <input
+                      type="text"
+                      class="newSubtasksInput"
+                      placeholder="Add new subtask"
+                    />
+                    <div class="substasksIcons" id="substasksIcons">
+                      <div class="subtasksPlus" title="Add new subtasks">
+                        <i class="fa-regular fa-plus"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="subtasksContainer" class="subtasksContainer"></div>
                 </div>
               </div>
-
-              <div class="subTasks flexColumn">
-                <span class="text">Subtasks</span>
-                <input
-                  type="text"
-                  id="subtasks"
-                  placeholder="Add new subtask"
-                />
-              </div>
-
               <div class="buttonContainer" id="buttonContainer">
                 <button
                   type="button"

@@ -12,8 +12,14 @@
   margin-right: 10%;
 }
 
+.rightSplit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 65vh;
+}
+
 .title input,
-.subTasks input,
 .dueDate input,
 select,
 textarea {
@@ -34,7 +40,6 @@ textarea {
 }
 
 .title input,
-.subTasks input,
 .dueDate input,
 select {
   height: 40px;
@@ -103,8 +108,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .buttonContainer {
-  width: 350px;
-  margin-top: 150px;
   display: flex;
   justify-content: flex-end;
   gap: 10px;
