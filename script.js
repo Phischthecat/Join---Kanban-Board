@@ -176,11 +176,11 @@ function checked(name) {
   } else {
     btnText.innerText = 'Select contacts to assign';
   }
-  renderAssignedContactInitials(checkedContacts);
+  renderAssignedContactInitials(checkedContacts, 'assignedToContacts');
 }
 
-function renderAssignedContactInitials(checkedContacts) {
-  let assignedContacts = getId('assignedToContacts');
+function renderAssignedContactInitials(checkedContacts, id) {
+  let assignedContacts = getId(id);
   assignedContacts.innerHTML = '';
   for (let i = 0; i < checkedContacts.length; i++) {
     if (
@@ -288,7 +288,7 @@ function renderSubtaskSection() {
   let subtasksIcons = getId('substasksIcons');
   document.querySelector('.newSubtasksInput').value = '';
   subtasksIcons.innerHTML = /*html*/ `
-  <div class="subtasksPlus" title="Add new subtasks">
+  <div class="subtasksPlus" title="Add new subtasks" onclick="changeSubTasksIcons()">
     <i class="fa-regular fa-plus"></i>
   </div>
   `;

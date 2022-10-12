@@ -184,15 +184,19 @@
                   <div
                     id="subtaskInputContainer"
                     class="newSubtasksInputContainer"
-                    onclick="changeSubTasksIcons()"
                   >
                     <input
                       type="text"
                       class="newSubtasksInput"
                       placeholder="Add new subtask"
+                      onclick="changeSubTasksIcons()"
                     />
                     <div class="substasksIcons" id="substasksIcons">
-                      <div class="subtasksPlus" title="Add new subtasks">
+                      <div
+                        class="subtasksPlus"
+                        title="Add new subtasks"
+                        onclick="changeSubTasksIcons()"
+                      >
                         <i class="fa-regular fa-plus"></i>
                       </div>
                     </div>

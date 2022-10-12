@@ -9,7 +9,8 @@
 }
 
 .leftSplit {
-  margin-right: 10%;
+  padding-right: 4%;
+  border-right: 1px solid var(--colorLightGrey);
 }
 
 .rightSplit {
@@ -17,6 +18,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 65vh;
+  padding-left: 4%;
 }
 
 .title input,

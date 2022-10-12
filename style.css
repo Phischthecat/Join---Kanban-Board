@@ -95,6 +95,9 @@ body {
 }
 
 .btn-blue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   cursor: pointer;
   background-color: var(--mainColorDarkBlue);
   color: white;
@@ -104,7 +107,6 @@ body {
   padding: 0 10px;
   font-size: 16px;
   transition: all var(--transitionSpeed) ease-in-out;
-  min-width: 115px;
 }
 
 .btn-white {

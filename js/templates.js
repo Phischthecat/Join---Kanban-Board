@@ -1,7 +1,8 @@
-function createTaskCard(task) {
+function createTaskCard(task, index) {
   return /*html*/ `
       <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
-          <div class="category" style="background-color:${task.category.color}">
+      <div>   
+      <div class="category" style="background-color:${task.category.color}">
               <span>${task.category.name}</span>
           </div>
 
@@ -9,13 +10,12 @@ function createTaskCard(task) {
               <span>${task.title}</span>
               <span>${task.description}</span>
           </div>
-
-          <div class="assignedUsers">
-              <div id="assignedUsers"></div>
-              <div id="urgencyTask"></div>
-          </div>
-
+          </div> 
+          <div class="taskFooter">
+          <div class="flex" id="assignedUsers${index}"></div>
+          <div id="urgencyTask${index}></div>
         </div>
+      </div>
   `;
 }
 
@@ -71,8 +71,12 @@ function createFullView(task) {
 function createAssignedToFullCard(taskContact) {
   return /*html*/ `
     <div class="fullCardAssignedTo">
-    <div class="initials initialCircle" style="background-color:#${taskContact.color}">${taskContact.initial}</div>
-      <span>${taskContact.name}</span>
+      <div class="initials initialCircle" style="background-color:#${taskContact.color}">
+        ${taskContact.initial}
+      </div>
+      <span>
+        ${taskContact.name}
+      </span>
     </div>
     `;
 }
