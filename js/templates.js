@@ -1,70 +1,80 @@
-function createTaskCard(task, index) {
+function createTaskCard(index) {
+  let task = allTasks[index];
   return /*html*/ `
-      <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
-      <div>   
+  <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
+    <div>   
       <div class="category" style="background-color:${task.category.color}">
-              <span>${task.category.name}</span>
-          </div>
-
-          <div class="descriptionBoard">
-              <span>${task.title}</span>
-              <span>${task.description}</span>
-          </div>
-          </div> 
-          <div class="taskFooter">
-          <div class="flex" id="assignedUsers${index}"></div>
-          <div id="urgencyTask${index}></div>
-        </div>
+          <span>${task.category.name}</span>
       </div>
+      <div class="descriptionBoard">
+        <span>${task.title}</span>
+        <span>${task.description}</span>
+      </div>
+      <div class="progressbarContainer" id="proContainer${index}">
+        <progress id="progresslabel${index}" max="100" value="0"></progress>
+        <label for="progresslabel${index}"><span id="barText${index}"></span> Done</label>
+      </div> 
+    </div> 
+    <div class="taskFooter">
+      <div class="flex" id="assignedUsers${index}"></div>
+      <div id="urgencyTask${index}">
+        <img/>
+      </div>
+  </div>
   `;
 }
 
 function createFullView(task) {
   return /*html*/ `
-        <div class="modalContainer fade-in startTop">
-            <div class="fullCard flex" id="fullCard">
-              <div class="fullCardLeft">
-                <div class="headerFullCard">
-                    <div class="categoryText" style="background-color:${task.category.color}">
-                        <span>${task.category.name}</span>
-                    </div>
-                </div>
-
-                <div>
-                    <h2 class="taskHeader">${task.title}</h2>
-                </div>
-                
-                <div class="descriptionFullCard"> 
-                    <span>${task.description}</span>
-                </div>
-
-                <div>
-                    <div class="date">
-                        <span><b>Due date:</b></span>
-                        <span>${task.dueDate}</span>
-                    </div>
-
-                    <div class="prio">
-                        <span><b>Priority</b></span>
-                        <div id="showUrgency"></div>
-                    </div>
-                    
-                </div>
-
-                <div class="assignedContainer">
-                    <span><b>Assigned To:</b></span>
-                      <div id="assignedUser" class="assignedUser"></div>
-                </div>
-            </div>
-            
-            <div class="fullCardRight">
-              <div class="plus">
-                <img onclick="closeFullView()" src="img/secondary-plus.svg">
-              </div>
-              <button class="changeTaskBtn cursor-pointer" onclick="changeOption(${task.specificId})"><img src="img/pencil.svg"></button>
-            </div>
+  <div class="modalContainer fade-in startTop">
+      <div class="fullCard hide-scrollbar" id="fullCard">
+        <div class="headerFullCard">
+          <div
+            class="categoryText"
+            style="background-color:${task.category.color}"
+          >
+            <span>${task.category.name}</span>
+          </div>
+          <div class="plus">
+            <img onclick="closeFullView()" src="img/secondary-plus.svg" />
           </div>
         </div>
+        <div>
+          <h2 class="taskHeader">${task.title}</h2>
+        </div>
+        <div class="bodyFullCard hide-scrollbar">
+          <div class="descriptionFullCard">
+            <span>${task.description}</span>
+          </div>          
+            <div class="subtasksFullCard">
+              <span><b>Subtasks:</b></span>
+              <span id="subtasksSection"></span>
+            </div>
+            <div class="date">
+              <span><b>Due date:</b></span>
+              <span>${task.dueDate}</span>
+            </div>
+            <div class="prio">
+              <span><b>Priority:</b></span>
+              <div id="showUrgency"></div>
+            </div>
+          
+          <div class="assignedContainer">
+            <span><b>Assigned To:</b></span>
+            <div id="assignedUser" class="assignedUser hide-scrollbar"></div>
+          </div>
+        </div>
+        <div class="footerFullCard">
+          <button
+            class="editBtn btn-blue cursor-pointer"
+            onclick="renderEditTask(${task.specificId})"
+          >
+            <img src="img/pencil.svg" />
+          </button>
+
+        </div>
+      </div>
+    </div>
     `;
 }
 
@@ -81,7 +91,13 @@ function createAssignedToFullCard(taskContact) {
     `;
 }
 
-function createChangeOption(task) {
+function createAssignedContactInitialsOverflow(overflow) {
+  return /*html*/ `
+  <div class="initials initialCircle" style="background-color:#2a3647">+${overflow}</div>
+  `;
+}
+
+function createEditTask(task) {
   return /*html*/ `
     <div class="flex changedCard">
       <div class="fullCardLeft">
@@ -108,7 +124,7 @@ function createChangeOption(task) {
 
                   <button
                     type="button"
-                    class="changeBtn"
+                    class="statusButton"
                     onclick="getPriority('urgent')"
                     id="urgent"
                   >
@@ -118,7 +134,7 @@ function createChangeOption(task) {
 
                   <button
                     type="button"
-                    class="changeBtn"
+                    class="statusButton"
                     onclick="getPriority('medium')"
                     id="medium"
                   >
@@ -128,7 +144,7 @@ function createChangeOption(task) {
 
                   <button
                     type="button"
-                    class="changeBtn"
+                    class="statusButton"
                     onclick="getPriority('low')"
                     id="low"
                   >
@@ -173,7 +189,7 @@ function createChangeOption(task) {
               
               <button
               type="submit"
-              class="btn-blue createTaskBtn"
+              class="btn-blue editBtn"
               onclick="changeTask(${task.specificId})"
               id="create"
               >
