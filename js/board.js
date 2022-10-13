@@ -111,13 +111,30 @@ function renderMoreBoardInitials(task, index) {
 
 function showFullView(externalId) {
   let task = allTasks.find((id) => id['specificId'] == externalId);
+  let index = allTasks.indexOf(task);
   let card = document.getElementById('taskBox');
   card.innerHTML = '';
   card.classList.remove('d-none');
-  card.innerHTML += createFullView(task);
+  card.innerHTML += createFullView(task, index);
   showUrgency(task);
   showContacts(task);
+  renderSubtasksSection(task.subtasks, index);
   createSubtasksSection('subtasksSection', task.subtasks);
+}
+
+function renderSubtasksSection(subtasks, index) {
+  if (!subtasks.length == 0) {
+    createSubtasksContainer(index);
+    createSubtasksSection('subtasksSection', subtasks);
+  }
+}
+
+function createSubtasksContainer(index) {
+  let subtasksFullCard = getId('subtasksFullCard' + index);
+  subtasksFullCard.innerHTML = /*html*/ `
+  <span><b>Subtasks:</b></span>
+  <span id="subtasksSection"></span>
+  `;
 }
 
 function showUrgency(task) {
@@ -131,7 +148,6 @@ function showUrgency(task) {
 }
 
 function showContacts(task) {
-  console.log(task);
   let assignedContacts = document.getElementById('assignedUser');
   assignedContacts.innerHTML = '';
   for (let i = 0; i < task.assignedTo.length; i++) {
@@ -191,11 +207,26 @@ function styleUrgency(task) {
   }
 }
 
-function closeFullView() {
+async function closeFullView(index) {
+  checkIfSubtasksDone(index);
+  await backend.setItem('allTasks', allTasks);
   setTimeout(() => {
     document.getElementById('taskBox').classList.add('d-none');
   }, 200);
-  initTodos();
+  updateHTML();
+}
+
+function checkIfSubtasksDone(index) {
+  let task = allTasks[index];
+  let checkboxes = document.querySelectorAll('input[type=checkbox]');
+  for (let i = 0; i < checkboxes.length; i++) {
+    const checkbox = checkboxes[i];
+    if (checkbox.checked == true) {
+      task.subtasks[i].checked = true;
+    } else {
+      task.subtasks[i].checked = false;
+    }
+  }
 }
 
 function showPossibleDropzones() {

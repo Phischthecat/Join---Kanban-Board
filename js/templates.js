@@ -24,7 +24,7 @@ function createTaskCard(index) {
   `;
 }
 
-function createFullView(task) {
+function createFullView(task, index) {
   return /*html*/ `
   <div class="modalContainer fade-in startTop">
       <div class="fullCard hide-scrollbar" id="fullCard">
@@ -36,7 +36,7 @@ function createFullView(task) {
             <span>${task.category.name}</span>
           </div>
           <div class="plus">
-            <img onclick="closeFullView()" src="img/secondary-plus.svg" />
+            <img onclick="closeFullView(${index})" src="img/secondary-plus.svg" />
           </div>
         </div>
         <div>
@@ -46,10 +46,7 @@ function createFullView(task) {
           <div class="descriptionFullCard">
             <span>${task.description}</span>
           </div>          
-            <div class="subtasksFullCard">
-              <span><b>Subtasks:</b></span>
-              <span id="subtasksSection"></span>
-            </div>
+            <div class="subtasksFullCard" id="subtasksFullCard${index}"></div>
             <div class="date">
               <span><b>Due date:</b></span>
               <span>${task.dueDate}</span>
