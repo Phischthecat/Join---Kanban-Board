@@ -304,23 +304,31 @@ function saveNewSubtasks() {
   if (!addTaskSubtasks.find((n) => n.description == input) && input) {
     addTaskSubtasks.push({
       description: input,
-      checked: true,
+      checked: false,
     });
-    createSubtasksSection();
+    createSubtasksSection('subtasksContainer', addTaskSubtasks);
   }
   renderSubtaskSection();
 }
 
-function createSubtasksSection() {
-  let subtasksContainer = getId('subtasksContainer');
+function createSubtasksSection(id, arr) {
+  let subtasksContainer = getId(id);
   subtasksContainer.innerHTML = '';
-  for (let i = 0; i < addTaskSubtasks.length; i++) {
-    const subtask = addTaskSubtasks[i];
-    subtasksContainer.innerHTML += /*html*/ `
+  for (let i = 0; i < arr.length; i++) {
+    const subtask = arr[i];
+    if (subtask.checked == true) {
+      subtasksContainer.innerHTML += /*html*/ `
     <div class="subtask">
-      <input type="checkbox" id="sub${i}">${subtask.description}
+      <input type="checkbox" id="sub${i}" checked>${subtask.description}
     </div>
     `;
+    } else {
+      subtasksContainer.innerHTML += /*html*/ `
+      <div class="subtask">
+        <input type="checkbox" id="sub${i}">${subtask.description}
+      </div>
+      `;
+    }
   }
 }
 

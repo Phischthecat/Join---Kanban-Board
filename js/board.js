@@ -44,17 +44,42 @@ function setDragAndDropId() {
 
 function updateContainer(container) {
   let filteredTask = allTasks.filter((t) => t['status'] == container);
-  document.getElementById(container).innerHTML = '';
+  let column = getId(container);
+  column.innerHTML = '';
   for (let i = 0; i < filteredTask.length; i++) {
     let task = filteredTask[i];
     let index = allTasks.indexOf(task);
-    document.getElementById(container).innerHTML += createTaskCard(task, index);
-    renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
-    boardInitials(index);
+    column.innerHTML += createTaskCard(index);
+    renderBoardInitials(task, index);
+    taskUrgency(index);
+    updateProgressbar(index);
   }
 }
 
-function boardInitials(index) {
+function updateProgressbar(index) {
+  let subtasks = allTasks[index].subtasks,
+    subtasksLength = subtasks.length,
+    doneSubtasks = subtasks.filter((n) => n.checked == true),
+    progressbar = getId('progresslabel' + index),
+    progressLabel = getId('barText' + index),
+    progessValue = 100 * (doneSubtasks.length / subtasksLength),
+    progressContainer = getId('proContainer' + index);
+  if (subtasksLength > 0) {
+    progressContainer.classList.remove('d-none');
+    progressLabel.innerHTML = doneSubtasks.length + '/' + subtasksLength;
+    progressbar.value = progessValue;
+  } else {
+    progressContainer.classList.add('d-none');
+  }
+}
+
+function taskUrgency(index) {
+  let task = allTasks[index];
+  let urgency = getId('urgencyTask' + index);
+  urgency.children[0].src = `img/${task.priority}.addTask.svg`;
+}
+
+function boardInitialsClassAdd(index) {
   let initials = getId('assignedUsers' + index);
   classList = 'classList' in initials;
   for (let i = 0; i < initials.children.length; i++) {
@@ -65,16 +90,34 @@ function boardInitials(index) {
   }
 }
 
+function renderBoardInitials(task, index) {
+  renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
+  renderMoreBoardInitials(task, index);
+}
+
+function renderMoreBoardInitials(task, index) {
+  let overflow = task.assignedTo.length - 2;
+  if (overflow >= 1) {
+    let firstTwo = [task.assignedTo[0], task.assignedTo[1]];
+    renderAssignedContactInitials(firstTwo, 'assignedUsers' + index);
+    getId('assignedUsers' + index).innerHTML +=
+      createAssignedContactInitialsOverflow(overflow);
+    boardInitialsClassAdd(index);
+  } else {
+    renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
+    boardInitialsClassAdd(index);
+  }
+}
+
 function showFullView(externalId) {
   let task = allTasks.find((id) => id['specificId'] == externalId);
   let card = document.getElementById('taskBox');
   card.innerHTML = '';
-  if (card.classList.contains('d-none')) {
-    card.classList.remove('d-none');
-  } else {
-    card.innerHTML += createFullView(task);
-    showUrgency(task);
-  }
+  card.classList.remove('d-none');
+  card.innerHTML += createFullView(task);
+  showUrgency(task);
+  showContacts(task);
+  createSubtasksSection('subtasksSection', task.subtasks);
 }
 
 function showUrgency(task) {
@@ -85,10 +128,10 @@ function showUrgency(task) {
         <img src="/img/${task.priority}.addTask.svg">
     `;
   styleUrgency(task);
-  showContacts(task);
 }
 
 function showContacts(task) {
+  console.log(task);
   let assignedContacts = document.getElementById('assignedUser');
   assignedContacts.innerHTML = '';
   for (let i = 0; i < task.assignedTo.length; i++) {
@@ -97,20 +140,20 @@ function showContacts(task) {
   }
 }
 
-function changeOption(specific) {
+function renderEditTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
   let card = document.getElementById('fullCard');
   card.innerHTML = '';
   setTimeout(() => {
-    card.innerHTML += createChangeOption(task);
+    card.innerHTML += createEditTask(task);
     renderAssignedToContacts();
     renderAssignedContactInitials(task.assignedTo, 'assignedToContacts');
-    choosenContacts();
+    choosenContacts(task);
     getPriority(task.priority);
   }, 200);
 }
 
-function choosenContacts() {
+function choosenContacts(task) {
   let choosenContacts = document.querySelectorAll('.item');
   choosenContacts.forEach((choosenContact) => {
     if (task.assignedTo.find((a) => a.name == choosenContact.id)) {

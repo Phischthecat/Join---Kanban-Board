@@ -79,11 +79,12 @@
 .taskCard {
   height: 150px;
   width: -webkit-fill-available;
-  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
-  border-radius: 30px;
+  width: -moz-available;
   padding: 18px;
   margin-bottom: 10px;
-  background-color: rgb(126, 24, 24);
+  background-color: #fff;
+  box-shadow: 0px 0px 14px 3px rgba(0, 0, 0, 0.04);
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -131,15 +132,14 @@
 }
 
 .fullCard {
-  width: 620px;
+  position: relative;
+  width: 40%;
   background-color: white;
   box-shadow: 0px 0px 4px rgb(0 0 0 / 10%);
   border-radius: 30px;
-  margin-bottom: 50px;
-  margin-top: 50px;
-  border-radius: 30px;
-  padding: 30px;
-  justify-content: space-between;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  padding: 50px;
 }
 
 .startTop {
@@ -149,6 +149,12 @@
 .headerFullCard {
   display: flex;
   justify-content: space-between;
+}
+
+.bodyFullCard {
+  overflow: auto;
+  height: 55vh;
+  width: 100%;
 }
 
 .categoryText {
@@ -162,6 +168,13 @@
   font-size: 25px;
   color: white;
   text-transform: capitalize;
+}
+
+.editBtn {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  padding: 29px 17px;
 }
 
 .plus {
@@ -188,21 +201,14 @@
   font-size: 61px;
 }
 
-.date {
-  margin-top: 20px;
-  width: 250px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 21px;
-}
-
+.date,
 .prio {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 250px;
   margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
   font-size: 21px;
+  gap: 20px;
 }
 
 .prio span {
@@ -227,16 +233,6 @@
 .assignedContainer {
   margin-top: 20px;
   font-size: 21px;
-  height: 300px;
-  overflow-y: auto;
-}
-
-.changeTaskBtn {
-  height: 57px;
-  width: 57px;
-  background-color: var(--mainColorDarkBlue);
-  border-radius: 10px;
-  border: none;
 }
 
 .changedCard {
@@ -269,20 +265,11 @@
   justify-content: space-between;
 }
 
-.changeBtn {
-  box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
-  height: 40px;
-  width: 110px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border: none;
-  background-color: white;
-}
-
 .assignedUser {
   margin-top: 20px;
+  margin-right: 65px;
+  height: 35vh;
+  overflow: scroll;
 }
 
 .fullCardAssignedTo {
@@ -326,10 +313,6 @@
 
 .priorityBox {
   width: 300px !important;
-}
-
-.statusButton {
-  width: 90px !important;
 }
 
 .buttonContainer {
@@ -396,4 +379,42 @@
   border-radius: 10px;
   border: 1px solid #a8a8a8;
   margin-left: 8px;
+}
+
+.progressbarContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.progressbarContainer label {
+  font-size: 12px;
+}
+
+progress[value] {
+  height: 8px;
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Get rid of default border in Firefox. */
+  border: none;
+  max-width: 65%;
+  background-color: var(--backgroundProgressbar);
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: var(--backgroundProgressbar);
+  border-radius: 2px;
+}
+
+progress[value]::-moz-progress-bar {
+  background-color: var(--blueColor);
+  border-radius: 2px;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: var(--blueColor);
+  border-radius: 2px;
 }
