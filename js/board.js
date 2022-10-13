@@ -48,7 +48,21 @@ function updateContainer(container) {
   document.getElementById(container).innerHTML = '';
   for (let i = 0; i < filteredTask.length; i++) {
     let task = filteredTask[i];
-    document.getElementById(container).innerHTML += createTaskCard(task);
+    let index = allTasks.indexOf(task);
+    document.getElementById(container).innerHTML += createTaskCard(task, index);
+    renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
+    boardInitials(index);
+  }
+}
+
+function boardInitials(index) {
+  let initials = getId('assignedUsers' + index);
+  classList = 'classList' in initials;
+  for (let i = 0; i < initials.children.length; i++) {
+    const child = initials.children[i];
+    if (child.tagName == 'DIV' && classList) {
+      child.classList.add('boardInitial');
+    }
   }
 }
 
@@ -91,15 +105,19 @@ function changeOption(specific) {
   setTimeout(() => {
     card.innerHTML += createChangeOption(task);
     renderAssignedToContacts();
-    renderAssignedContactInitials(task.assignedTo);
+    renderAssignedContactInitials(task.assignedTo, 'assignedToContacts');
+    choosenContacts();
     getPriority(task.priority);
-    let choosenContacts = document.querySelectorAll('.item');
-    choosenContacts.forEach((choosenContact) => {
-      if (task.assignedTo.find((a) => a.name == choosenContact.id)) {
-        choosenContact.classList.add('checked');
-      }
-    });
   }, 200);
+}
+
+function choosenContacts() {
+  let choosenContacts = document.querySelectorAll('.item');
+  choosenContacts.forEach((choosenContact) => {
+    if (task.assignedTo.find((a) => a.name == choosenContact.id)) {
+      choosenContact.classList.add('checked');
+    }
+  });
 }
 
 async function changeTask(specific) {
