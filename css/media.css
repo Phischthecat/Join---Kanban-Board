@@ -1,4 +1,4 @@
-/********* Media Queries for Login *********/
+/************************** Media Queries for Login **************************/
 @media(max-width: 1150px) {
     .loginContainer {
         margin-right: calc(100vw / 4);
@@ -67,64 +67,84 @@
     }
 }
 
-/********* Media Queries for Login *********/
+/************************** Media Queries for Login **************************/
 
 
-/********* Media Queries for Summary *********/
+/************************** Media Queries for Summary **************************/
+@media (max-width: 1230px) {
+    .greeting {
+        margin-left: 100px;
+    }
+}
+
 @media (max-width: 1190px) {
     .greeting {
         margin-left: 70px;
     }
 }
 
-@media (max-width: 1111px) {
+@media (max-width: 1150px) {
     .greeting {
-        margin-left: 35px;
+        margin-left: 45px;
     }
 }
 
-@media (max-width: 1075px) {
+@media (max-width: 1130px) {
     .summaryArea {
-        padding-left: 110px;
+        padding-left: 120px;
     }
 }
 
-
-@media (max-width: 1060px) {
+@media (max-width: 1105px) {
     .summaryArea {
         padding-left: 100px;
     }
 }
 
-@media (max-width: 1055px) {
+@media (max-width: 1095px) {
     .summaryArea {
         padding-left: 80px;
     }
-
-    .greeting {
-        margin-left: 22px;
-    }
 }
 
-@media (max-width: 1035px) {
+@media (max-width: 1075px) {
     .summaryArea {
-        padding-left: 70px;
+        padding-left: 60px;
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1045px) {
     .summaryArea {
-        padding-left: 30px;
+        padding-left: 40px;
     }
 }
 
-@media (max-width: 965px) {
-    .headline h1 {
-        font-size: 45px;
-    }
-
+@media (max-width: 1025px) {
     .greeting {
         font-size: 25px;
+    }
+}
+
+@media (max-width: 994px) {
+    .subheadline span {
+        font-size: 25px;
+    }
+
+    .greeting {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 990px) {
+    .greeting {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 969px) {
+    .greeting {
+        font-size: 22px;
+        margin-left: 25px;
     }
 
     .box {
@@ -140,53 +160,36 @@
         width: 200px;
         height: 80px;
     }
+}
 
-    .summaryArea {
+@media (max-width: 955px) {
+    .headerSummaryMobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overviewSummary {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .greeting {
+        font-size: 25px;
         padding-top: 70px;
     }
 }
 
 @media (max-width: 940px) {
-    .headline h1 {
-        font-size: 35px;
-    }
-
-    .overviewSummary {
-        display: unset;
-    }
-
-    .greeting {
-        padding-left: 150px;
-        padding-top: 50px;
-    }
-
-    .summaryArea {
-        padding-left: 110px;
+    .headlineSummaryMobile h1 {
+        font-size: 45px;
     }
 }
 
-@media (max-width: 900px) {
-    .summaryArea {
-        padding-left: 80px;
-    }
-}
-
-@media (max-width: 870px) {
-    .summaryArea {
-        padding-left: 60px;
-    }
-}
-
-@media (max-width: 845px) {
-    .summaryArea {
-        padding-left: 40px;
-    }
-}
-
-@media (max-width: 820px) {
-    .summaryArea {
-        padding-left: 30px;
-        padding-top: 40px;
+@media (max-width: 840px) {
+    .subheadlineSummaryMobile span {
+        font-size: 23px;
     }
 }
 
@@ -195,13 +198,22 @@
         display: none;
     }
 
-    .header {
+    .blue-border {
+        border-right: unset;
+        padding-right: 25px;
+    }
+
+    .headerSummaryMobile {
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 30px;
-        margin-bottom: 55px;
-        padding-right: 55%;
+        margin-bottom: 50px;
+        padding-right: 215px
+    }
+
+    .overviewSummary {
+        padding-bottom: 120px;
     }
 
     .navbarSummary {
@@ -214,115 +226,36 @@
 
     .kanbanTextSummary {
         display: flex;
-        padding-right: 100px;
+        padding-right: 10px;
     }
 
-    .headline h1 {
+    .headlineSummaryMobile h1 {
         padding-top: 25px;
-        padding-left: 5px !important;
     }
 
-    .subheadline span {
-        border-left: 0;
-        padding-left: 0;
-        margin-right: 20px;
-    }
-
-    .subheadline {
+    .subheadlineSummaryMobile {
         border-left: 0;
         border-bottom: 4px solid var(--mainColorLightBlue);
         padding-bottom: 35px;
+        margin-top: -15px;
     }
 
     .summaryArea {
-        padding-left: 130px;
         padding-top: 40px;
     }
 }
 
-@media (max-width: 775px) {
-    .header {
-        padding-right: 53%;
+@media (max-width: 615px) {
+    .kanbanTextSummary {
+        font-size: 15px;
     }
 
-    .summaryArea {
-        padding-left: 120px;
-    }
-}
-
-@media (max-width: 742px) {
-    .header {
-        padding-right: 50%;
-    }
-}
-
-@media (max-width: 730px) {
-    .summaryArea {
-        padding-left: 100px;
-    }
-}
-
-@media (max-width: 700px) {
-    .summaryArea {
-        padding-left: 90px;
+    .headlineSummaryMobile h1 {
+        font-size: 42px;
     }
 
-    .header {
-        padding-right: 47%;
-    }
-}
-
-@media (max-width: 690px) {
-    .summaryArea {
-        padding-left: 80px;
-    }
-}
-
-@media (max-width: 680px) {
-    .summaryArea {
-        padding-left: 60px;
-    }
-}
-
-@media (max-width: 660px) {
-    .header {
-        padding-right: 45%;
-    }
-
-    .containerWithSectionsSummary ul {
-        padding-left: 0;
-    }
-}
-
-@media (max-width: 645px) {
-    .summaryArea {
-        padding-left: 50px;
-    }
-}
-
-@media (max-width: 638px) {
-    .header {
-        padding-right: 42%;
-    }
-
-    .summaryArea {
-        padding-left: 45px;
-    }
-}
-
-@media (max-width: 620px) {
-    .summaryArea {
-        padding-left: 75px;
-    }
-
-    .containerOverview {
-        width: 450px;
-    }
-}
-
-@media (max-width: 605px) {
-    .header {
-        padding-right: 40%;
+    .subheadline span {
+        font-size: 22px;
     }
 }
 
@@ -331,45 +264,19 @@
         width: 420px;
     }
 
-    .summaryArea {
-        padding-left: 70px;
+    .headerSummaryMobile {
+        padding-right: 150px;
     }
 }
 
-@media (max-width: 585px) {
-    .header {
-        padding-right: 38%;
+@media (max-width: 558px) {
+    .containerWithSectionsSummary li {
+        padding-left: 25px;
+        padding-right: 25px;
     }
 }
-
-
-/* @media (max-width: 580px) {
-    .headline {
-        display: flex;
-        flex-direction: column;
-        border-right: unset;
-    }
-
-    .header {
-        display: flex;
-        flex-direction: column;
-        padding-right: 220px;
-    }
-
-    .headline h1 {
-        padding-right: 120px;
-    }
-
-    .subheadline {
-        border-bottom: 4px solid var(--mainColorLightBlue);
-    }
-} */
 
 @media (max-width: 567px) {
-    .header {
-        padding-right: 35%;
-    }
-
     .box {
         width: 100px;
         height: 100px;
@@ -379,46 +286,11 @@
         width: 180px;
         height: 70px;
     }
-
-    /* 
-    li {
-        padding-left: 25px;
-        padding-right: 25px;
-    } */
-
 }
 
-@media (max-width: 560px) {
-    /* .containerOverview {
-        width: 450px;
-    } */
-
-    .summaryArea {
-        padding-left: 55px;
-    }
-
-    /* .header {
-        padding-right: 130px;
-    } */
-}
-
-@media (max-width: 540px) {
-    .summaryArea {
-        padding-left: 45px;
-    }
-
-    .header {
-        padding-right: 33%;
-    }
-}
-
-@media (max-width: 525px) {
-    .header {
-        padding-right: 30%;
-    }
-
-    .summaryArea {
-        padding-left: 60px;
+@media (max-width: 535px) {
+    .headerSummaryMobile {
+        padding-right: 110px;
     }
 
     .containerOverview {
@@ -426,17 +298,22 @@
     }
 }
 
-@media (max-width: 505px) {
-    .header {
-        padding-right: 27%;
+@media (max-width: 507px) {
+    .headerSummaryMobile {
+        padding-right: 100px;
     }
 
-    .summaryArea {
-        padding-left: 50px;
+    .containerWithSectionsSummary li {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
 
 @media (max-width: 500px) {
+    .headerSummaryMobile {
+        padding-right: 90px;
+    }
+
     .box {
         width: 90px;
         height: 90px;
@@ -473,24 +350,19 @@
     }
 }
 
-@media (max-width: 485px) {
-    .kanbanTextSummary {
-        font-size: 14px;
+@media (max-width: 475px) {
+    .headerSummaryMobile {
+        padding-right: 75px;
     }
 
-    .subheadline span {
-        font-size: 24px;
+    .containerOverview {
+        width: 350px;
     }
 }
 
 @media (max-width: 460px) {
-    .summaryArea {
-        padding-left: 45px;
-    }
-
-    .containerWithSectionsSummary li {
-        padding-left: 15px;
-        padding-right: 15px;
+    .headerSummaryMobile {
+        padding-right: 60px;
     }
 
     .containerOverview {
@@ -499,9 +371,20 @@
 }
 
 @media (max-width: 445px) {
-    .containerWithSectionsSummary li {
-        padding-left: 10px;
-        padding-right: 10px;
+    .headerSummaryMobile {
+        padding-right: 100px;
+    }
+
+    .kanbanTextSummary {
+        font-size: 12px;
+    }
+
+    .headlineSummaryMobile h1 {
+        font-size: 30px;
+    }
+
+    .subheadlineSummaryMobile span {
+        font-size: 18px;
     }
 
     .box {
@@ -515,10 +398,6 @@
 
     .text {
         font-size: 13px;
-    }
-
-    .subheadline {
-        font-size: 22px;
     }
 
     .longBox {
@@ -546,87 +425,76 @@
     #navbar {
         padding-top: 0;
     }
-
-    .header {
-        padding-right: 24%;
-    }
 }
-
 
 @media (max-width: 440px) {
     .containerOverview {
         width: 310px;
     }
 
-    .kanbanTextSummary {
-        font-size: 14px;
+    .headerSummaryMobile {
+        padding-right: 80px;
     }
-
-    .headline h1 {
-        font-size: 40px;
-    }
-
-    .subheadline span {
-        font-size: 23px;
-    }
-
-    .header {
-        padding-right: 20%;
-    }
-
 }
 
-@media (max-width: 415px) {
-    .iconsNav {
+@media (max-width: 420px) {
+    .headerSummaryMobile {
+        padding-right: 75px;
+    }
+
+    .iconsNavSummaryMobile {
         width: 25px;
         height: 25px;
     }
 
-    nav a {
+    .navbarSummary a {
         font-size: 13px;
+    }
+}
+
+@media (max-width: 415px) {
+    .headerSummaryMobile {
+        padding-right: 60px;
+    }
+
+    .iconsNavSummaryMobile {
+        width: 22px;
+        height: 22px;
+    }
+
+    .containerOverview {
+        width: 300px;
+    }
+}
+
+@media (max-width: 412px) {
+    .navbarSummary a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 405px) {
+    .containerOverview {
+        width: 300px;
+    }
+}
+
+@media (max-width: 399px) {
+    .kanbanTextSummary {
+        font-size: 11px;
+    }
+
+    .subheadlineSummaryMobile span {
+        font-size: 16px;
     }
 
     .containerWithSectionsSummary li {
         padding-left: 15px;
         padding-right: 15px;
     }
-}
-
-@media (max-width: 405px) {
-    .header {
-        padding-right: 17%;
-    }
-
-    .summaryArea {
-        padding-left: 35px;
-    }
-
-    .subheadline span {
-        margin-right: 30px;
-    }
 
     .containerOverview {
-        width: 300px;
-    }
-
-    .headline h1 {
-        font-size: 35px !important;
-    }
-}
-
-@media (max-width: 392px) {
-    .header {
-        padding-right: 14%;
-    }
-
-    .headline h1 {
-        font-size: 28px !important;
-    }
-}
-
-@media (max-width: 380px) {
-    .summaryArea {
-        padding-left: 25px;
+        width: 270px;
     }
 
     .box {
@@ -635,7 +503,7 @@
     }
 
     .nr {
-        font-size: 22px;
+        font-size: 25px;
     }
 
     .text {
@@ -656,7 +524,6 @@
 
     .thirdBox {
         width: 120px;
-        height: 55px
     }
 
     .todoAndDone {
@@ -664,204 +531,43 @@
         height: 15px !important;
     }
 
-    #toDo, #done {
-        font-size: 20px;
-    }
-
-    .thirdBox span {
-        color: var(--textColor);
-        font-size: 14px;
-    }
-
-    .navbarSummary {
-        height: 122px !important;
-    }
-
-    .containerWithSectionsSummary ul {
-        margin-top: 35px;
-    }
-}
-
-@media (max-width: 376px) {
-    li {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-    .containerOverview {
-        width: 280px;
-    }
-
-    .summaryArea {
-        padding-left: 30px;
-    }
-
-    .box {
-        width: 70px;
-        height: 70px;
-    }
-
-    .nr {
-        font-size: 23px;
-    }
-
-    .text {
-        font-size: 11px;
-    }
-
-    .subheadline {
-        font-size: 17px;
-    }
-
-    .longBox img {
-        height: 30px;
-    }
-
-    #dateOfDeadline {
-        font-size: 15px;
-    }
-
-    .thirdBox {
-        width: 110px;
-    }
-
-    .todoAndDone {
-        width: 10px !important;
-        height: 10px !important;
-    }
-
-    #toDo, #done {
-        font-size: 20px;
-    }
-
     .thirdBox span {
         font-size: 14px;
     }
 
-    #navbar {
-        padding-top: 4px;
+    #toDo, #done {
+        font-size: 25px;
     }
 }
 
-@media (max-width: 365px) {
-    .header {
-        padding-right: 12%;
+@media (max-width: 370px) {
+    .headerSummaryMobile {
+        padding-right: 50px;
     }
 
-    .containerWithSectionsSummary li {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .kanbanTextSummary {
-        font-size: 13px;
-    }
-
-    .subheadline span {
-        font-size: 21px;
-    }
-
-    .kanbanTextSummary {
-        padding-right: 90px;
-    }
-
-    .navbarSummary {
-        height: 125px !important;
-    }
-}
-
-@media (max-width: 348px) {
-    .summaryArea {
-        padding-left: 25px;
-    }
-
-    .headline h1 {
-        font-size: 25px !important;
-    }
-
-    .subheadline span {
-        font-size: 19px;
-        margin-right: 45px;
-    }
-
-    .navbarSummary {
-        height: 130px !important;
-    }
-}
-
-@media (max-width: 340px) {
-    .summaryArea {
-        padding-left: 28px;
-    }
-}
-
-@media (max-width: 336px) {
     .containerOverview {
-        width: 250px;
+        width: 260px;
     }
 
-    .kanbanTextSummary {
-        font-size: 12px;
+    .headerSummaryMobile {
+        padding-right: 35px;
     }
 
-    .subheadline span {
-        font-size: 18px;
+    .containerOverview {
+        width: 245px;
     }
 
-    .header {
-        padding-right: 17%;
-    }
-
-    .navbarSummary {
-        height: 134px !important;
-    }
-}
-
-@media (max-width: 330px) {
-    .containerWithSectionsSummary li {
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-
-    .kanbanTextSummary {
-        padding-right: 80px;
-    }
-
-    .subheadline span {
-        margin-right: 35px;
-    }
-}
-
-@media (max-width: 320px) {
-    .kanbanTextSummary {
-        font-size: 11px;
-    }
-
-    .headline h1 {
-        font-size: 23px !important;
-    }
-
-    .subheadline span {
-        font-size: 17px;
-    }
-
-    .navbarSummary {
-        height: 139px !important;
-    }
-}
-
-@media (max-width: 310px) {
     .box {
-        width: 65px;
-        height: 65px;
+        width: 60px;
+        height: 60px;
     }
 
     .nr {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .text {
-        font-size: 11px;
+        font-size: 10px !important;
     }
 
     .longBox {
@@ -872,56 +578,186 @@
         height: 25px;
     }
 
-    .thirdBox span {
-        font-size: 11px;
-    }
-
     #dateOfDeadline {
         font-size: 13px;
     }
 
     .thirdBox {
         width: 100px;
-        height: 50px;
     }
 
     .todoAndDone {
-        width: 8px !important;
-        height: 8px !important;
+        width: 10px !important;
+        height: 10px !important;
     }
 
-    .navbarSummary {
-        height: 154px !important;
+    #toDo, #done {
+        font-size: 24px;
     }
 
-    .containerWithSectionsSummary ul {
-        margin-top: 55px;
-    }
-
-    .summaryArea {
-        padding-left: 20px;
+    .thirdBox span {
+        font-size: 12px;
     }
 }
 
-@media (max-width: 297px) {
-    .summaryArea {
-        padding-left: 14px;
+@media (max-width: 360px) {
+    .headlineSummaryMobile h1 {
+        font-size: 25px;
     }
 
-    .header {
-        padding-right: 14%;
+    .subheadlineSummaryMobile span {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 347px) {
+    .containerWithSectionsSummary li {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+
+@media (max-width: 342px) {
+    .headerSummaryMobile {
+        padding-right: 30px;
+    }
+}
+
+@media (max-width: 337px) {
+    .headerSummaryMobile {
+        padding-right: 20px;
     }
 
+    .containerOverview {
+        width: 230px;
+    }
+}
+
+@media (max-width: 330px) {
+    .headerSummaryMobile {
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 322px) {
+    .headerSummaryMobile {
+        padding-right: 10px;
+    }
+
+    .iconsNavSummaryMobile {
+        width: 20px;
+        height: 20px;
+    }
+
+    .navbarSummary a {
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 318px) {
+    .headerSummaryMobile {
+        padding-right: 5px;
+    }
+
+    .containerOverview {
+        width: 220px;
+    }
+}
+
+@media (max-width: 312px) {
+    .headerSummaryMobile {
+        padding-right: 0;
+    }
+
+    .containerOverview {
+        width: 205px;
+    }
+
+    .box {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nr {
+        font-size: 20px;
+    }
+
+    .text {
+        font-size: 8px !important;
+    }
+
+    .thirdBox {
+        width: 85px;
+    }
+
+    .todoAndDone {
+        width: 5px !important;
+        height: 5px !important;
+    }
+
+    #toDo, #done {
+        font-size: 20px;
+    }
+
+    .thirdBox span {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 308px) {
     .kanbanTextSummary {
-        padding-right: 70px;
+        font-size: 10px;
     }
 
-    .subheadline span {
-        margin-right: 25px;
+    .headlineSummaryMobile h1 {
+        font-size: 22px;
+    }
+
+    .subheadlineSummaryMobile span {
+        font-size: 15px;
     }
 }
 
-/********* Media Queries for Summary *********/
+@media (max-width: 303px) {
+    .containerWithSectionsSummary li {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@media (max-width: 295px) {
+    .kanbanTextSummary {
+        font-size: 9px;
+    }
+
+    .subheadlineSummaryMobile span {
+        font-size: 13px;
+    }
+
+    .headerSummaryMobile {
+        padding-right: 15px;
+    }
+
+    .containerOverview {
+        width: 195px;
+    }
+}
+
+@media (max-width: 292px) {
+    .kanbanTextSummary {
+        font-size: 8px;
+    }
+
+    .subheadlineSummaryMobile span {
+        font-size: 12px;
+    }
+
+    .navbarSummary a {
+        font-size: 10px;
+    }
+}
+
+/************************** Media Queries for Summary **************************/
 
 
 /********* Media Queries for Add Task *********/
@@ -942,9 +778,9 @@
         margin-right: 7% !important;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         font-size: 51px;
-    }
+    } */
 }
 
 @media (max-width: 1030px) {
@@ -974,9 +810,10 @@
         width: 280px !important;
     }
 
+    /* 
     .headline h1 {
         font-size: 41px;
-    }
+    } */
 }
 
 @media (max-width: 925px) {
@@ -1025,9 +862,9 @@
         padding-bottom: 20px;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         padding-left: 5px;
-    }
+    } */
 
     .buttonContainer {
         display: none !important;
@@ -1087,7 +924,7 @@
     }
 
     .headline h1 {
-        padding-top: 20px;
+        /* padding-top: 20px; */
         padding-left: 0;
     }
 
@@ -1255,9 +1092,9 @@
         font-size: 14px;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         font-size: 35px;
-    }
+    } */
 
     .text {
         font-size: 12px;
@@ -1292,9 +1129,9 @@
 }
 
 @media (max-width: 314px) {
-    .headline h1 {
+    /* .headline h1 {
         font-size: 32px;
-    }
+    } */
 }
 
 @media (max-width: 307px) {
@@ -1307,15 +1144,15 @@
         font-size: 13px;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         font-size: 30px;
-    }
+    } */
 }
 
 @media (max-width: 292px) {
-    .headline h1 {
+    /* .headline h1 {
         font-size: 27px;
-    }
+    } */
 
     .containerWithSectionsAddTask li {
         padding-left: 6px !important;
@@ -1358,9 +1195,9 @@
         padding-right: 15px !important;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         font-size: 51px;
-    }
+    } */
 
     .dragAndDropContainer {
         flex-wrap: wrap;
@@ -1368,9 +1205,9 @@
 }
 
 @media (max-width: 845px) {
-    .headline h1 {
+    /* .headline h1 {
         font-size: 41px;
-    }
+    } */
 
     .addTaskBtn {
         width: 140px !important;
@@ -1408,9 +1245,9 @@
         display: none;
     }
 
-    .headline {
+    /* .headline {
         margin-left: -8px;
-    }
+    } */
 
     .headline h1 {
         padding-bottom: 25px;
@@ -1474,9 +1311,9 @@
         padding-left: 20px !important;
     }
 
-    .headline {
+    /* .headline {
         margin-left: 8px;
-    }
+    } */
 
     .plusImgMobile {
         right: 20px;
@@ -1504,9 +1341,9 @@
         right: 28px;
     }
 
-    .headline {
+    /* .headline {
         margin-left: 20px;
-    }
+    } */
 }
 
 @media (max-width: 750px) {
@@ -1526,9 +1363,9 @@
         padding-left: 40px !important;
     }
 
-    .headline {
+    /* .headline {
         margin-left: 30px;
-    }
+    } */
 
     .plusImgMobile {
         right: 32px;
@@ -1552,9 +1389,9 @@
         padding-left: 28px !important;
     }
 
-    .headline {
+    /* .headline {
         margin-left: 15px;
-    }
+    } */
 
     .plusImgMobile {
         right: 36px;
@@ -1578,9 +1415,9 @@
         padding-left: 35px !important;
     }
 
-    .headline {
+    /* .headline {
         margin-left: 23px;
-    }
+    } */
 
     .plusImgMobile {
         right: 38px;
@@ -1604,9 +1441,9 @@
         padding-left: 35px !important;
     }
 
-    .headline {
+    /* .headline {
         margin-left: 25px;
-    }
+    } */
 
     .plusImgMobile {
         right: 35px;
@@ -1630,9 +1467,9 @@
         padding-left: 35px !important;
     }
 
-    .headline {
+    /* .headline {
         margin-left: 25px;
-    }
+    } */
 
     .plusImgMobile {
         right: 42px;
@@ -1754,9 +1591,9 @@
         font-size: 14px;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         font-size: 31px;
-    }
+    } */
 
     .column {
         width: 380px !important;
@@ -1872,9 +1709,9 @@
         font-size: 13px;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         font-size: 20px;
-    }
+    } */
 
     .column {
         width: 260px !important;
@@ -1900,9 +1737,9 @@
         padding-right: 12px !important;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         font-size: 25px;
-    }
+    } */
 
     .column {
         width: 230px !important;
@@ -1983,11 +1820,11 @@
 
 
 /********* Media Queries for Board *********/
-@media (max-width: 1226px) {
+/* @media (max-width: 1226px) {
     .header {
         flex-direction: column;
     }
-}
+} */
 
 @media (max-width: 1050px) {
     .contactArea {
@@ -2012,13 +1849,13 @@
         gap: 20px;
     }
 
-    .headline h1 {
+    /* .headline h1 {
         font-size: 41px;
-    }
+    } */
 
-    .subheadline span {
+    /* .subheadline span {
         font-size: 25px;
-    }
+    } */
 }
 
 @media (max-width: 856px) {
@@ -2032,13 +1869,13 @@
 }
 
 @media (max-width: 835px) {
-    .headline h1 {
+    /* .headline h1 {
         font-size: 31px;
-    }
+    } */
 
-    .subheadline span {
+    /* .subheadline span {
         font-size: 22px;
-    }
+    } */
 
     .contactList {
         padding: 10px 20px !important;
