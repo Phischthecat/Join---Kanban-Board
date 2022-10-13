@@ -7,19 +7,20 @@ let categoryColors = [
   '#8aa4ff',
 ];
 
-let categorys = [
-  {
-    name: 'Sales',
-    color: '#fc71ff',
-  },
-  {
-    name: 'Backoffice',
-    color: '#1fd7c1',
-  },
-];
+// let categorys = [
+//   {
+//     name: 'Sales',
+//     color: '#fc71ff',
+//   },
+//   {
+//     name: 'Backoffice',
+//     color: '#1fd7c1',
+//   },
+// ];
 let choosenColor;
 let categoryIndex;
 let checkedContactsList = [];
+let addTaskSubtasks = [];
 
 async function init() {
   await downloadFromServer();
@@ -69,15 +70,15 @@ async function openTaskBox(pickedContainer) {
   document.body.style.overflow = 'hidden';
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL();
+  renderCategorys();
+  renderAssignedToContacts();
   setTimeout(() => {
     getId('animation').classList.toggle('slide-in-right');
     getId('animation').classList.toggle('fade-in');
-    renderAssignedToContacts;
+    getId('animation').classList.toggle('background');
     if (box.classList.contains('d-none')) {
       box.classList.remove('d-none');
     }
-    document.getElementById('animation').classList.toggle('background');
-    showBtn(pickedContainer);
   }, 150);
 }
 
@@ -91,11 +92,6 @@ function closeTaskBox() {
     taskBox.classList.toggle('d-none');
     document.body.style.overflow = 'auto';
   }, 1000);
-}
-
-async function showBtn(pickedContainer) {
-  document.getElementById('buttonContainer').innerHTML =
-    createBoxBtns(pickedContainer);
 }
 
 async function openContactBox(fct, contact) {
@@ -119,6 +115,16 @@ function closeContactBox() {
   setTimeout(() => {
     document.getElementById('taskBox').classList.toggle('d-none');
   }, 1000);
+}
+
+function filterAssignedContacts() {
+  let assignedToContacts = [];
+  let checkedContacts = document.querySelectorAll('.checked');
+  for (let i = 0; i < checkedContacts.length; i++) {
+    let contact = contacts.find((n) => n.name == checkedContacts[i].id);
+    assignedToContacts.push(contact);
+  }
+  return assignedToContacts;
 }
 
 /**
@@ -170,14 +176,18 @@ function checked(name) {
   } else {
     btnText.innerText = 'Select contacts to assign';
   }
-  renderAssignedContactInitials(checkedContacts);
+  renderAssignedContactInitials(checkedContacts, 'assignedToContacts');
 }
 
-function renderAssignedContactInitials(checkedContacts) {
-  let assignedContacts = getId('assignedToContacts');
+function renderAssignedContactInitials(checkedContacts, id) {
+  let assignedContacts = getId(id);
   assignedContacts.innerHTML = '';
   for (let i = 0; i < checkedContacts.length; i++) {
-    if ((contact = contacts.find((n) => n.name == checkedContacts[i].id))) {
+    if (
+      (contact = contacts.find(
+        (n) => n.name == [checkedContacts[i].id || checkedContacts[i].name]
+      ))
+    ) {
       assignedContacts.innerHTML += createAssignedContactInitials(contact);
     }
   }
@@ -270,5 +280,74 @@ function getPriority(prio) {
     getId('urgent').classList.remove('urgentBtn');
     getId('medium').classList.remove('mediumBtn');
     getId(prio).classList.add('lowBtn');
+    urgency = prio;
   }
+}
+
+function renderSubtaskSection() {
+  let subtasksIcons = getId('substasksIcons');
+  document.querySelector('.newSubtasksInput').value = '';
+  subtasksIcons.innerHTML = /*html*/ `
+  <div class="subtasksPlus" title="Add new subtasks" onclick="changeSubTasksIcons()">
+    <i class="fa-regular fa-plus"></i>
+  </div>
+  `;
+}
+
+function cancelNewSubtasks() {
+  renderSubtaskSection();
+  addTaskSubtasks = [];
+}
+
+function saveNewSubtasks() {
+  let input = document.querySelector('.newSubtasksInput').value.trim();
+  if (!addTaskSubtasks.find((n) => n.description == input) && input) {
+    addTaskSubtasks.push({
+      description: input,
+      checked: false,
+    });
+    createSubtasksSection('subtasksContainer', addTaskSubtasks);
+  }
+  renderSubtaskSection();
+}
+
+function createSubtasksSection(id, arr) {
+  let subtasksContainer = getId(id);
+  subtasksContainer.innerHTML = '';
+  for (let i = 0; i < arr.length; i++) {
+    const subtask = arr[i];
+    if (subtask.checked == true) {
+      subtasksContainer.innerHTML += /*html*/ `
+    <div class="subtask">
+      <input type="checkbox" id="sub${i}" checked>${subtask.description}
+    </div>
+    `;
+    } else {
+      subtasksContainer.innerHTML += /*html*/ `
+      <div class="subtask">
+        <input type="checkbox" id="sub${i}">${subtask.description}
+      </div>
+      `;
+    }
+  }
+}
+
+function changeSubTasksIcons() {
+  let subtasksIcons = getId('substasksIcons');
+  subtasksIcons.innerHTML = /*html*/ `
+  <span
+    class="cancel-btn"
+    onclick="cancelNewSubtasks()"
+    title="Cancel"
+  >
+    <i class="fa-solid fa-xmark"></i>
+  </span>
+  <span
+    class="check-btn"
+    onclick="saveNewSubtasks()"
+    title="Save new subtasks"
+    >
+    <i class="fa-solid fa-check"></i>
+  </span>
+  `;
 }

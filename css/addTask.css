@@ -9,17 +9,19 @@
 }
 
 .leftSplit {
-  margin-right: 10%;
+  padding-right: 4%;
+  border-right: 1px solid var(--colorLightGrey);
 }
 
-.text {
-  color: var(--textColor);
-  margin-bottom: 5px;
-  margin-top: 30px;
+.rightSplit {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 65vh;
+  padding-left: 4%;
 }
 
 .title input,
-.subTasks input,
 .dueDate input,
 select,
 textarea {
@@ -40,7 +42,6 @@ textarea {
 }
 
 .title input,
-.subTasks input,
 .dueDate input,
 select {
   height: 40px;
@@ -60,31 +61,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: space-between;
   border: none;
-}
-
-.statusButton {
-  box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
-  height: 40px;
-  width: 110px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  border: none;
-  background-color: white;
-}
-
-.statusButton p {
-  margin: 0;
-}
-
-.priorityBox button:hover {
-  cursor: pointer;
-}
-
-.priorityBox button img {
-  height: 20px;
-  width: 20px;
 }
 
 .urgentBtn {
@@ -109,8 +85,6 @@ input[type='date']::-webkit-calendar-picker-indicator {
 }
 
 .buttonContainer {
-  width: 350px;
-  margin-top: 150px;
   display: flex;
   justify-content: flex-end;
   gap: 10px;

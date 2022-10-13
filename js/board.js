@@ -1,11 +1,10 @@
 let currentDraggedElement;
-let idForClosing = [];
 
 async function initTodos() {
   await init();
   setDragAndDropId();
   // allTasks = [];
-  // await backend.setItem('tasks', allTasks);
+  // await backend.setItem('allTasks', allTasks);
   // categorys = [];
   // await backend.setItem('categorys', categorys);
   // contacts = [];
@@ -45,28 +44,97 @@ function setDragAndDropId() {
 
 function updateContainer(container) {
   let filteredTask = allTasks.filter((t) => t['status'] == container);
-  document.getElementById(container).innerHTML = '';
+  let column = getId(container);
+  column.innerHTML = '';
   for (let i = 0; i < filteredTask.length; i++) {
     let task = filteredTask[i];
-    idForClosing.push(task.specificId);
-    document.getElementById(container).innerHTML += createTaskCard(task);
+    let index = allTasks.indexOf(task);
+    column.innerHTML += createTaskCard(index);
+    renderBoardInitials(task, index);
+    taskUrgency(index);
+    updateProgressbar(index);
   }
 }
 
-function check(externalId) {
-  let task = allTasks.find((id) => id['specificId'] == externalId);
-  showFullView(task);
-}
-
-function showFullView(task) {
-  let card = document.getElementById(task.specificId);
-  card.innerHTML = '';
-  if (card.classList.contains('d-none')) {
-    card.classList.remove('d-none');
+function updateProgressbar(index) {
+  let subtasks = allTasks[index].subtasks,
+    subtasksLength = subtasks.length,
+    doneSubtasks = subtasks.filter((n) => n.checked == true),
+    progressbar = getId('progresslabel' + index),
+    progressLabel = getId('barText' + index),
+    progessValue = 100 * (doneSubtasks.length / subtasksLength),
+    progressContainer = getId('proContainer' + index);
+  if (subtasksLength > 0) {
+    progressContainer.classList.remove('d-none');
+    progressLabel.innerHTML = doneSubtasks.length + '/' + subtasksLength;
+    progressbar.value = progessValue;
   } else {
-    card.innerHTML += createFullView(task);
-    showUrgency(task);
+    progressContainer.classList.add('d-none');
   }
+}
+
+function taskUrgency(index) {
+  let task = allTasks[index];
+  let urgency = getId('urgencyTask' + index);
+  urgency.children[0].src = `img/${task.priority}.addTask.svg`;
+}
+
+function boardInitialsClassAdd(index) {
+  let initials = getId('assignedUsers' + index);
+  classList = 'classList' in initials;
+  for (let i = 0; i < initials.children.length; i++) {
+    const child = initials.children[i];
+    if (child.tagName == 'DIV' && classList) {
+      child.classList.add('boardInitial');
+    }
+  }
+}
+
+function renderBoardInitials(task, index) {
+  renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
+  renderMoreBoardInitials(task, index);
+}
+
+function renderMoreBoardInitials(task, index) {
+  let overflow = task.assignedTo.length - 2;
+  if (overflow >= 1) {
+    let firstTwo = [task.assignedTo[0], task.assignedTo[1]];
+    renderAssignedContactInitials(firstTwo, 'assignedUsers' + index);
+    getId('assignedUsers' + index).innerHTML +=
+      createAssignedContactInitialsOverflow(overflow);
+    boardInitialsClassAdd(index);
+  } else {
+    renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
+    boardInitialsClassAdd(index);
+  }
+}
+
+function showFullView(externalId) {
+  let task = allTasks.find((id) => id['specificId'] == externalId);
+  let index = allTasks.indexOf(task);
+  let card = document.getElementById('taskBox');
+  card.innerHTML = '';
+  card.classList.remove('d-none');
+  card.innerHTML += createFullView(task, index);
+  showUrgency(task);
+  showContacts(task);
+  renderSubtasksSection(task.subtasks, index);
+  createSubtasksSection('subtasksSection', task.subtasks);
+}
+
+function renderSubtasksSection(subtasks, index) {
+  if (!subtasks.length == 0) {
+    createSubtasksContainer(index);
+    createSubtasksSection('subtasksSection', subtasks);
+  }
+}
+
+function createSubtasksContainer(index) {
+  let subtasksFullCard = getId('subtasksFullCard' + index);
+  subtasksFullCard.innerHTML = /*html*/ `
+  <span><b>Subtasks:</b></span>
+  <span id="subtasksSection"></span>
+  `;
 }
 
 function showUrgency(task) {
@@ -77,7 +145,6 @@ function showUrgency(task) {
         <img src="/img/${task.priority}.addTask.svg">
     `;
   styleUrgency(task);
-  showContacts(task);
 }
 
 function showContacts(task) {
@@ -89,11 +156,37 @@ function showContacts(task) {
   }
 }
 
-function changeTask(specific) {
+function renderEditTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
   let card = document.getElementById('fullCard');
   card.innerHTML = '';
-  card.innerHTML += createChangedTask(task);
+  setTimeout(() => {
+    card.innerHTML += createEditTask(task);
+    renderAssignedToContacts();
+    renderAssignedContactInitials(task.assignedTo, 'assignedToContacts');
+    choosenContacts(task);
+    getPriority(task.priority);
+  }, 200);
+}
+
+function choosenContacts(task) {
+  let choosenContacts = document.querySelectorAll('.item');
+  choosenContacts.forEach((choosenContact) => {
+    if (task.assignedTo.find((a) => a.name == choosenContact.id)) {
+      choosenContact.classList.add('checked');
+    }
+  });
+}
+
+async function changeTask(specific) {
+  let task = allTasks.find((id) => id['specificId'] == specific);
+  task.title = getId('editTitle').value;
+  task.description = getId('editDescription').value;
+  task.dueDate = getId('changedDate').value;
+  task.priority = urgency;
+  task.assignedTo = filterAssignedContacts();
+  await backend.setItem('allTasks', allTasks);
+  showFullView(task.specificId);
 }
 
 function styleUrgency(task) {
@@ -114,8 +207,26 @@ function styleUrgency(task) {
   }
 }
 
-function closeFullView(taskId) {
-  document.getElementById(taskId).classList.add('d-none');
+async function closeFullView(index) {
+  checkIfSubtasksDone(index);
+  await backend.setItem('allTasks', allTasks);
+  setTimeout(() => {
+    document.getElementById('taskBox').classList.add('d-none');
+  }, 200);
+  updateHTML();
+}
+
+function checkIfSubtasksDone(index) {
+  let task = allTasks[index];
+  let checkboxes = document.querySelectorAll('input[type=checkbox]');
+  for (let i = 0; i < checkboxes.length; i++) {
+    const checkbox = checkboxes[i];
+    if (checkbox.checked == true) {
+      task.subtasks[i].checked = true;
+    } else {
+      task.subtasks[i].checked = false;
+    }
+  }
 }
 
 function showPossibleDropzones() {
