@@ -153,7 +153,7 @@
     }
 
     .longBox {
-        height: 80px;
+        height: 100px;
     }
 
     .thirdBox {
@@ -286,6 +286,27 @@
         width: 180px;
         height: 70px;
     }
+
+    .longBox {
+        height: 90px;
+    }
+
+    .nr {
+        font-size: 35px;
+    }
+
+    .todoAndDone {
+        width: 25px !important;
+        height: 25px !important;
+    }
+
+    #toDo, #done {
+        font-size: 35px;
+    }
+
+    .thirdBox span {
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 535px) {
@@ -320,7 +341,7 @@
     }
 
     .nr {
-        font-size: 35px;
+        font-size: 25px;
     }
 
     .longBox {
@@ -342,7 +363,7 @@
     }
 
     #toDo, #done {
-        font-size: 30px;
+        font-size: 25px;
     }
 
     .containerOverview {
@@ -393,7 +414,7 @@
     }
 
     .nr {
-        font-size: 30px;
+        font-size: 22px;
     }
 
     .text {
@@ -405,21 +426,25 @@
     }
 
     #dateOfDeadline {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .thirdBox {
         width: 140px;
     }
 
+    .thirdBox span {
+        font-size: 14px;
+    }
+
     #toDo, #done {
-        font-size: 25px;
+        font-size: 22px;
         color: black;
     }
 
     .todoAndDone {
-        width: 20px !important;
-        height: 20px !important;
+        width: 18px !important;
+        height: 18px !important;
     }
 
     #navbar {
@@ -503,7 +528,7 @@
     }
 
     .nr {
-        font-size: 25px;
+        font-size: 18px;
     }
 
     .text {
@@ -511,7 +536,7 @@
     }
 
     .longBox {
-        height: 50px;
+        height: 60px;
     }
 
     .longBox img {
@@ -519,7 +544,7 @@
     }
 
     #dateOfDeadline {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .thirdBox {
@@ -532,11 +557,11 @@
     }
 
     .thirdBox span {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     #toDo, #done {
-        font-size: 25px;
+        font-size: 18px;
     }
 }
 
@@ -558,12 +583,12 @@
     }
 
     .box {
-        width: 60px;
-        height: 60px;
+        width: 65px;
+        height: 65px;
     }
 
     .nr {
-        font-size: 22px;
+        font-size: 18px;
     }
 
     .text {
@@ -571,7 +596,7 @@
     }
 
     .longBox {
-        height: 45px;
+        height: 55px;
     }
 
     .longBox img {
@@ -592,7 +617,7 @@
     }
 
     #toDo, #done {
-        font-size: 24px;
+        font-size: 18px;
     }
 
     .thirdBox span {
@@ -629,7 +654,7 @@
     }
 
     .containerOverview {
-        width: 230px;
+        width: 235px;
     }
 }
 
@@ -659,8 +684,42 @@
         padding-right: 5px;
     }
 
+    .kanbanTextSummary {
+        font-size: 11px;
+    }
+
     .containerOverview {
-        width: 220px;
+        width: 215px;
+    }
+
+    .box {
+        width: 55px;
+        height: 55px;
+    }
+
+    .nr {
+        font-size: 17px;
+    }
+
+    .todoAndDone {
+        width: 8px !important;
+        height: 8px !important;
+    }
+
+    #toDo, #done {
+        font-size: 17px;
+    }
+
+    .text {
+        margin-top: 5px;
+    }
+
+    .subheadlineSummaryMobile {
+        margin-top: -15px;
+    }
+
+    .thirdBox {
+        width: 90px;
     }
 }
 
@@ -679,7 +738,7 @@
     }
 
     .nr {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .text {
@@ -696,7 +755,7 @@
     }
 
     #toDo, #done {
-        font-size: 20px;
+        font-size: 15px;
     }
 
     .thirdBox span {
