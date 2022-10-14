@@ -151,14 +151,21 @@ body {
 }
 
 .btn-white:hover img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg) brightness(91%) contrast(94%);
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
+    brightness(91%) contrast(94%);
   transition: all var(--transitionSpeed) ease-in-out;
+}
+
+.priorityBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5%;
 }
 
 .statusButton {
   box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
   height: 40px;
-  width: 110px;
+  width: 100%;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -227,6 +234,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title input,
+.dueDate input,
+select,
+textarea {
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  outline: none;
+  resize: none;
+}
+
+.title input,
+.dueDate input,
+select {
+  height: 40px;
+  padding-left: 15px;
+}
+
+textarea {
+  padding-left: 16px;
+  padding-top: 16px;
+  overflow: auto;
 }
 
 .taskHeader {
@@ -338,7 +368,7 @@ body {
   transform: rotate(-180deg);
 }
 
-.select-btn.open~.list-items {
+.select-btn.open ~ .list-items {
   display: block;
   border: 1px solid var(--colorLightGrey);
   border-top: unset;
@@ -470,7 +500,6 @@ body {
 
 .assignedToContacts {
   margin-top: 5px;
-  padding-left: 16px;
   display: flex;
   gap: 5px;
   cursor: default;
@@ -496,13 +525,21 @@ body {
   gap: 10px;
 }
 
+.hiddenInput {
+  width: 1px;
+  height: 0;
+  outline: none;
+  border: none;
+}
+
 /**
 *
 ******************   KeyFrames for Login ****************** 
 *
 **/
 .slide-in-bottom-login {
-  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    1.2s both !important;
 }
 
 @keyframes slide-in-bottom-login {
@@ -518,12 +555,14 @@ body {
 }
 
 .slide-out-bck-tl-login {
-  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    0.1s both;
 }
 
 @keyframes slide-out-bck-tl-login {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2))
+      translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 
