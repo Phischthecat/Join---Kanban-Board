@@ -25,7 +25,7 @@
     </div>
 
     <div class="mainContainer">
-      <!--Header only for Add Task-->
+      <!--Header only for Mobile Add Task-->
       <div class="kanbanBarAddTask">
         <img src="img/joinlogo.svg" class="joinLogoAddTask" />
         <button class="btn-blue btnCreate">
@@ -37,33 +37,35 @@
           <img class="questionMark" src="img/questionMark.navbar.svg" />
 
           <div class="circle">
-            <!-- <img src="" id="actualUser"> -->
+
           </div>
         </div>
       </div>
-      <!--Header only for Add Task-->
+      <!--Header only for Mobile Add Task-->
 
       <div w3-include-html="kanbanBar.html"></div>
       <div class="addTaskContainer">
-        <div class="headline">
+        <div class="headline headlineAddTaskMobile">
+          <!--Only for Mobile-->
           <span class="kanbanTextAddTask">Kanban Project Management Tool</span>
+          <!--Only for Mobile-->
           <h1>Add Task</h1>
         </div>
 
-        <form id="formAddTask" class="flex" onsubmit="return false">
+        <form id="formAddTask" class="flex flexAddTask" onsubmit="return false">
           <div class="leftSplit">
             <div class="title flexColumn">
-              <span class="text">Title</span>
+              <span class="text textAddTaskMobile">Title</span>
               <input id="taskTitle" required type="text" placeholder="Enter a title" />
             </div>
 
             <div class="flexColumn">
-              <span class="text">Description</span>
+              <span class="text textAddTaskMobile">Description</span>
               <textarea id="taskDescription" cols="30" rows="5" placeholder="Enter a description" required></textarea>
             </div>
 
             <div class="container">
-              <span class="text">Category</span>
+              <span class="text textAddTaskMobile">Category</span>
               <div id="categorySelect">
                 <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
                   <span class="btn-text">Choose category</span>
@@ -92,7 +94,7 @@
             </div>
 
             <div class="container">
-              <span class="text">Assigned to</span>
+              <span class="text textAddTaskMobile">Assigned to</span>
               <div id="selectBtn1" class="select-btn" onclick="openDropdownMenu(1)">
                 <span id="assignedToBtnText" class="btn-text">Select contacts to assign</span>
                 <span class="arrow-down">
@@ -114,12 +116,12 @@
           <div class="rightSplit">
             <div>
               <div class="dueDate flexColumn">
-                <span class="text">Due date</span>
+                <span class="text textAddTaskMobile">Due date</span>
                 <input required id="taskDueDate" type="date" />
               </div>
 
               <div class="priority flexColumn" id="priority">
-                <span class="text">Prio</span>
+                <span class="text textAddTaskMobile">Prio</span>
 
                 <div class="priorityBox">
                   <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
@@ -140,7 +142,7 @@
               </div>
 
               <div class="subTasks flexColumn">
-                <span class="text">Subtasks</span>
+                <span class="text textAddTaskMobile">Subtasks</span>
                 <div id="subtaskInputContainer" class="newSubtasksInputContainer">
                   <input type="text" class="newSubtasksInput" placeholder="Add new subtask"
                     onclick="changeSubTasksIcons()" />
@@ -177,24 +179,24 @@
     </div>
   </div>
 
-  <!-- Navbar only for Add Task-->
+  <!-- Navbar only for Mobile Add Task-->
   <nav class="navbarAddTask">
     <div class="containerWithSectionsAddTask">
       <ul>
         <li>
-          <img class="iconsNav" src="img/summary.svg" />
+          <img class="iconsNavAddTaskMobile" src="img/summary.svg" />
           <a href="summary.html">Summary</a>
         </li>
         <li>
-          <img class="iconsNav" src="img/board.navbar.svg" />
+          <img class="iconsNavAddTaskMobile" src="img/board.navbar.svg" />
           <a href="board.html">Board</a>
         </li>
         <li>
-          <img class="iconsNav" src="img/addtask.navbar.svg" />
+          <img class="iconsNavAddTaskMobile" src="img/addtask.navbar.svg" />
           <a href="addTask.html">Add Task</a>
         </li>
         <li>
-          <img class="iconsNav" src="img/contacts.navbar.svg" />
+          <img class="iconsNavAddTaskMobile" src="img/contacts.navbar.svg" />
           <a href="contact.html">Contacts</a>
         </li>
         <li>
@@ -203,7 +205,7 @@
       </ul>
     </div>
   </nav>
-  <!-- Navbar only for Add Task-->
+  <!-- Navbar only for Mobile Add Task-->
   <script src="script.js"></script>
 </body>
 
