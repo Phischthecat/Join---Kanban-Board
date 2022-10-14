@@ -118,8 +118,10 @@ function showFullView(externalId) {
   card.innerHTML += createFullView(task, index);
   showUrgency(task);
   showContacts(task);
-  renderSubtasksSection(task.subtasks, index);
-  createSubtasksSection('subtasksSection', task.subtasks);
+  if (task.subtasks.length > 0) {
+    renderSubtasksSection(task.subtasks, index);
+    createSubtasksSection('subtasksSection', task.subtasks);
+  }
 }
 
 function renderSubtasksSection(subtasks, index) {
@@ -139,8 +141,7 @@ function createSubtasksContainer(index) {
 
 function showUrgency(task) {
   let actualPrio = document.getElementById('showUrgency');
-  actualPrio.innerHTML = '';
-  actualPrio.innerHTML += /*html*/ `
+  actualPrio.innerHTML = /*html*/ `
         <span>${task.priority}</span>
         <img src="/img/${task.priority}.addTask.svg">
     `;
@@ -180,39 +181,47 @@ function choosenContacts(task) {
 
 async function changeTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
-  task.title = getId('editTitle').value;
-  task.description = getId('editDescription').value;
-  task.dueDate = getId('changedDate').value;
+  task.title = isEmptyCheck(task.title, getId('editTitle').value);
+  task.description = isEmptyCheck(
+    task.description,
+    getId('editDescription').value
+  );
+  task.dueDate = isEmptyCheck(task.dueDate, getId('changedDate').value);
   task.priority = urgency;
   task.assignedTo = filterAssignedContacts();
   await backend.setItem('allTasks', allTasks);
   showFullView(task.specificId);
+  document.querySelector('.modalContainer').classList.remove('fade');
+}
+
+function isEmptyCheck(input, value) {
+  return value == '' ? input.trim() : value.trim();
 }
 
 function styleUrgency(task) {
-  let urgent = '#ff3b00';
-  let medium = '#ffb32a';
-  let low = '#7be129';
+  let urgent = '#ff3b00',
+    medium = '#ffb32a',
+    low = '#7be129';
 
-  if (task.priority == 'urgent') {
-    document.getElementById(
-      'showUrgency'
-    ).style = `background-color: ${urgent}`;
-  } else if (task.priority == 'medium') {
-    document.getElementById(
-      'showUrgency'
-    ).style = `background-color: ${medium}`;
-  } else if (task.priority == 'low') {
-    document.getElementById('showUrgency').style = `background-color: ${low}`;
-  }
+  getId('showUrgency').style = `background-color: ${task.priority}`;
+
+  // if (task.priority == 'urgent') {
+  //   document.getElementById(
+  //     'showUrgency'
+  //   ).style = `background-color: #ff3b00`;
+  // } else if (task.priority == 'medium') {
+  //   document.getElementById(
+  //     'showUrgency'
+  //   ).style = `background-color: #ffb32a`;
+  // } else if (task.priority == 'low') {
+  //   document.getElementById('showUrgency').style = `background-color: #7be129`;
+  // }
 }
 
 async function closeFullView(index) {
   checkIfSubtasksDone(index);
   await backend.setItem('allTasks', allTasks);
-  setTimeout(() => {
-    document.getElementById('taskBox').classList.add('d-none');
-  }, 200);
+  document.getElementById('taskBox').classList.add('d-none');
   updateHTML();
 }
 

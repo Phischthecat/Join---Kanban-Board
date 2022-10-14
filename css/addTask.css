@@ -21,30 +21,7 @@
   padding-left: 4%;
 }
 
-.title input,
-.dueDate input,
-select,
-textarea {
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  outline: none;
-  resize: none;
-}
-
-textarea {
-  padding-left: 16px;
-  padding-top: 16px;
-  overflow: auto;
-}
-
 :placeholder-shown {
-  padding-left: 15px;
-}
-
-.title input,
-.dueDate input,
-select {
-  height: 40px;
   padding-left: 15px;
 }
 
@@ -56,12 +33,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
   padding-right: 10px;
 }
 
-.priorityBox {
+/* .priorityBox {
   width: 350px;
   display: flex;
   justify-content: space-between;
   border: none;
-}
+} */
 
 .urgentBtn {
   background-color: var(--urgentColour) !important;
