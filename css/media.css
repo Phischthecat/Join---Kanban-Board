@@ -1025,7 +1025,7 @@
 
     .rightSplit {
         padding-left: unset !important;
-        height: 40vh !important;
+        height: 55vh !important;
     }
 
     .priorityBox {
@@ -1033,7 +1033,7 @@
     }
 
     .statusButton {
-        width: 32%;
+        width: 30%;
     }
 
     .statusButton p {

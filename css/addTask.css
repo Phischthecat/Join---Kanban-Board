@@ -33,12 +33,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
   padding-right: 10px;
 }
 
-/* .priorityBox {
+.priorityBox {
   width: 350px;
   display: flex;
   justify-content: space-between;
   border: none;
-} */
+}
 
 .urgentBtn {
   background-color: var(--urgentColour) !important;
@@ -65,6 +65,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  padding-top: 50px;
 }
 
 .navbarAddTask {
