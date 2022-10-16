@@ -32,10 +32,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
   padding-right: 10px;
 }
 
-.taskForm {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+/* .priorityBox {
+  width: 350px;
+  display: flex;
+  justify-content: space-between;
+  border: none;
+} */
 
 .urgentBtn {
   background-color: var(--urgentColour) !important;
@@ -62,6 +64,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  padding-top: 50px;
 }
 
 .navbarAddTask {
@@ -109,6 +112,14 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 .btnCreate {
   margin-right: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: bolder;
+  height: 45px;
+}
+
+.btnCreate img {
+  padding-left: 5px;
 }
 
 .kanbanTextAddTask {

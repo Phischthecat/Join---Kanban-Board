@@ -7,7 +7,7 @@
     <title>Add Task</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="css/navbar.css" />
-    <!-- <link rel="stylesheet" href="css/media.css" /> -->
+    <link rel="stylesheet" href="css/media.css" />
     <link rel="shortcut icon" href="img/joinlogo.svg" />
     <link rel="shortcut icon" href="icons/logo.png" />
     <link rel="stylesheet" href="css/addTask.css" />
@@ -27,41 +27,51 @@
       </div>
 
       <div class="mainContainer">
-        <!--Header only for Add Task-->
         <div class="kanbanBarAddTask">
           <img src="img/joinlogo.svg" class="joinLogoAddTask" />
           <button class="btn-blue btnCreate">
             Create
             <img src="img/ticked-off.svg" />
           </button>
+        </div>
 
-          <div class="actualUser">
-            <img class="questionMark" src="img/questionMark.navbar.svg" />
+        <!--Header only for Mobile Add Task-->
+        <!-- <div class="kanbanBarAddTask">
+        <img src="img/joinlogo.svg" class="joinLogoAddTask" />
+        <button class="btn-blue btnCreate">
+          Create
+          <img src="img/ticked-off.svg" />
+        </button>
 
-            <div class="circle">
-              <!-- <img src="" id="actualUser"> -->
-            </div>
+        <div class="actualUser">
+          <img class="questionMark" src="img/questionMark.navbar.svg" />
+
+          <div class="circle">
+
           </div>
         </div>
-        <!--Header only for Add Task-->
+      </div> -->
+        <!--Header only for Mobile Add Task-->
 
         <div w3-include-html="kanbanBar.html"></div>
         <div class="addTaskContainer">
-          <div class="headline">
+          <div class="headline headlineAddTaskMobile">
+            <!--Only for Mobile-->
             <span class="kanbanTextAddTask"
               >Kanban Project Management Tool</span
             >
+            <!--Only for Mobile-->
             <h1>Add Task</h1>
           </div>
 
           <form
             id="formAddTask"
-            class="flex"
-            onsubmit="addTask('toDo'); return false;"
+            class="flex flexAddTask"
+            onsubmit="return false"
           >
             <div class="leftSplit">
               <div class="title flexColumn">
-                <span class="text">Title</span>
+                <span class="text textAddTaskMobile">Title</span>
                 <input
                   id="taskTitle"
                   required
@@ -71,7 +81,7 @@
               </div>
 
               <div class="flexColumn">
-                <span class="text">Description</span>
+                <span class="text textAddTaskMobile">Description</span>
                 <textarea
                   id="taskDescription"
                   cols="30"
@@ -82,64 +92,40 @@
               </div>
 
               <div class="container">
-                <span class="text">Category</span>
+                <span class="text textAddTaskMobile">Category</span>
                 <div id="categorySelect">
                   <div
                     id="selectBtn0"
                     class="select-btn"
                     onclick="openDropdownMenu(0)"
                   >
-                    <div>
-                      <span class="btn-text">Choose category</span>
-                      <input
-                        type="text"
-                        class="hiddenInput"
-                        id="hiddenCategoryInput"
-                        required
-                      />
-                    </div>
+                    <span class="btn-text">Choose category</span>
                     <span class="arrow-down">
                       <i class="fa-solid fa-caret-down"></i>
                     </span>
                   </div>
-                  <ul class="list-items" id="categoryList">
-                    <li class="categoryItem" onclick="addNewCategory()">
-                      <span class="item-text"> New category</span>
-                    </li>
-                    <li class="categoryItem">
-                      <span class="item-text">Sales</span>
-                      <span class="categoryCheckbox">
-                        <i class="fa-solid fa-circle"></i>
-                      </span>
-                    </li>
-                    <li class="categoryItem">
-                      <span class="item-text">Backoffice</span>
-                      <span class="categoryCheckbox">
-                        <i class="fa-solid fa-circle"></i>
+                  <ul class="list-items" id="assignedToList">
+                    <li class="item">
+                      <span class="item-text">You</span>
+                      <span class="checkbox">
+                        <i class="fa-solid fa-square check-icon"></i>
                       </span>
                     </li>
                   </ul>
+                  <div id="assignedToContacts" class="assignedToContacts"></div>
                 </div>
               </div>
 
               <div class="container">
-                <span class="text">Assigned to</span>
+                <span class="text textAddTaskMobile">Assigned to</span>
                 <div
                   id="selectBtn1"
                   class="select-btn"
                   onclick="openDropdownMenu(1)"
                 >
-                  <div>
-                    <span id="assignedToBtnText" class="btn-text"
-                      >Select contacts to assign</span
-                    >
-                    <input
-                      type="text"
-                      class="hiddenInput"
-                      id="hiddenAssignedToInput"
-                      required
-                    />
-                  </div>
+                  <span id="assignedToBtnText" class="btn-text"
+                    >Select contacts to assign</span
+                  >
                   <span class="arrow-down">
                     <i class="fa-solid fa-caret-down"></i>
                   </span>
@@ -159,12 +145,12 @@
             <div class="rightSplit">
               <div>
                 <div class="dueDate flexColumn">
-                  <span class="text">Due date</span>
+                  <span class="text textAddTaskMobile">Due date</span>
                   <input required id="taskDueDate" type="date" />
                 </div>
 
                 <div class="priority flexColumn" id="priority">
-                  <span class="text">Prio</span>
+                  <span class="text textAddTaskMobile">Prio</span>
 
                   <div class="priorityBox">
                     <button
@@ -185,14 +171,6 @@
                     >
                       <p>Medium</p>
                       <img src="img/medium.addTask.svg" />
-                      <div>
-                        <input
-                          type="text"
-                          class="hiddenInput"
-                          id="hiddenUrgentInput"
-                          required
-                        />
-                      </div>
                     </button>
 
                     <button
@@ -205,55 +183,59 @@
                       <img src="img/low.addTask.svg" />
                     </button>
                   </div>
-                </div>
 
-                <div class="subTasks flexColumn">
-                  <span class="text">Subtasks</span>
-                  <div
-                    id="subtaskInputContainer"
-                    class="newSubtasksInputContainer"
-                  >
-                    <input
-                      type="text"
-                      class="newSubtasksInput"
-                      placeholder="Add new subtask"
-                      onclick="changeSubTasksIcons()"
-                    />
-                    <div class="substasksIcons" id="substasksIcons">
+                    <div class="subTasks flexColumn">
+                      <span class="text">Subtasks</span>
                       <div
-                        class="subtasksPlus"
-                        title="Add new subtasks"
-                        onclick="changeSubTasksIcons()"
+                        id="subtaskInputContainer"
+                        class="newSubtasksInputContainer"
                       >
-                        <i class="fa-regular fa-plus"></i>
+                        <input
+                          type="text"
+                          class="newSubtasksInput"
+                          placeholder="Add new subtask"
+                          onclick="changeSubTasksIcons()"
+                        />
+                        <div class="substasksIcons" id="substasksIcons">
+                          <div
+                            class="subtasksPlus"
+                            title="Add new subtasks"
+                            onclick="changeSubTasksIcons()"
+                          >
+                            <i class="fa-regular fa-plus"></i>
+                          </div>
+                        </div>
                       </div>
+                      <div
+                        id="subtasksContainer"
+                        class="subtasksContainer"
+                      ></div>
                     </div>
                   </div>
-                  <div id="subtasksContainer" class="subtasksContainer"></div>
+                  <div class="buttonContainer" id="buttonContainer">
+                    <button
+                      type="button"
+                      class="btn-white clearBtn"
+                      onclick="clearFields()"
+                      id="clear"
+                    >
+                      Clear
+                      <span class="cancel-btn">
+                        <i class="fa-solid fa-xmark"></i>
+                      </span>
+                    </button>
+                    <button
+                      type="submit"
+                      class="btn-blue createTaskBtn"
+                      id="create"
+                    >
+                      Create Task
+                      <span class="check-btn">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                    </button>
+                  </div>
                 </div>
-              </div>
-              <div class="buttonContainer" id="buttonContainer">
-                <button
-                  type="button"
-                  class="btn-white clearBtn"
-                  onclick="clearFields()"
-                  id="clear"
-                >
-                  Clear
-                  <span class="cancel-btn">
-                    <i class="fa-solid fa-xmark"></i>
-                  </span>
-                </button>
-                <button
-                  type="submit"
-                  class="btn-blue createTaskBtn"
-                  id="create"
-                >
-                  Create Task
-                  <span class="check-btn">
-                    <i class="fa-solid fa-check"></i>
-                  </span>
-                </button>
               </div>
             </div>
           </form>
@@ -265,24 +247,24 @@
       </div>
     </div>
 
-    <!-- Navbar only for Add Task-->
+    <!-- Navbar only for Mobile Add Task-->
     <nav class="navbarAddTask">
       <div class="containerWithSectionsAddTask">
         <ul>
           <li>
-            <img class="iconsNav" src="img/summary.svg" />
+            <img class="iconsNavAddTaskMobile" src="img/summary.svg" />
             <a href="summary.html">Summary</a>
           </li>
           <li>
-            <img class="iconsNav" src="img/board.navbar.svg" />
+            <img class="iconsNavAddTaskMobile" src="img/board.navbar.svg" />
             <a href="board.html">Board</a>
           </li>
           <li>
-            <img class="iconsNav" src="img/addtask.navbar.svg" />
+            <img class="iconsNavAddTaskMobile" src="img/addtask.navbar.svg" />
             <a href="addTask.html">Add Task</a>
           </li>
           <li>
-            <img class="iconsNav" src="img/contacts.navbar.svg" />
+            <img class="iconsNavAddTaskMobile" src="img/contacts.navbar.svg" />
             <a href="contact.html">Contacts</a>
           </li>
           <li>
@@ -291,7 +273,8 @@
         </ul>
       </div>
     </nav>
-    <!-- Navbar only for Add Task-->
+
+    <!-- Navbar only for Mobile Add Task-->
     <script src="script.js"></script>
   </body>
 </html>
