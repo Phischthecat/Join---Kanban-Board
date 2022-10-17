@@ -1,6 +1,5 @@
 .addTaskContainer {
-  padding-left: 75px;
-  padding-top: 50px;
+  padding: 50px;
 }
 
 .leftSplit,
@@ -33,12 +32,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
   padding-right: 10px;
 }
 
-.priorityBox {
+/* .priorityBox {
   width: 350px;
   display: flex;
   justify-content: space-between;
   border: none;
-}
+} */
 
 .urgentBtn {
   background-color: var(--urgentColour) !important;
