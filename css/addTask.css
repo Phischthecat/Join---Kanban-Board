@@ -1,6 +1,5 @@
 .addTaskContainer {
-  padding-left: 75px;
-  padding-top: 50px;
+  padding: 50px;
 }
 
 .leftSplit,
@@ -21,30 +20,7 @@
   padding-left: 4%;
 }
 
-.title input,
-.dueDate input,
-select,
-textarea {
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  outline: none;
-  resize: none;
-}
-
-textarea {
-  padding-left: 16px;
-  padding-top: 16px;
-  overflow: auto;
-}
-
 :placeholder-shown {
-  padding-left: 15px;
-}
-
-.title input,
-.dueDate input,
-select {
-  height: 40px;
   padding-left: 15px;
 }
 
@@ -56,12 +32,12 @@ input[type='date']::-webkit-calendar-picker-indicator {
   padding-right: 10px;
 }
 
-.priorityBox {
+/* .priorityBox {
   width: 350px;
   display: flex;
   justify-content: space-between;
   border: none;
-}
+} */
 
 .urgentBtn {
   background-color: var(--urgentColour) !important;
@@ -88,6 +64,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  padding-top: 50px;
 }
 
 .navbarAddTask {
@@ -135,6 +112,14 @@ input[type='date']::-webkit-calendar-picker-indicator {
 
 .btnCreate {
   margin-right: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-weight: bolder;
+  height: 45px;
+}
+
+.btnCreate img {
+  padding-left: 5px;
 }
 
 .kanbanTextAddTask {

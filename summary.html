@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="css/summary.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/media.css" />
-  <link rel="shortcut icon" href="icons/logo.png" />
+  <link rel="shortcut icon" href="img/joinlogo.svg" />
   <script src="js/mini_backend.js"></script>
   <script src="script.js"></script>
   <script src="js/summary.js"></script>
@@ -25,26 +25,28 @@
 
 
     <div class="mainContainer">
-      <!--Header only for Summary Page-->
+      <!--Header only for Mobile Summary-->
       <header class="headerSummary hide">
         <img src="img/joinlogo.svg" class="joinLogoSummary" />
 
         <div class="actualUserSummary">
           <div class="circle">
-            <!-- <img src="" id="actualUser"> -->
+            <img src="img/actualuser.png" id="actualUser">
           </div>
         </div>
       </header>
-      <!--Header only for Summary Page-->
+      <!--Header only for Mobile Summary-->
 
       <div w3-include-html="kanbanBar.html"></div>
       <div class="summaryArea">
-        <div class="header">
-          <div class="headline blue-border">
+        <div class="header headerSummaryMobile">
+          <div class="headline headlineSummaryMobile blue-border">
+            <!--Only for Mobile-->
             <span class="kanbanTextSummary">Kanban Project Management Tool</span>
+            <!--Only for Mobile-->
             <h1>Summary</h1>
           </div>
-          <div class="text subheadline">
+          <div class="text subheadline subheadlineSummaryMobile">
             <span>Everything in a nutshell !</span>
           </div>
         </div>
@@ -73,7 +75,7 @@
               <div class="urgentBox">
                 <img src="img/urgent.svg" />
                 <div class="urgent">
-                  <span id="nrOfUrgent" class="nr">1</span>
+                  <span id="nrOfUrgent" class="nr"></span>
                   <span class="text">Urgent</span>
                 </div>
               </div>
@@ -119,24 +121,24 @@
   </div>
   </div>
   </div>
-  <!-- Navbar only for Summary-->
+  <!-- Navbar only for Mobile Summary-->
   <nav class="navbarSummary">
     <div class="containerWithSectionsSummary">
       <ul>
         <li>
-          <img class="iconsNav" src="img/summary.svg">
+          <img class="iconsNavSummaryMobile" src="img/summary.svg">
           <a href="summary.html">Summary</a>
         </li>
         <li>
-          <img class="iconsNav" src="img/board.navbar.svg">
+          <img class="iconsNavSummaryMobile" src="img/board.navbar.svg">
           <a href="board.html">Board</a>
         </li>
         <li>
-          <img class="iconsNav" src="img/addtask.navbar.svg">
+          <img class="iconsNavSummaryMobile" src="img/addtask.navbar.svg">
           <a href="addTask.html">Add Task</a>
         </li>
         <li>
-          <img class="iconsNav" src="img/contacts.navbar.svg">
+          <img class="iconsNavSummaryMobile" src="img/contacts.navbar.svg">
           <a href="contact.html">Contacts</a>
         </li>
         <li>
@@ -145,7 +147,7 @@
       </ul>
     </div>
   </nav>
-  <!-- Navbar only for Summary-->
+  <!-- Navbar only for Mobile Summary-->
 </body>
 
 </html>

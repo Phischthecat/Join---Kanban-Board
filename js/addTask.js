@@ -63,18 +63,31 @@ async function addTask(taskStatus) {
   allTasks.push(task);
   await backend.setItem('allTasks', allTasks);
   console.log(allTasks);
+  userFeedback();
   // animateToBoard();
   clearFields();
 }
 
 function clearFields() {
-  getId('formAddTask').reset();
-  addTaskSubtasks = [];
   setDueDateOnToday();
+  getId('formAddTask').reset();
+  renderCategorySelection();
+  getId('assignedToBtnText').innerText = 'Select contacts to assign';
+  renderAssignedToContacts();
+  getId('subtasksContainer').innerHTML = '';
+  getId('urgent').classList.remove('urgentBtn');
+  getId('medium').classList.remove('mediumBtn');
+  getId('low').classList.remove('lowBtn');
+}
+
+function userFeedback() {
+  getId('messageToBoard').classList.remove('d-none');
+  setTimeout(() => {
+    getId('messageToBoard').classList.add('d-none');
+  }, 2000);
 }
 
 function animateToBoard() {
-  getId('messageToBoard').classList.remove('d-none');
   setTimeout(() => {
     document.body.classList.add('slide-in-left');
     window.location.href = 'board.html';
@@ -96,5 +109,20 @@ function getPriority(prio) {
     getId('urgent').classList.remove('urgentBtn');
     getId('medium').classList.remove('mediumBtn');
     getId(prio).classList.add('lowBtn');
+  }
+}
+
+function allFilledUp() {
+  let category = document.querySelector('.item-text').innerHTML;
+  let categoryDefault = document.querySelector('.btn-text').innerHTML;
+  let assignedContacts = document.querySelectorAll('.checked');
+  if (
+    category == '' ||
+    categoryDefault == 'Choose category' ||
+    assignedContacts.length == 0
+  ) {
+    getId('create').disabled = true;
+  } else {
+    getId('create').disabled = false;
   }
 }

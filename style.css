@@ -156,10 +156,16 @@ body {
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
+.priorityBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5%;
+}
+
 .statusButton {
   box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
   height: 40px;
-  width: 110px;
+  width: 100%;
   border-radius: 5px;
   display: flex;
   align-items: center;
@@ -228,6 +234,29 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title input,
+.dueDate input,
+select,
+textarea {
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  outline: none;
+  resize: none;
+}
+
+.title input,
+.dueDate input,
+select {
+  height: 40px;
+  padding-left: 15px;
+}
+
+textarea {
+  padding-left: 16px;
+  padding-top: 16px;
+  overflow: auto;
 }
 
 .taskHeader {
@@ -471,7 +500,6 @@ body {
 
 .assignedToContacts {
   margin-top: 5px;
-  padding-left: 16px;
   display: flex;
   gap: 5px;
   cursor: default;
@@ -495,6 +523,13 @@ body {
   align-items: center;
   margin-top: 5px;
   gap: 10px;
+}
+
+.hiddenInput {
+  width: 1px;
+  height: 0;
+  outline: none;
+  border: none;
 }
 
 /**

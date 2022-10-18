@@ -139,7 +139,10 @@
   border-radius: 30px;
   margin-top: 5vh;
   margin-bottom: 5vh;
-  padding: 50px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .startTop {
@@ -170,16 +173,24 @@
   text-transform: capitalize;
 }
 
+.assingedContainerBoard {
+  position: relative;
+  width: 85%;
+  margin-top: 20px;
+}
+
 .editBtn {
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
   padding: 29px 17px;
 }
 
 .plus {
   width: 20px;
   height: 20px;
+}
+
+.plus-end {
+  justify-content: flex-end;
+  margin-bottom: -15px;
 }
 
 .plus img {
@@ -238,38 +249,12 @@
 .changedCard {
   width: 100%;
   justify-content: center;
-}
-
-.changeInputs {
-  width: 360px;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  outline: none;
-  resize: none;
-  height: 40px;
-  padding-left: 15px;
-}
-
-.changedTextarea {
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  outline: none;
-  resize: none;
-  overflow: auto;
-  padding-left: 15px !important;
-  height: 75px;
-}
-
-.changePrio {
-  width: 380px;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
 .assignedUser {
   margin-top: 20px;
   margin-right: 65px;
-  height: 35vh;
-  overflow: scroll;
 }
 
 .fullCardAssignedTo {
@@ -280,11 +265,9 @@
   padding-bottom: 20px;
 }
 
-.fullCardRight {
+.footerFullCard {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
 }
 
 .boxContent {
@@ -311,9 +294,11 @@
   gap: 80px;
 }
 
-.priorityBox {
-  width: 300px !important;
-}
+/* .priorityBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 10px;
+} */
 
 .buttonContainer {
   width: 300px !important;
@@ -347,15 +332,21 @@
   align-items: center;
 }
 
+.iconsNavBoardMobile {
+  width: 35px;
+  height: 35px;
+}
+
 .containerWithSectionsBoard ul {
   display: flex;
   margin-bottom: 0;
+  padding-left: 0;
 }
 
 .containerWithSectionsBoard li {
   flex-direction: column;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .containerWithSectionsBoard ul li {

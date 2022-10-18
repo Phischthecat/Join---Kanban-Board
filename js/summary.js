@@ -1,55 +1,27 @@
 async function initTasks() {
   await init();
-  // console.log(allTasks);
   quantityTasks();
   deadlineChecker();
 }
 
-let allTasksDates = [];
-
 function quantityTasks() {
-  let tasksInBoard = document.getElementById('tasksInBoard');
-  let todoBox = document.getElementById('toDo');
-  let progressBox = document.getElementById('tasksInProgress');
-  let feedbackBox = document.getElementById('feedBack');
-  let doneBox = document.getElementById('done');
-
   let todo = allTasks.filter((a) => a['status'] == 'toDo');
   let inProgress = allTasks.filter((a) => a['status'] == 'inProgress');
   let awaitingFeedback = allTasks.filter(
     (a) => a['status'] == 'awaitingFeedback'
   );
   let done = allTasks.filter((a) => a['status'] == 'done');
-
-  setQuantity(
-    tasksInBoard,
-    todoBox,
-    progressBox,
-    feedbackBox,
-    doneBox,
-    todo,
-    inProgress,
-    awaitingFeedback,
-    done
-  );
+  let urgent = allTasks.filter((a) => a['priority'] == 'urgent');
+  setQuantity(todo, inProgress, awaitingFeedback, done, urgent);
 }
 
-function setQuantity(
-  tasksInBoard,
-  todoBox,
-  progressBox,
-  feedbackBox,
-  doneBox,
-  todo,
-  inProgress,
-  awaitingFeedback,
-  done
-) {
-  tasksInBoard.innerHTML += allTasks.length;
-  todoBox.innerHTML += todo.length;
-  progressBox.innerHTML += inProgress.length;
-  feedbackBox.innerHTML += awaitingFeedback.length;
-  doneBox.innerHTML += done.length;
+function setQuantity(todo, inProgress, awaitingFeedback, done, urgent) {
+  getId('tasksInBoard').innerHTML = allTasks.length;
+  getId('toDo').innerHTML = todo.length;
+  getId('tasksInProgress').innerHTML = inProgress.length;
+  getId('feedBack').innerHTML = awaitingFeedback.length;
+  getId('done').innerHTML = done.length;
+  getId('nrOfUrgent').innerHTML = urgent.length;
 }
 
 function deadlineChecker() {

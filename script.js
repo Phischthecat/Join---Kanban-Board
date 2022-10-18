@@ -173,6 +173,7 @@ function checked(name) {
     btnText = getId('assignedToBtnText');
   if (checkedContacts && checkedContacts.length > 0) {
     btnText.innerText = `${checkedContacts.length} Selected`;
+    getId('hiddenAssignedToInput').value = 's' + checkedContacts.length;
   } else {
     btnText.innerText = 'Select contacts to assign';
   }
@@ -270,18 +271,17 @@ function getPriority(prio) {
     getId(prio).classList.add('urgentBtn');
     getId('medium').classList.remove('mediumBtn');
     getId('low').classList.remove('lowBtn');
-    urgency = prio;
   } else if (prio == 'medium') {
     getId('urgent').classList.remove('urgentBtn');
     getId(prio).classList.add('mediumBtn');
     getId('low').classList.remove('lowBtn');
-    urgency = prio;
   } else if (prio == 'low') {
     getId('urgent').classList.remove('urgentBtn');
     getId('medium').classList.remove('mediumBtn');
     getId(prio).classList.add('lowBtn');
-    urgency = prio;
   }
+  urgency = prio;
+  getId('hiddenUrgentInput').value = prio;
 }
 
 function renderSubtaskSection() {

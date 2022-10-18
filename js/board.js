@@ -112,19 +112,37 @@ function renderMoreBoardInitials(task, index) {
 
 function showFullView(externalId) {
   let task = allTasks.find((id) => id['specificId'] == externalId);
+  let index = allTasks.indexOf(task);
   let card = document.getElementById('taskBox');
   card.innerHTML = '';
   card.classList.remove('d-none');
-  card.innerHTML += createFullView(task);
+  card.innerHTML += createFullView(task, index);
   showUrgency(task);
   showContacts(task);
-  createSubtasksSection('subtasksSection', task.subtasks);
+  if (task.subtasks.length > 0) {
+    renderSubtasksSection(task.subtasks, index);
+    createSubtasksSection('subtasksSection', task.subtasks);
+  }
+}
+
+function renderSubtasksSection(subtasks, index) {
+  if (!subtasks.length == 0) {
+    createSubtasksContainer(index);
+    createSubtasksSection('subtasksSection', subtasks);
+  }
+}
+
+function createSubtasksContainer(index) {
+  let subtasksFullCard = getId('subtasksFullCard' + index);
+  subtasksFullCard.innerHTML = /*html*/ `
+  <span><b>Subtasks:</b></span>
+  <span id="subtasksSection"></span>
+  `;
 }
 
 function showUrgency(task) {
   let actualPrio = document.getElementById('showUrgency');
-  actualPrio.innerHTML = '';
-  actualPrio.innerHTML += /*html*/ `
+  actualPrio.innerHTML = /*html*/ `
         <span>${task.priority}</span>
         <img src="/img/${task.priority}.addTask.svg">
     `;
@@ -132,7 +150,6 @@ function showUrgency(task) {
 }
 
 function showContacts(task) {
-  console.log(task);
   let assignedContacts = document.getElementById('assignedUser');
   assignedContacts.innerHTML = '';
   for (let i = 0; i < task.assignedTo.length; i++) {
@@ -165,38 +182,61 @@ function choosenContacts(task) {
 
 async function changeTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
-  task.title = getId('editTitle').value;
-  task.description = getId('editDescription').value;
-  task.dueDate = getId('changedDate').value;
+  task.title = isEmptyCheck(task.title, getId('editTitle').value);
+  task.description = isEmptyCheck(
+    task.description,
+    getId('editDescription').value
+  );
+  task.dueDate = isEmptyCheck(task.dueDate, getId('changedDate').value);
   task.priority = urgency;
   task.assignedTo = filterAssignedContacts();
   await backend.setItem('allTasks', allTasks);
   showFullView(task.specificId);
+  document.querySelector('.modalContainer').classList.remove('fade');
+}
+
+function isEmptyCheck(input, value) {
+  return value == '' ? input.trim() : value.trim();
 }
 
 function styleUrgency(task) {
-  let urgent = '#ff3b00';
-  let medium = '#ffb32a';
-  let low = '#7be129';
+  let urgent = '#ff3b00',
+    medium = '#ffb32a',
+    low = '#7be129';
 
-  if (task.priority == 'urgent') {
-    document.getElementById(
-      'showUrgency'
-    ).style = `background-color: ${urgent}`;
-  } else if (task.priority == 'medium') {
-    document.getElementById(
-      'showUrgency'
-    ).style = `background-color: ${medium}`;
-  } else if (task.priority == 'low') {
-    document.getElementById('showUrgency').style = `background-color: ${low}`;
-  }
+  getId('showUrgency').style = `background-color: ${task.priority}`;
+
+  // if (task.priority == 'urgent') {
+  //   document.getElementById(
+  //     'showUrgency'
+  //   ).style = `background-color: #ff3b00`;
+  // } else if (task.priority == 'medium') {
+  //   document.getElementById(
+  //     'showUrgency'
+  //   ).style = `background-color: #ffb32a`;
+  // } else if (task.priority == 'low') {
+  //   document.getElementById('showUrgency').style = `background-color: #7be129`;
+  // }
 }
 
-function closeFullView() {
-  setTimeout(() => {
-    document.getElementById('taskBox').classList.add('d-none');
-  }, 200);
-  initTodos();
+async function closeFullView(index) {
+  checkIfSubtasksDone(index);
+  await backend.setItem('allTasks', allTasks);
+  document.getElementById('taskBox').classList.add('d-none');
+  updateHTML();
+}
+
+function checkIfSubtasksDone(index) {
+  let task = allTasks[index];
+  let checkboxes = document.querySelectorAll('input[type=checkbox]');
+  for (let i = 0; i < checkboxes.length; i++) {
+    const checkbox = checkboxes[i];
+    if (checkbox.checked == true) {
+      task.subtasks[i].checked = true;
+    } else {
+      task.subtasks[i].checked = false;
+    }
+  }
 }
 
 function showPossibleDropzones() {
