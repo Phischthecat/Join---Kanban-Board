@@ -212,8 +212,8 @@ function createNewContact() {
                             <input class="emailModal" id="newContactEmail" type="email" placeholder="Email">
                             <input class="phoneModal" id="newContactPhone" type="tel" placeholder="Phone">
                             <div class="contactBtnContainer">
-                                <button type="button" class="btn-white" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
-                                <button type="submit" class="btn-blue" >Create Contact <img src="/img/ticked-off.svg"></button>
+                                <button type="button" class="btn-white btn-white-mobile" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
+                                <button type="submit" class="btn-blue btn-blue-mobile" >Create Contact <img src="/img/ticked-off.svg"></button>
                             </div>
                             </form>
                 </div>
