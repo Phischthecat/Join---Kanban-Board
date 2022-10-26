@@ -294,24 +294,31 @@
 .containerWithSectionsContact ul {
   display: flex;
   margin-bottom: 0;
+  padding-left: 0;
 }
 
 .containerWithSectionsContact li {
   flex-direction: column;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.iconsNavContactMobile {
+  width: 35px;
+  height: 35px;
 }
 
 .newContactBtnMobile {
-  width: 200px;
-  height: 50px;
+  height: 45px;
   margin-left: 10px;
+  font-size: 18px;
   vertical-align: text-bottom;
+  font-weight: bolder;
 }
 
 .newContactBtnMobile img {
-  width: 20px;
-  margin-left: 10px;
+  width: 25px;
+  height: 25px;
   vertical-align: text-bottom;
 }
 
