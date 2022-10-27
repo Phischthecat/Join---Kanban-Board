@@ -23,18 +23,10 @@
     <div>
       <div w3-include-html="navbar.html" class="flex"></div>
     </div>
-
-    <!--Header only for Mobile Add Task-->
-    <header class="mainContainer">
-      <div class="kanbanBarAddTask">
-        <img src="img/joinlogo.svg" class="joinLogoAddTask" />
-        <button class="btn-blue btnCreate">
-          Create
-          <img src="img/ticked-off.svg" />
-        </button>
-    </header>
-    <!--Header only for Mobile Add Task-->
-
+    <div class="mainContainer">
+    
+      
+  <div>
     <div w3-include-html="kanbanBar.html"></div>
     <div class="addTaskContainer">
       <div class="headline headlineAddTaskMobile">
@@ -45,7 +37,17 @@
       </div>
 
 
-      <form id="formAddTask" class="flex flexAddTask" onsubmit="return false">
+      <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
+        <!--Header only for Mobile Add Task-->
+    <header class="headerAddTask hide">
+      <div class="kanbanBarAddTask">
+        <img src="img/joinlogo.svg" class="joinLogoAddTask" />
+        <button class="btn-blue btnCreate">
+          Create
+          <img src="img/ticked-off.svg" />
+        </button>
+      </header>
+      <!--Header only for Mobile Add Task-->
         <div class="leftSplit">
           <div class="title flexColumn">
             <span class="text textAddTaskMobile">Title</span>
@@ -61,16 +63,33 @@
             <span class="text textAddTaskMobile">Category</span>
             <div id="categorySelect">
               <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
-                <span class="btn-text">Choose category</span>
+                <div>
+                  <span class="btn-text">Choose category</span>
+                  <input
+                    type="text"
+                    class="hiddenInput"
+                    id="hiddenCategoryInput"
+                    required
+                  />
+                </div>
                 <span class="arrow-down">
                   <i class="fa-solid fa-caret-down"></i>
                 </span>
               </div>
-              <ul class="list-items" id="assignedToList">
-                <li class="item">
-                  <span class="item-text">You</span>
-                  <span class="checkbox">
-                    <i class="fa-solid fa-square check-icon"></i>
+              <ul class="list-items" id="categoryList">
+                <li class="categoryItem" onclick="addNewCategory()">
+                  <span class="item-text"> New category</span>
+                </li>
+                <li class="categoryItem">
+                  <span class="item-text">Sales</span>
+                  <span class="categoryCheckbox">
+                    <i class="fa-solid fa-circle"></i>
+                  </span>
+                </li>
+                <li class="categoryItem">
+                  <span class="item-text">Backoffice</span>
+                  <span class="categoryCheckbox">
+                    <i class="fa-solid fa-circle"></i>
                   </span>
                 </li>
               </ul>
@@ -81,7 +100,17 @@
           <div class="container">
             <span class="text textAddTaskMobile">Assigned to</span>
             <div id="selectBtn1" class="select-btn" onclick="openDropdownMenu(1)">
-              <span id="assignedToBtnText" class="btn-text">Select contacts to assign</span>
+              <div>
+                <span id="assignedToBtnText" class="btn-text"
+                  >Select contacts to assign</span
+                >
+                <input
+                  type="text"
+                  class="hiddenInput"
+                  id="hiddenAssignedToInput"
+                  required
+                />
+              </div>              
               <span class="arrow-down">
                 <i class="fa-solid fa-caret-down"></i>
               </span>
@@ -117,6 +146,14 @@
                 <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
                   <p>Medium</p>
                   <img src="img/medium.addTask.svg" />
+                  <div>
+                    <input
+                      type="text"
+                      class="hiddenInput"
+                      id="hiddenUrgentInput"
+                      required
+                    />
+                  </div>
                 </button>
 
                 <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
@@ -136,21 +173,11 @@
                     </div>
                   </div>
                 </div>
-
-                <div class="subTasks flexColumn">
-                  <span class="text">Subtasks</span>
-                  <div id="subtaskInputContainer" class="newSubtasksInputContainer">
-                    <input type="text" class="newSubtasksInput" placeholder="Add new subtask"
-                      onclick="changeSubTasksIcons()" />
-                    <div class="substasksIcons" id="substasksIcons">
-                      <div class="subtasksPlus" title="Add new subtasks" onclick="changeSubTasksIcons()">
-                        <i class="fa-regular fa-plus"></i>
-                      </div>
-                    </div>
-                  </div>
+         
                   <div id="subtasksContainer" class="subtasksContainer"></div>
                 </div>
               </div>
+            </div>
               <div class="buttonContainer" id="buttonContainer">
                 <button type="button" class="btn-white clearBtn" onclick="clearFields()" id="clear">
                   Clear
@@ -165,7 +192,7 @@
                   </span>
                 </button>
               </div>
-            </div>
+            
           </div>
         </div>
       </form>
@@ -174,6 +201,8 @@
         <img src="img/board.navbar.svg" />
       </div>
     </div>
+  </div>
+</div>
   </div>
   </div>
 

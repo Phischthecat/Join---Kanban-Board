@@ -53,15 +53,13 @@
 }
 
 .dragAndDropContainer {
-  height: 490px;
   display: flex;
-  flex-wrap: wrap;
+  gap: 3%;
   justify-content: space-between;
 }
 
 .column {
-  width: 200px;
-  height: 450px;
+  max-height: 450px;
   overflow-y: auto;
   overflow-x: hidden;
   display: flex;
