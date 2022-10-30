@@ -58,6 +58,7 @@ body {
 .flexColumn {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .d-none {
@@ -107,6 +108,7 @@ body {
 .btn-blue {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   cursor: pointer;
   background-color: var(--mainColorDarkBlue);
@@ -530,6 +532,7 @@ textarea {
   height: 0;
   outline: none;
   border: none;
+  background-color: transparent;
 }
 
 /**

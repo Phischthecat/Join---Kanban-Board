@@ -69,7 +69,6 @@
 
 /************************** Media Queries for Login **************************/
 
-
 /************************** Media Queries for Summary **************************/
 @media (max-width: 1230px) {
     .greeting {
@@ -841,7 +840,6 @@
 
 /************************** Media Queries for Summary **************************/
 
-
 /************************** Media Queries for Add Task **************************/
 @media (max-width: 1120px) {
     .addTaskContainer {
@@ -867,14 +865,6 @@
     .rightSplit {
         width: 330px !important;
     }
-
-    .priorityBox {
-        width: 330px !important;
-    }
-
-    .statusButton {
-        width: 100px;
-    }
 }
 
 @media (max-width: 1000px) {
@@ -890,10 +880,6 @@
     .priorityBox {
         width: 310px !important;
     }
-
-    .statusButton {
-        width: 95px;
-    }
 }
 
 @media (max-width: 970px) {
@@ -906,10 +892,6 @@
     .priorityBox {
         width: 290px !important;
     }
-
-    .statusButton {
-        width: 90px;
-    }
 }
 
 @media (max-width: 925px) {
@@ -921,10 +903,6 @@
 
     .priorityBox {
         width: 270px !important;
-    }
-
-    .statusButton {
-        width: 80px;
     }
 
     .statusButton img {
@@ -951,10 +929,6 @@
         width: 255px !important;
     }
 
-    .statusButton {
-        width: 75px;
-    }
-
     .statusButton p {
         font-size: 12px;
     }
@@ -973,10 +947,6 @@
 
     .priorityBox {
         width: 235px !important;
-    }
-
-    .statusButton {
-        width: 70px;
     }
 
     .statusButton p {
@@ -1001,6 +971,13 @@
     .kanbanTextAddTask {
         display: flex !important;
         padding-bottom: 20px;
+    }
+
+    .headerAddTask {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
     }
 
     .headlineAddTaskMobile h1 {
@@ -1029,7 +1006,7 @@
     }
 
     .addTaskContainer {
-        padding-top: 28px !important;
+        padding-top: 100px !important;
         padding-bottom: 28px !important;
         padding-left: 25px !important;
         padding-right: 25px !important;
@@ -1052,10 +1029,6 @@
 
     .priorityBox {
         width: 100% !important;
-    }
-
-    .statusButton {
-        width: 30%;
     }
 
     .statusButton p {
@@ -1263,7 +1236,6 @@
 
 /************************** Media Queries for Add Task **************************/
 
-
 /************************** Media Queries for Board **************************/
 @media (max-width: 1250px) {
     .boardContainer {
@@ -1274,13 +1246,12 @@
 
 @media (max-width: 1220px) {
     .column {
-        padding-right: 10px;
+        margin-bottom: 5%;
     }
 
-    .flexColumn {
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 25px;
+    .dragAndDropContainer {
+        flex-direction: column;
+        width: 100%;
     }
 }
 
@@ -1309,6 +1280,13 @@
 }
 
 @media (max-width: 800px) {
+    .fullCard {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
     .kanbanBar {
         display: none !important;
     }
@@ -1352,8 +1330,8 @@
 
     .boardContainer {
         padding-top: 40px !important;
-        padding-left: 5px !important;
-        padding-right: 5px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
     }
 
     .plusImgMobile {
@@ -1376,10 +1354,6 @@
         padding-right: 0;
     }
 
-    .taskCard {
-        width: 685px !important;
-    }
-
     .nameColumn {
         width: 97% !important;
     }
@@ -1392,28 +1366,15 @@
         width: 25px !important;
         height: 25px !important;
     }
-
-    .flexColumn {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
 }
 
 @media (max-width: 795px) {
-    .taskCard {
-        width: 650px !important;
-    }
-
     .nameColumn {
         width: 97% !important;
     }
 }
 
 @media (max-width: 770px) {
-    .taskCard {
-        width: 615px !important;
-    }
-
     .nameColumn span {
         padding-left: 10px !important;
     }
@@ -1423,45 +1384,9 @@
     }
 }
 
-@media (max-width: 725px) {
-    .taskCard {
-        width: 590px !important;
-    }
-}
-
-@media (max-width: 695px) {
-    .taskCard {
-        width: 560px !important;
-    }
-}
-
-@media (max-width: 670px) {
-    .taskCard {
-        width: 530px !important;
-    }
-}
-
-@media (max-width: 635px) {
-    .taskCard {
-        width: 480px !important;
-    }
-}
-
-@media (max-width: 585px) {
-    .taskCard {
-        width: 440px !important;
-    }
-}
-
 @media (max-width: 567px) {
     #toDo {
         font-size: 16px;
-    }
-}
-
-@media (max-width: 555px) {
-    .taskCard {
-        width: 385px !important;
     }
 }
 
@@ -1481,10 +1406,6 @@
     .inputSearchMobile {
         width: 200px !important;
         background-position-x: 170px !important;
-    }
-
-    .taskCard {
-        width: 320px !important;
     }
 
     .nameColumn {
@@ -1511,20 +1432,10 @@
     }
 }
 
-@media (max-width: 470px) {
-    .taskCard {
-        width: 300px !important;
-    }
-}
-
 @media (max-width: 440px) {
     .inputSearchMobile {
         width: 200px !important;
         background-position-x: 170px !important;
-    }
-
-    .taskCard {
-        width: 270px !important;
     }
 
     .inputSearchMobile {
@@ -1547,15 +1458,10 @@
         font-size: 30px;
     }
 
-    .taskCard {
-        width: 260px !important;
-    }
-
     .plusImgMobile {
         right: 35px;
     }
 }
-
 
 @media (max-width: 365px) {
     .iconsNavBoardMobile {
@@ -1574,10 +1480,6 @@
         background-position-x: 110px !important;
     }
 
-    .taskCard {
-        width: 220px !important;
-    }
-
     .iconsNavBoardMobile {
         width: 20px !important;
         height: 20px !important;
@@ -1589,10 +1491,6 @@
 }
 
 @media (max-width: 335px) {
-    .taskCard {
-        width: 200px !important;
-    }
-
     .containerWithSectionsBoard li {
         padding-left: 15px !important;
         padding-right: 15px !important;
@@ -1613,10 +1511,6 @@
         background-position-x: 100px !important;
     }
 
-    .taskCard {
-        width: 185px !important;
-    }
-
     .iconsNavBoardMobile {
         width: 18px !important;
         height: 18px !important;
@@ -1632,14 +1526,9 @@
         padding-left: 12px !important;
         padding-right: 12px !important;
     }
-
-    .taskCard {
-        width: 170px !important;
-    }
 }
 
 /************************** Media Queries for Board **************************/
-
 
 /************************** Media Queries for Contact **************************/
 @media (max-width: 1286px) {
@@ -1822,7 +1711,6 @@
     .contactList {
         width: 100% !important;
         box-shadow: unset !important;
-
     }
 
     .contactInfo {
@@ -2116,7 +2004,6 @@
         padding-bottom: 10px !important;
     }
 }
-
 
 @media (max-width: 300px) {
     .newContactBtnMobile {

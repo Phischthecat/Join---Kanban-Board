@@ -503,8 +503,8 @@ function createCategorys(i) {
 function createCategoryDefault() {
   return /*html*/ `
   <li class="categoryItem item" onclick="addNewCategory()">
-                    <span class="item-text"> New category</span>
-                  </li>
+    <span class="item-text"> New category</span>
+  </li>
   `;
 }
 
@@ -595,7 +595,8 @@ function createContactSectionOfLetter(letter) {
 function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
-    <div class="initials initialCircle" style="background-color:#${contact.color
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
     }">${contact.initial.toUpperCase()}</div>
     <div>
       <div class="name">${contact.name}</div>
