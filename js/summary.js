@@ -2,6 +2,12 @@ async function initTasks() {
   await init();
   quantityTasks();
   deadlineChecker();
+  setUser();
+}
+
+function setUser() {
+  let name = users.find(n => n.status == 'loggedIn');
+  getId('loggedInUser').innerHTML += `${name.userName}`
 }
 
 function quantityTasks() {
@@ -26,25 +32,33 @@ function setQuantity(todo, inProgress, awaitingFeedback, done, urgent) {
 
 function deadlineChecker() {
   let deadlineDate = getId('dateOfDeadline');
-  let allTasksDatesMinimum = findingMinimumDate();
-  let date = convertTimetoString(allTasksDatesMinimum);
+  if (allTasks.length > 0) {
+    let allTasksDatesMinimum = findingMinimumDate();
+    let date = convertTimetoString(allTasksDatesMinimum);
 
-  deadlineDate.innerHTML =
-    date.toLocaleString('default', { month: 'long' }) +
-    ' ' +
-    date.getDate() +
-    ', ' +
-    date.getFullYear();
+    deadlineDate.innerHTML =
+      date.toLocaleString('default', { month: 'long' }) +
+      ' ' +
+      date.getDate() +
+      ', ' +
+      date.getFullYear();
+  } else {
+    deadlineDate.innerHTML = ''
+  }
 }
 
 function findingMinimumDate() {
-  let min = convertTimetoTimestamp(allTasks[0].dueDate);
 
-  for (let i = 1; i < allTasks.length; i++) {
-    let value = convertTimetoTimestamp(allTasks[i].dueDate);
-    min = value < min ? value : min;
+  if (allTasks.length > 0) {
+    let min = convertTimetoTimestamp(allTasks[0].dueDate);
+    for (let i = 1; i < allTasks.length; i++) {
+      let value = convertTimetoTimestamp(allTasks[i].dueDate);
+      min = value < min ? value : min;
+    }
+    return min;
+  } else {
+    return '';
   }
-  return min;
 }
 
 function convertTimetoTimestamp(date) {

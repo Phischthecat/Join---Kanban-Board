@@ -2,6 +2,9 @@ let users = [];
 let loggedIn = true;
 let exists = false;
 let responsive = true;
+let actualLoggedUser;
+// let rememberme = getId('remember');
+// console.log(rememberme.checked);
 
 
 /**
@@ -31,7 +34,8 @@ async function getRegistrated() {
   let actualUser = {
     userName: getId('userName').value,
     password: getId('password').value,
-    email: getId('email').value
+    email: getId('email').value,
+    status: 'loggedIn'
   }
   checkConditions();
   if (exists) {
@@ -108,7 +112,6 @@ function logout() {
 function openForgotPart() {
   let content = getId('content');
   responsive = false;
-  getId('loginBox').classList.add('d-none')
   content.innerHTML = '';
   content.innerHTML += createForgetPart();
 }
