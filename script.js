@@ -363,15 +363,20 @@ function opportunityLogout() {
 
 
 async function logout() {
-  if (users.length > 0) {
-    let loggedOut = users.find(n => n.logStatus == 'loggedIn');
+  let loggedOut = users.find(n => n.logStatus == 'loggedIn');
+  if (users.length > 0 && loggedOut) {
     loggedOut.logStatus = '';
     users = await backend.setItem('users', users);
     setTimeout(() => {
       localStorage.removeItem('loggedInKey');
       window.location.href = './index.html';
     }, 200)
-  } else {
+  }
+  //  else if (users.length > 0 && loggedOut && loggedOut.remember == 'true') {
+  //   localStorage.removeItem('loggedInKey');
+  //   window.location.href = './index.html';
+  // }
+  else {
     window.location.href = './index.html';
     localStorage.removeItem('loggedInKey');
   }

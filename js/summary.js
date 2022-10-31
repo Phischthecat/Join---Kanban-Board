@@ -8,9 +8,9 @@ async function initTasks() {
 function setUser() {
   let name = users.find(n => n.logStatus == 'loggedIn');
   if (name != undefined) {
-    getId('loggedInUser').innerHTML = ``;
-    getId('loggedInUser').innerHTML += `${name.userName}`
+    getId('loggedInUser').innerHTML = `${name.userName}`
   } else {
+    getId('guest').innerHTML = 'Good morning';
     getId('loggedInUser').innerHTML = ``;
   }
 }
