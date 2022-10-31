@@ -24,160 +24,143 @@
       <div w3-include-html="navbar.html" class="flex"></div>
     </div>
     <div class="mainContainer">
-    
-      
-  <div>
-    <div w3-include-html="kanbanBar.html"></div>
-    <div class="addTaskContainer">
-      <div class="headline headlineAddTaskMobile">
-        <!--Only for Mobile-->
-        <span class="kanbanTextAddTask">Kanban Project Management Tool</span>
-        <!--Only for Mobile-->
-        <h1>Add Task</h1>
-      </div>
 
 
-      <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
-        <!--Header only for Mobile Add Task-->
-    <header class="headerAddTask hide">
-      <div class="kanbanBarAddTask">
-        <img src="img/joinlogo.svg" class="joinLogoAddTask" />
-        <button class="btn-blue btnCreate">
-          Create
-          <img src="img/ticked-off.svg" />
-        </button>
-      </header>
-      <!--Header only for Mobile Add Task-->
-        <div class="leftSplit">
-          <div class="title flexColumn">
-            <span class="text textAddTaskMobile">Title</span>
-            <input id="taskTitle" required type="text" placeholder="Enter a title" />
+      <div>
+        <div w3-include-html="kanbanBar.html"></div>
+        <div class="addTaskContainer">
+          <div class="headline headlineAddTaskMobile">
+            <!--Only for Mobile-->
+            <span class="kanbanTextAddTask">Kanban Project Management Tool</span>
+            <!--Only for Mobile-->
+            <h1>Add Task</h1>
           </div>
 
-          <div class="flexColumn">
-            <span class="text textAddTaskMobile">Description</span>
-            <textarea id="taskDescription" cols="30" rows="5" placeholder="Enter a description" required></textarea>
-          </div>
 
-          <div class="container">
-            <span class="text textAddTaskMobile">Category</span>
-            <div id="categorySelect">
-              <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
-                <div>
-                  <span class="btn-text">Choose category</span>
-                  <input
-                    type="text"
-                    class="hiddenInput"
-                    id="hiddenCategoryInput"
-                    required
-                  />
-                </div>
-                <span class="arrow-down">
-                  <i class="fa-solid fa-caret-down"></i>
-                </span>
-              </div>
-              <ul class="list-items" id="categoryList">
-                <li class="categoryItem" onclick="addNewCategory()">
-                  <span class="item-text"> New category</span>
-                </li>
-                <li class="categoryItem">
-                  <span class="item-text">Sales</span>
-                  <span class="categoryCheckbox">
-                    <i class="fa-solid fa-circle"></i>
-                  </span>
-                </li>
-                <li class="categoryItem">
-                  <span class="item-text">Backoffice</span>
-                  <span class="categoryCheckbox">
-                    <i class="fa-solid fa-circle"></i>
-                  </span>
-                </li>
-              </ul>
-              <div id="assignedToContacts" class="assignedToContacts"></div>
-            </div>
-          </div>
-
-          <div class="container">
-            <span class="text textAddTaskMobile">Assigned to</span>
-            <div id="selectBtn1" class="select-btn" onclick="openDropdownMenu(1)">
-              <div>
-                <span id="assignedToBtnText" class="btn-text"
-                  >Select contacts to assign</span
-                >
-                <input
-                  type="text"
-                  class="hiddenInput"
-                  id="hiddenAssignedToInput"
-                  required
-                />
-              </div>              
-              <span class="arrow-down">
-                <i class="fa-solid fa-caret-down"></i>
-              </span>
-            </div>
-            <ul class="list-items" id="assignedToList">
-              <li class="item">
-                <span class="item-text">You</span>
-                <span class="checkbox">
-                  <i class="fa-solid fa-square check-icon"></i>
-                </span>
-              </li>
-            </ul>
-            <div id="assignedToContacts" class="assignedToContacts"></div>
-          </div>
-        </div>
-
-        <div class="rightSplit">
-          <div>
-            <div class="dueDate flexColumn">
-              <span class="text textAddTaskMobile">Due date</span>
-              <input required id="taskDueDate" type="date" />
-            </div>
-
-            <div class="priority flexColumn" id="priority">
-              <span class="text textAddTaskMobile">Prio</span>
-
-              <div class="priorityBox">
-                <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
-                  <p>Urgent</p>
-                  <img src="img/urgent.addTask.svg" />
+          <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
+            <!--Header only for Mobile Add Task-->
+            <header class="headerAddTask hide">
+              <div class="kanbanBarAddTask">
+                <img src="img/joinlogo.svg" class="joinLogoAddTask" />
+                <button class="btn-blue btnCreate">
+                  Create
+                  <img src="img/ticked-off.svg" />
                 </button>
-
-                <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
-                  <p>Medium</p>
-                  <img src="img/medium.addTask.svg" />
-                  <div>
-                    <input
-                      type="text"
-                      class="hiddenInput"
-                      id="hiddenUrgentInput"
-                      required
-                    />
-                  </div>
-                </button>
-
-                <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
-                  <p>Low</p>
-                  <img src="img/low.addTask.svg" />
-                </button>
+            </header>
+            <!--Header only for Mobile Add Task-->
+            <div class="leftSplit">
+              <div class="title flexColumn">
+                <span class="text textAddTaskMobile">Title</span>
+                <input id="taskTitle" required type="text" placeholder="Enter a title" />
               </div>
 
-              <div class="subTasks flexColumn">
-                <span class="text textAddTaskMobile">Subtasks</span>
-                <div id="subtaskInputContainer" class="newSubtasksInputContainer">
-                  <input type="text" class="newSubtasksInput" placeholder="Add new subtask"
-                    onclick="changeSubTasksIcons()" />
-                  <div class="substasksIcons" id="substasksIcons">
-                    <div class="subtasksPlus" title="Add new subtasks" onclick="changeSubTasksIcons()">
-                      <i class="fa-regular fa-plus"></i>
+              <div class="flexColumn">
+                <span class="text textAddTaskMobile">Description</span>
+                <textarea id="taskDescription" cols="30" rows="5" placeholder="Enter a description" required></textarea>
+              </div>
+
+              <div class="container">
+                <span class="text textAddTaskMobile">Category</span>
+                <div id="categorySelect">
+                  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
+                    <div>
+                      <span class="btn-text">Choose category</span>
+                      <input type="text" class="hiddenInput" id="hiddenCategoryInput" required />
                     </div>
+                    <span class="arrow-down">
+                      <i class="fa-solid fa-caret-down"></i>
+                    </span>
                   </div>
-                </div>
-         
-                  <div id="subtasksContainer" class="subtasksContainer"></div>
+                  <ul class="list-items" id="categoryList">
+                    <li class="categoryItem" onclick="addNewCategory()">
+                      <span class="item-text"> New category</span>
+                    </li>
+                    <li class="categoryItem">
+                      <span class="item-text">Sales</span>
+                      <span class="categoryCheckbox">
+                        <i class="fa-solid fa-circle"></i>
+                      </span>
+                    </li>
+                    <li class="categoryItem">
+                      <span class="item-text">Backoffice</span>
+                      <span class="categoryCheckbox">
+                        <i class="fa-solid fa-circle"></i>
+                      </span>
+                    </li>
+                  </ul>
+                  <div id="assignedToContacts" class="assignedToContacts"></div>
                 </div>
               </div>
+
+              <div class="container">
+                <span class="text textAddTaskMobile">Assigned to</span>
+                <div id="selectBtn1" class="select-btn" onclick="openDropdownMenu(1)">
+                  <div>
+                    <span id="assignedToBtnText" class="btn-text">Select contacts to assign</span>
+                    <input type="text" class="hiddenInput" id="hiddenAssignedToInput" required />
+                  </div>
+                  <span class="arrow-down">
+                    <i class="fa-solid fa-caret-down"></i>
+                  </span>
+                </div>
+                <ul class="list-items" id="assignedToList">
+                  <li class="item">
+                    <span class="item-text">You</span>
+                    <span class="checkbox">
+                      <i class="fa-solid fa-square check-icon"></i>
+                    </span>
+                  </li>
+                </ul>
+                <div id="assignedToContacts" class="assignedToContacts"></div>
+              </div>
             </div>
+
+            <div class="rightSplit">
+              <div>
+                <div class="dueDate flexColumn">
+                  <span class="text textAddTaskMobile">Due date</span>
+                  <input required id="taskDueDate" type="date" />
+                </div>
+
+                <div class="priority flexColumn" id="priority">
+                  <span class="text textAddTaskMobile">Prio</span>
+
+                  <div class="priorityBox">
+                    <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
+                      <p>Urgent</p>
+                      <img src="img/urgent.addTask.svg" />
+                    </button>
+
+                    <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
+                      <p>Medium</p>
+                      <img src="img/medium.addTask.svg" />
+                      <div>
+                        <input type="text" class="hiddenInput" id="hiddenUrgentInput" required />
+                      </div>
+                    </button>
+
+                    <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
+                      <p>Low</p>
+                      <img src="img/low.addTask.svg" />
+                    </button>
+                  </div>
+
+                  <div class="subTasks flexColumn">
+                    <span class="text textAddTaskMobile">Subtasks</span>
+                    <div id="subtaskInputContainer" class="newSubtasksInputContainer">
+                      <input type="text" class="newSubtasksInput" placeholder="Add new subtask"
+                        onclick="changeSubTasksIcons()" />
+                      <div class="substasksIcons" id="substasksIcons">
+                        <div class="subtasksPlus" title="Add new subtasks" onclick="changeSubTasksIcons()">
+                          <i class="fa-regular fa-plus"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="subtasksContainer" class="subtasksContainer"></div>
+                  </div>
+                </div>
+              </div>
               <div class="buttonContainer" id="buttonContainer">
                 <button type="button" class="btn-white clearBtn" onclick="clearFields()" id="clear">
                   Clear
@@ -192,17 +175,17 @@
                   </span>
                 </button>
               </div>
-            
-          </div>
+
+            </div>
         </div>
-      </form>
-      <div id="messageToBoard" class="slide-in-bottom d-none">
-        <span> Task added to Board </span>
-        <img src="img/board.navbar.svg" />
+        </form>
+        <div id="messageToBoard" class="slide-in-bottom d-none">
+          <span> Task added to Board </span>
+          <img src="img/board.navbar.svg" />
+        </div>
       </div>
     </div>
   </div>
-</div>
   </div>
   </div>
 
@@ -211,20 +194,28 @@
     <div class="containerWithSectionsAddTask">
       <ul>
         <li>
-          <img class="iconsNavAddTaskMobile" src="img/summary.svg" />
-          <a href="summary.html">Summary</a>
+          <a href="summary.html">
+            <img class="iconsNavAddTaskMobile" src="img/summary.svg" />
+            Summary
+          </a>
         </li>
         <li>
-          <img class="iconsNavAddTaskMobile" src="img/board.navbar.svg" />
-          <a href="board.html">Board</a>
+          <a href="board.html">
+            <img class="iconsNavAddTaskMobile" src="img/board.navbar.svg" />
+            Board
+          </a>
         </li>
         <li>
-          <img class="iconsNavAddTaskMobile" src="img/addtask.navbar.svg" />
-          <a href="addTask.html">Add Task</a>
+          <a href="addTask.html">
+            <img class="iconsNavAddTaskMobile" src="img/addtask.navbar.svg" />
+            Add Task
+          </a>
         </li>
         <li>
-          <img class="iconsNavAddTaskMobile" src="img/contacts.navbar.svg" />
-          <a href="contact.html">Contacts</a>
+          <a href="contact.html">
+            <img class="iconsNavAddTaskMobile" src="img/contacts.navbar.svg" />
+            Contacts
+          </a>
         </li>
         <li>
           <a href="help.html"></a>

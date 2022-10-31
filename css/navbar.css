@@ -20,9 +20,6 @@
 .containerWithSections ul li {
   list-style: none;
   margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
 }
 
 .iconsNav {
@@ -33,6 +30,9 @@
 nav ul li a {
   color: white;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .kanbanBar {
@@ -51,9 +51,9 @@ nav ul li a {
 
 .circle {
   display: flex;
-  width: 70px;
   align-items: center;
   justify-content: space-between;
+  width: 70px;
 }
 
 .userImg {
