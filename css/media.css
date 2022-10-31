@@ -934,7 +934,7 @@
         height: 25px;
     }
 
-    .navbarAddTask a {
+    .containerWithSectionsAddTask a {
         font-size: 14px;
     }
 }
@@ -947,10 +947,6 @@
 }
 
 @media (max-width: 444px) {
-    .textAddTaskMobile {
-        font-size: 16px;
-    }
-
     .kanbanTextAddTask {
         font-size: 14px;
     }
@@ -977,13 +973,18 @@
 }
 
 @media (max-width: 370px) {
+    .joinLogoAddTask {
+        width: 30px !important;
+        height: 35px !important;
+    }
+
+    .btnCreate {
+        height: 35px !important;
+    }
+
     .btnCreate {
         padding-left: 15px !important;
         padding-right: 15px !important;
-    }
-
-    .textAddTaskMobile {
-        font-size: 14px !important;
     }
 
     .kanbanTextAddTask {
@@ -1005,7 +1006,7 @@
 }
 
 @media (max-width: 363px) {
-    .navbarAddTask a {
+    .containerWithSectionsAddTask a {
         font-size: 12px !important;
     }
 }
@@ -1023,27 +1024,12 @@
         height: 18px;
     }
 
-    .navbarAddTask a {
+    .containerWithSectionsAddTask a {
         font-size: 11px !important;
-    }
-
-    .textAddTaskMobile {
-        margin-top: 20px;
-        font-size: 13px !important;
     }
 }
 
 @media (max-width: 303px) {
-    .joinLogoAddTask {
-        width: 35px !important;
-        height: 35px !important;
-    }
-
-    .btnCreate {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-    }
-
     .kanbanTextAddTask {
         font-size: 12px;
     }
@@ -1068,17 +1054,6 @@
     .containerWithSectionsAddTask li {
         padding-left: 10px !important;
         padding-right: 10px !important;
-    }
-}
-
-@media (max-width: 282px) {
-    .containerWithSectionsAddTask li {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-    }
-
-    .btnCreate {
-        height: 40px !important;
     }
 }
 
