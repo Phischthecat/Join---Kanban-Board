@@ -351,3 +351,28 @@ function changeSubTasksIcons() {
   </span>
   `;
 }
+
+
+/**
+ * this function is used for the logout
+ */
+function opportunityLogout() {
+  getId('logoutBox').classList.toggle('d-none');
+  getId('logoutBox').classList.toggle('slide-in-right');
+}
+
+
+async function logout() {
+  if (users.length > 0) {
+    let loggedOut = users.find(n => n.logStatus == 'loggedIn');
+    loggedOut.logStatus = '';
+    users = await backend.setItem('users', users);
+    setTimeout(() => {
+      localStorage.removeItem('loggedInKey');
+      window.location.href = './index.html';
+    }, 200)
+  } else {
+    window.location.href = './index.html';
+    localStorage.removeItem('loggedInKey');
+  }
+}

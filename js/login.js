@@ -11,20 +11,34 @@ let actualLoggedUser;
  * This function is used for controlling password and username
  */
 
-function login() {
-  for (let i = 0; i < users.length; i++) {
-    let user = users[i]
-    if (user.userName == getId('userName').value && user.password == getId('password').value) {
-      window.location.href = './summary.html';
-      setDefault();
-    } else {
-      let error = getId('loginError');
-      error.innerHTML = '';
-      error.innerHTML += createErrorBoxLogin();
-      document.getElementById('password').value = '';
-    }
+async function checkAllUsers() {
+  let nameToCheck = getId('userName').value;
+  let passwordToCheck = getId('password').value;
+  let name = users.find(n => n.userName == nameToCheck);
+  let password = users.find(n => n.password == passwordToCheck);
+  if (name && password) {
+    getId('loginError').innerHTML = '';
+    name.logStatus = 'loggedIn';
+    login();
+  } else {
+    getId('loginError').innerHTML = '';
+    getId('loginError').innerHTML += createErrorBoxLogin();
+    getId('password').value = '';
   }
 }
+
+
+/**
+ * if all condistions are true you will be able to login
+ */
+async function login() {
+  await backend.setItem('users', users);
+  setTimeout(() => {
+    window.location.href = './summary.html';
+    setDefault();
+  }, 200)
+}
+
 
 
 /**
@@ -35,7 +49,7 @@ async function getRegistrated() {
     userName: getId('userName').value,
     password: getId('password').value,
     email: getId('email').value,
-    status: 'loggedIn'
+    logStatus: ''
   }
   checkConditions();
   if (exists) {
@@ -100,14 +114,6 @@ function setDefault() {
   }
 }
 
-/**
- * this function used for the logout
- */
-function logout() {
-  window.location.href = './index.html';
-  localStorage.removeItem('loggedInKey');
-}
-
 
 function openForgotPart() {
   let content = getId('content');
@@ -117,7 +123,9 @@ function openForgotPart() {
 }
 
 
-function checkForResponsive() {
+async function checkForResponsive() {
+  // let users = [];
+  // await backend.setItem('users', users);
   setInterval(() => {
     window.addEventListener("resize", removeClass());
   }, 200);

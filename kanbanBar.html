@@ -3,10 +3,18 @@
     <span class="text">Kanban Project Management Tool</span>
 
     <div class="actualUser">
-        <img class="questionMark" src="img/questionMark.navbar.svg">
 
-        <div class="circle">
-            <img src="/img/actualuser.png">
+        <div class="circle" onclick="opportunityLogout()">
+            <div class="questionMark">
+                <img src="img/questionMark.navbar.svg">
+            </div>
+            <img class="userImg" src="/img/actualuser.png">
         </div>
+    </div>
+</div>
+
+<div class="logoutContainer">
+    <div class="logoutBox d-none" id="logoutBox">
+        <span onclick="logout()">Logout</span>
     </div>
 </div>

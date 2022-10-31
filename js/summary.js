@@ -6,8 +6,13 @@ async function initTasks() {
 }
 
 function setUser() {
-  let name = users.find(n => n.status == 'loggedIn');
-  getId('loggedInUser').innerHTML += `${name.userName}`
+  let name = users.find(n => n.logStatus == 'loggedIn');
+  if (name != undefined) {
+    getId('loggedInUser').innerHTML = ``;
+    getId('loggedInUser').innerHTML += `${name.userName}`
+  } else {
+    getId('loggedInUser').innerHTML = ``;
+  }
 }
 
 function quantityTasks() {

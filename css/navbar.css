@@ -50,17 +50,31 @@ nav ul li a {
 }
 
 .circle {
+  display: flex;
+  width: 70px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userImg {
   height: 30px;
-  width: 30px;
-  border-radius: 100%;
   border: 2px solid black;
+  border-radius: 100%;
 }
 
-.circle img {
-  height: 30px;
+.logoutContainer {
+  display: flex;
+  justify-content: flex-end;
 }
 
-.questionMark {
+.logoutBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.questionMark img {
   height: 20px;
   width: 20px;
 }
