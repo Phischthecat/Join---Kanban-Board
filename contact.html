@@ -8,11 +8,10 @@
   <title>Contact</title>
   <link rel="shortcut icon" href="img/joinlogo.svg" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/media.css" />
   <link rel="stylesheet" href="css/contact.css" />
-  <link rel="stylesheet" href="css/board.css" />
   <link rel="stylesheet" href="css/addTask.css" />
   <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/media-contacts.css" />
   <script src="js/mini_backend.js"></script>
   <script src="js/addTask.js"></script>
   <script src="script.js"></script>
@@ -46,9 +45,7 @@
       </div>
       <!--Header only for Mobile Contact-->
 
-
-      <div w3-include-html="kanbanBar.html"></div>
-
+      <div class="kanbanBar" w3-include-html="kanbanBar.html"></div>
 
       <!--Only for Mobile-->
       <div class="btnContainerMobile d-none">
@@ -58,16 +55,15 @@
       </div>
       <!--Only for Mobile-->
 
-
       <div class="contactContainer">
         <div id="contactList" class="contactList"></div>
         <div class="contactArea">
           <div>
-            <div class="header headerContactMobile">
-              <div class="headline headlineContactMobile blue-border">
+            <div class="header">
+              <div class="headline blue-border">
                 <h1>Contacts</h1>
               </div>
-              <div class="subheadline subheadlineContactMobile">
+              <div class="subheadline">
                 <span>Better with a team</span>
               </div>
             </div>
@@ -83,7 +79,6 @@
     </div>
   </div>
 
-
   <!-- Navbar only for Mobile Contact-->
   <nav class="navbarContact d-none">
     <div class="containerWithSectionsContact">
@@ -91,33 +86,31 @@
         <li>
           <a href="summary.html">
             <img class="iconsNavContactMobile" src="img/summary.svg" />
-            Summary
+            <span>Summary</span>
           </a>
         </li>
         <li>
           <a href="board.html">
             <img class="iconsNavContactMobile" src="img/board.navbar.svg" />
-            Board
+            <span>Board</span>
           </a>
         </li>
         <li>
           <a href="addTask.html">
             <img class="iconsNavContactMobile" src="img/addtask.navbar.svg" />
-            Add Task
+            <span>Add Task</span>
           </a>
         </li>
         <li>
           <a href="contact.html">
             <img class="iconsNavContactMobile" src="img/contacts.navbar.svg" />
-            Contacts
+            <span>Contacts</span>
           </a>
-        </li>
-        <li>
-          <a href="help.html"></a>
         </li>
       </ul>
     </div>
   </nav>
+
   <!-- Navbar only for Mobile Contact-->
 </body>
 

@@ -613,7 +613,8 @@
         height: 5px !important;
     }
 
-    #toDo, #done {
+    #toDo,
+    #done {
         font-size: 16px;
     }
 

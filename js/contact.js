@@ -51,6 +51,18 @@ async function addContact() {
   initContact();
 }
 
+function checkIfInputEmpty() {
+  if (
+    getId('newContactName').value == '' ||
+    getId('newContactEmail').value == '' ||
+    getId('newContactPhone').value == ''
+  ) {
+    openDialogForCreate('Please fill up all inputs');
+  } else {
+    addContact();
+  }
+}
+
 function contactInitial(name) {
   if (name.indexOf(' ') == -1) {
     return name.charAt(0);
@@ -76,8 +88,14 @@ function openDialogForCreate(text) {
   let message = getId('messageToBoard');
   message.innerHTML = text;
   message.classList.remove('d-none');
+  message.classList.remove('slide-out-bottom');
+  message.classList.add('slide-in-bottom');
   setTimeout(() => {
     message.classList.add('slide-out-bottom');
+    message.classList.remove('slide-in-bottom');
+    setTimeout(() => {
+      message.classList.add('d-none');
+    }, 100);
   }, 2000);
 }
 
@@ -132,3 +150,8 @@ function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
   fullContact.classList.remove('d-none');
 }
+
+window.addEventListener('change', () => {
+  if (window.innerWidth > 800) {
+  }
+});

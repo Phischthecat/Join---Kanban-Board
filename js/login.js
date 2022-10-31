@@ -3,27 +3,58 @@ let loggedIn = true;
 let exists = false;
 let responsive = true;
 let actualLoggedUser;
-// let rememberme = getId('remember');
-// console.log(rememberme.checked);
+
 
 
 /**
  * This function is used for controlling password and username
  */
-
 async function checkAllUsers() {
-  let nameToCheck = getId('userName').value;
-  let passwordToCheck = getId('password').value;
-  let name = users.find(n => n.userName == nameToCheck);
-  let password = users.find(n => n.password == passwordToCheck);
-  if (name && password) {
+  let name = getUser();
+  if (name && name.userName && name.password == getId('password').value && getId('remember').checked) {
+    let rememberedUser = JSON.stringify(name);
+    localStorage.setItem('rememberMe', rememberedUser);
     getId('loginError').innerHTML = '';
     name.logStatus = 'loggedIn';
     login();
-  } else {
+  } else if (name && name.userName && name.password == getId('password').value) {
     getId('loginError').innerHTML = '';
-    getId('loginError').innerHTML += createErrorBoxLogin();
-    getId('password').value = '';
+    name.logStatus = 'loggedIn';
+    login();
+  } else if (getId('userName').value != '' && getId('password').value != '' && getId('password').value != name.password || name != getId('userName')) {
+    showError();
+  }
+}
+
+
+/**
+ * showErrorMessage
+ */
+function showError() {
+  getId('loginError').innerHTML = '';
+  getId('loginError').innerHTML += createErrorBoxLogin();
+  getId('password').value = '';
+}
+
+/**
+ * 
+ * @returns the founded name for Login
+ */
+function getUser() {
+  let nameToCheck = getId('userName').value;
+  let name = users.find(n => n.userName == nameToCheck);
+  return name
+}
+
+
+/**
+ * checks Conditions for rememberMe
+ */
+function checkForRemember() {
+  if (localStorage.getItem('rememberMe')) {
+    let name = JSON.parse(localStorage.getItem('rememberMe'));
+    getId('userName').value = name.userName;
+    getId('password').value = name.password;
   }
 }
 
@@ -49,7 +80,7 @@ async function getRegistrated() {
     userName: getId('userName').value,
     password: getId('password').value,
     email: getId('email').value,
-    logStatus: ''
+    logStatus: 'loggedIn',
   }
   checkConditions();
   if (exists) {

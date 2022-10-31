@@ -34,7 +34,7 @@
 
       <hr class="line">
 
-      <form class="loginForm flexColumn" onsubmit="return false">
+      <form class="loginForm flexColumn" onsubmit=" getRegistrated();return false">
         <input required type="text" class="inputFieldsLogin distance" id="userName" minlength="5" placeholder="Username"
           name="uname" />
 
@@ -45,7 +45,7 @@
           placeholder="Password" name="psw" />
 
         <div>
-          <button class="btn-blue loginBtn" id="fullRegister" type="submit" required onclick="getRegistrated()">
+          <button class="btn-blue loginBtn" id="fullRegister" type="submit">
             Sign Up
           </button>
         </div>

@@ -225,7 +225,7 @@
   margin-right: 5px;
 }
 
-#showUrgency {
+.fullviewUrgency {
   height: 30px;
   color: white;
   display: flex;
@@ -235,7 +235,7 @@
   border-radius: 10px;
 }
 
-#showUrgency img {
+.fullviewUrgency img {
   filter: brightness(0) invert(1);
 }
 
@@ -382,13 +382,13 @@
 
 progress[value] {
   height: 8px;
-  border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 
   /* Get rid of default border in Firefox. */
   border: none;
+  width: 100%;
   max-width: 65%;
   background-color: var(--backgroundProgressbar);
 }
