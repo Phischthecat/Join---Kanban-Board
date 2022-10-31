@@ -2,6 +2,7 @@ let currentDraggedElement;
 
 async function initTodos() {
   await init();
+  // muss noch abgeändert werden und separat geladen werden
   setDragAndDropId();
   // allTasks = [];
   // await backend.setItem('allTasks', allTasks);

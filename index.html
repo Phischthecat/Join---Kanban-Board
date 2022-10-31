@@ -32,7 +32,7 @@
     <div class="loginSection flex flexColumn">
       <div id="loginError"></div>
 
-      <div class="loginContainer flexColumn slide-in-bottom-login" id="loginContainer">
+      <div class="loginContainer slide-in-bottom-login" id="loginContainer">
         <div class="loginBox">
           <h1>Log In</h1>
         </div>
@@ -49,11 +49,15 @@
             name="psw" />
 
           <div class="forgotMessage cursor-pointer">
+            <label>
+              <input type="checkbox" id="remember">
+              <span>Remember me</span>
+            </label>
             <span onclick="openForgotPart()">Forgot my Password</span>
           </div>
 
           <div class="btnBox">
-            <button class="btn-blue loginBtn" type="submit" required onclick="login()">
+            <button class="btn-blue loginBtn" type="submit" required onclick="checkAllUsers()">
               Login
             </button>
             <button class="btn-white guestBtn" type="button" required onclick="guestLogin()">
