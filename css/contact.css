@@ -34,11 +34,11 @@
   align-items: flex-start;
   padding: 15px;
   gap: 20px;
+  border-radius: 10px;
 }
 
 .contactInfo:hover {
   background-color: var(--colorLightGrey);
-  border-radius: 10px;
 }
 
 .contactInfo:hover .initialCircle {

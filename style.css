@@ -1,10 +1,11 @@
-/* @font-face {
+@font-face {
   font-family: 'Inter';
   font-weight: 125 950;
   font-stretch: 75% 125%;
   font-style: oblique 0deg 12deg;
-  src: url('/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('woff2-variations');
-} */
+  src: url('/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf')
+    format('woff2-variations');
+}
 
 :root {
   --backGroundSection: #f5f5f5;
@@ -290,13 +291,14 @@ textarea {
   height: 45px;
   background: var(--mainColorDarkBlue);
   position: absolute;
-  left: 630px;
+  left: calc(50% - 225px / 2);
   border-radius: 10px;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  z-index: 99;
 }
 
 #messageToBoard span {

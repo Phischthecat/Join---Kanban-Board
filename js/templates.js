@@ -207,7 +207,7 @@ function createNewContact() {
                         </div>
                         <div class="contactInputSection">
                             <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
-                            <form id="newContactForm" onsubmit="addContact(); return false;">
+                            <form id="newContactForm" onsubmit="checkIfInputEmpty(); return false;">
                             <input class="nameModal" id="newContactName" type="text" placeholder="Name">
                             <input class="emailModal" id="newContactEmail" type="email" placeholder="Email">
                             <input class="phoneModal" id="newContactPhone" type="tel" placeholder="Phone">
