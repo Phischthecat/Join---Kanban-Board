@@ -227,7 +227,7 @@ function checkIfSubtasksDone(index) {
   let checkboxes = document.querySelectorAll('input[type=checkbox]');
   for (let i = 0; i < checkboxes.length; i++) {
     const checkbox = checkboxes[i];
-    if (checkbox.checked == true) {
+    if (checkbox.checked) {
       task.subtasks[i].checked = true;
     } else {
       task.subtasks[i].checked = false;

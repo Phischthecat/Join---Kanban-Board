@@ -150,3 +150,8 @@ function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
   fullContact.classList.remove('d-none');
 }
+
+window.addEventListener('change', () => {
+  if (window.innerWidth > 800) {
+  }
+});

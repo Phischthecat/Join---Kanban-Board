@@ -382,13 +382,13 @@
 
 progress[value] {
   height: 8px;
-  border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 
   /* Get rid of default border in Firefox. */
   border: none;
+  width: 100%;
   max-width: 65%;
   background-color: var(--backgroundProgressbar);
 }

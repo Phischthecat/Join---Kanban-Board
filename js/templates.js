@@ -598,12 +598,19 @@ function createContactSectionOfLetter(letter) {
 function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
+  <div class="initialContainer">
     <div class="initials initialCircle" style="background-color:#${
       contact.color
     }">${contact.initial.toUpperCase()}</div>
+
+    </div>
     <div>
-      <div class="name">${contact.name}</div>
-      <div class="email">${contact.email}</div>
+      <div class="name">
+      <span>${contact.name}</span></div>
+      <div class="email"><span>
+${contact.email}
+      </span>
+      </div>
     </div>
   </div>
   `;
@@ -613,22 +620,24 @@ function createFullContact(i) {
   let contact = contacts[i];
   return /*html*/ `
   <div class="headerFullContact">
-                  <div
-                    id="initialsFullContact"
-                    class="initialsFullContact initialCircle"
-                    style="background-color:#${contact.color}"
-                  >
-                    ${contact.initial}
-                  </div>
-                  <div class="nameContainer">
-                    <div class="nameFullContact">${contact.name}</div>
-                    <div
-                      class="addTaskLink cursor-pointer"
-                      onclick="openTaskBox('toDo')"
-                    >
-                      <span>+</span> Add Task
-                    </div>
-                  </div>
+    <div>
+      <div
+        id="initialsFullContact"
+        class="initialsFullContact initialCircle"
+        style="background-color:#${contact.color}"
+      >
+        ${contact.initial}
+      </div>
+      </div>
+      <div class="nameContainer">
+        <div class="nameFullContact">${contact.name}</div>
+        <div
+          class="addTaskLink cursor-pointer"
+          onclick="openTaskBox('toDo')"
+        >
+          <span>+</span> Add Task
+        </div>
+      </div>
                 </div>
                 <div class="contactFullInfo">
                   <div class="contactFullInfoHeader">
