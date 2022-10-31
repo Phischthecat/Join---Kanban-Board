@@ -70,7 +70,7 @@
 /************************** Media Queries for Login **************************/
 
 /************************** Media Queries for Summary **************************/
-@media (max-width: 1230px) {
+@media (max-width: 1240px) {
     .greeting {
         margin-left: 100px;
     }
@@ -82,90 +82,33 @@
     }
 }
 
-@media (max-width: 1150px) {
+@media (max-width: 1160px) {
     .greeting {
         margin-left: 45px;
     }
 }
 
-@media (max-width: 1130px) {
+@media (max-width: 1135px) {
     .summaryArea {
         padding-left: 120px;
     }
 }
 
-@media (max-width: 1105px) {
+@media (max-width: 1115px) {
     .summaryArea {
         padding-left: 100px;
     }
 }
 
-@media (max-width: 1095px) {
-    .summaryArea {
-        padding-left: 80px;
-    }
-}
-
-@media (max-width: 1075px) {
+@media (max-width: 1100px) {
     .summaryArea {
         padding-left: 60px;
-    }
-}
-
-@media (max-width: 1045px) {
-    .summaryArea {
-        padding-left: 40px;
-    }
-}
-
-@media (max-width: 1025px) {
-    .greeting {
-        font-size: 25px;
-    }
-}
-
-@media (max-width: 994px) {
-    .subheadline span {
-        font-size: 25px;
+        padding-top: 30px;
+        padding-bottom: 0;
     }
 
-    .greeting {
-        margin-left: 40px;
-    }
-}
-
-@media (max-width: 990px) {
-    .greeting {
-        font-size: 22px;
-    }
-}
-
-@media (max-width: 969px) {
-    .greeting {
-        font-size: 22px;
-        margin-left: 25px;
-    }
-
-    .box {
-        width: 120px;
-        height: 120px;
-    }
-
-    .longBox {
-        height: 100px;
-    }
-
-    .thirdBox {
-        width: 200px;
-        height: 80px;
-    }
-}
-
-@media (max-width: 955px) {
     .headerSummaryMobile {
-        display: flex;
         justify-content: center;
-        align-items: center;
     }
 
     .overviewSummary {
@@ -175,20 +118,35 @@
     }
 
     .greeting {
+        padding-top: 25px;
+    }
+}
+
+@media (max-width: 994px) {
+    .subheadline span {
         font-size: 25px;
-        padding-top: 70px;
     }
-}
 
-@media (max-width: 940px) {
     .headlineSummaryMobile h1 {
-        font-size: 45px;
+        font-size: 50px;
     }
 }
 
-@media (max-width: 840px) {
-    .subheadlineSummaryMobile span {
-        font-size: 23px;
+@media (max-width: 890px) {
+    .headlineSummaryMobile h1 {
+        font-size: 40px;
+    }
+
+    .subheadline span {
+        font-size: 20px;
+    }
+
+    .greeting {
+        padding-top: 35px;
+    }
+
+    .greeting span {
+        font-size: 28px;
     }
 }
 
@@ -211,6 +169,17 @@
         padding-right: 215px;
     }
 
+    .circle {
+        width: unset;
+    }
+
+    .userImgResponsive {
+        width: 35px;
+        height: 35px;
+        border: 2px solid black;
+        border-radius: 100%;
+    }
+
     .overviewSummary {
         padding-bottom: 120px;
     }
@@ -223,6 +192,38 @@
         right: 0;
     }
 
+    .box {
+        width: 120px;
+        height: 120px;
+    }
+
+    .nr {
+        font-size: 40px;
+    }
+
+    .longBox {
+        height: 80px;
+    }
+
+    .text {
+        margin-top: 5px;
+    }
+
+    .thirdBox {
+        height: 80px;
+        width: 200px;
+    }
+
+    .todoAndDone {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .containerWithSectionsSummary a {
+        flex-direction: column;
+        gap: 15px;
+    }
+
     .greeting {
         display: none;
     }
@@ -233,8 +234,8 @@
     }
 
     .headlineSummaryMobile h1 {
-        padding-top: 25px;
-        padding-bottom: 25px;
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 
     .subheadlineSummaryMobile {
@@ -247,97 +248,98 @@
     .summaryArea {
         padding-top: 40px;
     }
-}
-
-@media (max-width: 615px) {
-    .kanbanTextSummary {
-        font-size: 15px;
-    }
-
-    .headlineSummaryMobile h1 {
-        font-size: 42px;
-    }
 
     .subheadline span {
-        font-size: 22px;
+        font-size: 20px;
+        padding-right: 28px;
     }
 }
 
-@media (max-width: 600px) {
-    .containerOverview {
-        width: 420px;
+@media (max-width: 620px) {
+    .summaryArea {
+        padding-left: 40px;
     }
 
     .headerSummaryMobile {
-        padding-right: 150px;
+        padding-right: 135px;
+    }
+
+    .headlineSummaryMobile h1 {
+        font-size: 35px;
+        padding-left: 3px;
+    }
+
+    .containerOverview {
+        width: 420px;
     }
 }
 
-@media (max-width: 558px) {
-    .containerWithSectionsSummary li {
-        padding-left: 25px;
-        padding-right: 25px;
+@media (max-width: 540px) {
+    .summaryArea {
+        padding-top: 30px;
     }
-}
 
-@media (max-width: 567px) {
+    .headerSummaryMobile {
+        padding-right: 55px;
+    }
+
+    .headlineSummaryMobile h1 {
+        font-size: 30px;
+    }
+
+    .subheadline span {
+        font-size: 18px;
+        padding-right: 50px;
+    }
+
+    .containerOverview {
+        width: 335px;
+    }
+
     .box {
-        width: 100px;
-        height: 100px;
-    }
-
-    .thirdBox {
-        width: 180px;
-        height: 70px;
-    }
-
-    .longBox {
+        width: 90px;
         height: 90px;
     }
 
     .nr {
-        font-size: 35px;
+        font-size: 30px;
+    }
+
+    .text {
+        font-size: 13px;
+    }
+
+    .longBox {
+        height: 70px;
+    }
+
+    #dateOfDeadline {
+        font-size: 18px;
+    }
+
+    .thirdBox {
+        height: 70px;
+        width: 150px;
     }
 
     .todoAndDone {
-        width: 25px !important;
-        height: 25px !important;
+        width: 15px !important;
+        height: 15px !important;
     }
 
-    #toDo,
-    #done {
-        font-size: 35px;
+    .iconsNavSummaryMobile {
+        width: 30px;
+        height: 30px;
     }
 
-    .thirdBox span {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 535px) {
-    .headerSummaryMobile {
-        padding-right: 110px;
-    }
-
-    .containerOverview {
-        width: 380px;
-    }
-}
-
-@media (max-width: 507px) {
-    .headerSummaryMobile {
-        padding-right: 100px;
-    }
-
-    .containerWithSectionsSummary li {
-        padding-left: 20px;
-        padding-right: 20px;
+    .containerWithSectionsSummary a {
+        font-size: 13px;
     }
 }
 
 @media (max-width: 500px) {
     .headerSummaryMobile {
-        padding-right: 90px;
+        padding-right: 75px;
     }
 
     .box {
@@ -375,15 +377,10 @@
     .containerOverview {
         width: 360px;
     }
-}
 
-@media (max-width: 475px) {
-    .headerSummaryMobile {
-        padding-right: 75px;
-    }
-
-    .containerOverview {
-        width: 350px;
+    .containerWithSectionsSummary li {
+        padding-left: 25px;
+        padding-right: 25px;
     }
 }
 
@@ -397,92 +394,14 @@
     }
 }
 
-@media (max-width: 457px) {
-    .iconsNavSummaryMobile {
-        width: 30px;
-        height: 30px;
-    }
-
-    .navbarSummary a {
-        font-size: 13px;
-    }
-}
-
 @media (max-width: 445px) {
-    .headerSummaryMobile {
-        padding-right: 100px;
-    }
-
-    .kanbanTextSummary {
+    .containerWithSectionsSummary a {
         font-size: 12px;
     }
 
-    .headlineSummaryMobile h1 {
-        font-size: 30px;
-    }
-
-    .subheadlineSummaryMobile span {
-        font-size: 18px;
-    }
-
-    .box {
-        width: 80px;
-        height: 80px;
-    }
-
-    .nr {
-        font-size: 22px;
-    }
-
-    .text {
-        font-size: 13px;
-    }
-
-    .longBox {
-        height: 60px;
-    }
-
-    #dateOfDeadline {
-        font-size: 15px;
-    }
-
-    .thirdBox {
-        width: 140px;
-    }
-
-    .thirdBox span {
-        font-size: 14px;
-    }
-
-    #toDo,
-    #done {
-        font-size: 22px;
-        color: black;
-    }
-
-    .todoAndDone {
-        width: 18px !important;
-        height: 18px !important;
-    }
-
-    #navbar {
-        padding-top: 0;
-    }
-}
-
-@media (max-width: 440px) {
-    .containerOverview {
-        width: 310px;
-    }
-
-    .headerSummaryMobile {
-        padding-right: 80px;
-    }
-}
-
-@media (max-width: 420px) {
-    .headerSummaryMobile {
-        padding-right: 75px;
+    .containerWithSectionsSummary li {
+        padding-left: 22px;
+        padding-right: 22px;
     }
 
     .iconsNavSummaryMobile {
@@ -490,83 +409,46 @@
         height: 25px;
     }
 
-    .navbarSummary a {
-        font-size: 13px;
-    }
-}
-
-@media (max-width: 415px) {
-    .headerSummaryMobile {
-        padding-right: 60px;
-    }
-
-    .iconsNavSummaryMobile {
-        width: 22px;
-        height: 22px;
-    }
-
-    .containerOverview {
-        width: 300px;
-    }
-}
-
-@media (max-width: 412px) {
-    .navbarSummary a {
+    .containerWithSectionsSummary a {
         font-size: 12px;
     }
 }
 
-@media (max-width: 405px) {
+@media (max-width: 430px) {
+    .headerSummaryMobile {
+        padding-right: 50px;
+    }
+
+    .kanbanTextSummary {
+        font-size: 14px;
+    }
+
+    .headlineSummaryMobile h1 {
+        font-size: 25px;
+        padding-left: 3px;
+    }
+
+    .subheadline span {
+        font-size: 15px;
+        padding-right: 50px;
+    }
+
     .containerOverview {
         width: 300px;
-    }
-}
-
-@media (max-width: 399px) {
-    .kanbanTextSummary {
-        font-size: 11px;
-    }
-
-    .subheadlineSummaryMobile span {
-        font-size: 16px;
-    }
-
-    .containerWithSectionsSummary li {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-
-    .containerOverview {
-        width: 270px;
     }
 
     .box {
-        width: 70px;
-        height: 70px;
-    }
-
-    .nr {
-        font-size: 18px;
-    }
-
-    .text {
-        font-size: 12px;
+        width: 80px;
+        height: 80px;
     }
 
     .longBox {
         height: 60px;
     }
 
-    .longBox img {
-        height: 30px;
-    }
-
-    #dateOfDeadline {
-        font-size: 14px;
-    }
-
     .thirdBox {
-        width: 120px;
+        width: 140px;
+        height: 60px;
     }
 
     .todoAndDone {
@@ -574,119 +456,29 @@
         height: 15px !important;
     }
 
-    .thirdBox span {
-        font-size: 13px;
+    .iconsNavSummaryMobile {
+        width: 22px;
+        height: 22px;
     }
 
-    #toDo,
-    #done {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 370px) {
-    .headerSummaryMobile {
-        padding-right: 50px;
-    }
-
-    .containerOverview {
-        width: 260px;
-    }
-
-    .headerSummaryMobile {
-        padding-right: 35px;
-    }
-
-    .containerOverview {
-        width: 245px;
-    }
-
-    .box {
-        width: 65px;
-        height: 65px;
-    }
-
-    .nr {
-        font-size: 18px;
-    }
-
-    .text {
-        font-size: 10px !important;
-    }
-
-    .longBox {
-        height: 55px;
-    }
-
-    .longBox img {
-        height: 25px;
-    }
-
-    #dateOfDeadline {
-        font-size: 13px;
-    }
-
-    .thirdBox {
-        width: 100px;
-    }
-
-    .todoAndDone {
-        width: 10px !important;
-        height: 10px !important;
-    }
-
-    #toDo,
-    #done {
-        font-size: 18px;
-    }
-
-    .thirdBox span {
-        font-size: 12px;
-    }
-}
-
-@media (max-width: 360px) {
-    .headlineSummaryMobile h1 {
-        font-size: 25px;
-    }
-
-    .subheadlineSummaryMobile span {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 347px) {
     .containerWithSectionsSummary li {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-}
-
-@media (max-width: 342px) {
-    .headerSummaryMobile {
-        padding-right: 30px;
-    }
-}
-
-@media (max-width: 337px) {
-    .headerSummaryMobile {
+        padding-left: 20px;
         padding-right: 20px;
     }
-
-    .containerOverview {
-        width: 235px;
-    }
 }
 
-@media (max-width: 330px) {
+@media (max-width: 388px) {
     .headerSummaryMobile {
-        padding-right: 15px;
+        padding-right: 60px;
     }
-}
 
-@media (max-width: 322px) {
-    .headerSummaryMobile {
-        padding-right: 10px;
+    .kanbanTextSummary {
+        font-size: 12px;
+    }
+
+    .subheadline span {
+        font-size: 12px;
+        padding-right: 55px;
     }
 
     .iconsNavSummaryMobile {
@@ -694,22 +486,167 @@
         height: 20px;
     }
 
-    .navbarSummary a {
-        font-size: 11px;
+    .containerWithSectionsSummary li {
+        padding-left: 17px;
+        padding-right: 17px;
     }
 }
 
-@media (max-width: 318px) {
+@media (max-width: 365px) {
+    .joinLogoSummary {
+        width: 30px;
+        height: 35px;
+    }
+
+    .userImgResponsive {
+        width: 30px;
+        height: 30px;
+    }
+
     .headerSummaryMobile {
-        padding-right: 5px;
+        padding-right: 30px;
+    }
+
+    .headlineSummaryMobile h1 {
+        font-size: 23px;
+    }
+
+    .containerOverview {
+        width: 250px;
+    }
+
+    .box {
+        width: 65px;
+        height: 65px;
+    }
+
+    .text {
+        font-size: 12px;
+    }
+
+    .nr {
+        font-size: 20px;
+    }
+
+    .longBox img {
+        height: 25px;
+    }
+
+    .thirdBox {
+        width: 115px;
+    }
+
+    .todoAndDone {
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+    .thirdBox span {
+        font-size: 12px;
+    }
+
+    .containerWithSectionsSummary li {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+@media (max-width: 338px) {
+    .headerSummaryMobile {
+        padding-right: 0;
+    }
+
+    .headlineSummaryMobile h1 {
+        font-size: 20px;
+    }
+
+    .containerWithSectionsSummary li {
+        padding-left: 12px;
+        padding-right: 12px;
     }
 
     .kanbanTextSummary {
         font-size: 11px;
     }
 
+    .headlineSummaryMobile h1 {
+        font-size: 20px;
+    }
+
+    .subheadline span {
+        font-size: 11px;
+        padding-right: 48px;
+    }
+
     .containerOverview {
-        width: 215px;
+        width: 210px;
+    }
+
+    .box {
+        width: 55px;
+        height: 55px;
+    }
+
+    .nr {
+        font-size: 16px;
+    }
+
+    .text {
+        font-size: 10px;
+    }
+
+    .longBox {
+        height: 50px;
+    }
+
+    .longBox img {
+        height: 23px;
+    }
+
+    .thirdBox {
+        width: 95px;
+        height: 50px;
+    }
+
+    .todoAndDone {
+        width: 5px !important;
+        height: 5px !important;
+    }
+
+    #toDo, #done {
+        font-size: 16px;
+    }
+
+    .iconsNavSummaryMobile {
+        width: 17px;
+        height: 17px;
+    }
+
+    .containerWithSectionsSummary a {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 318px) {
+    .summaryArea {
+        padding-left: 30px;
+    }
+
+    .kanbanTextSummary {
+        font-size: 10px;
+    }
+
+    .headlineSummaryMobile h1 {
+        font-size: 18px;
+    }
+
+    .blue-border {
+        padding-right: 35px;
+    }
+
+    .subheadline span {
+        font-size: 10px;
+        padding-right: 60px;
     }
 
     .box {
@@ -741,100 +678,6 @@
 
     .thirdBox {
         width: 90px;
-    }
-}
-
-@media (max-width: 312px) {
-    .headerSummaryMobile {
-        padding-right: 0;
-    }
-
-    .containerOverview {
-        width: 205px;
-    }
-
-    .box {
-        width: 50px;
-        height: 50px;
-    }
-
-    .nr {
-        font-size: 15px;
-    }
-
-    .text {
-        font-size: 8px !important;
-    }
-
-    .thirdBox {
-        width: 85px;
-    }
-
-    .todoAndDone {
-        width: 5px !important;
-        height: 5px !important;
-    }
-
-    #toDo,
-    #done {
-        font-size: 15px;
-    }
-
-    .thirdBox span {
-        font-size: 10px;
-    }
-}
-
-@media (max-width: 308px) {
-    .kanbanTextSummary {
-        font-size: 10px;
-    }
-
-    .headlineSummaryMobile h1 {
-        font-size: 22px;
-    }
-
-    .subheadlineSummaryMobile span {
-        font-size: 15px;
-    }
-}
-
-@media (max-width: 303px) {
-    .containerWithSectionsSummary li {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-@media (max-width: 295px) {
-    .kanbanTextSummary {
-        font-size: 9px;
-    }
-
-    .subheadlineSummaryMobile span {
-        font-size: 13px;
-    }
-
-    .headerSummaryMobile {
-        padding-right: 15px;
-    }
-
-    .containerOverview {
-        width: 195px;
-    }
-}
-
-@media (max-width: 292px) {
-    .kanbanTextSummary {
-        font-size: 8px;
-    }
-
-    .subheadlineSummaryMobile span {
-        font-size: 12px;
-    }
-
-    .navbarSummary a {
-        font-size: 10px;
     }
 }
 
@@ -968,6 +811,11 @@
         display: none;
     }
 
+    .containerWithSectionsAddTask a {
+        flex-direction: column;
+        gap: 15px;
+    }
+
     .kanbanTextAddTask {
         display: flex !important;
         padding-bottom: 20px;
@@ -986,7 +834,7 @@
     }
 
     .buttonContainer {
-        display: none !important;
+        display: none;
     }
 
     .kanbanBar span {
@@ -1086,7 +934,7 @@
         height: 25px;
     }
 
-    .navbarAddTask a {
+    .containerWithSectionsAddTask a {
         font-size: 14px;
     }
 }
@@ -1099,10 +947,6 @@
 }
 
 @media (max-width: 444px) {
-    .textAddTaskMobile {
-        font-size: 16px;
-    }
-
     .kanbanTextAddTask {
         font-size: 14px;
     }
@@ -1129,13 +973,18 @@
 }
 
 @media (max-width: 370px) {
+    .joinLogoAddTask {
+        width: 30px !important;
+        height: 35px !important;
+    }
+
+    .btnCreate {
+        height: 35px !important;
+    }
+
     .btnCreate {
         padding-left: 15px !important;
         padding-right: 15px !important;
-    }
-
-    .textAddTaskMobile {
-        font-size: 14px !important;
     }
 
     .kanbanTextAddTask {
@@ -1157,7 +1006,7 @@
 }
 
 @media (max-width: 363px) {
-    .navbarAddTask a {
+    .containerWithSectionsAddTask a {
         font-size: 12px !important;
     }
 }
@@ -1175,27 +1024,12 @@
         height: 18px;
     }
 
-    .navbarAddTask a {
+    .containerWithSectionsAddTask a {
         font-size: 11px !important;
-    }
-
-    .textAddTaskMobile {
-        margin-top: 20px;
-        font-size: 13px !important;
     }
 }
 
 @media (max-width: 303px) {
-    .joinLogoAddTask {
-        width: 35px !important;
-        height: 35px !important;
-    }
-
-    .btnCreate {
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-    }
-
     .kanbanTextAddTask {
         font-size: 12px;
     }
@@ -1220,17 +1054,6 @@
     .containerWithSectionsAddTask li {
         padding-left: 10px !important;
         padding-right: 10px !important;
-    }
-}
-
-@media (max-width: 282px) {
-    .containerWithSectionsAddTask li {
-        padding-left: 8px !important;
-        padding-right: 8px !important;
-    }
-
-    .btnCreate {
-        height: 40px !important;
     }
 }
 
@@ -1280,6 +1103,25 @@
 }
 
 @media (max-width: 800px) {
+    .boxContent {
+        width: 100%;
+    }
+
+    .buttonContainerMobile {
+        display: flex !important;
+    }
+
+    .userImgResponsive {
+        width: 35px;
+        height: 35px;
+        border: 2px solid black;
+        border-radius: 100%;
+    }
+
+    .circle {
+        width: unset !important;
+    }
+
     .fullCard {
         width: 100%;
         margin: 0;
@@ -1305,6 +1147,11 @@
         bottom: 0;
         left: 0;
         right: 0;
+    }
+
+    .containerWithSectionsBoard a {
+        flex-direction: column;
+        gap: 15px;
     }
 
     .kanbanTextBoard {
@@ -1346,6 +1193,10 @@
 
     .inputSearchMobile {
         display: flex !important;
+    }
+
+    .flexColumn {
+        padding-top: 20px;
     }
 
     .column {
@@ -1491,6 +1342,16 @@
 }
 
 @media (max-width: 335px) {
+    .joinLogoBoard {
+        width: 30px;
+        height: 35px;
+    }
+
+    .userImgResponsive {
+        width: 30px;
+        height: 30px;
+    }
+
     .containerWithSectionsBoard li {
         padding-left: 15px !important;
         padding-right: 15px !important;
@@ -1525,6 +1386,12 @@
     .containerWithSectionsBoard li {
         padding-left: 12px !important;
         padding-right: 12px !important;
+    }
+
+    .plusImgMobile {
+        right: 25px;
+        width: 32px;
+        height: 32px;
     }
 }
 
@@ -1678,6 +1545,11 @@
 
     #navbar {
         display: none;
+    }
+
+    .containerWithSectionsContact a {
+        flex-direction: column;
+        gap: 15px;
     }
 
     .navbarContact {
