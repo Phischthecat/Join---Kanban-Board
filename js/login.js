@@ -27,13 +27,19 @@ async function checkAllUsers() {
 }
 
 
+/**
+ * showErrorMessage
+ */
 function showError() {
   getId('loginError').innerHTML = '';
   getId('loginError').innerHTML += createErrorBoxLogin();
   getId('password').value = '';
 }
 
-
+/**
+ * 
+ * @returns the founded name for Login
+ */
 function getUser() {
   let nameToCheck = getId('userName').value;
   let name = users.find(n => n.userName == nameToCheck);
@@ -41,6 +47,9 @@ function getUser() {
 }
 
 
+/**
+ * checks Conditions for rememberMe
+ */
 function checkForRemember() {
   if (localStorage.getItem('rememberMe')) {
     let name = JSON.parse(localStorage.getItem('rememberMe'));
