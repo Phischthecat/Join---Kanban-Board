@@ -53,7 +53,7 @@ function createFullView(task, index) {
             </div>
             <div class="prio">
               <span><b>Priority:</b></span>
-              <div id="showUrgency"></div>
+              <div id="showUrgency" ></div>
             </div>
           
           <div class="assignedContainer">
@@ -98,95 +98,98 @@ function createEditTask(task) {
   return /*html*/ `
     <div class="flex changedCard"> 
       <div class="headerFullCard plus-end">
-      <div class="plus ">
-                <img onclick="closeFullView()" src="img/secondary-plus.svg">
-              </div>
-      </div>     
-      <form class="flexColumn" onsubmit="return false;">                
-            <div class="title flexColumn">
-              <span class="text">Title</span>
-              <input 
-                  id="editTitle"
-                  type="text"
-                  placeholder="Enter a Title"
-                  value="${task.title}"
-                  required />
-            </div>
-            <div class="flexColumn">
-              <span class="text">Description</span>
-              <textarea class="changedTextarea"
-                  id="editDescription"
-                  type="text"
-                  placeholder="Enter a Description" required>${task.description}
-                </textarea>
-            </div>
-            <div class="dueDate flexColumn">
-                <span class="text">Due date</span>
-                <input id="changedDate" type="date" value="${task.dueDate}" required/>
-              </div>
-
-              <div class="priority flexColumn" id="priority">
-                <span class="text">Prio</span>
-                <div class="priorityBox">
-                  <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
-                    <p>Urgent</p>
-                    <img src="img/urgent.addTask.svg" />
-                  </button>
-                  <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
-                    <p>Medium</p>
-                    <img src="img/medium.addTask.svg" />
-                  </button>
-                  <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
-                    <p>Low</p>
-                    <img src="img/low.addTask.svg" />
-                  </button>
-                </div>
-              </div>
-            
-
-                
-                <div class="container">
-                <span class="text">Assigned to</span>
-                <div
-                  id="selectBtn1"
-                  class="select-btn"
-                  onclick="openDropdownMenu(1)"
-                >
-                  <span id="assignedToBtnText" class="btn-text"
-                    >Select contacts to assign</span
-                  >
-                  <span class="arrow-down">
-                    <i class="fa-solid fa-caret-down"></i>
-                  </span>
-                </div>
-                <ul class="list-items" id="assignedToList">
-                  <li class="item">
-                    <span class="item-text">You</span>
-                    <span class="checkbox">
-                      <i class="fa-solid fa-square check-icon"></i>
-                    </span>
-                  </li>
-                </ul>
-                <div id="assignedToContacts" class="assignedToContacts"></div>
-              </div>
-            </div>
-              </div>
-            <div class="footerFullCard">
-              <button
-              type="submit"
-              class="btn-blue editBtn"
-              onclick="changeTask(${task.specificId})"
-              id="create"
-              >
-              Ok
-              <span class="check-btn">
-                <i class="fa-solid fa-check"></i>
-              </span>
-            </button>
+        <div class="plus ">
+          <img onclick="closeFullView()" src="img/secondary-plus.svg">
         </div>
-              
-              
-</form>    
+      </div>     
+      <form class="flexColumn formStyle" onsubmit="changeTask(${task.specificId}); return false;">
+      <div>                
+        <div class="title flexColumn">
+          <span class="text">Title</span>
+          <input 
+            id="editTitle"
+            type="text"
+            placeholder="Enter a Title"
+            value="${task.title}"
+            required />
+        </div>
+        <div class="flexColumn">
+          <span class="text">Description</span>
+          <textarea class="changedTextarea"
+            id="editDescription"
+            type="text"
+             placeholder="Enter a Description" required>${task.description}
+          </textarea>
+        </div>
+          <div class="dueDate flexColumn">
+            <span class="text">Due date</span>
+            <input id="changedDate" type="date" value="${task.dueDate}" required/>
+          </div>
+
+          <div class="priority flexColumn" id="priority">
+            <span class="text">Prio</span>
+            <div class="priorityBox">
+              <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
+                <p>Urgent</p>
+                <img src="img/urgent.addTask.svg" />
+              </button>
+              <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
+                <p>Medium</p>
+                <img src="img/medium.addTask.svg" />
+                <div>
+                  <input
+                    type="text"
+                    class="hiddenInput"
+                    id="hiddenUrgentInput"
+                    required
+                  />
+                </div>
+              </button>
+              <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
+                <p>Low</p>
+                <img src="img/low.addTask.svg" />
+              </button>
+            </div>
+          </div>
+                
+          <div class="container">
+            <span class="text">Assigned to</span>
+            <div
+              id="selectBtn1"
+              class="select-btn"
+              onclick="openDropdownMenu(1)"
+            >
+              <span id="assignedToBtnText" class="btn-text"
+                >Select contacts to assign</span
+              >
+              <span class="arrow-down">
+                <i class="fa-solid fa-caret-down"></i>
+              </span>
+            </div>
+            <ul class="list-items" id="assignedToList">
+              <li class="item">
+                <span class="item-text">You</span>
+                <span class="checkbox">
+                  <i class="fa-solid fa-square check-icon"></i>
+                </span>
+              </li>
+            </ul>
+            <div id="assignedToContacts" class="assignedToContacts"></div>          
+          </div> 
+        </div>       
+        <div class="footerFullCard">
+          <button
+            type="submit"
+            class="btn-blue editBtn"
+            id="create"
+            >
+            Ok
+            <span class="check-btn">
+              <i class="fa-solid fa-check"></i>
+            </span>
+          </button>
+        </div>
+      </form> 
   `;
 }
 

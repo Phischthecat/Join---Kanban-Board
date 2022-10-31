@@ -225,7 +225,7 @@
   margin-right: 5px;
 }
 
-#showUrgency {
+.fullviewUrgency {
   height: 30px;
   color: white;
   display: flex;
@@ -235,7 +235,7 @@
   border-radius: 10px;
 }
 
-#showUrgency img {
+.fullviewUrgency img {
   filter: brightness(0) invert(1);
 }
 
