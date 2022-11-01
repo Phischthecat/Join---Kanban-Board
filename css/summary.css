@@ -144,10 +144,15 @@
 
 .greeting {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-left: 150px;
-  flex-wrap: wrap;
   font-size: 30px;
+}
+
+.nameOfUser {
+  color: var(--mainColorLightBlue);
+  font-size: 64px;
 }
 
 .summaryArea {

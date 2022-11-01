@@ -1,7 +1,7 @@
 function createTaskCard(index) {
   let task = allTasks[index];
   return /*html*/ `
-  <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
+  <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})" id="${task.specificId}">
     <div>   
       <div class="category" style="background-color:${task.category.color}">
           <span>${task.category.name}</span>
@@ -604,8 +604,7 @@ function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${
-      contact.color
+    <div class="initials initialCircle" style="background-color:#${contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>
@@ -670,3 +669,150 @@ function createFullContact(i) {
             </div>
   `;
 }
+
+
+/**
+ * creating the Html Part for the Help Section
+ */
+function createHelpSection() {
+  return /*html*/`
+  <div class="flex">
+  <div>
+      <div w3-include-html="navbar.html" class="flex"></div>
+  </div>
+
+
+  <div class="mainContainer ">
+      <!--Header only for Mobile Summary-->
+      <!-- <header class="headerSummary hide">
+          <img src="img/joinlogo.png" class="joinLogoSummary" />
+      </header> -->
+
+
+      <div class="helpContainer">
+          <div class="headline flex flex-align-center">
+              <h1>Help</h1>
+
+              <div>
+                  <img class="arrow" onclick="closeHelpSection()" src="img/left-arrow.png">
+              </div>
+          </div>
+
+          <div class="scrollBox">
+              <div>
+                  <h2>What is Join?</h2>
+              </div>
+              <div>
+                  <span> Join is an agile Project Management Tool which is invented to bring Clarity to your work
+                      Process and to maximize the Efficieny of
+                      by limiting work in progress. <br>
+                      in knowledge work , Join can be used for manufacturing Processes.
+                  </span>
+              </div>
+
+
+              <div>
+                  <div>
+                      <h2>How to use it</h2>
+                  </div>
+
+                  <div>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td class="nrTable">1.</td>
+                                  <td><span> The first Step is to create a Task and fill in all needed
+                                          informations. You
+                                          can do that by klicking on Add Task in the Navigation Menu.<br>
+                                          Now your Task will be shown in Board.
+                                      </span></td>
+                              </tr>
+
+                              <tr>
+                                  <td class="nrTable">2.</td>
+                                  <td><span> if you click on contacts in the Navigation Menu your be able to
+                                          Create a new
+                                          Contact to assign them to your Tasks. <br>
+                                          now your contacts will be shown in the left column sorted by their first
+                                          letter.
+                                      </span></td>
+                              </tr>
+
+                              <tr>
+                                  <td class="nrTable">3.</td>
+                                  <td><span> when you click on Board in the Navigation Menu your Tasks will be
+                                          shown in
+                                          Columns. Everytime by creating a Task first it will be shown in The
+                                          column:
+                                          In Progress. <br>
+                                          if you want to change the status you can simply drag an drop your task
+                                          into
+                                          another column. <br>
+                                          by clicking on a task you will see a fullview of this actual Task where
+                                          you
+                                          be able to change some informations by clicking on the pencil at the
+                                          bottom
+                                          <br>
+                                          by clicking on find Task your be able to search Tasks by theier title or
+                                          their description.
+                                      </span></td>
+                              </tr>
+
+                              <tr>
+                                  <td class="nrTable">4.</td>
+                                  <td><span>by clicking on Summary in the Navigation Menu you can see a summary of
+                                          all
+                                          Tasks and theier actual Status and in addittion to that you can see the
+                                          next
+                                          upcoming deadline</td>
+                                  <span>
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+
+  <!-- Navbar only for Mobile Summary-->
+  <!-- <nav class="navbarSummary">
+      <div class="containerWithSectionsSummary">
+          <ul>
+              <li>
+                  <a href="summary.html">
+                      <img class="iconsNavSummaryMobile" src="img/summary.svg">
+                      Summary
+                  </a>
+              </li>
+              <li>
+                  <a href="board.html">
+                      <img class="iconsNavSummaryMobile" src="img/board.navbar.svg">
+                      Board
+                  </a>
+              </li>
+              <li>
+                  <a href="addTask.html">
+                      <img class="iconsNavSummaryMobile" src="img/addtask.navbar.svg">
+                      Add Task
+                  </a>
+              </li>
+              <li>
+                  <a href="contact.html">
+                      <img class="iconsNavSummaryMobile" src="img/contacts.navbar.svg">
+                      Contacts
+                  </a>
+              </li>
+              <li>
+                  <a href="help.html"></a>
+              </li>
+          </ul>
+      </div>
+  </nav> -->
+</div>`
+} 

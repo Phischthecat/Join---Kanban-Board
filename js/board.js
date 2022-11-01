@@ -243,3 +243,36 @@ function deleteTask(taskIndex) {
   allTasks.splice(taskIndex, 1);
   closeFullView();
 }
+
+let columns = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
+
+/**
+ * function for searching  Task
+ */
+function searchForTask() {
+  let searchedTasks;
+  let search = getId('search').value.toLowerCase();
+  if (search.length == 0) {
+    updateHTML();
+  } else {
+    for (let i = 0; i < allTasks.length; i++) {
+      debugger;
+      const task = allTasks[i];
+      if (task.title.includes(search)) {
+        searchedTasks = task;
+        updateOnSearch(searchedTasks, i);
+      }
+    }
+  }
+}
+
+function updateOnSearch(searchedTasks, index) {
+  columns.forEach((column) => {
+    column.innerHTML = '';
+  });
+  let column = getId(searchedTasks.status);
+  column.innerHTML += createTaskCard(index);
+  renderBoardInitials(searchedTasks, index);
+  taskUrgency(index);
+  updateProgressbar(index);
+}

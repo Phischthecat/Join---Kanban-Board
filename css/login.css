@@ -25,7 +25,6 @@
 .logo img {
   height: 80px;
   object-fit: cover;
-  filter: invert(1);
 }
 
 #loginError {
@@ -34,6 +33,11 @@
 }
 
 .loginSection {
+  justify-content: center;
+  align-items: center;
+}
+
+.registerSection {
   justify-content: center;
   align-items: center;
 }
@@ -66,20 +70,27 @@
 .loginBox {
   display: flex;
   justify-content: center;
-  /* text-decoration-line: underline;
-  text-decoration-color: #44b3e5; */
   font-size: 61px;
 }
 
 .loginBox h1 {
   margin-top: unset;
   margin-bottom: 50px;
+  font-size: 61px;
+  margin-top: 50px;
 }
 
 .line {
   width: 330px;
   border-top: 3px solid var(--blueColor);
   margin-top: -41px;
+  margin-bottom: 40px;
+}
+
+.lineRegister {
+  width: 130px;
+  border-top: 3px solid var(--blueColor);
+  margin-top: -60px;
   margin-bottom: 40px;
 }
 
@@ -140,12 +151,6 @@
 }
 
 .errorBox {
-  /* display: flex;
-  width: 200px;
-  text-align: center;
-  background-color: red;
-  border-radius: 5px;
-  padding: 5px; */
   display: flex;
   width: 200px;
   text-align: center;
@@ -175,12 +180,17 @@
   margin: 30px 0;
 }
 
+.forgotMessage input {
+  margin: unset;
+}
+
 .forgotMessage label span {
   color: black;
+  padding-left: 10px;
 }
 
 .distance {
-  margin-bottom: 25px !important;
+  margin-bottom: 35px !important;
 }
 
 .loginBtn {
@@ -326,12 +336,28 @@
     width: 500px;
   }
 
+  .forgotMessage {
+    width: 65%;
+  }
+
   .passwordContainer hr {
     width: 100px;
   }
 }
 
 @media (max-width: 560px) {
+  .logo img {
+    height: 60px;
+  }
+
+  .registerSection {
+    padding-top: 50px;
+  }
+
+  .lineRegister {
+    width: 80px;
+  }
+
   .passwordMainContainer {
     margin-top: 25px;
   }
@@ -362,9 +388,30 @@
     margin-top: unset;
   }
 
+  .loginBox h1 {
+    font-size: 40px;
+    margin-top: 15px;
+  }
+
   .loginContainer {
+    margin: unset;
     width: 350px;
-    height: 480px;
+    height: 475px;
+  }
+
+  .loginBtn {
+    width: 160px;
+  }
+
+  .btnBox {
+    flex-direction: column;
+  }
+
+  .forgotMessage {
+    align-items: unset;
+    width: 85%;
+    flex-direction: column-reverse;
+    gap: 15px;
   }
 
   .loginBox {
@@ -387,7 +434,8 @@
   }
 
   .line {
-    width: 215px;
+    width: 100px;
+    margin-bottom: unset;
   }
 
   .registrate {
@@ -395,7 +443,8 @@
   }
 
   .responsiveSpan {
-    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
   }
 }
 
@@ -424,7 +473,6 @@
 
   .loginContainer {
     width: 250px;
-    height: 430px;
   }
 
   .arrow {

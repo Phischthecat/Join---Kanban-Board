@@ -3,8 +3,7 @@
   font-weight: 125 950;
   font-stretch: 75% 125%;
   font-style: oblique 0deg 12deg;
-  src: url('/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf')
-    format('woff2-variations');
+  src: url('/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf') format('woff2-variations');
 }
 
 :root {
@@ -52,6 +51,11 @@ body {
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
+}
+
+.flex-align-center {
+  justify-content: space-between;
+  align-items: center;
 }
 
 .flex {
@@ -165,8 +169,7 @@ body {
 }
 
 .btn-white:hover img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
-    brightness(91%) contrast(94%);
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg) brightness(91%) contrast(94%);
   transition: all var(--transitionSpeed) ease-in-out;
 }
 
@@ -379,7 +382,7 @@ textarea {
   transform: rotate(-180deg);
 }
 
-.select-btn.open ~ .list-items {
+.select-btn.open~.list-items {
   display: block;
   border: 1px solid var(--colorLightGrey);
   border-top: unset;
@@ -544,14 +547,42 @@ textarea {
   background-color: transparent;
 }
 
+
+/**
+*
+******************   Help Section   ****************** 
+*
+**/
+.scrollBox {
+  height: 465px;
+  overflow-y: auto;
+}
+
+.arrow {
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+table {
+  border-spacing: 0 20px;
+}
+
+.nrTable {
+  padding-right: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  vertical-align: top;
+}
+
 /**
 *
 ******************   KeyFrames for Login ****************** 
 *
 **/
 .slide-in-bottom-login {
-  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    1.2s both !important;
+  animation: slide-in-bottom-login 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.2s both !important;
 }
 
 @keyframes slide-in-bottom-login {
@@ -567,14 +598,12 @@ textarea {
 }
 
 .slide-out-bck-tl-login {
-  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
-    0.1s both;
+  animation: slide-out-bck-tl-login 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s both;
 }
 
 @keyframes slide-out-bck-tl-login {
   0% {
-    transform: translateZ(0) translateY(calc(100vh / 2))
-      translateX(calc(100vw / 2));
+    transform: translateZ(0) translateY(calc(100vh / 2)) translateX(calc(100vw / 2));
     opacity: 0.2;
   }
 

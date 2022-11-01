@@ -1,5 +1,5 @@
 /************************** Media Queries for Login **************************/
-@media (max-width: 1150px) {
+/* @media (max-width: 1150px) {
     .loginContainer {
         margin-right: calc(100vw / 4);
         margin-left: calc(100vw / 4);
@@ -65,7 +65,7 @@
     .registrate {
         gap: 15px;
     }
-}
+} */
 
 /************************** Media Queries for Login **************************/
 
