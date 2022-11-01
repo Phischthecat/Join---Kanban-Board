@@ -150,13 +150,10 @@ function defaultFullContact(fullContact, i) {
 }
 
 function mobileFullContact(fullContact, i) {
-  if (fullContact.classList.contains('slide-in-right')) {
-    fullContact.classList.remove('slide-in-right');
-  } else {
-    fullContact.classList.add('slide-in-bottom');
-    fullContact.classList.remove('d-none');
-    showContact(fullContact, i);
-  }
+  showContact(fullContact, i);
+  document.querySelector('.contactArea').style = 'display: flex';
+  document.querySelector('.contactArea').classList.add('slide-in-bottom');
+  fullContact.classList.remove('slide-in-right', 'slide-out-right', 'd-none');
 }
 
 function changeContact(fullContact, i) {
@@ -169,10 +166,4 @@ function changeContact(fullContact, i) {
 
 function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
-  fullContact.classList.remove('d-none');
 }
-
-window.addEventListener('change', () => {
-  if (window.innerWidth > 800) {
-  }
-});

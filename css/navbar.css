@@ -113,7 +113,8 @@ nav ul li a {
     bottom: 0;
     height: unset;
     width: 100vw;
-    flex-direction: unset;
+    flex-direction: row;
+    z-index: 99;
   }
 
   .containerWithSections {
@@ -144,13 +145,13 @@ nav ul li a {
   }
 }
 
-@media(max-width: 670px) {
+@media (max-width: 670px) {
   nav ul {
     width: 95%;
   }
 }
 
-@media(max-width: 530px) {
+@media (max-width: 530px) {
   .iconsNav {
     width: 20px;
   }
