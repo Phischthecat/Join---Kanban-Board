@@ -201,22 +201,9 @@ function styleUrgency(task) {
     low = '#7be129';
 
   getId('showUrgency').style = `background-color: ${task.priority}`;
-
-  // if (task.priority == 'urgent') {
-  //   document.getElementById(
-  //     'showUrgency'
-  //   ).style = `background-color: #ff3b00`;
-  // } else if (task.priority == 'medium') {
-  //   document.getElementById(
-  //     'showUrgency'
-  //   ).style = `background-color: #ffb32a`;
-  // } else if (task.priority == 'low') {
-  //   document.getElementById('showUrgency').style = `background-color: #7be129`;
-  // }
 }
 
-async function closeFullView(index) {
-  checkIfSubtasksDone(index);
+async function closeFullView() {
   await backend.setItem('allTasks', allTasks);
   document.getElementById('taskBox').classList.add('d-none');
   updateHTML();
@@ -224,6 +211,7 @@ async function closeFullView(index) {
 
 function checkIfSubtasksDone(index) {
   let task = allTasks[index];
+
   let checkboxes = document.querySelectorAll('input[type=checkbox]');
   for (let i = 0; i < checkboxes.length; i++) {
     const checkbox = checkboxes[i];
@@ -249,4 +237,9 @@ function removePossibleDropzones() {
   dropzones.forEach((dropzone) => {
     dropzone.remove();
   });
+}
+
+function deleteTask(taskIndex) {
+  allTasks.splice(taskIndex, 1);
+  closeFullView();
 }

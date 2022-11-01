@@ -36,7 +36,7 @@ function createFullView(task, index) {
             <span>${task.category.name}</span>
           </div>
           <div class="plus">
-            <img onclick="closeFullView(${index})" src="img/secondary-plus.svg" />
+            <img onclick="checkIfSubtasksDone(${index}); closeFullView()" src="img/secondary-plus.svg" />
           </div>
         </div>
         <div>
@@ -62,6 +62,11 @@ function createFullView(task, index) {
           </div>
         </div>
         <div class="footerFullCard">
+        <button type="button" class="btn-white deleteBtn" onclick="deleteTask(${index})" id="clear">
+                  <span class="cancel-btn">
+                  <i class="fa-sharp fa-solid fa-trash"></i>
+                  </span>
+                </button>
           <button
             class="editBtn btn-blue"
             onclick="renderEditTask(${task.specificId})"
