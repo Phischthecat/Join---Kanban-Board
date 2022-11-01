@@ -52,7 +52,7 @@
     }
 }
 
-@media (max-width: 994px) {
+/* @media (max-width: 994px) {
     .subheadline span {
         font-size: 25px;
     }
@@ -60,7 +60,7 @@
     .headlineSummaryMobile h1 {
         font-size: 50px;
     }
-}
+} */
 
 @media (max-width: 890px) {
     .headlineSummaryMobile h1 {
@@ -69,6 +69,10 @@
 
     .subheadline span {
         font-size: 20px;
+    }
+
+    #guest {
+        font-size: 25px;
     }
 
     .greeting {
@@ -1020,9 +1024,7 @@
         background-position-x: 130px !important;
         width: 150px;
     }
-}
 
-@media (max-width: 900px) {
     .headlineBoardMobile h1 {
         font-size: 45px;
     }
@@ -1144,31 +1146,17 @@
         padding-left: 10px !important;
     }
 
-    .nameColumn img {
-        width: 25px !important;
-        height: 25px !important;
-    }
-}
-
-@media (max-width: 795px) {
     .nameColumn {
         width: 97% !important;
     }
-}
 
-@media (max-width: 770px) {
     .nameColumn span {
         padding-left: 10px !important;
     }
 
-    .align-center {
-        padding-left: 10px;
-    }
-}
-
-@media (max-width: 567px) {
-    #toDo {
-        font-size: 16px;
+    .nameColumn img {
+        width: 25px !important;
+        height: 25px !important;
     }
 }
 
@@ -1193,9 +1181,7 @@
     .nameColumn {
         width: 93% !important;
     }
-}
 
-@media (max-width: 490px) {
     .iconsNavBoardMobile {
         width: 30px !important;
         height: 30px !important;
@@ -1254,9 +1240,7 @@
     .navbarBoard a {
         font-size: 11px !important;
     }
-}
 
-@media (max-width: 350px) {
     .inputSearchMobile {
         width: 125px !important;
         background-position-x: 110px !important;
@@ -1270,9 +1254,7 @@
     .navbarBoard a {
         font-size: 11px !important;
     }
-}
 
-@media (max-width: 335px) {
     .joinLogoBoard {
         width: 30px;
         height: 35px;
@@ -1287,15 +1269,19 @@
         padding-left: 15px !important;
         padding-right: 15px !important;
     }
-}
 
-@media (max-width: 315px) {
     .kanbanTextBoard {
         font-size: 11px;
     }
 
     .headlineBoardMobile h1 {
         font-size: 22px;
+    }
+
+    .plusImgMobile {
+        right: 25px;
+        width: 32px;
+        height: 32px;
     }
 
     .inputSearchMobile {
@@ -1310,19 +1296,6 @@
 
     .navbarBoard a {
         font-size: 10px !important;
-    }
-}
-
-@media (max-width: 300px) {
-    .containerWithSectionsBoard li {
-        padding-left: 12px !important;
-        padding-right: 12px !important;
-    }
-
-    .plusImgMobile {
-        right: 25px;
-        width: 32px;
-        height: 32px;
     }
 }
 

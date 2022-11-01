@@ -96,15 +96,6 @@ body {
   font-size: 61px;
 }
 
-.logoutBox {
-  width: 130px;
-  height: 53px;
-  border-radius: 20px 0px 20px 20px;
-  background-color: var(--mainColorDarkBlue);
-  position: absolute;
-  right: 25px;
-}
-
 .subheadline {
   overflow: hidden;
   text-overflow: ellipsis;
