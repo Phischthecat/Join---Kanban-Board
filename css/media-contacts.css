@@ -98,10 +98,16 @@
 
 @media (max-width: 800px) {
   .header,
-  .contactArea,
   .kanbanBar,
   #navbar {
     display: none !important;
+  }
+
+  .contactArea {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
   }
 
   .kanbanBarMobile {

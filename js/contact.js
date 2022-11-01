@@ -37,7 +37,7 @@ async function addContact() {
   let name = getId('newContactName').value;
   let initial = contactInitial(name);
   let contact = {
-    initial: initial.toUpperCase(),
+    initial: initial,
     color: generateRandomColor(),
     name: name,
     email: getId('newContactEmail').value,
@@ -67,7 +67,10 @@ function contactInitial(name) {
   if (name.indexOf(' ') == -1) {
     return name.charAt(0);
   } else {
-    return name.charAt(0) + name.charAt(name.indexOf(' ') + 1);
+    return (
+      name.charAt(0).toUpperCase() +
+      name.charAt(name.indexOf(' ') + 1).toUpperCase()
+    );
   }
 }
 
@@ -130,10 +133,28 @@ function generateContacts(letter) {
 
 function showFullContact(i) {
   let fullContact = getId('contactView');
+  if (window.innerWidth > 800) {
+    defaultFullContact(fullContact, i);
+  } else {
+    mobileFullContact(fullContact, i);
+  }
+}
+
+function defaultFullContact(fullContact, i) {
   if (fullContact.classList.contains('slide-in-right')) {
     changeContact(fullContact, i);
   } else {
     fullContact.classList.add('slide-in-right');
+    showContact(fullContact, i);
+  }
+}
+
+function mobileFullContact(fullContact, i) {
+  if (fullContact.classList.contains('slide-in-right')) {
+    fullContact.classList.remove('slide-in-right');
+  } else {
+    fullContact.classList.add('slide-in-bottom');
+    fullContact.classList.remove('d-none');
     showContact(fullContact, i);
   }
 }

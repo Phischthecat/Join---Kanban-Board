@@ -177,8 +177,19 @@
   margin-top: 20px;
 }
 
-.editBtn {
-  padding: 29px 17px;
+.editBtn,
+.deleteBtn {
+  height: 60px;
+  width: 60px;
+}
+
+.deleteBtn {
+  min-width: unset;
+}
+
+.deleteBtn:hover {
+  border: 1px solid red;
+  color: red;
 }
 
 .plus {
@@ -266,6 +277,7 @@
 .footerFullCard {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
 }
 
 .boxContent {

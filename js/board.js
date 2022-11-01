@@ -201,22 +201,9 @@ function styleUrgency(task) {
     low = '#7be129';
 
   getId('showUrgency').style = `background-color: ${task.priority}`;
-
-  // if (task.priority == 'urgent') {
-  //   document.getElementById(
-  //     'showUrgency'
-  //   ).style = `background-color: #ff3b00`;
-  // } else if (task.priority == 'medium') {
-  //   document.getElementById(
-  //     'showUrgency'
-  //   ).style = `background-color: #ffb32a`;
-  // } else if (task.priority == 'low') {
-  //   document.getElementById('showUrgency').style = `background-color: #7be129`;
-  // }
 }
 
-async function closeFullView(index) {
-  checkIfSubtasksDone(index);
+async function closeFullView() {
   await backend.setItem('allTasks', allTasks);
   document.getElementById('taskBox').classList.add('d-none');
   updateHTML();
@@ -224,6 +211,7 @@ async function closeFullView(index) {
 
 function checkIfSubtasksDone(index) {
   let task = allTasks[index];
+
   let checkboxes = document.querySelectorAll('input[type=checkbox]');
   for (let i = 0; i < checkboxes.length; i++) {
     const checkbox = checkboxes[i];
@@ -251,9 +239,13 @@ function removePossibleDropzones() {
   });
 }
 
-let columns = ['toDo', 'inProgress', 'awaitingFeedback', 'done']
+function deleteTask(taskIndex) {
+  allTasks.splice(taskIndex, 1);
+  closeFullView();
+}
 
-// || task.description.includes(search)
+let sections = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
+
 /**
  * function for searching  Task
  */
@@ -263,6 +255,9 @@ function searchForTask() {
   if (search.length == 0) {
     updateHTML();
   } else {
+    sections.forEach((section) => {
+      getId(section).innerHTML = '';
+    });
     for (let i = 0; i < allTasks.length; i++) {
       const task = allTasks[i];
       if (task.title.includes(search)) {
@@ -273,16 +268,10 @@ function searchForTask() {
   }
 }
 
-
 function updateOnSearch(searchedTasks, index) {
-  columns.forEach(column => {
-    getId(column).innerHTML = '';
-  });
   let column = getId(searchedTasks.status);
   column.innerHTML += createTaskCard(index);
   renderBoardInitials(searchedTasks, index);
   taskUrgency(index);
   updateProgressbar(index);
 }
-
-
