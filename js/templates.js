@@ -1,7 +1,7 @@
 function createTaskCard(index) {
   let task = allTasks[index];
   return /*html*/ `
-  <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})">
+  <div class="taskCard" onclick="showFullView(${task.specificId})" draggable="true" ondragstart="startDragging(${task.dragAndDropId})" id="${task.specificId}">
     <div>   
       <div class="category" style="background-color:${task.category.color}">
           <span>${task.category.name}</span>
@@ -53,7 +53,7 @@ function createFullView(task, index) {
             </div>
             <div class="prio">
               <span><b>Priority:</b></span>
-              <div id="showUrgency"></div>
+              <div id="showUrgency" ></div>
             </div>
           
           <div class="assignedContainer">
@@ -98,95 +98,98 @@ function createEditTask(task) {
   return /*html*/ `
     <div class="flex changedCard"> 
       <div class="headerFullCard plus-end">
-      <div class="plus ">
-                <img onclick="closeFullView()" src="img/secondary-plus.svg">
-              </div>
-      </div>     
-      <form class="flexColumn" onsubmit="return false;">                
-            <div class="title flexColumn">
-              <span class="text">Title</span>
-              <input 
-                  id="editTitle"
-                  type="text"
-                  placeholder="Enter a Title"
-                  value="${task.title}"
-                  required />
-            </div>
-            <div class="flexColumn">
-              <span class="text">Description</span>
-              <textarea class="changedTextarea"
-                  id="editDescription"
-                  type="text"
-                  placeholder="Enter a Description" required>${task.description}
-                </textarea>
-            </div>
-            <div class="dueDate flexColumn">
-                <span class="text">Due date</span>
-                <input id="changedDate" type="date" value="${task.dueDate}" required/>
-              </div>
-
-              <div class="priority flexColumn" id="priority">
-                <span class="text">Prio</span>
-                <div class="priorityBox">
-                  <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
-                    <p>Urgent</p>
-                    <img src="img/urgent.addTask.svg" />
-                  </button>
-                  <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
-                    <p>Medium</p>
-                    <img src="img/medium.addTask.svg" />
-                  </button>
-                  <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
-                    <p>Low</p>
-                    <img src="img/low.addTask.svg" />
-                  </button>
-                </div>
-              </div>
-            
-
-                
-                <div class="container">
-                <span class="text">Assigned to</span>
-                <div
-                  id="selectBtn1"
-                  class="select-btn"
-                  onclick="openDropdownMenu(1)"
-                >
-                  <span id="assignedToBtnText" class="btn-text"
-                    >Select contacts to assign</span
-                  >
-                  <span class="arrow-down">
-                    <i class="fa-solid fa-caret-down"></i>
-                  </span>
-                </div>
-                <ul class="list-items" id="assignedToList">
-                  <li class="item">
-                    <span class="item-text">You</span>
-                    <span class="checkbox">
-                      <i class="fa-solid fa-square check-icon"></i>
-                    </span>
-                  </li>
-                </ul>
-                <div id="assignedToContacts" class="assignedToContacts"></div>
-              </div>
-            </div>
-              </div>
-            <div class="footerFullCard">
-              <button
-              type="submit"
-              class="btn-blue editBtn"
-              onclick="changeTask(${task.specificId})"
-              id="create"
-              >
-              Ok
-              <span class="check-btn">
-                <i class="fa-solid fa-check"></i>
-              </span>
-            </button>
+        <div class="plus ">
+          <img onclick="closeFullView()" src="img/secondary-plus.svg">
         </div>
-              
-              
-</form>    
+      </div>     
+      <form class="flexColumn formStyle" onsubmit="changeTask(${task.specificId}); return false;">
+      <div>                
+        <div class="title flexColumn">
+          <span class="text">Title</span>
+          <input 
+            id="editTitle"
+            type="text"
+            placeholder="Enter a Title"
+            value="${task.title}"
+            required />
+        </div>
+        <div class="flexColumn">
+          <span class="text">Description</span>
+          <textarea class="changedTextarea"
+            id="editDescription"
+            type="text"
+             placeholder="Enter a Description" required>${task.description}
+          </textarea>
+        </div>
+          <div class="dueDate flexColumn">
+            <span class="text">Due date</span>
+            <input id="changedDate" type="date" value="${task.dueDate}" required/>
+          </div>
+
+          <div class="priority flexColumn" id="priority">
+            <span class="text">Prio</span>
+            <div class="priorityBox">
+              <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
+                <p>Urgent</p>
+                <img src="img/urgent.addTask.svg" />
+              </button>
+              <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
+                <p>Medium</p>
+                <img src="img/medium.addTask.svg" />
+                <div>
+                  <input
+                    type="text"
+                    class="hiddenInput"
+                    id="hiddenUrgentInput"
+                    required
+                  />
+                </div>
+              </button>
+              <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
+                <p>Low</p>
+                <img src="img/low.addTask.svg" />
+              </button>
+            </div>
+          </div>
+                
+          <div class="container">
+            <span class="text">Assigned to</span>
+            <div
+              id="selectBtn1"
+              class="select-btn"
+              onclick="openDropdownMenu(1)"
+            >
+              <span id="assignedToBtnText" class="btn-text"
+                >Select contacts to assign</span
+              >
+              <span class="arrow-down">
+                <i class="fa-solid fa-caret-down"></i>
+              </span>
+            </div>
+            <ul class="list-items" id="assignedToList">
+              <li class="item">
+                <span class="item-text">You</span>
+                <span class="checkbox">
+                  <i class="fa-solid fa-square check-icon"></i>
+                </span>
+              </li>
+            </ul>
+            <div id="assignedToContacts" class="assignedToContacts"></div>          
+          </div> 
+        </div>       
+        <div class="footerFullCard">
+          <button
+            type="submit"
+            class="btn-blue editBtn"
+            id="create"
+            >
+            Ok
+            <span class="check-btn">
+              <i class="fa-solid fa-check"></i>
+            </span>
+          </button>
+        </div>
+      </form> 
   `;
 }
 
@@ -207,7 +210,7 @@ function createNewContact() {
                         </div>
                         <div class="contactInputSection">
                             <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
-                            <form id="newContactForm" onsubmit="addContact(); return false;">
+                            <form id="newContactForm" onsubmit="checkIfInputEmpty(); return false;">
                             <input class="nameModal" id="newContactName" type="text" placeholder="Name">
                             <input class="emailModal" id="newContactEmail" type="email" placeholder="Email">
                             <input class="phoneModal" id="newContactPhone" type="tel" placeholder="Phone">
@@ -595,12 +598,18 @@ function createContactSectionOfLetter(letter) {
 function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
-    <div class="initials initialCircle" style="background-color:#${
-      contact.color
+  <div class="initialContainer">
+    <div class="initials initialCircle" style="background-color:#${contact.color
     }">${contact.initial.toUpperCase()}</div>
+
+    </div>
     <div>
-      <div class="name">${contact.name}</div>
-      <div class="email">${contact.email}</div>
+      <div class="name">
+      <span>${contact.name}</span></div>
+      <div class="email"><span>
+${contact.email}
+      </span>
+      </div>
     </div>
   </div>
   `;
@@ -610,22 +619,24 @@ function createFullContact(i) {
   let contact = contacts[i];
   return /*html*/ `
   <div class="headerFullContact">
-                  <div
-                    id="initialsFullContact"
-                    class="initialsFullContact initialCircle"
-                    style="background-color:#${contact.color}"
-                  >
-                    ${contact.initial}
-                  </div>
-                  <div class="nameContainer">
-                    <div class="nameFullContact">${contact.name}</div>
-                    <div
-                      class="addTaskLink cursor-pointer"
-                      onclick="openTaskBox('toDo')"
-                    >
-                      <span>+</span> Add Task
-                    </div>
-                  </div>
+    <div>
+      <div
+        id="initialsFullContact"
+        class="initialsFullContact initialCircle"
+        style="background-color:#${contact.color}"
+      >
+        ${contact.initial}
+      </div>
+      </div>
+      <div class="nameContainer">
+        <div class="nameFullContact">${contact.name}</div>
+        <div
+          class="addTaskLink cursor-pointer"
+          onclick="openTaskBox('toDo')"
+        >
+          <span>+</span> Add Task
+        </div>
+      </div>
                 </div>
                 <div class="contactFullInfo">
                   <div class="contactFullInfoHeader">
@@ -653,3 +664,150 @@ function createFullContact(i) {
             </div>
   `;
 }
+
+
+/**
+ * creating the Html Part for the Help Section
+ */
+function createHelpSection() {
+  return /*html*/`
+  <div class="flex">
+  <div>
+      <div w3-include-html="navbar.html" class="flex"></div>
+  </div>
+
+
+  <div class="mainContainer ">
+      <!--Header only for Mobile Summary-->
+      <!-- <header class="headerSummary hide">
+          <img src="img/joinlogo.png" class="joinLogoSummary" />
+      </header> -->
+
+
+      <div class="helpContainer">
+          <div class="headline flex flex-align-center">
+              <h1>Help</h1>
+
+              <div>
+                  <img class="arrow" onclick="closeHelpSection()" src="img/left-arrow.png">
+              </div>
+          </div>
+
+          <div class="scrollBox">
+              <div>
+                  <h2>What is Join?</h2>
+              </div>
+              <div>
+                  <span> Join is an agile Project Management Tool which is invented to bring Clarity to your work
+                      Process and to maximize the Efficieny of
+                      by limiting work in progress. <br>
+                      in knowledge work , Join can be used for manufacturing Processes.
+                  </span>
+              </div>
+
+
+              <div>
+                  <div>
+                      <h2>How to use it</h2>
+                  </div>
+
+                  <div>
+                      <table>
+                          <tbody>
+                              <tr>
+                                  <td class="nrTable">1.</td>
+                                  <td><span> The first Step is to create a Task and fill in all needed
+                                          informations. You
+                                          can do that by klicking on Add Task in the Navigation Menu.<br>
+                                          Now your Task will be shown in Board.
+                                      </span></td>
+                              </tr>
+
+                              <tr>
+                                  <td class="nrTable">2.</td>
+                                  <td><span> if you click on contacts in the Navigation Menu your be able to
+                                          Create a new
+                                          Contact to assign them to your Tasks. <br>
+                                          now your contacts will be shown in the left column sorted by their first
+                                          letter.
+                                      </span></td>
+                              </tr>
+
+                              <tr>
+                                  <td class="nrTable">3.</td>
+                                  <td><span> when you click on Board in the Navigation Menu your Tasks will be
+                                          shown in
+                                          Columns. Everytime by creating a Task first it will be shown in The
+                                          column:
+                                          In Progress. <br>
+                                          if you want to change the status you can simply drag an drop your task
+                                          into
+                                          another column. <br>
+                                          by clicking on a task you will see a fullview of this actual Task where
+                                          you
+                                          be able to change some informations by clicking on the pencil at the
+                                          bottom
+                                          <br>
+                                          by clicking on find Task your be able to search Tasks by theier title or
+                                          their description.
+                                      </span></td>
+                              </tr>
+
+                              <tr>
+                                  <td class="nrTable">4.</td>
+                                  <td><span>by clicking on Summary in the Navigation Menu you can see a summary of
+                                          all
+                                          Tasks and theier actual Status and in addittion to that you can see the
+                                          next
+                                          upcoming deadline</td>
+                                  <span>
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+
+              </div>
+          </div>
+
+      </div>
+
+  </div>
+
+
+  <!-- Navbar only for Mobile Summary-->
+  <!-- <nav class="navbarSummary">
+      <div class="containerWithSectionsSummary">
+          <ul>
+              <li>
+                  <a href="summary.html">
+                      <img class="iconsNavSummaryMobile" src="img/summary.svg">
+                      Summary
+                  </a>
+              </li>
+              <li>
+                  <a href="board.html">
+                      <img class="iconsNavSummaryMobile" src="img/board.navbar.svg">
+                      Board
+                  </a>
+              </li>
+              <li>
+                  <a href="addTask.html">
+                      <img class="iconsNavSummaryMobile" src="img/addtask.navbar.svg">
+                      Add Task
+                  </a>
+              </li>
+              <li>
+                  <a href="contact.html">
+                      <img class="iconsNavSummaryMobile" src="img/contacts.navbar.svg">
+                      Contacts
+                  </a>
+              </li>
+              <li>
+                  <a href="help.html"></a>
+              </li>
+          </ul>
+      </div>
+  </nav> -->
+</div>`
+} 

@@ -143,8 +143,11 @@ function createSubtasksContainer(index) {
 function showUrgency(task) {
   let actualPrio = document.getElementById('showUrgency');
   actualPrio.innerHTML = /*html*/ `
-        <span>${task.priority}</span>
-        <img src="/img/${task.priority}.addTask.svg">
+  <div class="fullviewUrgency" style="background-color: var(--${task.priority}Colour">
+    <span>${task.priority}</span>
+    <img src="/img/${task.priority}.addTask.svg">
+
+  </div>
     `;
   styleUrgency(task);
 }
@@ -182,21 +185,14 @@ function choosenContacts(task) {
 
 async function changeTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
-  task.title = isEmptyCheck(task.title, getId('editTitle').value);
-  task.description = isEmptyCheck(
-    task.description,
-    getId('editDescription').value
-  );
-  task.dueDate = isEmptyCheck(task.dueDate, getId('changedDate').value);
+  task.title = getId('editTitle').value.trim();
+  task.description = getId('editDescription').value.trim();
+  task.dueDate = getId('changedDate').value;
   task.priority = urgency;
   task.assignedTo = filterAssignedContacts();
   await backend.setItem('allTasks', allTasks);
   showFullView(task.specificId);
   document.querySelector('.modalContainer').classList.remove('fade');
-}
-
-function isEmptyCheck(input, value) {
-  return value == '' ? input.trim() : value.trim();
 }
 
 function styleUrgency(task) {
@@ -231,7 +227,7 @@ function checkIfSubtasksDone(index) {
   let checkboxes = document.querySelectorAll('input[type=checkbox]');
   for (let i = 0; i < checkboxes.length; i++) {
     const checkbox = checkboxes[i];
-    if (checkbox.checked == true) {
+    if (checkbox.checked) {
       task.subtasks[i].checked = true;
     } else {
       task.subtasks[i].checked = false;
@@ -254,3 +250,40 @@ function removePossibleDropzones() {
     dropzone.remove();
   });
 }
+
+let columns = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
+
+
+/**
+ * function for searching  Task
+ */
+function searchForTask() {
+  let searchedTasks;
+  let search = getId('search').value.toLowerCase();
+  if (search.length == 0) {
+    updateHTML();
+  } else {
+    for (let i = 0; i < allTasks.length; i++) {
+      debugger
+      const task = allTasks[i];
+      if (task.title.includes(search)) {
+        searchedTasks = task;
+        updateOnSearch(searchedTasks, i);
+      }
+    }
+  }
+}
+
+
+function updateOnSearch(searchedTasks, index) {
+  columns.forEach(column => {
+    column.innerHTML = '';
+  });
+  let column = getId(searchedTasks.status);
+  column.innerHTML += createTaskCard(index);
+  renderBoardInitials(searchedTasks, index);
+  taskUrgency(index);
+  updateProgressbar(index);
+}
+
+

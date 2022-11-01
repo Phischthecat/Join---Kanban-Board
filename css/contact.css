@@ -4,13 +4,14 @@
 }
 
 .contactContainer {
-  display: flex;
+  display: grid;
   height: calc(100vh - 75px);
+  grid-template-columns: 30% 70%;
 }
 
 .contactList {
-  overflow: auto;
-  width: 315px;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 10px 35px;
   box-shadow: 4px 0px 6px var(--boxShadowColor);
 }
@@ -31,31 +32,37 @@
 .contactInfo {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   padding: 15px;
   gap: 20px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .contactInfo:hover {
   background-color: var(--colorLightGrey);
-  border-radius: 10px;
 }
 
 .contactInfo:hover .initialCircle {
   border: 1px solid white;
+  box-sizing: border-box;
 }
 
 .contactInfo .name {
   font-size: 21px;
   margin-bottom: 5px;
+  white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
-  width: 200px;
+  width: 100%;
 }
 
 .contactInfo .email {
   color: var(--emailColor);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
 }
 
 .headerFullContact {
@@ -92,7 +99,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  width: 30vw;
+  width: 40vw;
   font-size: 47px;
 }
 
@@ -256,17 +263,16 @@
 }
 
 .joinlogoContact {
-  width: 40px;
+  width: 35px;
   height: 40px;
   padding-left: 25px;
-  filter: invert(1);
 }
 
 .actualUserContact {
   padding-right: 25px;
 }
 
-.kanbanBarContact {
+.kanbanBarMobile {
   width: 100%;
   height: 75px;
   display: flex;

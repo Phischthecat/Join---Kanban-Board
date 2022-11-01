@@ -379,3 +379,23 @@ async function logout() {
     localStorage.removeItem('loggedInKey');
   }
 }
+
+
+/**
+ * function for showing the help section
+ */
+function showHelpSection() {
+  getId('help').classList.remove('d-none');
+  getId('questionMark').classList.add('d-none')
+  getId('help').innerHTML = '';
+  getId('help').innerHTML += createHelpSection();
+}
+
+
+/**
+ * close Help Section
+ */
+function closeHelpSection() {
+  getId('help').classList.add('d-none');
+  getId('questionMark').classList.remove('d-none');
+}
