@@ -92,22 +92,71 @@ nav ul li a {
 }
 
 @media (max-width: 800px) {
-  .navbar {
-    display: flex !important;
+  .joinLogo {
+    width: 75px;
+    height: 50px;
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    top: 10px;
+    filter: invert(1);
   }
 
-  .navbar ul li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .kanbanBar {
+    justify-content: flex-end;
+  }
+
+  .circle {
     gap: 5px;
   }
 
-  .navbar ul li a span {
+  #navbar {
+    position: absolute;
+    bottom: 0;
+    height: unset;
+    width: 100vw;
+    flex-direction: unset;
+  }
+
+  .containerWithSections {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .containerWithSections ul li {
+    margin: unset;
+    padding: 15px;
+  }
+
+  nav ul {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: unset;
+  }
+
+  nav ul li a {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .legalNotice {
+    display: none;
+  }
+}
+
+@media(max-width: 670px) {
+  nav ul {
+    width: 95%;
+  }
+}
+
+@media(max-width: 530px) {
+  .iconsNav {
+    width: 20px;
+  }
+
+  nav ul li a {
+    gap: 10px;
     font-size: 14px;
   }
 }

@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/summary.css" />
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/media.css" />
+  <link rel="stylesheet" href="css/media-summary.css" />
   <link rel="shortcut icon" href="img/joinlogo.svg" />
   <script src="js/mini_backend.js"></script>
   <script src="script.js"></script>
@@ -26,17 +27,6 @@
 
 
     <div class="mainContainer">
-      <!--Header only for Mobile Summary-->
-      <header class="headerSummary hide">
-        <img src="img/joinlogo.png" class="joinLogoSummary" />
-
-        <div class="actualUserSummary">
-          <div class="circle" onclick="opportunityLogout()">
-            <img src="img/actualuser.png" class="userImgResponsive" id="actualUser">
-          </div>
-        </div>
-      </header>
-      <!--Header only for Mobile Summary-->
 
       <div w3-include-html="kanbanBar.html"></div>
       <div class="summaryArea">
@@ -123,41 +113,6 @@
   </div>
   </div>
   </div>
-  <!-- Navbar only for Mobile Summary-->
-  <nav class="navbarSummary">
-    <div class="containerWithSectionsSummary">
-      <ul>
-        <li>
-          <a href="summary.html">
-            <img class="iconsNavSummaryMobile" src="img/summary.svg">
-            Summary
-          </a>
-        </li>
-        <li>
-          <a href="board.html">
-            <img class="iconsNavSummaryMobile" src="img/board.navbar.svg">
-            Board
-          </a>
-        </li>
-        <li>
-          <a href="addTask.html">
-            <img class="iconsNavSummaryMobile" src="img/addtask.navbar.svg">
-            Add Task
-          </a>
-        </li>
-        <li>
-          <a href="contact.html">
-            <img class="iconsNavSummaryMobile" src="img/contacts.navbar.svg">
-            Contacts
-          </a>
-        </li>
-        <li>
-          <a href="help.html"></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Navbar only for Mobile Summary-->
 </body>
 
 </html>
