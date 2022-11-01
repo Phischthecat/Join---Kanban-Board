@@ -97,40 +97,23 @@
 }
 
 @media (max-width: 800px) {
-  .header,
   .kanbanBar,
   #navbar {
     display: none !important;
   }
 
   .contactArea {
+    display: none;
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 100%;
+    right: 0;
+    left: 0;
+    background: #fff;
   }
 
   .kanbanBarMobile {
     display: flex !important;
-  }
-
-  .navbarContact {
-    display: flex !important;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .navbarContact ul li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-  }
-
-  .navbarContact ul li a span {
-    font-size: 14px;
   }
 
   .btnContainerMobile {
