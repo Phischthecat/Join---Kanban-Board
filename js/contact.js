@@ -37,7 +37,7 @@ async function addContact() {
   let name = getId('newContactName').value;
   let initial = contactInitial(name);
   let contact = {
-    initial: initial.toUpperCase(),
+    initial: initial,
     color: generateRandomColor(),
     name: name,
     email: getId('newContactEmail').value,
@@ -67,7 +67,10 @@ function contactInitial(name) {
   if (name.indexOf(' ') == -1) {
     return name.charAt(0);
   } else {
-    return name.charAt(0) + name.charAt(name.indexOf(' ') + 1);
+    return (
+      name.charAt(0).toUpperCase() +
+      name.charAt(name.indexOf(' ') + 1).toUpperCase()
+    );
   }
 }
 

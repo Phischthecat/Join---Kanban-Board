@@ -164,9 +164,10 @@ function createEditTask(task) {
               class="select-btn"
               onclick="openDropdownMenu(1)"
             >
-              <span id="assignedToBtnText" class="btn-text"
-                >Select contacts to assign</span
-              >
+            <div>
+              <span id="assignedToBtnText" class="btn-text">Select contacts to assign</span>
+              <input type="text" class="hiddenInput" id="hiddenAssignedToInput" required />
+            </div>
               <span class="arrow-down">
                 <i class="fa-solid fa-caret-down"></i>
               </span>
@@ -604,7 +605,8 @@ function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${contact.color
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>
@@ -670,12 +672,11 @@ function createFullContact(i) {
   `;
 }
 
-
 /**
  * creating the Html Part for the Help Section
  */
 function createHelpSection() {
-  return /*html*/`
+  return /*html*/ `
   <div class="flex">
   <div>
       <div w3-include-html="navbar.html" class="flex"></div>
@@ -814,5 +815,5 @@ function createHelpSection() {
           </ul>
       </div>
   </nav> -->
-</div>`
-} 
+</div>`;
+}

@@ -244,7 +244,7 @@ function deleteTask(taskIndex) {
   closeFullView();
 }
 
-let columns = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
+let sections = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
 
 /**
  * function for searching  Task
@@ -255,8 +255,10 @@ function searchForTask() {
   if (search.length == 0) {
     updateHTML();
   } else {
+    sections.forEach((section) => {
+      getId(section).innerHTML = '';
+    });
     for (let i = 0; i < allTasks.length; i++) {
-      debugger;
       const task = allTasks[i];
       if (task.title.includes(search)) {
         searchedTasks = task;
@@ -267,9 +269,6 @@ function searchForTask() {
 }
 
 function updateOnSearch(searchedTasks, index) {
-  columns.forEach((column) => {
-    column.innerHTML = '';
-  });
   let column = getId(searchedTasks.status);
   column.innerHTML += createTaskCard(index);
   renderBoardInitials(searchedTasks, index);
