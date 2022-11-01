@@ -251,9 +251,9 @@ function removePossibleDropzones() {
   });
 }
 
-let columns = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
+let columns = ['toDo', 'inProgress', 'awaitingFeedback', 'done']
 
-
+// || task.description.includes(search)
 /**
  * function for searching  Task
  */
@@ -264,7 +264,6 @@ function searchForTask() {
     updateHTML();
   } else {
     for (let i = 0; i < allTasks.length; i++) {
-      debugger
       const task = allTasks[i];
       if (task.title.includes(search)) {
         searchedTasks = task;
@@ -277,7 +276,7 @@ function searchForTask() {
 
 function updateOnSearch(searchedTasks, index) {
   columns.forEach(column => {
-    column.innerHTML = '';
+    getId(column).innerHTML = '';
   });
   let column = getId(searchedTasks.status);
   column.innerHTML += createTaskCard(index);
