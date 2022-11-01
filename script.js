@@ -67,7 +67,11 @@ function setDueDateOnToday() {
 }
 
 async function openTaskBox(pickedContainer) {
-  document.body.style.overflow = 'hidden';
+  if (window.innerWidth > 800) {
+    document.body.style.overflow = 'hidden';
+  } else {
+    document.body.style.overflow = 'scroll';
+  }
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL();
   renderCategorys();
@@ -352,7 +356,6 @@ function changeSubTasksIcons() {
   `;
 }
 
-
 /**
  * this function is used for the toggling the slide animation
  */
@@ -361,36 +364,33 @@ function opportunityLogout() {
   getId('logoutBox').classList.toggle('slide-in-right');
 }
 
-
 /**
  * function that is used for logout
  */
 async function logout() {
-  let loggedOut = users.find(n => n.logStatus == 'loggedIn');
+  let loggedOut = users.find((n) => n.logStatus == 'loggedIn');
   if (users.length > 0 && loggedOut) {
     loggedOut.logStatus = '';
     users = await backend.setItem('users', users);
     setTimeout(() => {
       localStorage.removeItem('loggedInKey');
       window.location.href = './index.html';
-    }, 200)
+    }, 200);
   } else {
     window.location.href = './index.html';
     localStorage.removeItem('loggedInKey');
   }
 }
 
-
 /**
  * function for showing the help section
  */
 function showHelpSection() {
   getId('help').classList.remove('d-none');
-  getId('questionMark').classList.add('d-none')
+  getId('questionMark').classList.add('d-none');
   getId('help').innerHTML = '';
   getId('help').innerHTML += createHelpSection();
 }
-
 
 /**
  * close Help Section

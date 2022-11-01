@@ -344,57 +344,58 @@ function addTaskContainerHMTL() {
             <h1>Add Task</h1>
           </div>
 
-          <form id="formAddTask" class="flex" onsubmit="return false">
-            <div class="leftSplit">
+          <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
+          <div class="leftSplit">
               <div class="title flexColumn">
-                <span class="text">Title</span>
-                <input
-                  id="taskTitle"
-                  required
-                  type="text"
-                  placeholder="Enter a title"
-                />
+                <span class="text textAddTaskMobile">Title</span>
+                <input id="taskTitle" required type="text" placeholder="Enter a title" />
               </div>
 
               <div class="flexColumn">
-                <span class="text">Description</span>
-                <textarea
-                  id="taskDescription"
-                  cols="30"
-                  rows="5"
-                  placeholder="Enter a description"
-                  required
-                ></textarea>
+                <span class="text textAddTaskMobile">Description</span>
+                <textarea id="taskDescription" cols="30" rows="5" placeholder="Enter a description" required></textarea>
               </div>
 
               <div class="container">
-                <span class="text">Category</span>
+                <span class="text textAddTaskMobile">Category</span>
                 <div id="categorySelect">
-                  <div
-                    id="selectBtn0"
-                    class="select-btn"
-                    onclick="openDropdownMenu(0)"
-                  >
-                    <span class="btn-text">Choose category</span>
+                  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
+                    <div>
+                      <span class="btn-text">Choose category</span>
+                      <input type="text" class="hiddenInput" id="hiddenCategoryInput" required />
+                    </div>
                     <span class="arrow-down">
                       <i class="fa-solid fa-caret-down"></i>
                     </span>
                   </div>
-                  <ul class="list-items" id="categoryList"></ul>
+                  <ul class="list-items" id="categoryList">
+                    <li class="categoryItem" onclick="addNewCategory()">
+                      <span class="item-text"> New category</span>
+                    </li>
+                    <li class="categoryItem">
+                      <span class="item-text">Sales</span>
+                      <span class="categoryCheckbox">
+                        <i class="fa-solid fa-circle"></i>
+                      </span>
+                    </li>
+                    <li class="categoryItem">
+                      <span class="item-text">Backoffice</span>
+                      <span class="categoryCheckbox">
+                        <i class="fa-solid fa-circle"></i>
+                      </span>
+                    </li>
+                  </ul>
+                  <div id="assignedToContacts" class="assignedToContacts"></div>
                 </div>
               </div>
 
               <div class="container">
-                <span class="text">Assigned to</span>
-                <div
-                  id="selectBtn1"
-                  class="select-btn"
-                  onclick="openDropdownMenu(1)"
-                >
-              <input type="text" class="hiddenInput" id="hiddenAssignedToInput" required>
-                  <span id="assignedToBtnText" class="btn-text"
-                    >Select contacts to assign</span
-                  >
+                <span class="text textAddTaskMobile">Assigned to</span>
+                <div id="selectBtn1" class="select-btn" onclick="openDropdownMenu(1)">
+                  <div>
+                    <span id="assignedToBtnText" class="btn-text">Select contacts to assign</span>
+                    <input type="text" class="hiddenInput" id="hiddenAssignedToInput" required />
+                  </div>
                   <span class="arrow-down">
                     <i class="fa-solid fa-caret-down"></i>
                   </span>
@@ -407,61 +408,56 @@ function addTaskContainerHMTL() {
                     </span>
                   </li>
                 </ul>
-                <div id="assignedToContacts" class="assignedToContacts d-none"></div>
+                <div id="assignedToContacts" class="assignedToContacts"></div>
               </div>
             </div>
 
             <div class="rightSplit">
-              <div class="dueDate flexColumn">
-                <span class="text">Due date</span>
-                <input required id="taskDueDate" type="date" />
-              </div>
+              <div>
+                <div class="dueDate flexColumn">
+                  <span class="text textAddTaskMobile">Due date</span>
+                  <input required id="taskDueDate" type="date" />
+                </div>
 
-              <div class="priority flexColumn" id="priority">
-                <span class="text">Prio</span>
+                <div class="priority flexColumn" id="priority">
+                  <span class="text textAddTaskMobile">Prio</span>
 
-                <div class="priorityBox">
-                  <button
-                    type="button"
-                    class="statusButton"
-                    onclick="getPriority('urgent')"
-                    id="urgent"
-                  >
-                    <p>Urgent</p>
-                    <img src="img/urgent.addTask.svg" />
-                  </button>
+                  <div class="priorityBox">
+                    <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
+                      <p>Urgent</p>
+                      <img src="img/urgent.addTask.svg" />
+                    </button>
 
-                  <button
-                    type="button"
-                    class="statusButton"
-                    onclick="getPriority('medium')"
-                    id="medium"
-                  >
-                    <p>Medium</p>
-                    <img src="img/medium.addTask.svg" />
-                  </button>
+                    <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
+                      <p>Medium</p>
+                      <img src="img/medium.addTask.svg" />
+                      <div>
+                        <input type="text" class="hiddenInput" id="hiddenUrgentInput" required />
+                      </div>
+                    </button>
 
-                  <button
-                    type="button"
-                    class="statusButton"
-                    onclick="getPriority('low')"
-                    id="low"
-                  >
-                    <p>Low</p>
-                    <img src="img/low.addTask.svg" />
-                  </button>
+                    <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
+                      <p>Low</p>
+                      <img src="img/low.addTask.svg" />
+                    </button>
+                  </div>
+
+                  <div class="subTasks flexColumn">
+                    <span class="text textAddTaskMobile">Subtasks</span>
+                    <div id="subtaskInputContainer" class="newSubtasksInputContainer">
+                      <input type="text" class="newSubtasksInput" placeholder="Add new subtask"
+                        onclick="changeSubTasksIcons()" />
+                      <div class="substasksIcons" id="substasksIcons">
+                        <div class="subtasksPlus" title="Add new subtasks" onclick="changeSubTasksIcons()">
+                          <i class="fa-regular fa-plus"></i>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="subtasksContainer" class="subtasksContainer"></div>
+                  </div>
                 </div>
               </div>
-
-              <div class="subTasks flexColumn">
-                <span class="text">Subtasks</span>
-                <input
-                  type="text"
-                  id="subtasks"
-                  placeholder="Add new subtask"
-                />
-              </div>
-
               <div class="buttonContainer" id="buttonContainer">
                 <button
                   type="button"

@@ -621,123 +621,19 @@
 /************************** Media Queries for Add Task **************************/
 @media (max-width: 1120px) {
     .addTaskContainer {
-        padding-left: 50px !important;
-    }
-}
-
-@media (max-width: 1070px) {
-    .addTaskContainer {
         padding-left: 40px !important;
     }
 }
 
 @media (max-width: 1060px) {
     .headlineAddTaskMobile h1 {
-        font-size: 51px;
-    }
-}
-
-@media (max-width: 1050px) {
-
-    .leftSplit,
-    .rightSplit {
-        width: 330px !important;
-    }
-}
-
-@media (max-width: 1000px) {
-    .headlineAddTaskMobile h1 {
         font-size: 45px;
-    }
-
-    .leftSplit,
-    .rightSplit {
-        width: 310px !important;
-    }
-
-    .priorityBox {
-        width: 310px !important;
-    }
-}
-
-@media (max-width: 970px) {
-
-    .leftSplit,
-    .rightSplit {
-        width: 290px !important;
-    }
-
-    .priorityBox {
-        width: 290px !important;
-    }
-}
-
-@media (max-width: 925px) {
-
-    .leftSplit,
-    .rightSplit {
-        width: 270px !important;
-    }
-
-    .priorityBox {
-        width: 270px !important;
-    }
-
-    .statusButton img {
-        height: 15px;
-        width: 15px;
-    }
-
-    .statusButton p {
-        font-size: 13px;
     }
 }
 
 @media (max-width: 875px) {
     .headlineAddTaskMobile h1 {
         font-size: 40px;
-    }
-
-    .leftSplit,
-    .rightSplit {
-        width: 255px !important;
-    }
-
-    .priorityBox {
-        width: 255px !important;
-    }
-
-    .statusButton p {
-        font-size: 12px;
-    }
-
-    .btn-blue {
-        gap: 7px;
-    }
-}
-
-@media (max-width: 835px) {
-
-    .leftSplit,
-    .rightSplit {
-        width: 235px !important;
-    }
-
-    .priorityBox {
-        width: 235px !important;
-    }
-
-    .statusButton p {
-        font-size: 11px;
-        padding-right: 5px;
-    }
-
-    .btn-white {
-        min-width: 100px;
-    }
-
-    .btn-blue {
-        padding: 8px;
     }
 }
 
@@ -769,10 +665,6 @@
     }
 
     .buttonContainer {
-        display: none;
-    }
-
-    .kanbanBar span {
         display: none;
     }
 

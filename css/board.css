@@ -291,29 +291,6 @@
   margin: 0 !important;
 }
 
-.leftSplit {
-  margin: 0 !important;
-}
-
-.leftSplit,
-.rightSplit {
-  width: 300px !important;
-}
-
-#formAddTask {
-  gap: 80px;
-}
-
-/* .priorityBox {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  row-gap: 10px;
-} */
-
-.buttonContainer {
-  width: 300px !important;
-}
-
 .joinLogoBoard {
   width: 35pxx;
   height: 40px;
