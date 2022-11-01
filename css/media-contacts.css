@@ -97,11 +97,6 @@
 }
 
 @media (max-width: 800px) {
-  .kanbanBar,
-  #navbar {
-    display: none !important;
-  }
-
   .contactArea {
     display: none;
     position: absolute;

@@ -1,82 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="shortcut icon" href="img/joinlogo.svg" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+    <link rel="stylesheet" href="css/addTask.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/media-contacts.css" />
+    <script src="js/mini_backend.js"></script>
+    <script src="js/addTask.js"></script>
+    <script src="script.js"></script>
+    <script src="http://www.w3schools.com/lib/w3data.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/contact.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact</title>
-  <link rel="shortcut icon" href="img/joinlogo.svg" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="css/contact.css" />
-  <link rel="stylesheet" href="css/addTask.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/media-contacts.css" />
-  <script src="js/mini_backend.js"></script>
-  <script src="js/addTask.js"></script>
-  <script src="script.js"></script>
-  <script src="http://www.w3schools.com/lib/w3data.js"></script>
-  <script src="js/templates.js"></script>
-  <script src="js/contact.js"></script>
-</head>
+  <body onload="initContact();">
+    <div class="flex">
+      <div id="taskBox"></div>
+      <div id="messageToBoard" class="slide-in-bottom d-none">
+        <span></span>
+      </div>
 
-<body onload="initContact();">
-  <div class="flex">
-    <div id="taskBox"></div>
-    <div id="messageToBoard" class="slide-in-bottom d-none">
-      <span></span>
-    </div>
+      <div>
+        <div w3-include-html="navbar.html" class="flex"></div>
+      </div>
 
-    <div>
-      <div w3-include-html="navbar.html" class="flex"></div>
-    </div>
+      <div class="mainContainerContact">
+        <div w3-include-html="kanbanBar.html"></div>
 
-    <div class="mainContainerContact">
-      <!--Header only for Mobile Contact-->
-      <div class="kanbanBarContact d-none">
-        <img class="joinlogoContact" src="img/joinlogo.png" />
-
-        <div class="actualUserContact">
-          <div class="circle">
-            <img src="img/actualuser.png" class="userImgResponsive" id="actualUser" />
-          </div>
+        <!--Only for Mobile-->
+        <div class="btnContainerMobile d-none">
+          <button
+            type="button"
+            class="btn-blue newContactBtnMobile"
+            onclick="openContactBox(createNewContact)"
+          >
+            New contact<img src="img/addNewContact.svg" />
+          </button>
         </div>
-      </div>
-      <!--Header only for Mobile Contact-->
+        <!--Only for Mobile-->
 
-      <div w3-include-html="kanbanBar.html"></div>
-
-      <!--Only for Mobile-->
-      <div class="btnContainerMobile d-none">
-        <button type="button" class="btn-blue newContactBtnMobile" onclick="openContactBox(createNewContact)">
-          New contact<img src="img/addNewContact.svg" />
-        </button>
-      </div>
-      <!--Only for Mobile-->
-
-      <div class="contactContainer">
-        <div id="contactList" class="contactList"></div>
-        <div class="contactArea">
-          <div>
-            <div class="header">
-              <div class="headline blue-border">
-                <h1>Contacts</h1>
+        <div class="contactContainer">
+          <div id="contactList" class="contactList"></div>
+          <div class="contactArea">
+            <div>
+              <div class="header">
+                <div class="headline blue-border">
+                  <h1>Contacts</h1>
+                </div>
+                <div class="subheadline">
+                  <span>Better with a team</span>
+                </div>
               </div>
-              <div class="subheadline">
-                <span>Better with a team</span>
-              </div>
+              <div id="contactView" class="contactView"></div>
             </div>
-            <div id="contactView" class="contactView"></div>
-          </div>
-          <div class="btnContainer">
-            <button type="button" class="btn-blue newContactBtn" onclick="openContactBox(createNewContact)">
-              New contact<img src="img/addNewContact.svg" />
-            </button>
+            <div class="btnContainer">
+              <button
+                type="button"
+                class="btn-blue newContactBtn"
+                onclick="openContactBox(createNewContact)"
+              >
+                New contact<img src="img/addNewContact.svg" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>
