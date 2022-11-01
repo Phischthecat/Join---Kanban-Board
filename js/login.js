@@ -132,6 +132,7 @@ function backToLogin() {
  */
 function guestLogin() {
   setDefault();
+  localStorage.removeItem('rememberMe');
   window.location.href = './summary.html';
 }
 

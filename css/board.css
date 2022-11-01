@@ -235,10 +235,6 @@
   border-radius: 10px;
 }
 
-#showUrgency img {
-  filter: brightness(0) invert(1);
-}
-
 .assignedContainer {
   margin-top: 20px;
   font-size: 21px;

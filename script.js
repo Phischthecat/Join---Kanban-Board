@@ -354,7 +354,7 @@ function changeSubTasksIcons() {
 
 
 /**
- * this function is used for the logout
+ * this function is used for the toggling the slide animation
  */
 function opportunityLogout() {
   getId('logoutBox').classList.toggle('d-none');
@@ -362,6 +362,9 @@ function opportunityLogout() {
 }
 
 
+/**
+ * function that is used for logout
+ */
 async function logout() {
   let loggedOut = users.find(n => n.logStatus == 'loggedIn');
   if (users.length > 0 && loggedOut) {
@@ -371,12 +374,7 @@ async function logout() {
       localStorage.removeItem('loggedInKey');
       window.location.href = './index.html';
     }, 200)
-  }
-  //  else if (users.length > 0 && loggedOut && loggedOut.remember == 'true') {
-  //   localStorage.removeItem('loggedInKey');
-  //   window.location.href = './index.html';
-  // }
-  else {
+  } else {
     window.location.href = './index.html';
     localStorage.removeItem('loggedInKey');
   }
