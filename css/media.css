@@ -200,6 +200,14 @@
         width: 100%;
     }
 
+    .kanbanBar {
+        display: none;
+    }
+
+    .joinLogo {
+        display: none;
+    }
+
     .buttonContainerMobile {
         display: flex !important;
     }
