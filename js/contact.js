@@ -134,6 +134,7 @@ function showFullContact(i) {
   let fullContact = getId('contactView');
   if (window.innerWidth > 800) {
     defaultFullContact(fullContact, i);
+    getId(`contactInfo${i}`).classList.add('active');
   } else {
     mobileFullContact(fullContact, i);
   }
@@ -154,7 +155,12 @@ function mobileFullContact(fullContact, i) {
   document.querySelector('.newContactBtnSpan').style.display = 'none';
   document.querySelector('.contactArea').style = 'display: flex';
   document.querySelector('.contactArea').classList.add('slide-in-bottom');
-  fullContact.classList.remove('slide-in-right', 'slide-out-right', 'd-none');
+  fullContact.classList.remove(
+    'slide-in-right',
+    'slide-out-right',
+    'slide-out-bottom',
+    'd-none'
+  );
   getId('newContactBtn').setAttribute(
     'onclick',
     `javascript: openContactBox(editContact, ${i});`
@@ -163,6 +169,7 @@ function mobileFullContact(fullContact, i) {
 
 function changeContact(fullContact, i) {
   fullContact.className = 'slide-out-right';
+  removeActiveClass();
   setTimeout(() => {
     fullContact.className = 'slide-in-right';
     showContact(fullContact, i);
@@ -171,4 +178,22 @@ function changeContact(fullContact, i) {
 
 function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
+}
+
+function closeContactBoxMobile() {
+  document.querySelector('.contactArea').classList.remove('slide-in-bottom');
+  document.querySelector('.contactArea').classList.add('slide-out-bottom');
+  removeActiveClass();
+  setTimeout(() => {
+    document.querySelector('.contactArea').style = 'display: none';
+    document.querySelector('.contactArea').classList.remove('slide-out-bottom');
+  }, 150);
+}
+
+function removeActiveClass() {
+  let contactInfos = document.querySelectorAll('.contactInfo');
+  console.log(contactInfos);
+  contactInfos.forEach((contact) => {
+    contact.classList.remove('active');
+  });
 }

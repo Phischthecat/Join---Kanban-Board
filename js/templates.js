@@ -599,7 +599,7 @@ function createContactSectionOfLetter(letter) {
 
 function createContact(contact, i) {
   return /* html */ `
-  <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
+  <div id="contactInfo${i}" class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
     <div class="initials initialCircle" style="background-color:#${
       contact.color

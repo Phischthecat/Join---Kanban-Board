@@ -211,7 +211,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 3px solid white;
+  border: 2px solid white;
 }
 
 .pageHeader {
