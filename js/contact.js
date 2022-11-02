@@ -90,8 +90,7 @@ async function saveContact(i) {
 function openDialogForCreate(text) {
   let message = getId('messageToBoard');
   message.innerHTML = text;
-  message.classList.remove('d-none');
-  message.classList.remove('slide-out-bottom');
+  message.classList.remove('d-none', 'slide-out-bottom');
   message.classList.add('slide-in-bottom');
   setTimeout(() => {
     message.classList.add('slide-out-bottom');
@@ -151,9 +150,15 @@ function defaultFullContact(fullContact, i) {
 
 function mobileFullContact(fullContact, i) {
   showContact(fullContact, i);
+  document.querySelector('.newContactBtnImg').src = `./img/pencil.svg`;
+  document.querySelector('.newContactBtnSpan').style.display = 'none';
   document.querySelector('.contactArea').style = 'display: flex';
   document.querySelector('.contactArea').classList.add('slide-in-bottom');
   fullContact.classList.remove('slide-in-right', 'slide-out-right', 'd-none');
+  getId('newContactBtn').setAttribute(
+    'onclick',
+    `javascript: openContactBox(editContact, ${i});`
+  );
 }
 
 function changeContact(fullContact, i) {

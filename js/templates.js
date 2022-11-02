@@ -245,7 +245,7 @@ function editContact(i) {
                 </div>
                 <div class="addContactSection">
                     <div>
-                        <div id="editContactInitial" class="initialsFullContact initialCircle">
+                        <div id="editContactInitial" class="initialsFullContact initialCircle" style="background-color:#${contact.color}">
                             ${contact.initial}
                         </div>
                     </div>
