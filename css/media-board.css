@@ -1,0 +1,255 @@
+/************************** Media Queries for Board **************************/
+@media (max-width: 1250px) {
+    .boardContainer {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+}
+
+@media (max-width: 1220px) {
+    .column {
+        margin-bottom: 5%;
+    }
+
+    .dragAndDropContainer {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .headlineBoardMobile h1 {
+        font-size: 51px;
+    }
+}
+
+@media (max-width: 970px) {
+    .searchContainer input {
+        background-position-x: 130px !important;
+        width: 150px;
+    }
+
+    .headlineBoardMobile h1 {
+        font-size: 45px;
+    }
+
+    .searchContainer input {
+        background-position-x: 115px !important;
+        width: 130px;
+    }
+}
+
+@media (max-width: 800px) {
+    .kanbanBar {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        justify-content: space-between !important;
+    }
+
+    .respoImg {
+        display: flex !important;
+    }
+
+    .actualUser {
+        margin-right: 15px !important;
+        width: 105px !important;
+    }
+
+    .fullCard {
+        padding: 100px 30px 0 30px;
+        justify-content: unset;
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        overflow: hidden;
+    }
+
+    .bodyFullCard {
+        height: 45vh;
+    }
+
+    .logoutContainer {
+        top: 75px;
+    }
+
+    .logoutBox {
+        z-index: 5;
+    }
+
+    .changedCard {
+        width: 100%;
+        flex-direction: column;
+        overflow-y: auto;
+        height: 500px;
+        justify-content: unset;
+    }
+
+    .dragAndDropContainer {
+        padding-top: 20px;
+    }
+
+    .boardContainer {
+        height: 550px;
+        overflow-y: auto;
+    }
+
+    .boxContent {
+        width: 100%;
+        padding: 210px 25px 0 25px;
+    }
+
+    .container {
+        margin-top: 10px;
+    }
+
+    .select-btn {
+        height: 30px;
+    }
+
+    .headline h1 {
+        font-size: 40px;
+    }
+
+    .title input,
+    .dueDate input,
+    select {
+        height: 30px;
+    }
+
+    #taskDescription {
+        height: 60px;
+        padding-left: 8px;
+        padding-top: 8px;
+    }
+
+    .buttonContainerMobile {
+        display: flex !important;
+    }
+
+    .userImgResponsive {
+        width: 35px;
+        height: 35px;
+        border: 2px solid black;
+        border-radius: 100%;
+    }
+
+    .circle {
+        width: 60px !important;
+    }
+
+    .headerBoard {
+        display: flex !important;
+    }
+
+    .kanbanTextBoard {
+        display: flex !important;
+        padding-left: 10px;
+    }
+
+    .headlineBoardMobile h1 {
+        padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 10px;
+    }
+
+    .align-center {
+        position: relative;
+        padding-bottom: 0 !important;
+    }
+
+    .searchContainer {
+        display: none !important;
+    }
+
+    .boardContainer {
+        padding-top: 100px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    }
+
+    .plusImgMobile {
+        cursor: pointer;
+        display: flex !important;
+        position: absolute;
+        right: 0;
+        top: 40px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .inputSearchMobile {
+        display: flex !important;
+    }
+
+    .column {
+        width: 100% !important;
+        height: 220px !important;
+        padding-right: 0;
+    }
+
+
+    .nameColumn {
+        width: 100% !important;
+    }
+
+    .nameColumn span {
+        padding-left: 10px !important;
+    }
+
+    .nameColumn img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+}
+
+@media (max-width: 400px) {
+    .kanbanTextBoard {
+        font-size: 13px;
+    }
+
+    .headlineBoardMobile h1 {
+        font-size: 30px;
+    }
+
+    .statusButton {
+        height: 30px;
+    }
+
+    .statusButton img {
+        height: 15px;
+        width: 15px;
+    }
+}
+
+@media (max-width: 365px) {
+    .joinLogoBoard {
+        width: 30px;
+        height: 35px;
+    }
+
+    .userImgResponsive {
+        width: 30px;
+        height: 30px;
+    }
+
+    .kanbanTextBoard {
+        font-size: 11px;
+    }
+
+    .headlineBoardMobile h1 {
+        font-size: 22px;
+    }
+
+    .plusImgMobile {
+        width: 32px;
+        height: 32px;
+    }
+
+    .inputSearchMobile {
+        width: 150px !important;
+        background-position-x: 140px !important;
+    }
+}
+
+/************************** Media Queries for Board **************************/

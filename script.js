@@ -32,7 +32,20 @@ async function init() {
   // backend.setItem('users', users)
   includeHTML();
   checkIfUserIsLoggedIn();
+  // checkForResizingScreen();
 }
+
+
+function checkForResizingScreen() {
+  window.addEventListener('resize', () => {
+    if (window.innerWidth < 800) {
+      getId('imgResponsive').classList.remove('d-none');
+    } else {
+      getId('imgResponsive').classList.add('d-none');
+    }
+  })
+}
+
 
 async function includeHTML() {
   let includeElements = document.querySelectorAll('[w3-include-html]'); //////// Greift bzw. fragt nach allen Elemente mit "w3-include-html".  ////////
@@ -67,15 +80,27 @@ function setDueDateOnToday() {
 }
 
 async function openTaskBox(pickedContainer) {
-  if (window.innerWidth > 800) {
-    document.body.style.overflow = 'hidden';
-  } else {
-    document.body.style.overflow = 'scroll';
-  }
+  setResponsiveStyle();
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL();
   renderCategorys();
   renderAssignedToContacts();
+  slideAnimation(box);
+}
+
+
+function setResponsiveStyle() {
+  if (window.innerWidth > 800) {
+    document.body.style.overflow = 'hidden';
+    getId('navbar').classList.remove('d-none');
+  } else {
+    getId('navbar').classList.add('d-none');
+    document.body.style.overflow = 'scroll';
+  }
+}
+
+
+function slideAnimation(box) {
   setTimeout(() => {
     getId('animation').classList.toggle('slide-in-right');
     getId('animation').classList.toggle('fade-in');
@@ -83,8 +108,23 @@ async function openTaskBox(pickedContainer) {
     if (box.classList.contains('d-none')) {
       box.classList.remove('d-none');
     }
-  }, 150);
+    setResponsiveDesign();
+  }, 200);
 }
+
+
+function setResponsiveDesign() {
+  if (window.innerWidth > 800) {
+    getId('buttonContainer').classList.remove('d-none');
+    getId('kanbanTextBoard').style = 'display: flex !important';
+  } else {
+    getId('actualUser').innerHTML = '';
+    getId('actualUser').innerHTML += createBtnForMobileBoard();
+    getId('kanbanTextBoard').style = 'display: none !important';
+    getId('buttonContainer').classList.add('d-none');
+  }
+}
+
 
 function closeTaskBox() {
   let taskBoxContainer = document.getElementById('animation');

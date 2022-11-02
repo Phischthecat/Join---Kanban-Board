@@ -338,7 +338,7 @@ function addTaskContainerHMTL() {
     <div class="modalContainer slide-in-right" id="animation">
         <div class="boxContent">
         <div class="headline">
-            <span class="kanbanTextAddTask"
+            <span  id="kanbanTextBoard" class="kanbanTextAddTask"
               >Kanban Project Management Tool</span
             >
             <h1>Add Task</h1>
@@ -493,6 +493,24 @@ function addTaskContainerHMTL() {
     `;
 }
 
+
+function createBtnForMobileBoard() {
+  return /*html*/`
+                  <button
+                  type="submit"
+                  class="btn-blue createTaskBtn"
+                  onclick="addTask('toDo')"
+                  id="create"
+                >
+                  Create
+                  <span class="check-btn">
+                    <i class="fa-solid fa-check"></i>
+                  </span>
+                </button>
+  `
+}
+
+
 function createCategorys(i) {
   const category = categorys[i];
   return /*html*/ `
@@ -601,8 +619,7 @@ function createContact(contact, i) {
   return /* html */ `
   <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${
-      contact.color
+    <div class="initials initialCircle" style="background-color:#${contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>

@@ -13,6 +13,7 @@ async function initTodos() {
   updateHTML();
 }
 
+
 function updateHTML() {
   updateContainer('toDo');
   updateContainer('inProgress');

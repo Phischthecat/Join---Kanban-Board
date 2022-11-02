@@ -156,8 +156,6 @@ function openForgotPart() {
 
 
 async function checkForResponsive() {
-  // let users = [];
-  // await backend.setItem('users', users);
   setInterval(() => {
     window.addEventListener("resize", removeClass());
   }, 200);

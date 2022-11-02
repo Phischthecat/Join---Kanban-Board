@@ -7,6 +7,10 @@
   align-items: center;
 }
 
+.respoImg {
+  display: none;
+}
+
 .joinLogo {
   width: 75px;
   height: 100px;
@@ -93,15 +97,25 @@ nav ul li a {
 
 @media (max-width: 800px) {
   .joinLogo {
-    width: 75px;
-    height: 50px;
-    position: fixed;
-    top: 10px;
-    filter: invert(1);
+    display: none;
   }
 
-  .kanbanBar {
-    justify-content: flex-end;
+  .respoImg {
+    height: 50px;
+    padding-left: 25px;
+  }
+
+  .subText {
+    display: none;
+  }
+
+
+  #questionMark {
+    display: none;
+  }
+
+  .actualUser {
+    margin-right: unset;
   }
 
   .circle {
@@ -159,5 +173,16 @@ nav ul li a {
   nav ul li a {
     gap: 10px;
     font-size: 14px;
+  }
+}
+
+
+@media(max-width: 320px) {
+  nav ul {
+    width: 100%;
+  }
+
+  .containerWithSections ul li {
+    padding: 5px;
   }
 }

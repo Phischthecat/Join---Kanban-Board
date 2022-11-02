@@ -75,25 +75,13 @@
 }
 
 @media (max-width: 800px) {
+    .respoImg {
+        display: flex;
+    }
+
     .blue-border {
         border-right: unset;
-        padding-right: 25px;
-    }
-
-    .joinLogo {
-        top: -20px;
-    }
-
-    #questionMark {
-        display: none;
-    }
-
-    .actualUser {
-        margin-right: unset;
-    }
-
-    .subText {
-        display: none;
+        padding-right: 30px;
     }
 
     .headerSummaryMobile {
@@ -101,7 +89,7 @@
         align-items: center;
         flex-direction: column;
         gap: 30px;
-        margin-bottom: 50px;
+        margin-bottom: 25px;
         padding-right: 215px;
     }
 
@@ -157,19 +145,19 @@
     }
 
     .headlineSummaryMobile h1 {
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 0;
     }
 
     .subheadlineSummaryMobile {
         border-left: 0;
         border-bottom: 4px solid var(--mainColorLightBlue);
-        padding-bottom: 35px;
+        padding-bottom: 20px;
         margin-top: -15px;
     }
 
     .summaryArea {
-        padding-top: 40px;
+        padding-top: 25px;
     }
 
     .subheadline span {
@@ -184,12 +172,11 @@
     }
 
     .headerSummaryMobile {
-        padding-right: 135px;
+        padding-right: 125px;
     }
 
     .headlineSummaryMobile h1 {
         font-size: 35px;
-        padding-left: 3px;
     }
 
     .containerOverview {
@@ -198,12 +185,12 @@
 }
 
 @media (max-width: 540px) {
-    .summaryArea {
-        padding-top: 30px;
+    .blue-border {
+        padding-right: 10px;
     }
 
-    .headerSummaryMobile {
-        padding-right: 55px;
+    .summaryArea {
+        padding-top: 30px;
     }
 
     .headlineSummaryMobile h1 {
@@ -212,43 +199,9 @@
 
     .subheadline span {
         font-size: 18px;
-        padding-right: 50px;
+        padding-right: 40px;
     }
 
-    .containerOverview {
-        width: 335px;
-    }
-
-    .box {
-        width: 90px;
-        height: 90px;
-    }
-
-    .nr {
-        font-size: 30px;
-    }
-
-    .text {
-        font-size: 13px;
-    }
-
-    .longBox {
-        height: 70px;
-    }
-
-    #dateOfDeadline {
-        font-size: 14px;
-    }
-
-    .thirdBox {
-        height: 70px;
-        width: 150px;
-    }
-
-    .todoAndDone {
-        width: 15px !important;
-        height: 15px !important;
-    }
 }
 
 @media (max-width: 500px) {
@@ -294,33 +247,29 @@
 
 }
 
-@media (max-width: 460px) {
+@media (max-width: 440px) {
     .headerSummaryMobile {
-        padding-right: 60px;
+        width: 280px;
+        padding-left: 10px;
     }
 
-    .containerOverview {
-        width: 340px;
-    }
-}
-
-@media (max-width: 430px) {
-    .headerSummaryMobile {
-        padding-right: 50px;
+    .summaryArea {
+        padding: 45px 0 0 0;
     }
 
     .kanbanTextSummary {
         font-size: 14px;
+        padding-right: unset;
     }
 
-    .headlineSummaryMobile h1 {
+    .headlineSummaryMobile {
         font-size: 25px;
-        padding-left: 3px;
+        padding: unset;
     }
 
     .subheadline span {
         font-size: 15px;
-        padding-right: 50px;
+        padding-right: 15px;
     }
 
     .containerOverview {
@@ -330,6 +279,14 @@
     .box {
         width: 80px;
         height: 80px;
+    }
+
+    .nr {
+        font-size: 18px;
+    }
+
+    .text {
+        font-size: 12px;
     }
 
     .longBox {
@@ -348,22 +305,6 @@
 
 }
 
-@media (max-width: 388px) {
-    .headerSummaryMobile {
-        padding-right: 60px;
-    }
-
-    .kanbanTextSummary {
-        font-size: 12px;
-    }
-
-    .subheadline span {
-        font-size: 12px;
-        padding-right: 55px;
-    }
-
-}
-
 @media (max-width: 365px) {
     .joinLogoSummary {
         width: 30px;
@@ -375,8 +316,27 @@
         height: 30px;
     }
 
+    .subheadline {
+        padding-right: 70px;
+    }
+
+    .subheadline span {
+        padding-right: unset;
+    }
+
     .headerSummaryMobile {
-        padding-right: 30px;
+        width: 100%;
+        justify-content: unset;
+        padding-right: unset;
+    }
+
+    #dateOfDeadline {
+        font-size: 12px;
+    }
+
+    .headlineSummaryMobile {
+        width: 270px;
+        padding-left: unset;
     }
 
     .headlineSummaryMobile h1 {
@@ -417,124 +377,6 @@
         font-size: 12px;
     }
 
-}
-
-@media (max-width: 338px) {
-    .headerSummaryMobile {
-        padding-right: 0;
-    }
-
-    .headlineSummaryMobile h1 {
-        font-size: 20px;
-    }
-
-    .kanbanTextSummary {
-        font-size: 11px;
-    }
-
-    .headlineSummaryMobile h1 {
-        font-size: 20px;
-    }
-
-    .subheadline span {
-        font-size: 11px;
-        padding-right: 48px;
-    }
-
-    .containerOverview {
-        width: 210px;
-    }
-
-    .box {
-        width: 55px;
-        height: 55px;
-    }
-
-    .nr {
-        font-size: 16px;
-    }
-
-    .text {
-        font-size: 10px;
-    }
-
-    .longBox {
-        height: 50px;
-    }
-
-    .longBox img {
-        height: 23px;
-    }
-
-    .thirdBox {
-        width: 95px;
-        height: 50px;
-    }
-
-    .todoAndDone {
-        width: 5px !important;
-        height: 5px !important;
-    }
-
-    #toDo,
-    #done {
-        font-size: 16px;
-    }
-
-}
-
-@media (max-width: 318px) {
-    .summaryArea {
-        padding-left: 30px;
-    }
-
-    .kanbanTextSummary {
-        font-size: 10px;
-    }
-
-    .headlineSummaryMobile h1 {
-        font-size: 18px;
-    }
-
-    .blue-border {
-        padding-right: 35px;
-    }
-
-    .subheadline span {
-        font-size: 10px;
-        padding-right: 60px;
-    }
-
-    .box {
-        width: 55px;
-        height: 55px;
-    }
-
-    .nr {
-        font-size: 17px;
-    }
-
-    .todoAndDone {
-        width: 8px !important;
-        height: 8px !important;
-    }
-
-    #toDo,
-    #done {
-        font-size: 17px;
-    }
-
-    .text {
-        margin-top: 5px;
-    }
-
-    .subheadlineSummaryMobile {
-        margin-top: -15px;
-    }
-
-    .thirdBox {
-        width: 90px;
-    }
 }
 
 /************************** Media Queries for Summary **************************/
