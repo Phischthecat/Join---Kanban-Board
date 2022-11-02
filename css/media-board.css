@@ -42,18 +42,21 @@
 @media (max-width: 800px) {
     .kanbanBar {
         position: absolute;
-        z-index: 5;
+        z-index: 30;
         top: 0;
         justify-content: space-between !important;
+    }
+
+    .btn-blue {
+        margin-left: -50px;
     }
 
     .respoImg {
         display: flex !important;
     }
 
-    .actualUser {
-        margin-right: 15px !important;
-        width: 105px !important;
+    .plus-end {
+        display: none;
     }
 
     .fullCard {
@@ -65,6 +68,15 @@
         overflow: hidden;
     }
 
+    .actualUser {
+        width: 40px !important;
+        margin-right: 25px !important;
+    }
+
+    .flexColumn {
+        padding-top: 10px;
+    }
+
     .bodyFullCard {
         height: 45vh;
     }
@@ -74,30 +86,40 @@
     }
 
     .logoutBox {
-        z-index: 5;
+        z-index: 30;
     }
 
     .changedCard {
         width: 100%;
         flex-direction: column;
         overflow-y: auto;
-        height: 500px;
+        height: 600px;
         justify-content: unset;
+        margin-top: -50px;
     }
 
     .dragAndDropContainer {
         padding-top: 20px;
     }
 
-    .boardContainer {
-        height: 550px;
-        overflow-y: auto;
+    /**   addtask   **/
+    .leftSplit {
+        border: unset !important;
+        padding-right: unset !important;
     }
 
-    .boxContent {
-        width: 100%;
-        padding: 210px 25px 0 25px;
+    .rightSplit {
+        padding-left: unset !important;
     }
+
+    .flexAddTask {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .boxContent {}
+
+    /**   addtask   **/
 
     .container {
         margin-top: 10px;
@@ -127,12 +149,6 @@
         display: flex !important;
     }
 
-    .userImgResponsive {
-        width: 35px;
-        height: 35px;
-        border: 2px solid black;
-        border-radius: 100%;
-    }
 
     .circle {
         width: 60px !important;
@@ -144,13 +160,11 @@
 
     .kanbanTextBoard {
         display: flex !important;
-        padding-left: 10px;
     }
 
     .headlineBoardMobile h1 {
         padding-top: 25px;
         padding-bottom: 25px;
-        padding-left: 10px;
     }
 
     .align-center {
@@ -164,8 +178,10 @@
 
     .boardContainer {
         padding-top: 100px !important;
-        padding-left: 10px !important;
-        padding-right: 10px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+        height: 550px;
+        overflow-y: auto;
     }
 
     .plusImgMobile {
@@ -173,13 +189,14 @@
         display: flex !important;
         position: absolute;
         right: 0;
-        top: 40px;
-        width: 35px;
-        height: 35px;
+        top: 50px;
+        width: 30px;
+        height: 30px;
     }
 
     .inputSearchMobile {
         display: flex !important;
+        margin-left: 0;
     }
 
     .column {
@@ -202,6 +219,30 @@
         height: 25px !important;
     }
 }
+
+@media(max-width: 500px) {
+    .plusImgMobile {
+        top: 60px;
+    }
+
+    .taskHeader {
+        font-size: 40px;
+    }
+
+    .fullCard {
+        padding: 110px 30px 0 30px;
+    }
+
+    .categoryText {
+        width: 100px;
+    }
+
+    .inputSearchMobile {
+        width: 200px !important;
+        background-position-x: 190px !important;
+    }
+}
+
 
 @media (max-width: 400px) {
     .kanbanTextBoard {
@@ -247,8 +288,8 @@
     }
 
     .inputSearchMobile {
-        width: 150px !important;
-        background-position-x: 140px !important;
+        width: 140px !important;
+        background-position-x: 130px !important;
     }
 }
 

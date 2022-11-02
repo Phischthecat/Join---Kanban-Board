@@ -8,10 +8,10 @@
   <title>Add Task</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/media.css" />
+  <link rel="stylesheet" href="css/addTask.css" />
+  <link rel="stylesheet" href="css/media-addTask.css" />
   <link rel="shortcut icon" href="img/joinlogo.svg" />
   <link rel="shortcut icon" href="icons/logo.png" />
-  <link rel="stylesheet" href="css/addTask.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
   <script src="js/mini_backend.js"></script>
   <script src="js/templates.js"></script>
@@ -40,14 +40,10 @@
 
           <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
             <!--Header only for Mobile Add Task-->
-            <header class="headerAddTask hide">
-              <div class="kanbanBarAddTask">
-                <img src="img/joinlogo.png" class="joinLogoAddTask" />
-                <button class="btn-blue btnCreate">
+                 <button class="btn-blue btnCreate">
                   Create
                   <img src="img/ticked-off.svg" />
                 </button>
-            </header>
             <!--Header only for Mobile Add Task-->
             <div class="leftSplit">
               <div class="title flexColumn">

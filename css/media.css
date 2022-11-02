@@ -1,154 +1,202 @@
-/************************** Media Queries for Add Task **************************/
-@media (max-width: 1120px) {
-    .addTaskContainer {
-        padding-left: 40px !important;
+/* @media (max-width: 1250px) {
+    .boardContainer {
+        padding-left: 50px !important;
+        padding-right: 50px !important;
+    }
+} */
+
+@media (max-width: 1220px) {
+    .column {
+        margin-bottom: 5%;
+    }
+
+    .dragAndDropContainer {
+        flex-direction: column;
+        width: 100%;
     }
 }
 
-@media (max-width: 1060px) {
-    .headlineAddTaskMobile h1 {
+@media (max-width: 1000px) {
+    .headlineBoardMobile h1 {
+        font-size: 51px;
+    }
+}
+
+@media (max-width: 970px) {
+    .searchContainer input {
+        background-position-x: 130px !important;
+        width: 150px;
+    }
+
+    .headlineBoardMobile h1 {
         font-size: 45px;
     }
-}
 
-@media (max-width: 875px) {
-    .headlineAddTaskMobile h1 {
-        font-size: 40px;
+    .searchContainer input {
+        background-position-x: 115px !important;
+        width: 130px;
     }
 }
 
 @media (max-width: 800px) {
-    .kanbanTextAddTask {
+    .boxContent {
+        width: 100%;
+    }
+
+    .buttonContainerMobile {
         display: flex !important;
-        padding-bottom: 20px;
     }
 
-    .headerAddTask {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+    .userImgResponsive {
+        width: 35px;
+        height: 35px;
+        border: 2px solid black;
+        border-radius: 100%;
     }
 
-    .headlineAddTaskMobile h1 {
-        padding-bottom: 10px;
-        padding-left: 2px;
+    .circle {
+        width: unset !important;
     }
 
-    .buttonContainer {
-        display: none;
+    .fullCard {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        overflow: hidden;
     }
 
-    .addTaskContainer {
-        padding-top: 100px !important;
-        padding-bottom: 28px !important;
-        padding-left: 25px !important;
-        padding-right: 25px !important;
+    .headerBoard {
+        display: flex !important;
     }
 
-    .leftSplit,
-    .rightSplit {
-        width: 100% !important;
-    }
-
-    .leftSplit {
-        padding-right: unset !important;
-        border-right: 0 !important;
-    }
-
-    .rightSplit {
-        padding-left: unset !important;
-        height: 55vh !important;
-    }
-
-    .priorityBox {
-        width: 100% !important;
-    }
-
-    .statusButton p {
-        font-size: 15px;
-    }
-
-    /* .statusButton img {
-        height: 25px;
-        width: 25px;
+    /* .kanbanTextBoard {
+        display: flex !important;
+        padding-left: 10px;
     } */
 
-    .flexAddTask {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .headlineBoardMobile h1 {
+        padding-bottom: 25px;
     }
 
-    .kanbanBarAddTask {
+    .align-center {
+        position: relative;
+        padding-bottom: 0 !important;
+        padding-left: 10px;
+    }
+
+    .searchContainer {
+        display: none !important;
+    }
+
+    /* .boardContainer {
+        padding-top: 40px !important;
+        padding-left: 10px !important;
+        padding-right: 10px !important;
+    } */
+
+    /* .plusImgMobile {
+        cursor: pointer;
+        display: flex !important;
+        position: absolute;
+        right: 45px;
+        top: 60px;
+        width: 35px;
+        height: 35px;
+    } */
+
+    .inputSearchMobile {
         display: flex !important;
     }
-}
 
-@media (max-width: 444px) {
-    .kanbanTextAddTask {
-        font-size: 14px;
+    /* .flexColumn {
+        padding-top: 20px;
+    } */
+
+    .column {
+        width: 100% !important;
+        height: 220px !important;
+        padding-right: 0;
     }
 
-    .headlineAddTaskMobile h1 {
+    /* .nameColumn {
+        width: 97% !important;
+    } */
+
+    .nameColumn span {
+        padding-left: 10px !important;
+    }
+
+    .nameColumn span {
+        padding-left: 10px !important;
+    }
+
+    .nameColumn img {
+        width: 25px !important;
+        height: 25px !important;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .headlineBoardMobile h1 {
         font-size: 35px;
     }
+
+    /* .kanbanTextBoard {
+        font-size: 14px;
+    } */
 }
 
-@media (max-width: 370px) {
-    .joinLogoAddTask {
-        width: 30px !important;
-        height: 35px !important;
-    }
+@media (max-width: 440px) {
+    /* .inputSearchMobile {
+        width: 145px !important;
+        background-position-x: 125px !important;
+    } */
+}
 
-    .btnCreate {
-        height: 35px !important;
-    }
-
-    .btnCreate {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-
-    .kanbanTextAddTask {
+@media (max-width: 400px) {
+    /* .kanbanTextBoard {
         font-size: 13px;
-    }
+    } */
 
-    .headlineAddTaskMobile h1 {
+    /* .headlineBoardMobile h1 {
         font-size: 30px;
-    }
+    } */
 
-    .statusButton p {
-        font-size: 12px;
-    }
-
-    .statusButton img {
-        height: 15px;
-        width: 15px;
-    }
+    /* .plusImgMobile {
+        right: 35px;
+    } */
 }
 
-@media (max-width: 303px) {
-    .kanbanTextAddTask {
-        font-size: 12px;
+@media (max-width: 365px) {
+    /* .inputSearchMobile {
+        width: 125px !important;
+        background-position-x: 110px !important;
+    } */
+
+    .joinLogoBoard {
+        width: 30px;
+        height: 35px;
     }
 
-    .headlineAddTaskMobile h1 {
-        font-size: 25px;
+    .userImgResponsive {
+        width: 30px;
+        height: 30px;
     }
 
-    .textAddTaskMobile {
-        font-size: 12px !important;
-    }
-
-    .statusButton p {
+    /* .kanbanTextBoard {
         font-size: 11px;
-    }
+    } */
 
-    .statusButton img {
-        height: 12px;
-        width: 12px;
-    }
+    /* 
+    .headlineBoardMobile h1 {
+        font-size: 22px;
+    } */
+
+    /* .plusImgMobile {
+        right: 25px;
+        width: 32px;
+        height: 32px;
+    } */
+
 }
-
-/************************** Media Queries for Add Task **************************/

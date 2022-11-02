@@ -116,6 +116,7 @@ nav ul li a {
 
   .actualUser {
     margin-right: unset;
+    width: unset;
   }
 
   .circle {
@@ -128,7 +129,7 @@ nav ul li a {
     height: unset;
     width: 100vw;
     flex-direction: row;
-    z-index: 99;
+    z-index: 30;
   }
 
   .containerWithSections {
@@ -170,6 +171,11 @@ nav ul li a {
     width: 20px;
   }
 
+  nav ul li {
+    padding: 10px;
+
+  }
+
   nav ul li a {
     gap: 10px;
     font-size: 14px;
@@ -177,9 +183,14 @@ nav ul li a {
 }
 
 
-@media(max-width: 320px) {
+@media(max-width: 370px) {
   nav ul {
     width: 100%;
+  }
+
+  nav ul li a {
+    gap: 10px;
+    font-size: 12px;
   }
 
   .containerWithSections ul li {

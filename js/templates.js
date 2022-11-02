@@ -245,7 +245,7 @@ function editContact(i) {
                 </div>
                 <div class="addContactSection">
                     <div>
-                        <div id="editContactInitial" class="initialsFullContact initialCircle">
+                        <div id="editContactInitial" class="initialsFullContact initialCircle" style="background-color:#${contact.color}">
                             ${contact.initial}
                         </div>
                     </div>
@@ -617,7 +617,7 @@ function createContactSectionOfLetter(letter) {
 
 function createContact(contact, i) {
   return /* html */ `
-  <div class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
+  <div id="contactInfo${i}" class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
     <div class="initials initialCircle" style="background-color:#${contact.color
     }">${contact.initial.toUpperCase()}</div>
