@@ -35,6 +35,24 @@
     padding-bottom: 20px;
   }
 
+  .kanbanBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .subText,
+  .actualUser {
+    display: none;
+  }
+
+  .btnCreate {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+  }
+
   .headerAddTask {
     position: fixed;
     top: 0;
@@ -52,7 +70,6 @@
   }
 
   .addTaskContainer {
-    padding-top: 100px !important;
     padding-bottom: 28px !important;
     padding-left: 25px !important;
     padding-right: 25px !important;
@@ -112,15 +129,6 @@
   .joinLogoAddTask {
     width: 30px !important;
     height: 35px !important;
-  }
-
-  .btnCreate {
-    height: 35px !important;
-  }
-
-  .btnCreate {
-    padding-left: 15px !important;
-    padding-right: 15px !important;
   }
 
   .kanbanTextAddTask {

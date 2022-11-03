@@ -159,15 +159,11 @@
     justify-content: flex-end;
   }
 
-  .newContactBtnMobile {
-    margin-top: 15px;
-    margin-right: 15px;
-  }
-
   .contactContainer {
     display: flex;
     justify-content: center;
-    height: calc(100vh - 245.02px);
+    height: calc(100vh - 165.02px);
+    margin-top: 15px;
   }
 
   .contactList {
@@ -452,10 +448,6 @@
   .navbarContact a {
     font-size: 10px !important;
   }
-
-  .newContactBtnMobile {
-    font-size: 16px !important;
-  }
 }
 
 @media (max-width: 320px) {
@@ -481,10 +473,6 @@
 }
 
 @media (max-width: 300px) {
-  .newContactBtnMobile {
-    font-size: 13px !important;
-  }
-
   .navbarContact a {
     font-size: 9px !important;
   }

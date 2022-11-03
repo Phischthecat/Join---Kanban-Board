@@ -162,3 +162,12 @@ nav ul li a {
     font-size: 14px;
   }
 }
+
+@media (max-width: 395px) {
+  .containerWithSections ul li a span {
+    display: none;
+  }
+  .iconsNav {
+    width: 35px;
+  }
+}
