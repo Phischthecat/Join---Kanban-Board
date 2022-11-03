@@ -87,7 +87,7 @@
 
   .rightSplit {
     padding-left: unset !important;
-    height: 55vh !important;
+    height: 55vh;
   }
 
   .priorityBox {

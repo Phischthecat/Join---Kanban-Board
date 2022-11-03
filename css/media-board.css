@@ -103,21 +103,15 @@
     }
 
     /**   addtask   **/
-    .leftSplit {
-        border: unset !important;
-        padding-right: unset !important;
-    }
 
     .rightSplit {
-        padding-left: unset !important;
+        height: 100% !important;
     }
 
-    .flexAddTask {
-        flex-direction: column;
-        align-items: center;
+    .boxContent {
+        border-radius: unset;
+        padding: 175px 50px 50px 50px;
     }
-
-    .boxContent {}
 
     /**   addtask   **/
 

@@ -345,6 +345,12 @@ function addTaskContainerHMTL() {
           </div>
 
           <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
+                        <!--Header only for Mobile Add Task-->
+                        <button class="btn-blue btnCreate">
+                  Create
+                  <img src="img/ticked-off.svg" />
+                </button>
+            <!--Header only for Mobile Add Task-->
           <div class="leftSplit">
               <div class="title flexColumn">
                 <span class="text textAddTaskMobile">Title</span>
