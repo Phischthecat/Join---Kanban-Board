@@ -197,3 +197,13 @@ nav ul li a {
     padding: 5px;
   }
 }
+
+@media (max-width: 395px) {
+  .containerWithSections ul li a span {
+    display: none;
+  }
+
+  .iconsNav {
+    width: 35px;
+  }
+}
