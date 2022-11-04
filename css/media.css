@@ -54,9 +54,11 @@
         border-radius: 100%;
     }
 
-    .circle {
-        width: unset !important;
-    }
+
+    /* .circle {
+        margin-right: 25px;
+        width: 45px;
+    } */
 
     .fullCard {
         width: 100%;
@@ -68,11 +70,6 @@
     .headerBoard {
         display: flex !important;
     }
-
-    /* .kanbanTextBoard {
-        display: flex !important;
-        padding-left: 10px;
-    } */
 
     .headlineBoardMobile h1 {
         padding-bottom: 25px;
@@ -88,39 +85,15 @@
         display: none !important;
     }
 
-    /* .boardContainer {
-        padding-top: 40px !important;
-        padding-left: 10px !important;
-        padding-right: 10px !important;
-    } */
-
-    /* .plusImgMobile {
-        cursor: pointer;
-        display: flex !important;
-        position: absolute;
-        right: 45px;
-        top: 60px;
-        width: 35px;
-        height: 35px;
-    } */
-
     .inputSearchMobile {
         display: flex !important;
     }
-
-    /* .flexColumn {
-        padding-top: 20px;
-    } */
 
     .column {
         width: 100% !important;
         height: 220px !important;
         padding-right: 0;
     }
-
-    /* .nameColumn {
-        width: 97% !important;
-    } */
 
     .nameColumn span {
         padding-left: 10px !important;
@@ -142,37 +115,9 @@
         font-size: 35px;
     }
 
-    /* .kanbanTextBoard {
-        font-size: 14px;
-    } */
-}
-
-@media (max-width: 440px) {
-    /* .inputSearchMobile {
-        width: 145px !important;
-        background-position-x: 125px !important;
-    } */
-}
-
-@media (max-width: 400px) {
-    /* .kanbanTextBoard {
-        font-size: 13px;
-    } */
-
-    /* .headlineBoardMobile h1 {
-        font-size: 30px;
-    } */
-
-    /* .plusImgMobile {
-        right: 35px;
-    } */
 }
 
 @media (max-width: 365px) {
-    /* .inputSearchMobile {
-        width: 125px !important;
-        background-position-x: 110px !important;
-    } */
 
     .joinLogoBoard {
         width: 30px;
@@ -183,20 +128,5 @@
         width: 30px;
         height: 30px;
     }
-
-    /* .kanbanTextBoard {
-        font-size: 11px;
-    } */
-
-    /* 
-    .headlineBoardMobile h1 {
-        font-size: 22px;
-    } */
-
-    /* .plusImgMobile {
-        right: 25px;
-        width: 32px;
-        height: 32px;
-    } */
 
 }

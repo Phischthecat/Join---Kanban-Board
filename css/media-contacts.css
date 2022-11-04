@@ -1,12 +1,15 @@
 /* ************************* Media Queries for Contact **************************/
 @media (max-width: 1300px) {
+
   .contactInfo .name,
   .contactInfo .email {
     width: 12vw;
     font-size: 16px;
   }
 }
+
 @media (max-width: 1200px) {
+
   .header,
   .headerFullContact {
     gap: 20px;
@@ -35,6 +38,7 @@
   .contactContainer {
     grid-template-columns: 35% 65%;
   }
+
   .contactArea {
     padding: 25px;
   }
@@ -112,6 +116,7 @@
     border: unset;
     padding: unset;
   }
+
   .header {
     flex-direction: column;
     align-items: flex-start;
@@ -157,6 +162,7 @@
   .btnContainerMobile {
     display: flex !important;
     justify-content: flex-end;
+    position: relative;
   }
 
   .contactContainer {
@@ -272,6 +278,7 @@
     width: unset;
   }
 }
+
 @media (max-width: 600px) {
   .iconsNavContactMobile {
     width: 30px !important;

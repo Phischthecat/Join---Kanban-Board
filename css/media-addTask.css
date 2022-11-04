@@ -12,27 +12,18 @@
   .statusButton p {
     font-size: 12px;
   }
-
-  .leftSplit,
-  .rightSplit {
-    width: 250px;
-  }
 }
 
 @media (max-width: 875px) {
   .headline h1 {
     font-size: 40px;
   }
-
-  .statusButton p {
-    display: none;
-  }
 }
 
 @media (max-width: 800px) {
-  .kanbanTextAddTask {
-    display: flex !important;
-    padding-bottom: 20px;
+
+  .respoImg {
+    display: block;
   }
 
   .kanbanBar {

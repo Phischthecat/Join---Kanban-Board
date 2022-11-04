@@ -119,7 +119,6 @@ function setResponsiveDesign() {
     getId('kanbanTextBoard').style = 'display: flex !important';
   } else {
     getId('actualUser').innerHTML = '';
-    // getId('actualUser').innerHTML += createBtnForMobileBoard();
     getId('kanbanTextBoard').style = 'display: none !important';
     getId('buttonContainer').classList.add('d-none');
   }

@@ -336,12 +336,16 @@ function createForgetPart() {
 function addTaskContainerHMTL() {
   return /*html*/ `
     <div class="modalContainer slide-in-right" id="animation">
+      <div class="modalKanbanBar">
+        <img id="imgResponsive" class="respoImg" src="img/joinlogo-black.svg">
+      </div>
         <div class="boxContent">
         <div class="headline">
-            <span  id="kanbanTextBoard" class="kanbanTextAddTask"
+            <span  id="kanbanTextBoard" class="kanbanTextAddTask d-none"
               >Kanban Project Management Tool</span
             >
             <h1>Add Task</h1>
+            <!-- <img id="closingImg" src=""> -->
           </div>
 
           <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
@@ -498,24 +502,6 @@ function addTaskContainerHMTL() {
 </div>
     `;
 }
-
-
-function createBtnForMobileBoard() {
-  return /*html*/`
-                  <button
-                  type="submit"
-                  class="btn-blue createTaskBtn"
-                  onclick="addTask('toDo')"
-                  id="create"
-                >
-                  Create
-                  <span class="check-btn">
-                    <i class="fa-solid fa-check"></i>
-                  </span>
-                </button>
-  `
-}
-
 
 function createCategorys(i) {
   const category = categorys[i];
