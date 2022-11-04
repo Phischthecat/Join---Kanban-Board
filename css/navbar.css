@@ -103,12 +103,12 @@ nav ul li a {
   .respoImg {
     height: 50px;
     padding-left: 25px;
+    display: block;
   }
 
   .subText {
     display: none;
   }
-
 
   #questionMark {
     display: none;
@@ -133,6 +133,7 @@ nav ul li a {
   }
 
   .containerWithSections {
+    height: 95px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -173,7 +174,6 @@ nav ul li a {
 
   nav ul li {
     padding: 10px;
-
   }
 
   nav ul li a {
@@ -182,8 +182,7 @@ nav ul li a {
   }
 }
 
-
-@media(max-width: 370px) {
+@media (max-width: 370px) {
   nav ul {
     width: 100%;
   }

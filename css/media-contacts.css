@@ -101,11 +101,12 @@
     display: none;
     position: absolute;
     top: 78px;
-    bottom: 0;
+    bottom: 95px;
     right: 0;
     left: 0;
     background: #fff;
     z-index: 8;
+    overflow: auto;
   }
 
   .blue-border {
@@ -115,6 +116,7 @@
   .header {
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
   }
 
   .header::before {
@@ -123,6 +125,9 @@
 
   .header hr {
     width: 100px;
+    height: 3px;
+    background-color: var(--mainColorLightBlue);
+    border: none;
   }
 
   .initialsFullContact {
@@ -157,12 +162,13 @@
   .btnContainerMobile {
     display: flex !important;
     justify-content: flex-end;
+    position: relative;
   }
 
   .contactContainer {
     display: flex;
     justify-content: center;
-    height: calc(100vh - 165.02px);
+    height: calc(100vh - 165px);
     margin-top: 15px;
   }
 
@@ -211,6 +217,8 @@
 
   .overlayHeader hr {
     margin-left: 110px !important;
+    margin-top: 15px;
+    width: 100px;
   }
 
   .addContactSection {

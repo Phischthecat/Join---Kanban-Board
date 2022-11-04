@@ -186,7 +186,10 @@
 .overlayHeader hr {
   margin-left: 0;
   width: 60px;
-  border: 1px solid var(--mainColorLightBlue);
+  height: 3px;
+
+  border: none;
+  background-color: var(--mainColorLightBlue);
 }
 
 .addContactSection {
