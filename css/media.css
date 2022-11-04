@@ -84,12 +84,6 @@
     display: flex !important;
   }
 
-  .column {
-    width: 100% !important;
-    height: 220px !important;
-    padding-right: 0;
-  }
-
   .nameColumn span {
     padding-left: 10px !important;
   }

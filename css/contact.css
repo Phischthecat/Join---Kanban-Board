@@ -39,7 +39,7 @@
   overflow: hidden;
 }
 
-.contactInfo:hover {
+.contactInfo:hover:not(.active) {
   background-color: var(--colorLightGrey);
 }
 
@@ -48,7 +48,7 @@
 }
 
 .contactInfo:hover .initialCircle {
-  border: 1px solid white;
+  border: 2px solid white;
 }
 
 .contactInfo .name {
@@ -139,10 +139,16 @@
 .btnContainer {
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
 }
 
 .newContactBtn {
   text-align: center;
+}
+
+.deleteBtn {
+  height: 50px;
+  width: 50px;
 }
 
 .newContactBtn img {
@@ -190,6 +196,18 @@
 
   border: none;
   background-color: var(--mainColorLightBlue);
+}
+
+.closeMobile {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  cursor: pointer;
+}
+
+.closeMobile i {
+  font-size: 30px;
 }
 
 .addContactSection {

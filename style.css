@@ -218,6 +218,17 @@ body {
   font-size: 61px;
 }
 
+.deleteBtn {
+  min-width: unset;
+  height: 60px;
+  width: 60px;
+}
+
+.deleteBtn:hover {
+  border: 1px solid red;
+  color: red;
+}
+
 .boxContent {
   background-color: white;
   box-shadow: 0px 0px 4px rgb(0 0 0 / 25%);

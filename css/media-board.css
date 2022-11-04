@@ -184,7 +184,8 @@
 
   .column {
     width: 100% !important;
-    height: 220px !important;
+    max-height: 220px !important;
+    min-height: 50px;
     padding-right: 0;
   }
 

@@ -62,6 +62,10 @@
 
   .headline {
     position: relative;
+    width: 100%;
+  }
+
+  .boxContent .headline {
     width: 80%;
   }
 
@@ -126,7 +130,7 @@
 
   .rightSplit {
     padding-left: unset !important;
-    height: 55vh;
+    height: unset;
   }
 
   .priorityBox {

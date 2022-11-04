@@ -177,19 +177,9 @@
   margin-top: 20px;
 }
 
-.editBtn,
-.deleteBtn {
+.editBtn {
   height: 60px;
   width: 60px;
-}
-
-.deleteBtn {
-  min-width: unset;
-}
-
-.deleteBtn:hover {
-  border: 1px solid red;
-  color: red;
 }
 
 .plus {

@@ -58,6 +58,9 @@
               <div class="header">
                 <div class="headline blue-border">
                   <h1>Contacts</h1>
+                  <span onclick="closeContactBoxMobile()" class="closeMobile">
+                    <i class="fa-solid fa-arrow-left"></i>
+                  </span>
                 </div>
                 <div class="subheadline">
                   <span>Better with a team</span>
@@ -69,6 +72,15 @@
               <div id="contactView" class="contactView"></div>
             </div>
             <div class="btnContainer">
+              <button
+                type="button"
+                class="btn-white deleteBtn d-none"
+                id="deleteContact"
+              >
+                <span class="cancel-btn">
+                  <i class="fa-sharp fa-solid fa-trash"></i>
+                </span>
+              </button>
               <button
                 type="button"
                 class="btn-blue newContactBtn"

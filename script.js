@@ -35,7 +35,6 @@ async function init() {
   // checkForResizingScreen();
 }
 
-
 function checkForResizingScreen() {
   window.addEventListener('resize', () => {
     if (window.innerWidth < 800) {
@@ -43,9 +42,8 @@ function checkForResizingScreen() {
     } else {
       getId('imgResponsive').classList.add('d-none');
     }
-  })
+  });
 }
-
 
 async function includeHTML() {
   let includeElements = document.querySelectorAll('[w3-include-html]'); //////// Greift bzw. fragt nach allen Elemente mit "w3-include-html".  ////////
@@ -79,8 +77,7 @@ function setDueDateOnToday() {
     });
 }
 
-async function openTaskBox(pickedContainer) {
-  setResponsiveStyle();
+function openTaskBox() {
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL();
   renderCategorys();
@@ -88,42 +85,25 @@ async function openTaskBox(pickedContainer) {
   slideAnimation(box);
 }
 
-
-function setResponsiveStyle() {
-  if (window.innerWidth > 800) {
-    document.body.style.overflow = 'hidden';
-    getId('navbar').classList.remove('d-none');
-  } else {
-    getId('navbar').classList.add('d-none');
-    document.body.style.overflow = 'scroll';
-  }
-}
-
-
 function slideAnimation(box) {
   setTimeout(() => {
     getId('animation').classList.toggle('slide-in-right');
     getId('animation').classList.toggle('fade-in');
     getId('animation').classList.toggle('background');
-    if (box.classList.contains('d-none')) {
-      box.classList.remove('d-none');
-    }
-    setResponsiveDesign();
+    box.classList.remove('d-none');
   }, 200);
 }
 
-
-function setResponsiveDesign() {
-  if (window.innerWidth > 800) {
-    getId('buttonContainer').classList.remove('d-none');
-    getId('kanbanTextBoard').style = 'display: flex !important';
-  } else {
-    getId('actualUser').innerHTML = '';
-    getId('kanbanTextBoard').style = 'display: none !important';
-    getId('buttonContainer').classList.add('d-none');
-  }
-}
-
+// function setResponsiveDesign() {
+//   if (window.innerWidth > 800) {
+//     getId('buttonContainer').classList.remove('d-none');
+//     getId('kanbanTextBoard').style = 'display: flex !important';
+//   } else {
+//     getId('actualUser').innerHTML = '';
+//     getId('kanbanTextBoard').style = 'display: none !important';
+//     getId('buttonContainer').classList.add('d-none');
+//   }
+// }
 
 function closeTaskBox() {
   let taskBoxContainer = document.getElementById('animation');

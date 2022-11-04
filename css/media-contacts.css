@@ -1,6 +1,5 @@
 /* ************************* Media Queries for Contact **************************/
 @media (max-width: 1300px) {
-
   .contactInfo .name,
   .contactInfo .email {
     width: 12vw;
@@ -9,7 +8,6 @@
 }
 
 @media (max-width: 1200px) {
-
   .header,
   .headerFullContact {
     gap: 20px;
@@ -113,6 +111,10 @@
     overflow: auto;
   }
 
+  .newContactBtnSpan {
+    display: none;
+  }
+
   .blue-border {
     border: unset;
     padding: unset;
@@ -209,6 +211,10 @@
 
   .overlayHeader h1 {
     font-size: 40px !important;
+  }
+
+  .closeMobile {
+    display: block;
   }
 
   .overlayHeader img {

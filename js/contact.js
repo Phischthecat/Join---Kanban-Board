@@ -65,7 +65,7 @@ function checkIfInputEmpty() {
 
 function contactInitial(name) {
   if (name.indexOf(' ') == -1) {
-    return name.charAt(0);
+    return name.charAt(0).toUpperCase();
   } else {
     return (
       name.charAt(0).toUpperCase() +
@@ -102,9 +102,10 @@ function openDialogForCreate(text) {
 }
 
 function lettersOfContactList() {
+  contactListLetters = [];
   for (let i = 0; i < contacts.length; i++) {
-    if (!contactListLetters.includes(contacts[i].name.charAt(0))) {
-      contactListLetters.push(contacts[i].name.charAt(0).toUpperCase());
+    if (!contactListLetters.includes(contacts[i].initial.charAt(0))) {
+      contactListLetters.push(contacts[i].initial.charAt(0).toUpperCase());
     }
   }
   contactListLetters.sort();
@@ -132,11 +133,14 @@ function generateContacts(letter) {
 
 function showFullContact(i) {
   let fullContact = getId('contactView');
+  getId('deleteContact').classList.remove('d-none');
+  getId('deleteContact').setAttribute('onclick', `deleteContact(${i});`);
   if (window.innerWidth > 800) {
     defaultFullContact(fullContact, i);
     getId(`contactInfo${i}`).classList.add('active');
   } else {
     mobileFullContact(fullContact, i);
+    showContact(fullContact, i);
   }
 }
 
@@ -150,9 +154,7 @@ function defaultFullContact(fullContact, i) {
 }
 
 function mobileFullContact(fullContact, i) {
-  showContact(fullContact, i);
   document.querySelector('.newContactBtnImg').src = `./img/pencil.svg`;
-  document.querySelector('.newContactBtnSpan').style.display = 'none';
   document.querySelector('.contactArea').style = 'display: flex';
   document.querySelector('.contactArea').classList.add('slide-in-bottom');
   fullContact.classList.remove(
@@ -163,7 +165,7 @@ function mobileFullContact(fullContact, i) {
   );
   getId('newContactBtn').setAttribute(
     'onclick',
-    `javascript: openContactBox(editContact, ${i});`
+    `openContactBox(editContact, ${i});`
   );
 }
 
@@ -180,10 +182,19 @@ function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
 }
 
+async function deleteContact(index) {
+  contacts.splice(index, 1);
+  await backend.setItem('contacts', contacts);
+  getId('deleteContact').classList.add('d-none');
+  getId('ContactView').innerHTML = '';
+  initContact();
+}
+
 function closeContactBoxMobile() {
   document.querySelector('.contactArea').classList.remove('slide-in-bottom');
   document.querySelector('.contactArea').classList.add('slide-out-bottom');
   removeActiveClass();
+  getId('contactView').innerHTML = '';
   setTimeout(() => {
     document.querySelector('.contactArea').style = 'display: none';
     document.querySelector('.contactArea').classList.remove('slide-out-bottom');
@@ -192,8 +203,15 @@ function closeContactBoxMobile() {
 
 function removeActiveClass() {
   let contactInfos = document.querySelectorAll('.contactInfo');
-  console.log(contactInfos);
   contactInfos.forEach((contact) => {
     contact.classList.remove('active');
   });
 }
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 800) {
+    document.querySelector('.contactArea').style = 'display: flex';
+  } else {
+    document.querySelector('.contactArea').style = 'display: none';
+  }
+});
