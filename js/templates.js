@@ -345,7 +345,9 @@ function addTaskContainerHMTL() {
               >Kanban Project Management Tool</span
             >
             <h1>Add Task</h1>
-            <!-- <img id="closingImg" src=""> -->
+            <span class="cancelBtnMobile" onclick="closeTaskBox()">
+                    <i class="fa-solid fa-xmark"></i>
+            </span>
           </div>
 
           <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
@@ -611,7 +613,8 @@ function createContact(contact, i) {
   return /* html */ `
   <div id="contactInfo${i}" class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${contact.color
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>

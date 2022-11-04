@@ -43,6 +43,10 @@ input[type='date']::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+.cancelBtnMobile {
+  display: none;
+}
+
 .urgentBtn {
   background-color: var(--urgentColour) !important;
   color: white;

@@ -1,313 +1,277 @@
 /************************** Media Queries for Board **************************/
 @media (max-width: 1250px) {
-    .boardContainer {
-        padding-left: 50px !important;
-        padding-right: 50px !important;
-    }
+  .boardContainer {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+  }
 }
 
 @media (max-width: 1220px) {
-    .column {
-        margin-bottom: 5%;
-    }
+  .column {
+    margin-bottom: 5%;
+  }
 
-    .dragAndDropContainer {
-        flex-direction: column;
-        width: 100%;
-    }
+  .dragAndDropContainer {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 @media (max-width: 1000px) {
-    .headlineBoardMobile h1 {
-        font-size: 51px;
-    }
+  .headlineBoardMobile h1 {
+    font-size: 51px;
+  }
 }
 
 @media (max-width: 970px) {
-    .searchContainer input {
-        background-position-x: 130px !important;
-        width: 150px;
-    }
+  .searchContainer input {
+    background-position-x: 130px !important;
+    width: 150px;
+  }
 
-    .headlineBoardMobile h1 {
-        font-size: 45px;
-    }
+  .headlineBoardMobile h1 {
+    font-size: 45px;
+  }
 
-    .searchContainer input {
-        background-position-x: 115px !important;
-        width: 130px;
-    }
+  .searchContainer input {
+    background-position-x: 115px !important;
+    width: 130px;
+  }
 }
 
 @media (max-width: 800px) {
-    .kanbanBar {
-        position: absolute;
-        z-index: 1;
-    }
+  .kanbanBar {
+    position: absolute;
+    z-index: 1;
+  }
 
-    .modalKanbanBar {
-        height: 75px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-        background-color: white;
-    }
+  .btn-blue {
+    margin-left: -50px;
+  }
 
-    .modalContainer {
-        flex-direction: column;
-        height: unset;
-    }
+  .respoImg {
+    display: flex !important;
+  }
 
-    .btn-blue {
-        margin-left: -50px;
-    }
+  .plus-end {
+    display: none;
+  }
 
-    .respoImg {
-        display: flex !important;
-    }
+  .fullCard {
+    padding: 100px 30px 0 30px;
+    justify-content: unset;
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+  }
 
-    .plus-end {
-        display: none;
-    }
+  .actualUser {
+    width: 40px !important;
+    margin-right: 25px !important;
+    display: block !important;
+  }
 
-    .fullCard {
-        padding: 100px 30px 0 30px;
-        justify-content: unset;
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        overflow: hidden;
-    }
+  .footerFullCard {
+    gap: 60px;
+  }
 
-    .actualUser {
-        width: 40px !important;
-        margin-right: 25px !important;
-        display: block !important;
-    }
+  .bodyFullCard {
+    height: 45vh;
+  }
 
-    .footerFullCard {
-        gap: 60px;
-    }
+  .logoutContainer {
+    top: 75px;
+  }
 
-    .flexColumn {
-        padding-top: 10px;
-    }
+  .logoutBox {
+    z-index: 30;
+  }
 
-    .bodyFullCard {
-        height: 45vh;
-    }
+  .changedCard {
+    width: 100%;
+    flex-direction: column;
+    overflow-y: auto;
+    height: 600px;
+    justify-content: unset;
+    margin-top: -50px;
+  }
 
-    .logoutContainer {
-        top: 75px;
-    }
+  .dragAndDropContainer {
+    padding-top: 20px;
+  }
 
-    .logoutBox {
-        z-index: 30;
-    }
+  .rightSplit {
+    height: 100% !important;
+  }
 
-    .changedCard {
-        width: 100%;
-        flex-direction: column;
-        overflow-y: auto;
-        height: 600px;
-        justify-content: unset;
-        margin-top: -50px;
-    }
+  .container {
+    margin-top: 10px;
+  }
 
-    .dragAndDropContainer {
-        padding-top: 20px;
-    }
+  .select-btn {
+    height: 30px;
+  }
 
-    .flexAddTask {
-        padding-bottom: 20px;
-        width: 80%;
-    }
+  .headline h1 {
+    font-size: 40px;
+  }
 
-    .rightSplit {
-        height: 100% !important;
-    }
+  .title input,
+  .dueDate input,
+  select {
+    height: 30px;
+  }
 
-    .boxContent {
-        border-radius: unset;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 25px 50px 50px 50px;
-    }
+  #taskDescription {
+    height: 60px;
+    padding-left: 8px;
+    padding-top: 8px;
+  }
 
-    .container {
-        margin-top: 10px;
-    }
+  .buttonContainerMobile {
+    display: flex !important;
+  }
 
-    .select-btn {
-        height: 30px;
-    }
+  .circle {
+    width: 45px !important;
+  }
 
-    .headline {
-        width: 80%;
-    }
+  .headerBoard {
+    display: flex !important;
+  }
 
-    .headline h1 {
-        font-size: 40px;
-    }
+  .kanbanTextBoard {
+    display: flex !important;
+  }
 
-    .title input,
-    .dueDate input,
-    select {
-        height: 30px;
-    }
+  .headlineBoardMobile h1 {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
 
-    #taskDescription {
-        height: 60px;
-        padding-left: 8px;
-        padding-top: 8px;
-    }
+  .align-center {
+    position: relative;
+    padding-bottom: 0 !important;
+  }
 
-    .buttonContainerMobile {
-        display: flex !important;
-    }
+  .searchContainer {
+    display: none !important;
+  }
 
-    .circle {
-        width: 45px !important;
-    }
+  .boardContainer {
+    padding-top: 100px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    height: 550px;
+    overflow-y: auto;
+  }
 
-    .headerBoard {
-        display: flex !important;
-    }
+  .plusImgMobile {
+    cursor: pointer;
+    display: flex !important;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: 30px;
+    height: 30px;
+  }
 
-    .kanbanTextBoard {
-        display: flex !important;
-    }
+  .inputSearchMobile {
+    display: flex !important;
+    margin-left: 0;
+  }
 
-    .headlineBoardMobile h1 {
-        padding-top: 25px;
-        padding-bottom: 25px;
-    }
+  .column {
+    width: 100% !important;
+    height: 220px !important;
+    padding-right: 0;
+  }
 
-    .align-center {
-        position: relative;
-        padding-bottom: 0 !important;
-    }
+  .nameColumn {
+    width: 100% !important;
+  }
 
-    .searchContainer {
-        display: none !important;
-    }
+  .nameColumn span {
+    padding-left: 10px !important;
+  }
 
-    .boardContainer {
-        padding-top: 100px !important;
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        height: 550px;
-        overflow-y: auto;
-    }
-
-    .plusImgMobile {
-        cursor: pointer;
-        display: flex !important;
-        position: absolute;
-        right: 0;
-        top: 50px;
-        width: 30px;
-        height: 30px;
-    }
-
-    .inputSearchMobile {
-        display: flex !important;
-        margin-left: 0;
-    }
-
-    .column {
-        width: 100% !important;
-        height: 220px !important;
-        padding-right: 0;
-    }
-
-
-    .nameColumn {
-        width: 100% !important;
-    }
-
-    .nameColumn span {
-        padding-left: 10px !important;
-    }
-
-    .nameColumn img {
-        width: 25px !important;
-        height: 25px !important;
-    }
+  .nameColumn img {
+    width: 25px !important;
+    height: 25px !important;
+  }
 }
 
-@media(max-width: 500px) {
-    .plusImgMobile {
-        top: 60px;
-    }
+@media (max-width: 500px) {
+  .plusImgMobile {
+    top: 60px;
+  }
 
-    .taskHeader {
-        font-size: 40px;
-    }
+  .taskHeader {
+    font-size: 40px;
+  }
 
-    .fullCard {
-        padding: 110px 30px 0 30px;
-    }
+  .fullCard {
+    padding: 110px 30px 0 30px;
+  }
 
-    .categoryText {
-        width: 100px;
-    }
+  .categoryText {
+    width: 100px;
+  }
 
-    .inputSearchMobile {
-        width: 200px !important;
-        background-position-x: 190px !important;
-    }
+  .inputSearchMobile {
+    width: 200px !important;
+    background-position-x: 190px !important;
+  }
 }
-
 
 @media (max-width: 400px) {
-    .kanbanTextBoard {
-        font-size: 13px;
-    }
+  .kanbanTextBoard {
+    font-size: 13px;
+  }
 
-    .headlineBoardMobile h1 {
-        font-size: 30px;
-    }
+  .headlineBoardMobile h1 {
+    font-size: 30px;
+  }
 
-    .statusButton {
-        height: 30px;
-    }
+  .statusButton {
+    height: 30px;
+  }
 
-    .statusButton img {
-        height: 15px;
-        width: 15px;
-    }
+  .statusButton img {
+    height: 15px;
+    width: 15px;
+  }
 }
 
 @media (max-width: 365px) {
-    .joinLogoBoard {
-        width: 30px;
-        height: 35px;
-    }
+  .joinLogoBoard {
+    width: 30px;
+    height: 35px;
+  }
 
-    .userImgResponsive {
-        width: 30px;
-        height: 30px;
-    }
+  .userImgResponsive {
+    width: 30px;
+    height: 30px;
+  }
 
-    .kanbanTextBoard {
-        font-size: 11px;
-    }
+  .kanbanTextBoard {
+    font-size: 11px;
+  }
 
-    .headlineBoardMobile h1 {
-        font-size: 22px;
-    }
+  .headlineBoardMobile h1 {
+    font-size: 22px;
+  }
 
-    .plusImgMobile {
-        width: 32px;
-        height: 32px;
-    }
+  .plusImgMobile {
+    width: 32px;
+    height: 32px;
+  }
 
-    .inputSearchMobile {
-        width: 140px !important;
-        background-position-x: 130px !important;
-    }
+  .inputSearchMobile {
+    width: 140px !important;
+    background-position-x: 130px !important;
+  }
 }
 
 /************************** Media Queries for Board **************************/

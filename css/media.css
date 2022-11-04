@@ -6,127 +6,118 @@
 } */
 
 @media (max-width: 1220px) {
-    .column {
-        margin-bottom: 5%;
-    }
+  .column {
+    margin-bottom: 5%;
+  }
 
-    .dragAndDropContainer {
-        flex-direction: column;
-        width: 100%;
-    }
+  .dragAndDropContainer {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 @media (max-width: 1000px) {
-    .headlineBoardMobile h1 {
-        font-size: 51px;
-    }
+  .headlineBoardMobile h1 {
+    font-size: 51px;
+  }
 }
 
 @media (max-width: 970px) {
-    .searchContainer input {
-        background-position-x: 130px !important;
-        width: 150px;
-    }
+  .searchContainer input {
+    background-position-x: 130px !important;
+    width: 150px;
+  }
 
-    .headlineBoardMobile h1 {
-        font-size: 45px;
-    }
+  .headlineBoardMobile h1 {
+    font-size: 45px;
+  }
 
-    .searchContainer input {
-        background-position-x: 115px !important;
-        width: 130px;
-    }
+  .searchContainer input {
+    background-position-x: 115px !important;
+    width: 130px;
+  }
 }
 
 @media (max-width: 800px) {
-    .boxContent {
-        width: 100%;
-    }
+  .buttonContainerMobile {
+    display: flex !important;
+  }
 
-    .buttonContainerMobile {
-        display: flex !important;
-    }
+  .userImgResponsive {
+    width: 35px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 100%;
+  }
 
-    .userImgResponsive {
-        width: 35px;
-        height: 35px;
-        border: 2px solid black;
-        border-radius: 100%;
-    }
-
-
-    /* .circle {
+  /* .circle {
         margin-right: 25px;
         width: 45px;
     } */
 
-    .fullCard {
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
-        overflow: hidden;
-    }
+  .fullCard {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    overflow: hidden;
+  }
 
-    .headerBoard {
-        display: flex !important;
-    }
+  .headerBoard {
+    display: flex !important;
+  }
 
-    .headlineBoardMobile h1 {
-        padding-bottom: 25px;
-    }
+  .headlineBoardMobile h1 {
+    padding-bottom: 25px;
+  }
 
-    .align-center {
-        position: relative;
-        padding-bottom: 0 !important;
-        padding-left: 10px;
-    }
+  .align-center {
+    position: relative;
+    padding-bottom: 0 !important;
+    padding-left: 10px;
+  }
 
-    .searchContainer {
-        display: none !important;
-    }
+  .searchContainer {
+    display: none !important;
+  }
 
-    .inputSearchMobile {
-        display: flex !important;
-    }
+  .inputSearchMobile {
+    display: flex !important;
+  }
 
-    .column {
-        width: 100% !important;
-        height: 220px !important;
-        padding-right: 0;
-    }
+  .column {
+    width: 100% !important;
+    height: 220px !important;
+    padding-right: 0;
+  }
 
-    .nameColumn span {
-        padding-left: 10px !important;
-    }
+  .nameColumn span {
+    padding-left: 10px !important;
+  }
 
-    .nameColumn span {
-        padding-left: 10px !important;
-    }
+  .nameColumn span {
+    padding-left: 10px !important;
+  }
 
-    .nameColumn img {
-        width: 25px !important;
-        height: 25px !important;
-    }
+  .nameColumn img {
+    width: 25px !important;
+    height: 25px !important;
+  }
 }
 
 @media (max-width: 500px) {
-
-    .headlineBoardMobile h1 {
-        font-size: 35px;
-    }
-
+  .headlineBoardMobile h1 {
+    font-size: 35px;
+  }
 }
 
 @media (max-width: 365px) {
+  .joinLogoBoard {
+    width: 30px;
+    height: 35px;
+  }
 
-    .joinLogoBoard {
-        width: 30px;
-        height: 35px;
-    }
-
-    .userImgResponsive {
-        width: 30px;
-        height: 30px;
-    }
-
+  .userImgResponsive {
+    width: 30px;
+    height: 30px;
+  }
 }
