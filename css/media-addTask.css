@@ -70,6 +70,10 @@
   }
 
   .flexAddTask {
+    width: 100%;
+  }
+
+  .flexAddTaskMobile {
     width: 80%;
     padding-bottom: 20px;
   }

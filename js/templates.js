@@ -350,7 +350,7 @@ function addTaskContainerHMTL() {
             </span>
           </div>
 
-          <form id="formAddTask" class="flex flexAddTask" onsubmit="addTask('toDo'); return false;">
+          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTask('toDo'); return false;">
                         <!--Header only for Mobile Add Task-->
                         <button class="btn-blue btnCreate">
                   Create
