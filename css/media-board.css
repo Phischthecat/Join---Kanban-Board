@@ -42,9 +42,20 @@
 @media (max-width: 800px) {
     .kanbanBar {
         position: absolute;
-        z-index: 30;
-        top: 0;
-        justify-content: space-between !important;
+        z-index: 1;
+    }
+
+    .modalKanbanBar {
+        height: 75px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        background-color: white;
+    }
+
+    .modalContainer {
+        flex-direction: column;
+        height: unset;
     }
 
     .btn-blue {
@@ -71,6 +82,11 @@
     .actualUser {
         width: 40px !important;
         margin-right: 25px !important;
+        display: block !important;
+    }
+
+    .footerFullCard {
+        gap: 60px;
     }
 
     .flexColumn {
@@ -102,7 +118,10 @@
         padding-top: 20px;
     }
 
-    /**   addtask   **/
+    .flexAddTask {
+        padding-bottom: 20px;
+        width: 80%;
+    }
 
     .rightSplit {
         height: 100% !important;
@@ -110,10 +129,11 @@
 
     .boxContent {
         border-radius: unset;
-        padding: 175px 50px 50px 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 25px 50px 50px 50px;
     }
-
-    /**   addtask   **/
 
     .container {
         margin-top: 10px;
@@ -121,6 +141,10 @@
 
     .select-btn {
         height: 30px;
+    }
+
+    .headline {
+        width: 80%;
     }
 
     .headline h1 {
@@ -143,9 +167,8 @@
         display: flex !important;
     }
 
-
     .circle {
-        width: 60px !important;
+        width: 45px !important;
     }
 
     .headerBoard {
