@@ -40,9 +40,12 @@
 }
 
 @media (max-width: 800px) {
+  .flexAddTaskMobile {
+    flex-direction: column;
+  }
+
   .kanbanBar {
-    position: absolute;
-    z-index: 1;
+    z-index: 50 !important;
   }
 
   .btn-blue {
@@ -58,6 +61,7 @@
   }
 
   .fullCard {
+    height: calc(100vh - 170px);
     padding: 100px 30px 0 30px;
     justify-content: unset;
     width: 100%;
@@ -74,6 +78,7 @@
 
   .footerFullCard {
     gap: 60px;
+    padding-right: 50px;
   }
 
   .bodyFullCard {
@@ -272,6 +277,10 @@
   .inputSearchMobile {
     width: 140px !important;
     background-position-x: 130px !important;
+  }
+
+  .footerFullCard {
+    padding-top: 30px;
   }
 }
 
