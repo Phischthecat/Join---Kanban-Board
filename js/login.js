@@ -21,8 +21,9 @@ async function checkAllUsers() {
     getId('loginError').innerHTML = '';
     name.logStatus = 'loggedIn';
     login();
-  } else if (getId('userName').value != '' && getId('password').value != '' && getId('password').value != name.password || name != getId('userName')) {
+  } else if (getId('userName').value != '' && getId('password').value != '') {
     showError();
+    console.log(name);
   }
 }
 

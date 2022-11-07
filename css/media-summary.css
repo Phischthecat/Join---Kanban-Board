@@ -201,6 +201,22 @@
 }
 
 @media (max-width: 500px) {
+    #help {
+        padding: 0 25px 0 25px;
+    }
+
+    .headline {
+        padding-bottom: 20px;
+    }
+
+    .scrollBoxLegalNotice {
+        height: calc(100vh - 190px);
+    }
+
+    .headline h1 {
+        font-size: 40px;
+    }
+
     .headerSummaryMobile {
         padding-right: 75px;
     }

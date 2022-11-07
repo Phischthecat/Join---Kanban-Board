@@ -572,6 +572,11 @@ textarea {
   overflow-y: auto;
 }
 
+.scrollBoxLegalNotice {
+  height: calc(100vh - 175px);
+  overflow-y: auto;
+}
+
 .arrow {
   height: 25px;
   width: 25px;

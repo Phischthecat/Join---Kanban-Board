@@ -209,6 +209,22 @@
 }
 
 @media (max-width: 500px) {
+  #help {
+    position: absolute;
+    z-index: 29;
+    background-color: white;
+    top: 75px;
+    left: 0;
+    right: 0;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  #help a {
+    white-space: pre-wrap;
+    word-break: break-all;
+  }
+
   .plusImgMobile {
     top: 60px;
   }

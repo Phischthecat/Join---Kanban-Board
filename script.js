@@ -420,3 +420,22 @@ function closeHelpSection() {
   getId('help').classList.add('d-none');
   getId('questionMark').classList.remove('d-none');
 }
+
+/**
+ * showing the Legal Notice Section
+ */
+function showLegalNotice() {
+  getId('help').classList.remove('d-none');
+  getId('help').innerHTML = '';
+  getId('help').innerHTML += createLegalNotice();
+  document.querySelector(".mainContainer").style = 'overflow: hidden';
+}
+
+
+/**
+ * vlosing the Legal Notice Section
+ */
+function closeLegalNotice() {
+  getId('help').classList.add('d-none');
+  document.querySelector(".mainContainer").style = 'overflow: auto';
+}
