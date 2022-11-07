@@ -68,6 +68,10 @@ async function addTask(taskStatus) {
   clearFields();
 }
 
+
+/**
+ * function for resetting all inputfields
+ */
 function clearFields() {
   setDueDateOnToday();
   getId('formAddTask').reset();
@@ -80,6 +84,9 @@ function clearFields() {
   getId('low').classList.remove('lowBtn');
 }
 
+/**
+ * shows a message with user feedback when a task is successfully created
+ */
 function userFeedback() {
   getId('messageToBoard').classList.remove('d-none');
   setTimeout(() => {
@@ -87,6 +94,10 @@ function userFeedback() {
   }, 2000);
 }
 
+
+/**
+ * setting the animation for going to board
+ */
 function animateToBoard() {
   setTimeout(() => {
     document.body.classList.add('slide-in-left');
@@ -94,6 +105,11 @@ function animateToBoard() {
   }, 1200);
 }
 
+
+/**
+ * 
+ * @param {the priority of the actual task} prio 
+ */
 function getPriority(prio) {
   if (prio == 'urgent') {
     getId(prio).classList.add('urgentBtn');
@@ -112,17 +128,3 @@ function getPriority(prio) {
   }
 }
 
-function allFilledUp() {
-  let category = document.querySelector('.item-text').innerHTML;
-  let categoryDefault = document.querySelector('.btn-text').innerHTML;
-  let assignedContacts = document.querySelectorAll('.checked');
-  if (
-    category == '' ||
-    categoryDefault == 'Choose category' ||
-    assignedContacts.length == 0
-  ) {
-    getId('create').disabled = true;
-  } else {
-    getId('create').disabled = false;
-  }
-}

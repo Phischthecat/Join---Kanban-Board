@@ -36,6 +36,10 @@ async function checkAllUsers() {
   }
 }
 
+
+/**
+ * initialising the Login Section
+ */
 async function initBoard() {
   await init();
   checkForResponsive();
@@ -45,6 +49,10 @@ async function initBoard() {
   }
 }
 
+
+/**
+ * Function for logging out 
+ */
 async function logAllUsersOut() {
   users.forEach((user) => {
     user.logStatus = '';
@@ -165,6 +173,10 @@ function setDefault() {
   }
 }
 
+
+/**
+ * shows the Section when you forget your password
+ */
 function openForgotPart() {
   let content = getId('content');
   responsive = false;
@@ -172,12 +184,20 @@ function openForgotPart() {
   content.innerHTML += createForgetPart();
 }
 
+
+/**
+ * checking for responsivness
+ */
 async function checkForResponsive() {
   setInterval(() => {
     window.addEventListener('resize', removeClass());
   }, 200);
 }
 
+
+/**
+ * function for the sign in span
+ */
 function removeClass() {
   if (window.innerWidth < 540) {
     getId('responsiveSpan').classList.remove('d-none');

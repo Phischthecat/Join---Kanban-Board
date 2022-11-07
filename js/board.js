@@ -1,19 +1,17 @@
 let currentDraggedElement;
 
+/**
+ * initialising board section 
+ */
 async function initTodos() {
   await init();
-  // muss noch abgeändert werden und separat geladen werden
   setDragAndDropId();
-  // allTasks = [];
-  // await backend.setItem('allTasks', allTasks);
-  // categorys = [];
-  // await backend.setItem('categorys', categorys);
-  // contacts = [];
-  // await backend.setItem('contacts', contacts);
   updateHTML();
 }
 
-
+/**
+ * function for updating html
+ */
 function updateHTML() {
   updateContainer('toDo');
   updateContainer('inProgress');
@@ -21,29 +19,49 @@ function updateHTML() {
   updateContainer('done');
 }
 
+
+/**
+ * 
+ * @param {id for dragging element} id 
+ */
 function startDragging(id) {
-  // Weist die jeweilige Id, dem zu verschiebenen Element zu.
   currentDraggedElement = id;
 }
 
+/**
+ * 
+ * @param {changed the status of the element to draggable} ev 
+ */
 function allowDrop(ev) {
-  // Verändert das Standarverhalten des Elements. Es wird z.B. Draggable.
   ev.preventDefault();
 }
 
+
+/**
+ * 
+ * @param {the actual status of the current task} status 
+ */
 async function moveTo(status) {
-  // Sorgt dafür, dass das Element Draggable wird, indem die entsprechende category zugewiesen wird.
   allTasks[currentDraggedElement]['status'] = status;
   backend.setItem('tasks', allTasks);
   updateHTML();
 }
 
+
+/**
+ * setting the drag and drop id 
+ */
 function setDragAndDropId() {
   for (let i = 0; i < allTasks.length; i++) {
     allTasks[i]['dragAndDropId'] = i;
   }
 }
 
+
+/**
+ * 
+ * @param {for setting the task into the actual container} container 
+ */
 function updateContainer(container) {
   let filteredTask = allTasks.filter((t) => t['status'] == container);
   let column = getId(container);
@@ -58,6 +76,10 @@ function updateContainer(container) {
   }
 }
 
+/**
+ * 
+ * @param {actual Task which should be updated} index 
+ */
 function updateProgressbar(index) {
   let subtasks = allTasks[index].subtasks,
     subtasksLength = subtasks.length,
@@ -75,12 +97,22 @@ function updateProgressbar(index) {
   }
 }
 
+
+/**
+ * 
+ * @param {setting the urgency img} index 
+ */
 function taskUrgency(index) {
   let task = allTasks[index];
   let urgency = getId('urgencyTask' + index);
   urgency.children[0].src = `img/${task.priority}.addTask.svg`;
 }
 
+
+/**
+ * 
+ * @param {*} index 
+ */
 function boardInitialsClassAdd(index) {
   let initials = getId('assignedUsers' + index);
   classList = 'classList' in initials;
@@ -111,6 +143,11 @@ function renderMoreBoardInitials(task, index) {
   }
 }
 
+
+/**
+ * 
+ * @param {opens the clicked task in fullview} externalId 
+ */
 function showFullView(externalId) {
   let task = allTasks.find((id) => id['specificId'] == externalId);
   let index = allTasks.indexOf(task);
@@ -126,6 +163,12 @@ function showFullView(externalId) {
   }
 }
 
+
+/**
+ * 
+ * @param {subtasks of the main task} subtasks 
+ * @param {actual index of the main task} index 
+ */
 function renderSubtasksSection(subtasks, index) {
   if (!subtasks.length == 0) {
     createSubtasksContainer(index);
@@ -133,6 +176,11 @@ function renderSubtasksSection(subtasks, index) {
   }
 }
 
+
+/**
+ * 
+ * @param {creating a container on the actual index} index 
+ */
 function createSubtasksContainer(index) {
   let subtasksFullCard = getId('subtasksFullCard' + index);
   subtasksFullCard.innerHTML = /*html*/ `
@@ -141,6 +189,11 @@ function createSubtasksContainer(index) {
   `;
 }
 
+
+/**
+ * 
+ * @param {actualtask which urgency has to be shown} task 
+ */
 function showUrgency(task) {
   let actualPrio = document.getElementById('showUrgency');
   actualPrio.innerHTML = /*html*/ `
@@ -153,6 +206,11 @@ function showUrgency(task) {
   styleUrgency(task);
 }
 
+
+/**
+ * 
+ * @param {*} task 
+ */
 function showContacts(task) {
   let assignedContacts = document.getElementById('assignedUser');
   assignedContacts.innerHTML = '';
