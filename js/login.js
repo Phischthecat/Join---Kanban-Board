@@ -38,10 +38,18 @@ async function checkAllUsers() {
   }
 }
 
-function logAllUsersOut() {
+async function initBoard() {
+  await init();
+  checkForResponsive();
+  checkForRemember();
+  logAllUsersOut();
+}
+
+async function logAllUsersOut() {
   users.forEach((user) => {
     user.logStatus = '';
   });
+  await backend.setItem('users', users);
 }
 
 /**
@@ -95,7 +103,7 @@ async function getRegistrated() {
     userName: getId('userName').value,
     password: getId('password').value,
     email: getId('email').value,
-    logStatus: 'loggedIn',
+    logStatus: '',
   };
   checkConditions();
   if (exists) {
