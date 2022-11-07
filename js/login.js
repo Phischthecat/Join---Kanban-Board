@@ -39,8 +39,10 @@ async function checkAllUsers() {
 async function initBoard() {
   await init();
   checkForResponsive();
-  checkForRemember();
-  logAllUsersOut();
+  if (users.length > 0) {
+    checkForRemember();
+    logAllUsersOut();
+  }
 }
 
 async function logAllUsersOut() {
@@ -116,17 +118,15 @@ async function getRegistrated() {
  * This functon is used to check if All Conditions are true
  */
 function checkConditions() {
-  if (users.length >= 0 && getId('userName') != '' && getId('password').value != '' && getId('email').value != '') {
-    exists = true;
-  } else {
+  if (users.length > 0) {
     users.forEach((user) => {
       let error = getId('errorMessage');
-      if (user.userName == getId('userName').value) {
-        error.innerHTML = '';
-        error.innerHTML += createErrorName();
+      if (user.userName != getId('userName').value && user.email != getId('email').value) {
+        exists = true;
+      } else if (user.userName == getId('userName')) {
+        error.innerHTML = createErrorName();
       } else if (user.email == getId('email').value) {
-        error.innerHTML = '';
-        error.innerHTML += createErrorEmail();
+        error.innerHTML = createErrorEmail();
       }
     });
   }
@@ -151,7 +151,6 @@ function backToLogin() {
  */
 function guestLogin() {
   setDefault();
-  logAllUsersOut();
   localStorage.removeItem('rememberMe');
   window.location.href = './summary.html';
 }
