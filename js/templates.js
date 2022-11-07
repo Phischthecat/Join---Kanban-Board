@@ -272,7 +272,7 @@ function editContact(i) {
  */
 function createErrorBoxLogin() {
   return /*html*/ `
-      <div class = "errorBox"><span><b>Invalid User or Password</b></span></div>
+      <div class="errorBox"><span><b>Invalid User or Password</b></span></div>
       `;
 }
 
@@ -282,7 +282,7 @@ function createErrorBoxLogin() {
  */
 function createErrorName() {
   return /*html*/ `
-      <div class = "errorBox"><span><b>This Username already exists</b></span></div>
+      <div class="errorBox"><span><b>This Username already exists</b></span></div>
   `;
 }
 
@@ -292,7 +292,7 @@ function createErrorName() {
  */
 function createErrorEmail() {
   return /*html*/ `
-    <div class = "errorBox"><span><b>This Email already exists</b></span></div>
+    <div class="errorBox"><span><b>This Email already exists</b></span></div>
   `;
 }
 

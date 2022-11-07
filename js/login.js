@@ -123,7 +123,7 @@ function checkConditions() {
       let error = getId('errorMessage');
       if (user.userName != getId('userName').value && user.email != getId('email').value) {
         exists = true;
-      } else if (user.userName == getId('userName')) {
+      } else if (user.userName == getId('userName').value) {
         error.innerHTML = createErrorName();
       } else if (user.email == getId('email').value) {
         error.innerHTML = createErrorEmail();
