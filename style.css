@@ -568,7 +568,7 @@ textarea {
 *
 **/
 .scrollBox {
-  height: 465px;
+  height: calc(100vh - 270px);
   overflow-y: auto;
 }
 

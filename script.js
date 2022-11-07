@@ -408,6 +408,7 @@ function showHelpSection() {
   getId('help').classList.remove('d-none');
   getId('questionMark').classList.add('d-none');
   getId('help').innerHTML = '';
+  document.querySelector(".mainContainer").style = 'overflow: hidden';
   getId('help').innerHTML += createHelpSection();
 }
 
@@ -415,6 +416,7 @@ function showHelpSection() {
  * close Help Section
  */
 function closeHelpSection() {
+  document.querySelector(".mainContainer").style = 'overflow: auto';
   getId('help').classList.add('d-none');
   getId('questionMark').classList.remove('d-none');
 }
