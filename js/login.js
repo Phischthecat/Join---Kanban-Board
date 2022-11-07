@@ -36,10 +36,18 @@ async function checkAllUsers() {
   }
 }
 
+async function initBoard() {
+  await init();
+  checkForResponsive();
+  checkForRemember();
+  logAllUsersOut();
+}
+
 async function logAllUsersOut() {
   users.forEach((user) => {
     user.logStatus = '';
   });
+  await backend.setItem('users', users);
 }
 
 /**
