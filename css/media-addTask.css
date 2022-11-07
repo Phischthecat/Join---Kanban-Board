@@ -117,6 +117,7 @@
   }
 
   .addTaskContainer {
+    padding-top: 100px;
     padding-bottom: 28px !important;
     padding-left: 25px !important;
     padding-right: 25px !important;

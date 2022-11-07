@@ -28,21 +28,8 @@ async function init() {
   users = (await backend.getItem('users')) || [];
   contacts = (await backend.getItem('contacts')) || [];
   categorys = (await backend.getItem('categorys')) || [];
-  // users = [];
-  // backend.setItem('users', users)
   includeHTML();
   checkIfUserIsLoggedIn();
-  // checkForResizingScreen();
-}
-
-function checkForResizingScreen() {
-  window.addEventListener('resize', () => {
-    if (window.innerWidth < 800) {
-      getId('imgResponsive').classList.remove('d-none');
-    } else {
-      getId('imgResponsive').classList.add('d-none');
-    }
-  });
 }
 
 async function includeHTML() {
@@ -408,7 +395,7 @@ function showHelpSection() {
   getId('help').classList.remove('d-none');
   getId('questionMark').classList.add('d-none');
   getId('help').innerHTML = '';
-  document.querySelector(".mainContainer").style = 'overflow: hidden';
+  document.querySelector('.mainContainer').style = 'overflow: hidden';
   getId('help').innerHTML += createHelpSection();
 }
 
@@ -416,7 +403,7 @@ function showHelpSection() {
  * close Help Section
  */
 function closeHelpSection() {
-  document.querySelector(".mainContainer").style = 'overflow: auto';
+  document.querySelector('.mainContainer').style = 'overflow: auto';
   getId('help').classList.add('d-none');
   getId('questionMark').classList.remove('d-none');
 }
