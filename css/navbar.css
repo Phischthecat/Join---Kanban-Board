@@ -77,13 +77,12 @@ nav ul li a {
   justify-content: center;
   align-items: center;
   color: white;
-  width: 130px;
-  height: 53px;
   border-radius: 20px 0px 20px 20px;
   background-color: var(--mainColorDarkBlue);
   position: absolute;
   right: 25px;
   top: 0;
+  padding: 15px;
 }
 
 .questionMark img {
@@ -168,6 +167,7 @@ nav ul li a {
 
   .logoutBox {
     cursor: pointer;
+    align-items: flex-start;
   }
 
   .logSpan {
@@ -226,7 +226,6 @@ nav ul li a {
     padding: 5px;
   }
 }
-
 
 @media (max-width: 300px) {
   .iconsNav {
