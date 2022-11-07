@@ -1,7 +1,6 @@
 let users = [];
 let loggedIn = true;
 let exists = false;
-let responsive = true;
 let actualLoggedUser;
 
 /**
@@ -30,16 +29,14 @@ async function checkAllUsers() {
     login();
   } else if (
     (getId('userName').value != '' &&
-      getId('password').value != '' &&
-      getId('password').value != name.password) ||
-    name != getId('userName')
+      getId('password').value != '')
   ) {
     showError();
     console.log(name);
   }
 }
 
-function logAllUsersOut() {
+async function logAllUsersOut() {
   users.forEach((user) => {
     user.logStatus = '';
   });
@@ -96,7 +93,7 @@ async function getRegistrated() {
     userName: getId('userName').value,
     password: getId('password').value,
     email: getId('email').value,
-    logStatus: 'loggedIn',
+    logStatus: '',
   };
   checkConditions();
   if (exists) {
@@ -111,12 +108,7 @@ async function getRegistrated() {
  * This functon is used to check if All Conditions are true
  */
 function checkConditions() {
-  if (
-    users.length >= 0 &&
-    getId('userName') != '' &&
-    getId('password').value != '' &&
-    getId('email').value != ''
-  ) {
+  if (users.length >= 0 && getId('userName') != '' && getId('password').value != '' && getId('email').value != '') {
     exists = true;
   } else {
     users.forEach((user) => {
@@ -180,10 +172,10 @@ async function checkForResponsive() {
 }
 
 function removeClass() {
-  if (window.innerWidth < 540 && responsive) {
+  if (window.innerWidth < 540) {
     getId('responsiveSpan').classList.remove('d-none');
     getId('responsiveBtn').classList.remove('d-none');
-  } else if (window.innerWidth > 540 && responsive) {
+  } else if (window.innerWidth > 540) {
     getId('responsiveSpan').classList.add('d-none');
     getId('responsiveBtn').classList.add('d-none');
   }
