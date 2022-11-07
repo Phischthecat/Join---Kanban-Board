@@ -25,19 +25,70 @@
     <script src="js/contact.js"></script>
   </head>
 
-  <body onload="initContact();">
+  <body class="hide-scrollbar" onload="initContact();">
     <div class="flex">
       <div id="taskBox"></div>
       <div id="messageToBoard" class="slide-in-bottom d-none">
         <span></span>
       </div>
 
-      <div>
-        <div w3-include-html="navbar.html" class="flex"></div>
-      </div>
+      <nav id="navbar">
+        <img src="img/joinlogo.svg" class="joinLogo" id="joinLogo" />
+        <div class="containerWithSections">
+          <ul id="navbarList">
+            <li id="summaryLi">
+              <a href="summary.html">
+                <img class="iconsNav" src="img/summary.svg" />
+                <span>Summary</span>
+              </a>
+            </li>
+            <li id="boardLi">
+              <a href="board.html">
+                <img class="iconsNav" src="img/board.navbar.svg" />
+                <span>Board</span>
+              </a>
+            </li>
+            <li id="addTaskLi">
+              <a href="addTask.html">
+                <img class="iconsNav" src="img/addtask.navbar.svg" />
+                <span>Add Task</span>
+              </a>
+            </li>
+            <li id="contactsLi" class="active">
+              <a href="contact.html">
+                <img class="iconsNav" src="img/contacts.navbar.svg" />
+                <span>Contacts</span>
+              </a>
+            </li>
+            <li class="legalNotice" onclick="showLegalNotice()">
+              <img src="img/legalNotice.svg" class="iconsNav" />
+              <span>Legal Notice</span>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       <div class="mainContainerContact">
-        <div w3-include-html="kanbanBar.html"></div>
+        <div class="kanbanBar">
+          <span class="subText">Kanban Project Management Tool</span>
+          <img id="imgResponsive" class="respoImg" src="img/joinlogo-black.svg"></img>
+          <div class="actualUser" id="actualUser">
+            <div class="circle">
+              <div class="questionMark">
+                <img onclick="showHelpSection()" src="img/questionMark.navbar.svg" id="questionMark" />
+              </div>
+              <img class="userImg" onclick="opportunityLogout()" src=" /img/actualuser.png" />
+            </div>
+          </div>
+        </div>
+        
+        <div class="logoutContainer">
+          <div class="logoutBox d-none" id="logoutBox">
+            <span onclick="logout()">Logout</span>
+            <span class="logSpan" onclick="showLegalNotice()">Legal Notice</span>
+            <span class="logSpan" onclick="showHelpSection()">Help</span>
+          </div>
+        </div>
 
         <!--Only for Mobile-->
         <div class="btnContainerMobile d-none">
@@ -52,7 +103,7 @@
         <!--Only for Mobile-->
 
         <div class="contactContainer">
-          <div id="contactList" class="contactList"></div>
+          <div id="contactList" class="contactList hide-scrollbar"></div>
           <div class="contactArea">
             <div>
               <div class="header">
