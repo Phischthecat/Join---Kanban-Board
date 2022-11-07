@@ -60,7 +60,7 @@ function deadlineChecker() {
       ', ' +
       date.getFullYear();
   } else {
-    deadlineDate.innerHTML = '';
+    deadlineDate.innerHTML = 'No tasks';
   }
 }
 

@@ -127,4 +127,3 @@ function getPriority(prio) {
     getId(prio).classList.add('lowBtn');
   }
 }
-
