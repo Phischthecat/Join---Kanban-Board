@@ -1,386 +1,380 @@
 /************************** Media Queries for Summary **************************/
 @media (max-width: 1240px) {
-    .greeting {
-        margin-left: 100px;
-    }
+  .greeting {
+    margin-left: 100px;
+  }
 }
 
 @media (max-width: 1190px) {
-    .greeting {
-        margin-left: 70px;
-    }
+  .greeting {
+    margin-left: 70px;
+  }
 }
 
 @media (max-width: 1160px) {
-    .greeting {
-        margin-left: 45px;
-        padding-left: unset;
-    }
+  .greeting {
+    margin-left: 45px;
+    padding-left: unset;
+  }
 }
 
 @media (max-width: 1135px) {
-    .summaryArea {
-        padding-left: 120px;
-    }
+  .summaryArea {
+    padding-left: 120px;
+  }
 }
 
 @media (max-width: 1115px) {
-    .summaryArea {
-        padding-left: 100px;
-    }
+  .summaryArea {
+    padding-left: 100px;
+  }
 }
 
 @media (max-width: 1100px) {
-    .summaryArea {
-        padding-left: 60px;
-        padding-top: 30px;
-        padding-bottom: 0;
-    }
+  .summaryArea {
+    padding-left: 60px;
+    padding-top: 30px;
+    padding-bottom: 0;
+  }
 
-    .headerSummaryMobile {
-        justify-content: center;
-    }
+  .overviewSummary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    .overviewSummary {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .greeting {
-        padding-top: 25px;
-    }
+  .greeting {
+    padding-top: 25px;
+  }
 }
 
 @media (max-width: 890px) {
-    .headlineSummaryMobile h1 {
-        font-size: 40px;
-    }
+  .headlineSummaryMobile h1 {
+    font-size: 40px;
+  }
 
-    .subheadline span {
-        font-size: 20px;
-    }
+  .subheadline span {
+    font-size: 20px;
+  }
 
-    #guest {
-        font-size: 25px;
-    }
+  #guest {
+    font-size: 25px;
+  }
 
-    .greeting {
-        padding-top: 35px;
-    }
+  .greeting {
+    padding-top: 35px;
+  }
 
-    .greeting span {
-        font-size: 28px;
-    }
+  .greeting span {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 800px) {
-    .respoImg {
-        display: flex;
-    }
+  .respoImg {
+    display: flex;
+  }
 
-    .blue-border {
-        border-right: unset;
-        padding-right: 30px;
-    }
+  .verticalLine hr {
+    display: flex;
+  }
 
-    .headerSummaryMobile {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 30px;
-        margin-bottom: 25px;
-        padding-right: 215px;
-    }
+  .blue-border {
+    border-right: unset;
+    padding-right: 30px;
+  }
 
-    .userImgResponsive {
-        width: 35px;
-        height: 35px;
-        border: 2px solid black;
-        border-radius: 100%;
-    }
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 0;
+    align-items: flex-start;
+  }
 
-    .overviewSummary {
-        padding-bottom: 120px;
-    }
+  .userImgResponsive {
+    width: 35px;
+    height: 35px;
+    border: 2px solid black;
+    border-radius: 100%;
+  }
 
-    .box {
-        width: 120px;
-        height: 120px;
-    }
+  .overviewSummary {
+    padding-bottom: 120px;
+  }
 
-    .nr {
-        font-size: 40px;
-    }
+  .box {
+    width: 120px;
+    height: 120px;
+  }
 
-    .longBox {
-        height: 80px;
-    }
+  .nr {
+    font-size: 40px;
+  }
 
-    .text {
-        margin-top: 5px;
-    }
+  .longBox {
+    height: 80px;
+  }
 
-    .thirdBox {
-        height: 80px;
-        width: 200px;
-    }
+  .text {
+    margin-top: 5px;
+  }
 
-    .todoAndDone {
-        width: 20px !important;
-        height: 20px !important;
-    }
+  .thirdBox {
+    height: 80px;
+    width: 200px;
+  }
 
-    .kanbanTextSummary {
-        display: flex;
-        padding-right: 10px;
-    }
+  .todoAndDone {
+    width: 20px !important;
+    height: 20px !important;
+  }
 
-    .headlineSummaryMobile h1 {
-        padding-top: 10px;
-        padding-bottom: 0;
-    }
+  .kanbanTextSummary {
+    display: flex;
+    padding-right: 10px;
+  }
 
-    .subheadlineSummaryMobile {
+  .headlineSummaryMobile h1 {
+    padding-top: 10px;
+    padding-bottom: 0;
+  }
+
+  /* .subheadlineSummaryMobile {
         border-left: 0;
         border-bottom: 4px solid var(--mainColorLightBlue);
         padding-bottom: 20px;
         margin-top: -15px;
-    }
+    } */
 
-    .summaryArea {
-        padding-top: 25px;
-    }
+  .summaryArea {
+    padding-top: 25px;
+  }
 
-    .subheadline span {
-        font-size: 20px;
-        padding-right: 28px;
-    }
+  .subheadline span {
+    font-size: 20px;
+    padding-right: 28px;
+  }
 }
 
 @media (max-width: 620px) {
-    .summaryArea {
-        padding-left: 40px;
-    }
+  .summaryArea {
+    padding-left: 40px;
+  }
 
-    .headerSummaryMobile {
-        padding-right: 125px;
-    }
+  .headerSummaryMobile {
+    padding-right: 125px;
+  }
 
-    .headlineSummaryMobile h1 {
-        font-size: 35px;
-    }
+  .headlineSummaryMobile h1 {
+    font-size: 35px;
+  }
 
-    .containerOverview {
-        width: 420px;
-    }
+  .containerOverview {
+    width: 420px;
+  }
 }
 
 @media (max-width: 540px) {
-    .blue-border {
-        padding-right: 10px;
-    }
+  .blue-border {
+    padding-right: 10px;
+  }
 
-    .summaryArea {
-        padding-top: 30px;
-    }
+  .summaryArea {
+    padding-top: 30px;
+  }
 
-    .headlineSummaryMobile h1 {
-        font-size: 30px;
-    }
+  .headlineSummaryMobile h1 {
+    font-size: 30px;
+  }
 
-    .subheadline span {
-        font-size: 18px;
-        padding-right: 40px;
-    }
+  .subheadline span {
+    font-size: 18px;
+    padding-right: 40px;
+  }
 }
 
 @media (max-width: 500px) {
-    #help {
-        padding: 0 25px 0 25px;
-    }
+  #help {
+    padding: 0 25px 0 25px;
+  }
 
-    .headline {
-        padding-bottom: 20px;
-    }
+  .scrollBoxLegalNotice {
+    height: calc(100vh - 190px);
+  }
 
-    .scrollBoxLegalNotice {
-        height: calc(100vh - 190px);
-    }
+  .headline h1 {
+    font-size: 40px;
+  }
 
-    .headline h1 {
-        font-size: 40px;
-    }
+  .headerSummaryMobile {
+    padding-right: 75px;
+  }
 
-    .headerSummaryMobile {
-        padding-right: 75px;
-    }
+  .box {
+    width: 90px;
+    height: 90px;
+  }
 
-    .box {
-        width: 90px;
-        height: 90px;
-    }
+  .nr {
+    font-size: 25px;
+  }
 
-    .nr {
-        font-size: 25px;
-    }
+  .longBox {
+    height: 70px;
+  }
 
-    .longBox {
-        height: 70px;
-    }
+  #dateOfDeadline {
+    font-size: 18px;
+  }
 
-    #dateOfDeadline {
-        font-size: 18px;
-    }
+  .thirdBox {
+    width: 160px;
+    height: 60px;
+  }
 
-    .thirdBox {
-        width: 160px;
-        height: 60px;
-    }
+  .todoAndDone {
+    width: 20px !important;
+    height: 20px !important;
+  }
 
-    .todoAndDone {
-        width: 20px !important;
-        height: 20px !important;
-    }
+  #toDo,
+  #done {
+    font-size: 25px;
+  }
 
-    #toDo,
-    #done {
-        font-size: 25px;
-    }
-
-    .containerOverview {
-        width: 360px;
-    }
+  .containerOverview {
+    width: 360px;
+  }
 }
 
 @media (max-width: 440px) {
-    .headerSummaryMobile {
-        width: 280px;
-        padding-left: 10px;
-    }
+  .overviewSummary,
+  .header {
+    align-items: center;
+  }
 
-    .summaryArea {
-        padding: 45px 0 0 0;
-    }
+  .summaryArea {
+    padding: 45px 0 0 0;
+  }
 
-    .kanbanTextSummary {
-        font-size: 14px;
-        padding-right: unset;
-    }
+  .kanbanTextSummary {
+    font-size: 14px;
+    padding-right: unset;
+  }
 
-    .headlineSummaryMobile {
-        font-size: 25px;
-        padding: unset;
-    }
+  .headlineSummaryMobile {
+    font-size: 25px;
+    padding: unset;
+  }
 
-    .subheadline span {
-        font-size: 15px;
-        padding-right: 15px;
-    }
+  .subheadline span {
+    font-size: 15px;
+    padding-right: 15px;
+  }
 
-    .containerOverview {
-        width: 300px;
-    }
+  .containerOverview {
+    width: 300px;
+  }
 
-    .box {
-        width: 80px;
-        height: 80px;
-    }
+  .box {
+    width: 80px;
+    height: 80px;
+  }
 
-    .nr {
-        font-size: 18px;
-    }
+  .nr {
+    font-size: 18px;
+  }
 
-    .text {
-        font-size: 12px;
-    }
+  .text {
+    font-size: 12px;
+  }
 
-    .longBox {
-        height: 60px;
-    }
+  .longBox {
+    height: 60px;
+  }
 
-    .thirdBox {
-        width: 140px;
-        height: 60px;
-    }
+  .thirdBox {
+    width: 140px;
+    height: 60px;
+  }
 
-    .todoAndDone {
-        width: 15px !important;
-        height: 15px !important;
-    }
+  .todoAndDone {
+    width: 15px !important;
+    height: 15px !important;
+  }
 }
 
 @media (max-width: 365px) {
-    .joinLogoSummary {
-        width: 30px;
-        height: 35px;
-    }
+  .joinLogoSummary {
+    width: 30px;
+    height: 35px;
+  }
 
-    .userImgResponsive {
-        width: 30px;
-        height: 30px;
-    }
+  .userImgResponsive {
+    width: 30px;
+    height: 30px;
+  }
 
-    .subheadline {
-        padding-right: 70px;
-    }
+  .subheadline {
+    padding-right: 70px;
+  }
 
-    .subheadline span {
-        padding-right: unset;
-    }
+  .subheadline span {
+    padding-right: unset;
+  }
 
-    .headerSummaryMobile {
-        width: 100%;
-        justify-content: unset;
-        padding-right: unset;
-    }
+  .headerSummaryMobile {
+    width: 100%;
+    justify-content: unset;
+    padding-right: unset;
+  }
 
-    #dateOfDeadline {
-        font-size: 12px;
-    }
+  #dateOfDeadline {
+    font-size: 12px;
+  }
 
-    .headlineSummaryMobile {
-        width: 270px;
-        padding-left: unset;
-    }
+  .headlineSummaryMobile {
+    width: 270px;
+    padding-left: unset;
+  }
 
-    .headlineSummaryMobile h1 {
-        font-size: 23px;
-    }
+  .headlineSummaryMobile h1 {
+    font-size: 23px;
+  }
 
-    .containerOverview {
-        width: 250px;
-    }
+  .containerOverview {
+    width: 250px;
+  }
 
-    .box {
-        width: 65px;
-        height: 65px;
-    }
+  .box {
+    width: 65px;
+    height: 65px;
+  }
 
-    .text {
-        font-size: 12px;
-    }
+  .text {
+    font-size: 12px;
+  }
 
-    .nr {
-        font-size: 20px;
-    }
+  .nr {
+    font-size: 20px;
+  }
 
-    .longBox img {
-        height: 25px;
-    }
+  .longBox img {
+    height: 25px;
+  }
 
-    .thirdBox {
-        width: 115px;
-    }
+  .thirdBox {
+    width: 115px;
+  }
 
-    .todoAndDone {
-        width: 10px !important;
-        height: 10px !important;
-    }
+  .todoAndDone {
+    width: 10px !important;
+    height: 10px !important;
+  }
 
-    .thirdBox span {
-        font-size: 12px;
-    }
+  .thirdBox span {
+    font-size: 12px;
+  }
 }
 
 /************************** Media Queries for Summary **************************/

@@ -111,18 +111,3 @@ function getPriority(prio) {
     getId(prio).classList.add('lowBtn');
   }
 }
-
-function allFilledUp() {
-  let category = document.querySelector('.item-text').innerHTML;
-  let categoryDefault = document.querySelector('.btn-text').innerHTML;
-  let assignedContacts = document.querySelectorAll('.checked');
-  if (
-    category == '' ||
-    categoryDefault == 'Choose category' ||
-    assignedContacts.length == 0
-  ) {
-    getId('create').disabled = true;
-  } else {
-    getId('create').disabled = false;
-  }
-}
