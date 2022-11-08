@@ -22,10 +22,11 @@
     <script src="http://www.w3schools.com/lib/w3data.js"></script>
     <script src="js/templates.js"></script>
     <script src="js/board.js"></script>
+    <script src="js/addTask.js"></script>
   </head>
 
-  <body onload="initTodos();">
-    <div id="taskBox"></div>
+  <body onload="initTodos();" class="hide-scrollbar">
+    <div id="taskBox" class="hide-scrollbar"></div>
     <div class="flex">
       <nav id="navbar">
         <img src="img/joinlogo.svg" class="joinLogo" id="joinLogo" />
@@ -86,7 +87,7 @@
         </div>
 
         <div class="boardContainer">
-          <div id="help"></div>
+          <div id="help" class="d-none" class="d-none"></div>
           <div class="align-center">
             <div class="headline headlineBoardMobile">
               <!--Only for Mobile-->

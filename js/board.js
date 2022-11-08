@@ -1,7 +1,7 @@
 let currentDraggedElement;
 
 /**
- * initialising board section 
+ * initialising board section
  */
 async function initTodos() {
   await init();
@@ -19,27 +19,25 @@ function updateHTML() {
   updateContainer('done');
 }
 
-
 /**
- * 
- * @param {id for dragging element} id 
+ *
+ * @param {id for dragging element} id
  */
 function startDragging(id) {
   currentDraggedElement = id;
 }
 
 /**
- * 
- * @param {changed the status of the element to draggable} ev 
+ *
+ * @param {changed the status of the element to draggable} ev
  */
 function allowDrop(ev) {
   ev.preventDefault();
 }
 
-
 /**
- * 
- * @param {the actual status of the current task} status 
+ *
+ * @param {the actual status of the current task} status
  */
 async function moveTo(status) {
   allTasks[currentDraggedElement]['status'] = status;
@@ -47,9 +45,8 @@ async function moveTo(status) {
   updateHTML();
 }
 
-
 /**
- * setting the drag and drop id 
+ * setting the drag and drop id
  */
 function setDragAndDropId() {
   for (let i = 0; i < allTasks.length; i++) {
@@ -57,10 +54,9 @@ function setDragAndDropId() {
   }
 }
 
-
 /**
- * 
- * @param {for setting the task into the actual container} container 
+ *
+ * @param {for setting the task into the actual container} container
  */
 function updateContainer(container) {
   let filteredTask = allTasks.filter((t) => t['status'] == container);
@@ -77,8 +73,8 @@ function updateContainer(container) {
 }
 
 /**
- * 
- * @param {actual Task which should be updated} index 
+ *
+ * @param {actual Task which should be updated} index
  */
 function updateProgressbar(index) {
   let subtasks = allTasks[index].subtasks,
@@ -97,10 +93,9 @@ function updateProgressbar(index) {
   }
 }
 
-
 /**
- * 
- * @param {setting the urgency img} index 
+ *
+ * @param {setting the urgency img} index
  */
 function taskUrgency(index) {
   let task = allTasks[index];
@@ -108,10 +103,9 @@ function taskUrgency(index) {
   urgency.children[0].src = `img/${task.priority}.addTask.svg`;
 }
 
-
 /**
- * 
- * @param {*} index 
+ *
+ * @param {*} index
  */
 function boardInitialsClassAdd(index) {
   let initials = getId('assignedUsers' + index);
@@ -143,15 +137,15 @@ function renderMoreBoardInitials(task, index) {
   }
 }
 
-
 /**
- * 
- * @param {opens the clicked task in fullview} externalId 
+ *
+ * @param {opens the clicked task in fullview} externalId
  */
 function showFullView(externalId) {
   let task = allTasks.find((id) => id['specificId'] == externalId);
   let index = allTasks.indexOf(task);
   let card = document.getElementById('taskBox');
+  responsiveBoard();
   card.innerHTML = '';
   card.classList.remove('d-none');
   card.innerHTML += createFullView(task, index);
@@ -163,11 +157,19 @@ function showFullView(externalId) {
   }
 }
 
+/**
+ * adding z-index to the kanbanbar in responsive
+ */
+function responsiveBoard() {
+  if (window.innerWidth < 800) {
+    document.querySelector('.kanbanBar').style.zIndex = '50';
+  }
+}
 
 /**
- * 
- * @param {subtasks of the main task} subtasks 
- * @param {actual index of the main task} index 
+ *
+ * @param {subtasks of the main task} subtasks
+ * @param {actual index of the main task} index
  */
 function renderSubtasksSection(subtasks, index) {
   if (!subtasks.length == 0) {
@@ -176,10 +178,9 @@ function renderSubtasksSection(subtasks, index) {
   }
 }
 
-
 /**
- * 
- * @param {creating a container on the actual index} index 
+ *
+ * @param {creating a container on the actual index} index
  */
 function createSubtasksContainer(index) {
   let subtasksFullCard = getId('subtasksFullCard' + index);
@@ -189,10 +190,9 @@ function createSubtasksContainer(index) {
   `;
 }
 
-
 /**
- * 
- * @param {actualtask which urgency has to be shown} task 
+ *
+ * @param {actualtask which urgency has to be shown} task
  */
 function showUrgency(task) {
   let actualPrio = document.getElementById('showUrgency');
@@ -206,10 +206,9 @@ function showUrgency(task) {
   styleUrgency(task);
 }
 
-
 /**
- * 
- * @param {*} task 
+ *
+ * @param {*} task
  */
 function showContacts(task) {
   let assignedContacts = document.getElementById('assignedUser');
@@ -240,6 +239,9 @@ function choosenContacts(task) {
       choosenContact.classList.add('checked');
     }
   });
+  if (choosenContacts.length > 0) {
+    getId('hiddenAssignedToInput').value = 's' + choosenContacts.length;
+  }
 }
 
 async function changeTask(specific) {
@@ -265,6 +267,7 @@ function styleUrgency(task) {
 async function closeFullView() {
   await backend.setItem('allTasks', allTasks);
   document.getElementById('taskBox').classList.add('d-none');
+  document.querySelector('.kanbanBar').style.zIndex = '1';
   updateHTML();
 }
 

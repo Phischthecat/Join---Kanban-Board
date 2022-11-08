@@ -59,12 +59,12 @@
         width: 45px;
     } */
 
-  .fullCard {
+  /* .fullCard {
     width: 100%;
     margin: 0;
     border-radius: 0;
     overflow: hidden;
-  }
+  } */
 
   .headerBoard {
     display: flex !important;
@@ -86,19 +86,6 @@
 
   .inputSearchMobile {
     display: flex !important;
-  }
-
-  .nameColumn span {
-    padding-left: 10px !important;
-  }
-
-  .nameColumn span {
-    padding-left: 10px !important;
-  }
-
-  .nameColumn img {
-    width: 25px !important;
-    height: 25px !important;
   }
 }
 

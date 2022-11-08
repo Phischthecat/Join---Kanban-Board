@@ -21,7 +21,7 @@
 }
 
 @media (max-width: 800px) {
-  .modalContainer {
+  .modalContainerAddTask {
     flex-direction: column;
     height: unset;
   }
@@ -56,7 +56,7 @@
     padding: unset;
     padding-top: 25px;
     background-color: white;
-    height: calc(100vh - 103px);
+    height: calc(100vh - 180px);
     overflow: scroll;
   }
 
@@ -88,7 +88,10 @@
     left: 0;
   }
 
-  .subText,
+  .subText {
+    display: none;
+  }
+
   .actualUser {
     display: none;
   }
@@ -117,10 +120,11 @@
   }
 
   .addTaskContainer {
-    padding-top: 100px;
-    padding-bottom: 28px !important;
     padding-left: 25px !important;
     padding-right: 25px !important;
+    height: calc(100vh - 265px);
+    overflow: auto;
+    margin-top: 75px;
   }
 
   .leftSplit,

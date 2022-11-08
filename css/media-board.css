@@ -11,6 +11,19 @@
     margin-bottom: 5%;
   }
 
+  .nameColumn {
+    width: 100% !important;
+  }
+
+  .nameColumn span {
+    padding-left: 10px !important;
+  }
+
+  .nameColumn img {
+    width: 25px !important;
+    height: 25px !important;
+  }
+
   .dragAndDropContainer {
     flex-direction: column;
     width: 100%;
@@ -44,8 +57,8 @@
     flex-direction: column;
   }
 
-  .kanbanBar {
-    z-index: 50 !important;
+  .modalContainer {
+    flex-direction: row;
   }
 
   .btn-blue {
@@ -72,13 +85,15 @@
 
   .actualUser {
     width: 40px !important;
-    margin-right: 25px !important;
-    display: block !important;
+    display: flex !important;
   }
+
+  /* .kanbanBar {
+    z-index: 50;
+  } */
 
   .footerFullCard {
     gap: 60px;
-    padding-right: 50px;
   }
 
   .bodyFullCard {
@@ -192,19 +207,6 @@
     max-height: 220px !important;
     min-height: 50px;
     padding-right: 0;
-  }
-
-  .nameColumn {
-    width: 100% !important;
-  }
-
-  .nameColumn span {
-    padding-left: 10px !important;
-  }
-
-  .nameColumn img {
-    width: 25px !important;
-    height: 25px !important;
   }
 }
 

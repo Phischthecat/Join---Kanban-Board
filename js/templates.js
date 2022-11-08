@@ -155,7 +155,7 @@ function createEditTask(task) {
                 <img src="img/low.addTask.svg" />
               </button>
             </div>
-          </div>
+          
                 
           <div class="container">
             <span class="text">Assigned to</span>
@@ -335,7 +335,7 @@ function createForgetPart() {
 
 function addTaskContainerHMTL() {
   return /*html*/ `
-    <div class="modalContainer slide-in-right" id="animation">
+    <div class="modalContainer modalContainerAddTask slide-in-right hide-scrollbar" id="animation">
       <div class="modalKanbanBar">
         <img id="imgResponsive" class="respoImg" src="img/joinlogo-black.svg">
       </div>
@@ -352,7 +352,7 @@ function addTaskContainerHMTL() {
 
           <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTask('toDo'); return false;">
                         <!--Header only for Mobile Add Task-->
-                        <button class="btn-blue btnCreate">
+                        <button type="submit" class="btn-blue btnCreate">
                   Create
                   <img src="img/ticked-off.svg" />
                 </button>
@@ -613,7 +613,8 @@ function createContact(contact, i) {
   return /* html */ `
   <div id="contactInfo${i}" class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${contact.color
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>
@@ -685,19 +686,7 @@ function createFullContact(i) {
 function createHelpSection() {
   return /*html*/ `
   <div class="flex">
-  <div>
-      <div w3-include-html="navbar.html" class="flex"></div>
-  </div>
-
-
-  <div class="mainContainer ">
-      <!--Header only for Mobile Summary-->
-      <!-- <header class="headerSummary hide">
-          <img src="img/joinlogo.png" class="joinLogoSummary" />
-      </header> -->
-
-
-      <div class="helpContainer">
+  <div class="helpContainer">
           <div class="headline flex flex-align-center">
               <h1>Help</h1>
 
@@ -787,45 +776,8 @@ function createHelpSection() {
 
   </div>
 
-
-  <!-- Navbar only for Mobile Summary-->
-  <!-- <nav class="navbarSummary">
-      <div class="containerWithSectionsSummary">
-          <ul>
-              <li>
-                  <a href="summary.html">
-                      <img class="iconsNavSummaryMobile" src="img/summary.svg">
-                      Summary
-                  </a>
-              </li>
-              <li>
-                  <a href="board.html">
-                      <img class="iconsNavSummaryMobile" src="img/board.navbar.svg">
-                      Board
-                  </a>
-              </li>
-              <li>
-                  <a href="addTask.html">
-                      <img class="iconsNavSummaryMobile" src="img/addtask.navbar.svg">
-                      Add Task
-                  </a>
-              </li>
-              <li>
-                  <a href="contact.html">
-                      <img class="iconsNavSummaryMobile" src="img/contacts.navbar.svg">
-                      Contacts
-                  </a>
-              </li>
-              <li>
-                  <a href="help.html"></a>
-              </li>
-          </ul>
-      </div>
-  </nav> -->
 </div>`;
 }
-
-
 
 /**
  * template for Legal Notice
@@ -839,7 +791,7 @@ function createLegalNotice() {
                   <img class="arrow" onclick="closeLegalNotice()" src="img/left-arrow.png">
               </div>
           </div>
-<div class="scrollBoxLegalNotice">
+<div class="scrollBox">
 
 
   <h1>Datenschutzerklärung</h1>
@@ -924,5 +876,5 @@ function createLegalNotice() {
 <br>rico.12345@web.de</p>
 <p><em>Die Datenschutzerklärung wurde mithilfe der activeMind AG erstellt, den Experten für <a href="https://www.activemind.de/datenschutz/datenschutzbeauftragter/" target="_blank" rel="noopener">externe Datenschutzbeauftragte</a> (Version #2020-09-30).</em></p>
 </div>
-`
+`;
 }

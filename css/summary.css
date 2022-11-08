@@ -168,8 +168,8 @@
 .greeting {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-left: 100px;
+  justify-content: center;
+  padding-left: 80px;
 }
 
 #guest {
@@ -179,11 +179,6 @@
 .nameOfUser {
   color: var(--mainColorLightBlue);
   font-size: 64px;
-}
-
-.summaryArea {
-  padding: 50px;
-  padding-left: 140px;
 }
 
 .headerSummary {

@@ -68,7 +68,6 @@ async function addTask(taskStatus) {
   clearFields();
 }
 
-
 /**
  * function for resetting all inputfields
  */
@@ -94,7 +93,6 @@ function userFeedback() {
   }, 2000);
 }
 
-
 /**
  * setting the animation for going to board
  */
@@ -103,27 +101,4 @@ function animateToBoard() {
     document.body.classList.add('slide-in-left');
     window.location.href = 'board.html';
   }, 1200);
-}
-
-
-/**
- * 
- * @param {the priority of the actual task} prio 
- */
-function getPriority(prio) {
-  if (prio == 'urgent') {
-    getId(prio).classList.add('urgentBtn');
-    getId('medium').classList.remove('mediumBtn');
-    getId('low').classList.remove('lowBtn');
-    urgency = prio;
-  } else if (prio == 'medium') {
-    getId('urgent').classList.remove('urgentBtn');
-    getId(prio).classList.add('mediumBtn');
-    getId('low').classList.remove('lowBtn');
-    urgency = prio;
-  } else if (prio == 'low') {
-    getId('urgent').classList.remove('urgentBtn');
-    getId('medium').classList.remove('mediumBtn');
-    getId(prio).classList.add('lowBtn');
-  }
 }

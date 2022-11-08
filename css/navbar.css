@@ -138,11 +138,6 @@ nav ul li a {
     display: none;
   }
 
-  .actualUser {
-    margin-right: unset;
-    width: unset;
-  }
-
   .circle {
     gap: 5px;
   }
@@ -241,10 +236,6 @@ nav ul li a {
 
   .containerWithSections {
     height: 80%;
-  }
-
-  .containerWithSections ul li {
-    padding: 5px;
   }
 }
 
