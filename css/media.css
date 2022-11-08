@@ -9,11 +9,6 @@
   .column {
     margin-bottom: 5%;
   }
-
-  .dragAndDropContainer {
-    flex-direction: column;
-    width: 100%;
-  }
 }
 
 @media (max-width: 1000px) {
@@ -39,6 +34,10 @@
 }
 
 @media (max-width: 800px) {
+  #messageToBoard {
+    bottom: 175px;
+  }
+
   .scrollBox {
     height: calc(100vh - 270px);
   }

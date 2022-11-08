@@ -196,12 +196,13 @@ function createEditTask(task) {
           </button>
         </div>
       </form> 
+</div>
   `;
 }
 
 function createNewContact() {
   return /*html*/ `
-    <div class="modalContainer slide-in-right" id="animation">
+    <div class="modalContainer modalContainerContacts slide-in-right" id="animation">
     <div class="boxContainer">
             <div class="overlayContainer">
                 <div class="overlayHeader">
@@ -235,7 +236,7 @@ function createNewContact() {
 function editContact(i) {
   const contact = contacts[i];
   return /*html*/ `
-    <div class="modalContainer slide-in-right" id="animation">
+    <div class="modalContainer modalContainerContacts slide-in-right" id="animation">
     <div class="boxContainer">
             <div class="overlayContainer">
                 <div class="overlayHeader">

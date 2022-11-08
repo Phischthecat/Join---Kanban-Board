@@ -111,15 +111,8 @@
     overflow: auto;
   }
 
-  .modalContainerContact {
-    position: absolute;
-    bottom: 95px;
-    z-index: 10;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  .modalContainerContacts {
+    align-items: unset;
   }
 
   .boxContent {
@@ -217,12 +210,13 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    height: 100%;
   }
 
   .overlayHeader {
     align-items: center;
-    width: 450px;
-    height: 280px;
+    width: 100%;
+    min-height: 280px;
     border-bottom-left-radius: unset !important;
     border-top-right-radius: 30px;
     padding: 0 !important;
@@ -282,8 +276,10 @@
   }
 
   .contactInputSection form {
-    margin-top: 55px;
-    height: 75% !important;
+    margin-top: 20px;
+    height: 250px;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 
   .contactBtnContainer {
@@ -308,6 +304,9 @@
 
   .boxContainer {
     width: unset;
+    position: absolute;
+    top: 75px;
+    bottom: 95px;
   }
 }
 

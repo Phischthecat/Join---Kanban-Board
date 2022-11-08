@@ -1,7 +1,8 @@
 .boardContainer {
-  padding-left: 75px;
-  padding-right: 75px;
-  padding-top: 75px;
+  padding: 45px;
+  padding-top: 25px;
+  position: relative;
+  top: 75px;
 }
 
 .align-center {
@@ -86,6 +87,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.kanbanBar {
+  position: fixed;
+  top: 0;
+  left: 190px;
+  right: 0;
 }
 
 .taskFooter {
