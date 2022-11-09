@@ -188,13 +188,15 @@ async function deleteContact(index) {
   getId('deleteContact').classList.add('d-none');
   getId('ContactView').innerHTML = '';
   initContact();
+  if (window.innerWidth < 800) {
+    closeContactBoxMobile();
+  }
 }
 
 function closeContactBoxMobile() {
   document.querySelector('.contactArea').classList.remove('slide-in-bottom');
   document.querySelector('.contactArea').classList.add('slide-out-bottom');
   removeActiveClass();
-  getId('contactView').innerHTML = '';
   setTimeout(() => {
     document.querySelector('.contactArea').style = 'display: none';
     document.querySelector('.contactArea').classList.remove('slide-out-bottom');

@@ -20,7 +20,7 @@
 
 #search {
   height: 50px;
-  background-image: url(/img/search.svg);
+  background-image: url(./img/search.svg);
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 215px;
@@ -76,7 +76,8 @@
 }
 
 .taskCard {
-  height: 150px;
+  min-height: 150px;
+  height: 100%;
   width: -webkit-fill-available;
   width: -moz-available;
   padding: 18px;
@@ -94,6 +95,7 @@
   top: 0;
   left: 190px;
   right: 0;
+  width: unset !important;
 }
 
 .taskFooter {
@@ -338,7 +340,7 @@
 .inputSearchMobile {
   height: 40px;
   width: 230px;
-  background-image: url('/img/search.svg');
+  background-image: url('./img/search.svg');
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 200px;

@@ -27,15 +27,11 @@ async function checkAllUsers() {
     getId('loginError').innerHTML = '';
     name.logStatus = 'loggedIn';
     login();
-  } else if (
-    (getId('userName').value != '' &&
-      getId('password').value != '')
-  ) {
+  } else if (getId('userName').value != '' && getId('password').value != '') {
     showError();
     console.log(name);
   }
 }
-
 
 /**
  * initialising the Login Section
@@ -49,9 +45,8 @@ async function initBoard() {
   }
 }
 
-
 /**
- * Function for logging out 
+ * Function for logging out
  */
 async function logAllUsersOut() {
   users.forEach((user) => {
@@ -61,12 +56,13 @@ async function logAllUsersOut() {
 }
 
 /**
- * showErrorMessage
+ * shows error message
  */
 function showError() {
-  getId('loginError').innerHTML = '';
-  getId('loginError').innerHTML += createErrorBoxLogin();
-  getId('password').value = '';
+  getId('loginError').style.opacity = '1';
+  setTimeout(() => {
+    getId('loginError').style.opacity = '0';
+  }, 2000);
 }
 
 /**
@@ -129,14 +125,25 @@ function checkConditions() {
   if (users.length > 0) {
     users.forEach((user) => {
       let error = getId('errorMessage');
-      if (user.userName != getId('userName').value && user.email != getId('email').value) {
+      if (
+        user.userName != getId('userName').value &&
+        user.email != getId('email').value
+      ) {
         exists = true;
       } else if (user.userName == getId('userName').value) {
         error.innerHTML = createErrorName();
+        setTimeout(() => {
+          error.innerHTML = '';
+        }, 2000);
       } else if (user.email == getId('email').value) {
         error.innerHTML = createErrorEmail();
+        setTimeout(() => {
+          error.innerHTML = '';
+        }, 2000);
       }
     });
+  } else {
+    exists = true;
   }
 }
 
@@ -173,7 +180,6 @@ function setDefault() {
   }
 }
 
-
 /**
  * shows the Section when you forget your password
  */
@@ -184,7 +190,6 @@ function openForgotPart() {
   content.innerHTML += createForgetPart();
 }
 
-
 /**
  * checking for responsivness
  */
@@ -193,7 +198,6 @@ async function checkForResponsive() {
     window.addEventListener('resize', removeClass());
   }, 200);
 }
-
 
 /**
  * function for the sign in span

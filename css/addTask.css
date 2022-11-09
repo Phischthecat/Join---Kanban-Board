@@ -47,6 +47,10 @@ input[type='date']::-webkit-calendar-picker-indicator {
   display: none;
 }
 
+#help {
+  z-index: 1;
+}
+
 .urgentBtn {
   background-color: var(--urgentColour) !important;
   color: white;

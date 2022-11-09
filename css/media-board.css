@@ -47,6 +47,22 @@
 }
 
 @media (max-width: 800px) {
+  #help {
+    top: 0 !important;
+    bottom: 41px !important;
+    z-index: 30;
+  }
+
+  .kanbanBar {
+    position: relative;
+    z-index: 99;
+    left: 0;
+  }
+
+  .boxContent {
+    height: calc(100vh - 200px) !important;
+  }
+
   .flexAddTaskMobile {
     flex-direction: column;
   }
@@ -101,12 +117,9 @@
     height: 45vh;
   }
 
-  .logoutContainer {
-    top: 75px;
-  }
-
   .logoutBox {
-    z-index: 30;
+    z-index: 28;
+    top: 75px !important;
   }
 
   .changedCard {

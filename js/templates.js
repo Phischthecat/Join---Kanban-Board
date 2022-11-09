@@ -18,7 +18,7 @@ function createTaskCard(index) {
     <div class="taskFooter">
       <div class="flex" id="assignedUsers${index}"></div>
       <div id="urgencyTask${index}">
-        <img/>
+      <img src="./img/${task.urgency}.addTask.svg">
       </div>
   </div>
   `;
@@ -36,7 +36,7 @@ function createFullView(task, index) {
             <span>${task.category.name}</span>
           </div>
           <div class="plus">
-            <img onclick="checkIfSubtasksDone(${index}); closeFullView()" src="img/secondary-plus.svg" />
+            <img onclick="checkIfSubtasksDone(${index}); closeFullView()" src="./img/secondary-plus.svg" />
           </div>
         </div>
         <div>
@@ -71,13 +71,20 @@ function createFullView(task, index) {
             class="editBtn btn-blue"
             onclick="renderEditTask(${task.specificId})"
           >
-            <img src="img/pencil.svg" />
+            <img src="./img/pencil.svg" />
           </button>
 
         </div>
       </div>
     </div>
     `;
+}
+
+function createGreeting() {
+  return /*html*/ `
+  <span>Good morning,</span>
+  <span id="loggedInUser" class="nameOfUser"></span>
+  `;
 }
 
 function createAssignedToFullCard(taskContact) {
@@ -104,7 +111,7 @@ function createEditTask(task) {
     <div class="flex changedCard"> 
       <div class="headerFullCard plus-end">
         <div class="plus ">
-          <img onclick="closeFullView()" src="img/secondary-plus.svg">
+          <img onclick="closeFullView()" src="./img/secondary-plus.svg">
         </div>
       </div>     
       <form class="flexColumn formStyle" onsubmit="changeTask(${task.specificId}); return false;">
@@ -136,11 +143,11 @@ function createEditTask(task) {
             <div class="priorityBox">
               <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
                 <p>Urgent</p>
-                <img src="img/urgent.addTask.svg" />
+                <img src="./img/urgent.addTask.svg" />
               </button>
               <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
                 <p>Medium</p>
-                <img src="img/medium.addTask.svg" />
+                <img src="./img/medium.addTask.svg" />
                 <div>
                   <input
                     type="text"
@@ -152,7 +159,7 @@ function createEditTask(task) {
               </button>
               <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
                 <p>Low</p>
-                <img src="img/low.addTask.svg" />
+                <img src="./img/low.addTask.svg" />
               </button>
             </div>
           
@@ -206,24 +213,26 @@ function createNewContact() {
     <div class="boxContainer">
             <div class="overlayContainer">
                 <div class="overlayHeader">
-                    <img src="img/joinlogo.svg">    
+                    <img src="./img/joinlogo.svg">    
                     <h1>Add contact</h1>
                     <span>Tasks are better with a team!</span>
-                    <hr>
+                    <div class="verticalLine">
+                  <hr />
+                </div>
                 </div>
                 <div class="addContactSection">
                         <div>
                             <img class="userIcon" src="./img/user.svg" alt="user">
                         </div>
                         <div class="contactInputSection">
-                            <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
+                            <img class="close cursor-pointer" src="./img/secondary-plus.svg" onclick="closeContactBox()">
                             <form id="newContactForm" onsubmit="checkIfInputEmpty(); return false;">
                             <input class="nameModal" id="newContactName" type="text" placeholder="Name">
                             <input class="emailModal" id="newContactEmail" type="email" placeholder="Email">
                             <input class="phoneModal" id="newContactPhone" type="tel" placeholder="Phone">
                             <div class="contactBtnContainer">
-                                <button type="button" class="btn-white btn-white-mobile" onclick="closeContactBox()">Cancel <img src="/img/secondary-plus.svg"></button>
-                                <button type="submit" class="btn-blue btn-blue-mobile" >Create Contact <img src="/img/ticked-off.svg"></button>
+                                <button type="button" class="btn-white btn-white-mobile" onclick="closeContactBox()">Cancel <img src="./img/secondary-plus.svg"></button>
+                                <button type="submit" class="btn-blue btn-blue-mobile" >Create Contact <img src="./img/ticked-off.svg"></button>
                             </div>
                             </form>
                 </div>
@@ -237,32 +246,35 @@ function editContact(i) {
   const contact = contacts[i];
   return /*html*/ `
     <div class="modalContainer modalContainerContacts slide-in-right" id="animation">
-    <div class="boxContainer">
-            <div class="overlayContainer">
-                <div class="overlayHeader">
-                    <img src="img/joinlogo.svg">    
-                    <h1>Edit contact</h1>
-                    <hr>
+      <div class="boxContainer">
+        <div class="overlayContainer">
+          <div class="overlayHeader">
+            <img src="./img/joinlogo.svg">    
+            <h1>Edit contact</h1>
+            <div class="verticalLine">
+                  <hr />
                 </div>
-                <div class="addContactSection">
-                    <div>
-                        <div id="editContactInitial" class="initialsFullContact initialCircle" style="background-color:#${contact.color}">
-                            ${contact.initial}
-                        </div>
-                    </div>
-                        <div class="contactInputSection">
-                            <img class="close cursor-pointer" src="/img/secondary-plus.svg" onclick="closeContactBox()">
-                            <form id="editContactForm" onsubmit="saveContact(${i}); return false;">
-                            <input class="nameModal" id="editContactName" type="text" value="${contact.name}">
-                            <input class="emailModal" id="editContactEmail" type="email" value="${contact.email}">
-                            <input class="phoneModal" id="editContactPhone" type="tel" value="${contact.phone}">
-                            <div class="editBtnContainer">
-                                <button type="submit" class="btn-blue" >Save</button>
-                            </div>
-                            </form>                            
-                </div>
+          </div>
+          <div class="addContactSection">
+            <div>
+              <div id="editContactInitial" class="initialsFullContact initialCircle userIcon" style="background-color:#${contact.color}">
+                  ${contact.initial}
+              </div>
             </div>
+            <div class="contactInputSection">
+              <img class="close cursor-pointer" src="./img/secondary-plus.svg" onclick="closeContactBox()">
+              <form id="editContactForm" onsubmit="saveContact(${i}); return false;">
+                <input class="nameModal" id="editContactName" type="text" value="${contact.name}" required>
+                <input class="emailModal" id="editContactEmail" type="email" value="${contact.email}" required>
+                <input class="phoneModal" id="editContactPhone" type="tel" value="${contact.phone}" required>
+                <div class="editBtnContainer">
+                  <button type="submit" class="btn-blue" >Save</button>
+                </div>
+              </form>                            
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     `;
 }
@@ -271,19 +283,9 @@ function editContact(i) {
  * This function returns a span which is used for an error message
  * @returns html part
  */
-function createErrorBoxLogin() {
-  return /*html*/ `
-      <div class="errorBox"><span><b>Invalid User or Password</b></span></div>
-      `;
-}
-
-/**
- * This function returns a span which is used for an error message
- * @returns html part
- */
 function createErrorName() {
   return /*html*/ `
-      <div class="errorBox"><span><b>This Username already exists</b></span></div>
+      <div class="errorBox"><span><b>Username already exists</b></span></div>
   `;
 }
 
@@ -293,12 +295,8 @@ function createErrorName() {
  */
 function createErrorEmail() {
   return /*html*/ `
-    <div class="errorBox"><span><b>This Email already exists</b></span></div>
+    <div class="errorBox"><span><b>Email already exists</b></span></div>
   `;
-}
-
-{
-  /* <h1>I forgot My Password</h1> */
 }
 
 function createForgetPart() {
@@ -308,7 +306,7 @@ function createForgetPart() {
         <div class="passwordContainer">
 
             <div class="arrowPassword">
-                <img src="img/left-arrow.png" class="cursor-pointer" onclick="backToLogin()" />
+                <img src="./img/left-arrow.png" class="cursor-pointer" onclick="backToLogin()" />
             </div>
 
             <div class="flex headBox flexColumn">
@@ -338,7 +336,7 @@ function addTaskContainerHMTL() {
   return /*html*/ `
     <div class="modalContainer modalContainerAddTask slide-in-right hide-scrollbar" id="animation">
       <div class="modalKanbanBar">
-        <img id="imgResponsive" class="respoImg" src="img/joinlogo-black.svg">
+        <img id="imgResponsive" class="respoImg" src="./img/joinlogo-black.svg">
       </div>
         <div class="boxContent">
         <div class="headline">
@@ -355,7 +353,7 @@ function addTaskContainerHMTL() {
                         <!--Header only for Mobile Add Task-->
                         <button type="submit" class="btn-blue btnCreate">
                   Create
-                  <img src="img/ticked-off.svg" />
+                  <img src="./img/ticked-off.svg" />
                 </button>
             <!--Header only for Mobile Add Task-->
           <div class="leftSplit">
@@ -438,12 +436,12 @@ function addTaskContainerHMTL() {
                   <div class="priorityBox">
                     <button type="button" class="statusButton" onclick="getPriority('urgent')" id="urgent">
                       <p>Urgent</p>
-                      <img src="img/urgent.addTask.svg" />
+                      <img src="./img/urgent.addTask.svg" />
                     </button>
 
                     <button type="button" class="statusButton" onclick="getPriority('medium')" id="medium">
                       <p>Medium</p>
-                      <img src="img/medium.addTask.svg" />
+                      <img src="./img/medium.addTask.svg" />
                       <div>
                         <input type="text" class="hiddenInput" id="hiddenUrgentInput" required />
                       </div>
@@ -451,7 +449,7 @@ function addTaskContainerHMTL() {
 
                     <button type="button" class="statusButton" onclick="getPriority('low')" id="low">
                       <p>Low</p>
-                      <img src="img/low.addTask.svg" />
+                      <img src="./img/low.addTask.svg" />
                     </button>
                   </div>
 
@@ -499,7 +497,7 @@ function addTaskContainerHMTL() {
           </form>
           <div id="messageToBoard" class="slide-in-bottom d-none">
             <span> Task added to Board </span>
-            <img src="img/board.navbar.svg" />
+            <img src="./img/board.navbar.svg" />
           </div>        
   </div>
 </div>
@@ -692,7 +690,7 @@ function createHelpSection() {
               <h1>Help</h1>
 
               <div>
-                  <img class="arrow" onclick="closeHelpSection()" src="img/left-arrow.png">
+                  <img class="arrow" onclick="closeHelpSection()" src="./img/left-arrow.png">
               </div>
           </div>
 
@@ -789,7 +787,7 @@ function createLegalNotice() {
               <h1>Legal Notice</h1>
 
               <div>
-                  <img class="arrow" onclick="closeLegalNotice()" src="img/left-arrow.png">
+                  <img class="arrow" onclick="closeLegalNotice()" src="./img/left-arrow.png">
               </div>
           </div>
 <div class="scrollBox">

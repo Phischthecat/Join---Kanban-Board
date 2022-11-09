@@ -51,6 +51,11 @@
 }
 
 @media (max-width: 800px) {
+  .kanbanBar {
+    position: relative;
+    z-index: 1;
+  }
+
   .respoImg {
     display: flex;
   }

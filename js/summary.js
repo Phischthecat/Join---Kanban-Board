@@ -1,29 +1,23 @@
 async function initTasks() {
   await init();
+  greetingMobile();
   quantityTasks();
   deadlineChecker();
-  greetingMobile();
-  setUser();
 }
 
 function greetingMobile() {
   if (window.innerWidth < 800) {
-    document
-      .querySelector('.greeting')
-      .classList.add('greetingMobile', 'fade-out');
+    getId('greeting').innerHTML = createGreeting();
+    let name = users.find((n) => n.logStatus == 'loggedIn');
+    if (name != undefined) {
+      getId('loggedInUser').innerHTML = `${name.userName}`;
+    }
+    getId('greeting').classList.add('greetingMobile', 'fade-out');
     setTimeout(() => {
-      document.querySelector('.greeting').style.display = 'none';
+      getId('greeting').style.display = 'none';
     }, 2000);
-  }
-}
-
-function setUser() {
-  let name = users.find((n) => n.logStatus == 'loggedIn');
-  if (name != undefined) {
-    getId('loggedInUser').innerHTML = `${name.userName}`;
   } else {
-    getId('guest').innerHTML = 'Good morning';
-    getId('loggedInUser').innerHTML = ``;
+    getId('greeting').innerHTML = 'Good morning';
   }
 }
 

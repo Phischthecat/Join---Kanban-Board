@@ -100,7 +100,7 @@ function updateProgressbar(index) {
 function taskUrgency(index) {
   let task = allTasks[index];
   let urgency = getId('urgencyTask' + index);
-  urgency.children[0].src = `img/${task.priority}.addTask.svg`;
+  urgency.children[0].src = `./img/${task.priority}.addTask.svg`;
 }
 
 /**
@@ -199,7 +199,7 @@ function showUrgency(task) {
   actualPrio.innerHTML = /*html*/ `
   <div class="fullviewUrgency" style="background-color: var(--${task.priority}Colour">
     <span>${task.priority}</span>
-    <img src="/img/${task.priority}.addTask.svg">
+    <img src="./img/${task.priority}.addTask.svg">
 
   </div>
     `;

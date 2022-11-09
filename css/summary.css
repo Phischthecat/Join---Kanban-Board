@@ -25,16 +25,6 @@
   display: flex;
 }
 
-.verticalLine hr {
-  margin-left: 0;
-  width: 100px;
-  height: 3px;
-  display: none;
-
-  border: none;
-  background-color: var(--mainColorLightBlue);
-}
-
 .containerOverview {
   display: flex;
   justify-content: space-between;

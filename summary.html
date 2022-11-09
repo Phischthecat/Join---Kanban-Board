@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="css/media.css" />
   <link rel="stylesheet" href="css/media-summary.css" />
-  <link rel="shortcut icon" href="img/joinlogo.svg" />
+  <link rel="shortcut icon" href="./img/joinlogo.svg" />
   <script src="js/mini_backend.js"></script>
   <script src="script.js"></script>
   <script src="js/templates.js"></script>
@@ -21,56 +21,56 @@
 
 <body onload="initTasks();">
   <div class="flex">
-    <div>
+    
       <nav id="navbar">
-        <img src="img/joinlogo.svg" class="joinLogo" id="joinLogo" />
         <div class="containerWithSections">
+        <img src="./img/joinlogo.svg" class="joinLogo" id="joinLogo" />
           <ul id="navbarList">
             <li id="summaryLi" class="active">
               <a href="summary.html">
-                <img class="iconsNav" src="img/summary.svg" />
+                <img class="iconsNav" src="./img/summary.svg" />
                 <span>Summary</span>
               </a>
             </li>
             <li id="boardLi">
               <a href="board.html">
-                <img class="iconsNav" src="img/board.navbar.svg" />
+                <img class="iconsNav" src="./img/board.navbar.svg" />
                 <span>Board</span>
               </a>
             </li>
             <li id="addTaskLi">
               <a href="addTask.html">
-                <img class="iconsNav" src="img/addtask.navbar.svg" />
+                <img class="iconsNav" src="./img/addtask.navbar.svg" />
                 <span>Add Task</span>
               </a>
             </li>
             <li id="contactsLi">
               <a href="contact.html">
-                <img class="iconsNav" src="img/contacts.navbar.svg" />
+                <img class="iconsNav" src="./img/contacts.navbar.svg" />
                 <span>Contacts</span>
               </a>
             </li>
-            <li class="legalNotice" onclick="showLegalNotice()">
-              <img src="img/legalNotice.svg" class="iconsNav">
-              <span>Legal Notice</span>
-            </li>
           </ul>
         </div>
+        <div class="legalNotice" onclick="showLegalNotice()">
+          <img src="./img/legalNotice.svg" class="iconsNav" />
+          <span>Legal Notice</span>
+        </div>
       </nav>
-    </div>
+  
 
 
     <div class="mainContainer hide-scrollbar">
 
       <div class="kanbanBar">
         <span class="subText">Kanban Project Management Tool</span>
-        <img id="imgResponsive" class="respoImg" src="img/joinlogo-black.svg"></img>
+        <img id="imgResponsive" class="respoImg" src="./img/joinlogo-black.svg"></img>
         <div class="actualUser" id="actualUser">
           <div class="circle">
-            <div class="questionMark">
-              <img onclick="showHelpSection()" src="img/questionMark.navbar.svg" id="questionMark" />
+            <div class="questionMark cursor-pointer">
+              <img onclick="showHelpSection()" src="./img/questionMark.navbar.svg" id="questionMark" />
             </div>
-            <img class="userImg" onclick="opportunityLogout()" src=" /img/actualuser.png" />
+            <img class="userImg" onclick="opportunityLogout()" src=" ./img/actualuser.png" />
           </div>
         </div>
       </div>
@@ -121,7 +121,7 @@
 
             <div class="longBox" onclick="gotToBoard()">
               <div class="urgentBox">
-                <img src="img/urgent.svg" />
+                <img src="./img/urgent.svg" />
                 <div class="urgent">
                   <span id="nrOfUrgent" class="nr"></span>
                   <span class="text">Urgent</span>
@@ -129,7 +129,7 @@
               </div>
 
               <div>
-                <img class="secondLine" src="img/line.svg" />
+                <img class="secondLine" src="./img/line.svg" />
               </div>
 
               <div class="upcomingDeadline">
@@ -140,7 +140,7 @@
 
             <div class="thirdBox">
               <div class="imgContainer">
-                <img class="todoAndDone" src="img/pencil.svg" />
+                <img class="todoAndDone" src="./img/pencil.svg" />
               </div>
               <div>
                 <span id="toDo" class="nr"></span>
@@ -150,7 +150,7 @@
 
             <div class="thirdBox" onclick="gotToBoard()">
               <div class="imgContainer">
-                <img class="todoAndDone" src="img/check.svg" />
+                <img class="todoAndDone" src="./img/check.svg" />
               </div>
               <div>
                 <span id="done" class="nr"></span>
@@ -159,10 +159,7 @@
             </div>
           </div>
 
-          <div class="greeting">
-            <span id="guest">Good morning,</span>
-            <span id="loggedInUser" class="nameOfUser"></span>
-          </div>
+          <div id="greeting" class="greeting"></div>
         </div>
       </div>
     </div>

@@ -99,6 +99,10 @@
 }
 
 @media (max-width: 800px) {
+  #messageToBoard {
+    bottom: 130px;
+  }
+
   .contactArea {
     display: none;
     position: absolute;
@@ -109,6 +113,10 @@
     background: #fff;
     z-index: 8;
     overflow: auto;
+  }
+
+  .verticalLine hr {
+    display: block;
   }
 
   .modalContainerContacts {
@@ -216,7 +224,9 @@
   .overlayHeader {
     align-items: center;
     width: 100%;
-    min-height: 280px;
+    min-height: 190px;
+    max-height: 280px;
+    height: 100%;
     border-bottom-left-radius: unset !important;
     border-top-right-radius: 30px;
     padding: 0 !important;
@@ -225,6 +235,10 @@
   .overlayHeader h1 {
     font-size: 40px !important;
   }
+
+  /* #editContactInitial {
+    margin-top: -30px;
+  } */
 
   .closeMobile {
     display: block;
@@ -240,8 +254,6 @@
   }
 
   .overlayHeader hr {
-    margin-left: 110px !important;
-    margin-top: 15px;
     width: 100px;
   }
 
@@ -253,31 +265,31 @@
 
   .contactInputSection {
     width: 400px !important;
-    height: 350px !important;
   }
 
   .nameModal {
-    background: url(/img/name.svg) no-repeat 365px center !important;
+    background: url('./img/name.svg') no-repeat 365px center !important;
     background-size: 12px !important;
   }
 
   .emailModal {
-    background: url(/img/email.svg) no-repeat 365px center !important;
+    background: url('./img/email.svg') no-repeat 365px center !important;
     background-size: 12px !important;
   }
 
   .phoneModal {
-    background: url(/img/phone.svg) no-repeat 365px center !important;
+    background: url('./img/phone.svg') no-repeat 365px center !important;
     background-size: 12px !important;
   }
 
   .userIcon {
-    margin: -50px;
+    height: 90px;
+    width: 90px;
+    margin-top: -60px;
   }
 
   .contactInputSection form {
-    margin-top: 20px;
-    height: 250px;
+    justify-content: unset;
     padding: 0 20px;
     box-sizing: border-box;
   }
@@ -344,30 +356,22 @@
     width: 350px !important;
   }
 
-  .overlayHeader hr {
-    margin-left: 58px !important;
-  }
-
-  .userIcon {
-    left: 115px;
-  }
-
   .contactInputSection {
     width: 300px !important;
   }
 
   .nameModal {
-    background: url(/img/name.svg) no-repeat 265px center !important;
+    background: url('./img/name.svg') no-repeat 265px center !important;
     background-size: 12px !important;
   }
 
   .emailModal {
-    background: url(/img/name.svg) no-repeat 265px center !important;
+    background: url('./img/email.svg') no-repeat 265px center !important;
     background-size: 12px !important;
   }
 
   .phoneModal {
-    background: url(/img/name.svg) no-repeat 265px center !important;
+    background: url('./img/phone.svg') no-repeat 265px center !important;
     background-size: 12px !important;
   }
 }
@@ -443,32 +447,22 @@
     font-size: 12px;
   }
 
-  .overlayHeader hr {
-    margin-left: 47px !important;
-  }
-
-  .userIcon {
-    height: 110px !important;
-    width: 110px !important;
-    left: 83px !important;
-  }
-
   .contactInputSection {
     width: 230px !important;
   }
 
   .nameModal {
-    background: url(/img/name.svg) no-repeat 200px center !important;
+    background: url('./img/name.svg') no-repeat 200px center !important;
     background-size: 200px !important;
   }
 
   .emailModal {
-    background: url(/img/name.svg) no-repeat 200px center !important;
+    background: url('./img/eail.svg') no-repeat 200px center !important;
     background-size: 200px !important;
   }
 
   .phoneModal {
-    background: url(/img/name.svg) no-repeat 200px center !important;
+    background: url('./img/phone.svg') no-repeat 200px center !important;
     background-size: 200px !important;
   }
 
@@ -540,16 +534,6 @@
   .overlayHeader span {
     font-size: 11px;
     padding-right: 22px;
-  }
-
-  .overlayHeader hr {
-    margin-left: 35px !important;
-  }
-
-  .userIcon {
-    height: 100px !important;
-    width: 100px !important;
-    left: 65px !important;
   }
 
   .contactInputSection {

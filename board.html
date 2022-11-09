@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/navbar.css" />
     <link rel="stylesheet" href="css/addTask.css" />
     <link rel="stylesheet" href="css/media-addTask.css" />
-    <link rel="shortcut icon" href="img/joinlogo.svg" />
+    <link rel="shortcut icon" href="./img/joinlogo.svg" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -29,51 +29,51 @@
     <div id="taskBox" class="hide-scrollbar"></div>
     <div class="flex">
       <nav id="navbar">
-        <img src="img/joinlogo.svg" class="joinLogo" id="joinLogo" />
         <div class="containerWithSections">
+        <img src="./img/joinlogo.svg" class="joinLogo" id="joinLogo" />
           <ul id="navbarList">
             <li id="summaryLi">
               <a href="summary.html">
-                <img class="iconsNav" src="img/summary.svg" />
+                <img class="iconsNav" src="./img/summary.svg" />
                 <span>Summary</span>
               </a>
             </li>
-            <li id="boardLi" class="active">
+            <li id="boardLi"  class="active">
               <a href="board.html">
-                <img class="iconsNav" src="img/board.navbar.svg" />
+                <img class="iconsNav" src="./img/board.navbar.svg" />
                 <span>Board</span>
               </a>
             </li>
             <li id="addTaskLi">
               <a href="addTask.html">
-                <img class="iconsNav" src="img/addtask.navbar.svg" />
+                <img class="iconsNav" src="./img/addtask.navbar.svg" />
                 <span>Add Task</span>
               </a>
             </li>
             <li id="contactsLi">
               <a href="contact.html">
-                <img class="iconsNav" src="img/contacts.navbar.svg" />
+                <img class="iconsNav" src="./img/contacts.navbar.svg" />
                 <span>Contacts</span>
               </a>
             </li>
-            <li class="legalNotice" onclick="showLegalNotice()">
-              <img src="img/legalNotice.svg" class="iconsNav" />
-              <span>Legal Notice</span>
-            </li>
           </ul>
+        </div>
+        <div class="legalNotice" onclick="showLegalNotice()">
+          <img src="./img/legalNotice.svg" class="iconsNav" />
+          <span>Legal Notice</span>
         </div>
       </nav>
 
       <div class="mainContainer">
         <div class="kanbanBar">
           <span class="subText">Kanban Project Management Tool</span>
-          <img id="imgResponsive" class="respoImg" src="img/joinlogo-black.svg"></img>
+          <img id="imgResponsive" class="respoImg" src="./img/joinlogo-black.svg"></img>
           <div class="actualUser" id="actualUser">
             <div class="circle">
-              <div class="questionMark">
-                <img onclick="showHelpSection()" src="img/questionMark.navbar.svg" id="questionMark" />
+              <div class="questionMark cursor-pointer">
+                <img onclick="showHelpSection()" src="./img/questionMark.navbar.svg" id="questionMark" />
               </div>
-              <img class="userImg" onclick="opportunityLogout()" src=" /img/actualuser.png" />
+              <img class="userImg" onclick="opportunityLogout()" src=" ./img/actualuser.png" />
             </div>
           </div>
         </div>
@@ -97,7 +97,7 @@
               <!--Only for Mobile-->
               <img
                 class="plusImgMobile d-none"
-                src="img/plus.btn.svg"
+                src="./img/plus.btn.svg"
                 onclick="openTaskBox()"
               />
               <h1>Board</h1>
@@ -129,7 +129,7 @@
                 <span>To do</span>
                 <img
                   class="cursor-pointer"
-                  src="img/plus.btn.svg"
+                  src="./img/plus.btn.svg"
                   onclick="openTaskBox('toDo')"
                 />
               </div>
@@ -148,7 +148,7 @@
                 <span>In Progress</span>
                 <img
                   class="cursor-pointer"
-                  src="img/plus.btn.svg"
+                  src="./img/plus.btn.svg"
                   onclick="openTaskBox('inProgress')"
                 />
               </div>
@@ -167,7 +167,7 @@
                 <span>Awaiting Feedback</span>
                 <img
                   class="cursor-pointer"
-                  src="img/plus.btn.svg"
+                  src="./img/plus.btn.svg"
                   onclick="openTaskBox('awaitingFeedback')"
                 />
               </div>
@@ -186,7 +186,7 @@
                 <span>Done</span>
                 <img
                   class="cursor-pointer"
-                  src="img/plus.btn.svg"
+                  src="./img/plus.btn.svg"
                   onclick="openTaskBox('done')"
                 />
               </div>
