@@ -22,6 +22,10 @@ let categoryIndex;
 let checkedContactsList = [];
 let addTaskSubtasks = [];
 
+
+/**
+ * loading all data from backend
+ */
 async function init() {
   await downloadFromServer();
   allTasks = (await backend.getItem('allTasks')) || [];
@@ -32,6 +36,10 @@ async function init() {
   checkIfUserIsLoggedIn();
 }
 
+
+/**
+ * w3 include function to use html snippets
+ */
 async function includeHTML() {
   let includeElements = document.querySelectorAll('[w3-include-html]'); //////// Greift bzw. fragt nach allen Elemente mit "w3-include-html".  ////////
   for (let i = 0; i < includeElements.length; i++) {
@@ -47,6 +55,10 @@ async function includeHTML() {
   }
 }
 
+
+/**
+ * function for setting duedate on todays date
+ */
 function setDueDateOnToday() {
   let date = document.getElementById('taskDueDate');
   today = new Date();
@@ -64,6 +76,10 @@ function setDueDateOnToday() {
     });
 }
 
+
+/**
+ * opening Taskbox
+ */
 function openTaskBox() {
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL();
@@ -72,6 +88,12 @@ function openTaskBox() {
   slideAnimation(box);
 }
 
+
+/**
+ * 
+ * function for creating a slide animation
+ * @param {actualConatiner} box 
+ */
 function slideAnimation(box) {
   setTimeout(() => {
     getId('animation').classList.toggle('slide-in-right');
@@ -81,17 +103,10 @@ function slideAnimation(box) {
   }, 200);
 }
 
-// function setResponsiveDesign() {
-//   if (window.innerWidth > 800) {
-//     getId('buttonContainer').classList.remove('d-none');
-//     getId('kanbanTextBoard').style = 'display: flex !important';
-//   } else {
-//     getId('actualUser').innerHTML = '';
-//     getId('kanbanTextBoard').style = 'display: none !important';
-//     getId('buttonContainer').classList.add('d-none');
-//   }
-// }
 
+/**
+ * function for closing a taskbox
+ */
 function closeTaskBox() {
   let taskBoxContainer = document.getElementById('animation');
   let taskBox = document.getElementById('taskBox');
@@ -104,6 +119,13 @@ function closeTaskBox() {
   }, 1000);
 }
 
+
+/**
+ * 
+ * opening a contactBox
+ * @param {function} fct 
+ * @param {used Contact} contact 
+ */
 async function openContactBox(fct, contact) {
   document.body.style.overflow = 'hidden';
   setTimeout(() => {
@@ -120,6 +142,10 @@ async function openContactBox(fct, contact) {
   }
 }
 
+
+/**
+ * closing a contact Box
+ */
 function closeContactBox() {
   document.getElementById('animation').classList.toggle('slide-out-right');
   setTimeout(() => {
@@ -127,6 +153,11 @@ function closeContactBox() {
   }, 1000);
 }
 
+
+/**
+ * 
+ * @returns all users that are selected in the assigned to section
+ */
 function filterAssignedContacts() {
   let assignedToContacts = [];
   let checkedContacts = document.querySelectorAll('.checked');
@@ -151,6 +182,10 @@ function checkIfUserIsLoggedIn() {
   }
 }
 
+
+/**
+ * function to forward only to board
+ */
 function gotToBoard() {
   window.location.href = 'board.html';
 }
@@ -164,6 +199,10 @@ function getId(theId) {
   return document.getElementById(theId);
 }
 
+
+/**
+ * rendering assigned contacts in a template
+ */
 async function renderAssignedToContacts() {
   let contactSelection = getId('assignedToList');
   contactSelection.innerHTML = '';
@@ -172,11 +211,23 @@ async function renderAssignedToContacts() {
   }
 }
 
+
+/**
+ * 
+ * opening dropdown menu to assign contacts
+ * @param {id of task} id 
+ */
 function openDropdownMenu(id) {
   getId('selectBtn' + id).classList.toggle('open');
   getId('assignedToContacts').classList.toggle('d-none');
 }
 
+
+/**
+ * 
+ * showing selectbox checked or not checked and html 5 formvalidation
+ * @param {name of contacts} name 
+ */
 function checked(name) {
   getId(name).classList.toggle('checked');
   let checkedContacts = document.querySelectorAll('.checked'),
@@ -191,6 +242,13 @@ function checked(name) {
   renderAssignedContactInitials(checkedContacts, 'assignedToContacts');
 }
 
+
+/**
+ * 
+ * rendering all selected contacts in a container
+ * @param {all contacts that are selected} checkedContacts 
+ * @param {id of actual contact} id 
+ */
 function renderAssignedContactInitials(checkedContacts, id) {
   let assignedContacts = getId(id);
   assignedContacts.innerHTML = '';
@@ -205,12 +263,22 @@ function renderAssignedContactInitials(checkedContacts, id) {
   }
 }
 
+
+/**
+ * 
+ * @param {contact for the initials} contact 
+ * @returns styling the circle with the initials
+ */
 function createAssignedContactInitials(contact) {
   return /*html*/ `
     <div class="initials initialCircle" style="background-color:#${contact.color}">${contact.initial}</div>
     `;
 }
 
+
+/**
+ * rendering all categorys in a container
+ */
 function renderCategorys() {
   let categoryList = getId('categoryList');
   categoryList.innerHTML = createCategoryDefault();
@@ -219,6 +287,11 @@ function renderCategorys() {
   }
 }
 
+/**
+ * 
+ * rendering all selected categorys
+ * @param {index} i 
+ */
 function renderChoosenCategory(i) {
   categoryIndex = i;
   const category = categorys[i];
@@ -227,17 +300,29 @@ function renderChoosenCategory(i) {
   renderCategorys();
 }
 
+
+/**
+ * function for adding a new category in a template
+ */
 function addNewCategory() {
   let newCategory = getId('categorySelect');
   newCategory.innerHTML = createInputForNewCategory();
   renderNewCategoryColors();
 }
 
+
+/**
+ * cancelling creating new category
+ */
 function cancelNewCategory() {
   renderCategorySelection();
   renderCategorys();
 }
 
+
+/**
+ * function or rendering colors of categorys
+ */
 function renderNewCategoryColors() {
   let colorContainer = getId('categoryColorContainer');
   colorContainer.innerHTML = '';
@@ -246,6 +331,12 @@ function renderNewCategoryColors() {
   }
 }
 
+
+/**
+ * 
+ * setting the color that is used
+ * @param {id of color } colorId 
+ */
 function categoryColorChoose(colorId) {
   let colorBubbles = document.querySelectorAll('.colorBubble');
   colorBubbles.forEach((colorBubble) => {
@@ -255,16 +346,31 @@ function categoryColorChoose(colorId) {
   choosenColor = categoryColors[colorId];
 }
 
+
+/**
+ * rendering the category section in atemplate
+ */
 function renderCategorySelection() {
   let categorySelection = getId('categorySelect');
   categorySelection.innerHTML = createCategorySelection();
 }
 
+
+/**
+ * 
+ * rendering all selected categorys
+ * @param {value} input 
+ * @param {index} index 
+ */
 function renderSelectedCategory(input, index) {
   let categorySelection = getId('categorySelect');
   categorySelection.innerHTML = createSelectedCategory(input, index);
 }
 
+
+/**
+ * saving a created category in backend
+ */
 async function saveNewCategory() {
   let input = document.querySelector('.newCategoryInput').value;
   categorys.push({
@@ -277,6 +383,12 @@ async function saveNewCategory() {
   renderCategorys();
 }
 
+
+/**
+ * 
+ * setting urgency backgroundcolor
+ * @param {priority that is selected} prio 
+ */
 function getPriority(prio) {
   if (prio == 'urgent') {
     getId(prio).classList.add('urgentBtn');
@@ -295,6 +407,10 @@ function getPriority(prio) {
   getId('hiddenUrgentInput').value = prio;
 }
 
+
+/**
+ * rendering subtask section in a template
+ */
 function renderSubtaskSection() {
   let subtasksIcons = getId('substasksIcons');
   document.querySelector('.newSubtasksInput').value = '';
@@ -305,11 +421,19 @@ function renderSubtaskSection() {
   `;
 }
 
+
+/**
+ * cancelling creating a subtask
+ */
 function cancelNewSubtasks() {
   renderSubtaskSection();
   addTaskSubtasks = [];
 }
 
+
+/**
+ * saving subtask
+ */
 function saveNewSubtasks() {
   let input = document.querySelector('.newSubtasksInput').value.trim();
   if (!addTaskSubtasks.find((n) => n.description == input) && input) {
@@ -322,27 +446,30 @@ function saveNewSubtasks() {
   renderSubtaskSection();
 }
 
+
+/**
+ * 
+ * showing all selected subtasks
+ * @param {id of task} id 
+ * @param {array of subtasks} arr 
+ */
 function createSubtasksSection(id, arr) {
   let subtasksContainer = getId(id);
   subtasksContainer.innerHTML = '';
   for (let i = 0; i < arr.length; i++) {
     const subtask = arr[i];
     if (subtask.checked == true) {
-      subtasksContainer.innerHTML += /*html*/ `
-    <div class="subtask">
-      <input type="checkbox" id="sub${i}" checked>${subtask.description}
-    </div>
-    `;
+      subtasksContainer.innerHTML += createSubtasksChecked(i);
     } else {
-      subtasksContainer.innerHTML += /*html*/ `
-      <div class="subtask">
-        <input type="checkbox" id="sub${i}">${subtask.description}
-      </div>
-      `;
+      subtasksContainer.innerHTML += createSubtasksUnchecked(i);
     }
   }
 }
 
+
+/**
+ * function that changes the subtasks icon when a subtask 
+ */
 function changeSubTasksIcons() {
   let subtasksIcons = getId('substasksIcons');
   subtasksIcons.innerHTML = /*html*/ `

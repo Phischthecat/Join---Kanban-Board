@@ -17,14 +17,30 @@
     padding-bottom: 0;
   }
 
-  .overviewSummary {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .greeting {
     padding-top: 25px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .box {
+    height: 150px;
+    width: 150px;
+  }
+
+  .thirdBox {
+    width: 235px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .box {
+    height: 120px;
+    width: 120px;
+  }
+
+  .thirdBox {
+    width: 200px;
   }
 }
 
@@ -41,12 +57,27 @@
     font-size: 25px;
   }
 
+  .nr {
+    font-size: 35px;
+  }
+
   .greeting {
     padding-top: 35px;
   }
 
   .greeting span {
     font-size: 28px;
+  }
+}
+
+@media (max-width: 840px) {
+  .box {
+    height: 110px;
+    width: 110px;
+  }
+
+  .thirdBox {
+    width: 160px;
   }
 }
 
@@ -229,13 +260,12 @@
     padding: 0 25px 0 25px;
   }
 
-  .overviewSummary,
-  .header {
+  .overviewSummary {
     align-items: center;
   }
 
   .summaryArea {
-    padding: 45px 0 0 0;
+    padding: 45px 0 0 45px;
   }
 
   .kanbanTextSummary {
@@ -290,6 +320,10 @@
 }
 
 @media (max-width: 365px) {
+  .summaryArea {
+    padding: 45px 0 0 25px;
+  }
+
   .joinLogoSummary {
     width: 30px;
     height: 35px;

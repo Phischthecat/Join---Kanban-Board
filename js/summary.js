@@ -1,3 +1,6 @@
+/**
+ * main function for summary section
+ */
 async function initTasks() {
   await init();
   greetingMobile();
@@ -5,6 +8,10 @@ async function initTasks() {
   deadlineChecker();
 }
 
+
+/**
+ * function that shows a greeting message for the logged User
+ */
 function greetingMobile() {
   if (window.innerWidth < 800) {
     getId('greeting').innerHTML = createGreeting();
@@ -21,6 +28,10 @@ function greetingMobile() {
   }
 }
 
+
+/**
+ * function that filters all tasks by theier status for the respectively container
+ */
 function quantityTasks() {
   let todo = allTasks.filter((a) => a['status'] == 'toDo');
   let inProgress = allTasks.filter((a) => a['status'] == 'inProgress');
@@ -32,6 +43,14 @@ function quantityTasks() {
   setQuantity(todo, inProgress, awaitingFeedback, done, urgent);
 }
 
+/**
+ * 
+ * @param {container where the tasks should be rendered} todo 
+ * @param {container where the tasks should be rendered} inProgress 
+ * @param {container where the tasks should be rendered} awaitingFeedback 
+ * @param {container where the tasks should be rendered} done 
+ * @param {urgentContainer} urgent 
+ */
 function setQuantity(todo, inProgress, awaitingFeedback, done, urgent) {
   getId('tasksInBoard').innerHTML = allTasks.length;
   getId('toDo').innerHTML = todo.length;
@@ -41,6 +60,10 @@ function setQuantity(todo, inProgress, awaitingFeedback, done, urgent) {
   getId('nrOfUrgent').innerHTML = urgent.length;
 }
 
+
+/**
+ * checking the nearest coming deadline off allTasks
+ */
 function deadlineChecker() {
   let deadlineDate = getId('dateOfDeadline');
   if (allTasks.length > 0) {
@@ -58,6 +81,11 @@ function deadlineChecker() {
   }
 }
 
+
+/**
+ * 
+ * @returns  a minimum date
+ */
 function findingMinimumDate() {
   if (allTasks.length > 0) {
     let min = convertTimetoTimestamp(allTasks[0].dueDate);
@@ -71,11 +99,23 @@ function findingMinimumDate() {
   }
 }
 
+
+/**
+ * 
+ * @param {date which has to be converted into a timestamp} date 
+ * @returns 
+ */
 function convertTimetoTimestamp(date) {
   let newDate = new Date(date);
   return newDate.getTime();
 }
 
+
+/**
+ * 
+ * @param {minimum date that will be converted into a string} allTasksDatesMinimum 
+ * @returns 
+ */
 function convertTimetoString(allTasksDatesMinimum) {
   return new Date(allTasksDatesMinimum);
 }
