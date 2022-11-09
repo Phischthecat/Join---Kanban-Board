@@ -1,6 +1,10 @@
 let allTasks = [];
 let urgency;
 
+
+/**
+ * main function for add task section
+ */
 async function initAddTask() {
   await init();
   setDueDateOnToday();
@@ -8,6 +12,11 @@ async function initAddTask() {
   renderAssignedToContacts();
 }
 
+
+/**
+ * 
+ * @returns an array with assigned contacts 
+ */
 function filterAssignedContacts() {
   let assignedToContacts = [];
   let checkedContacts = document.querySelectorAll('.checked');
@@ -17,6 +26,7 @@ function filterAssignedContacts() {
   }
   return assignedToContacts;
 }
+
 
 /**
  * This function is used to return the ids and/or values of the input fields for the current task
@@ -45,9 +55,22 @@ function getValuesForTasks() {
  *  * @param {string} taskStatus -- after creating a task the user is asked to push the task into backlog or toDo
  */
 async function addTask(taskStatus) {
+  let task = taskStrucure(taskStatus);
+  allTasks.push(task);
+  await backend.setItem('allTasks', allTasks);
+  userFeedback();
+  clearFields();
+}
+
+
+/**
+ * 
+ * @returns the structure of a task
+ */
+function taskStrucure(taskStatus) {
   [title, description, dueDate, createdDate, assignedTo, specificId, priority] =
     getValuesForTasks();
-  let task = {
+  return {
     specificId: specificId,
     dragAndDropId: '',
     title: title.value,
@@ -60,12 +83,6 @@ async function addTask(taskStatus) {
     subtasks: addTaskSubtasks,
     status: taskStatus,
   };
-  allTasks.push(task);
-  await backend.setItem('allTasks', allTasks);
-  console.log(allTasks);
-  userFeedback();
-  // animateToBoard();
-  clearFields();
 }
 
 /**

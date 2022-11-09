@@ -1,29 +1,20 @@
 let contacts = [];
 let contactListLetters = [];
-// contacts = [
-//   {
-//     initial: 'PS',
-//     name: 'Phil Schmucker',
-//     email: 'ps@web.de',
-//     phone: '123456',
 
-//   },
-//   {
-//     initial: 'RD',
-//     name: 'Rico Denkewitz',
-//     email: 'rd@web.de',
-//     phone: '1651651651',
-//   },
-//   { initial: 'RM', name: 'Riso Miso', email: 'pi@web.de', phone: '123456' },
-//   { initial: 'PS', name: 'Phil Schmu', email: 'pe@web.de', phone: '123456' },
-// ];
-
+/**
+ * main function for initialising contact Section
+ */
 async function initContact() {
   await init();
   lettersOfContactList();
   generateContactSectionsForLetters();
 }
 
+
+/**
+ * 
+ * @returns a random color which is created by a number
+ */
 function generateRandomColor() {
   let randomColor = Math.floor(Math.random() * 16777215).toString(16);
   if (randomColor.length == 5) {
@@ -33,6 +24,9 @@ function generateRandomColor() {
   }
 }
 
+/**
+ * function for creating a new Contact
+ */
 async function addContact() {
   let name = getId('newContactName').value;
   let initial = contactInitial(name);
@@ -51,6 +45,10 @@ async function addContact() {
   initContact();
 }
 
+
+/**
+ * checks if an input field is empty and if it is , an error message will be shown
+ */
 function checkIfInputEmpty() {
   if (
     getId('newContactName').value == '' ||
@@ -63,6 +61,12 @@ function checkIfInputEmpty() {
   }
 }
 
+
+/**
+ * 
+ * @param {name of contact} name 
+ * @returns the firstletter of firstname and the firstLetter of Lastname
+ */
 function contactInitial(name) {
   if (name.indexOf(' ') == -1) {
     return name.charAt(0).toUpperCase();
@@ -74,6 +78,11 @@ function contactInitial(name) {
   }
 }
 
+
+/**
+ * 
+ * @param {actual contact which should be saved in backend} i 
+ */
 async function saveContact(i) {
   let fullContact = getId('contactView');
   contacts[i].name = getId('editContactName').value.trim();
@@ -87,6 +96,11 @@ async function saveContact(i) {
   showContact(fullContact, i);
 }
 
+
+/**
+ * 
+ * @param {text from saveContact function which will be animated} text 
+ */
 function openDialogForCreate(text) {
   let message = getId('messageToBoard');
   message.innerHTML = text;
@@ -101,6 +115,10 @@ function openDialogForCreate(text) {
   }, 2000);
 }
 
+
+/**
+ * rendering the first letters of each contact in the contactList
+ */
 function lettersOfContactList() {
   contactListLetters = [];
   for (let i = 0; i < contacts.length; i++) {
@@ -111,6 +129,10 @@ function lettersOfContactList() {
   contactListLetters.sort();
 }
 
+
+/**
+ * creating the contactList
+ */
 function generateContactSectionsForLetters() {
   let contactList = getId('contactList');
   contactList.innerHTML = '';
@@ -121,6 +143,10 @@ function generateContactSectionsForLetters() {
   }
 }
 
+/**
+ * 
+ * @param {first letter of actual Contact} letter 
+ */
 function generateContacts(letter) {
   let letterContainer = getId('contactsOf' + letter);
   for (let i = 0; i < contacts.length; i++) {
@@ -131,6 +157,12 @@ function generateContacts(letter) {
   }
 }
 
+
+/**
+ * 
+ * showas full Contact Card
+ * @param {actual Contact} i 
+ */
 function showFullContact(i) {
   let fullContact = getId('contactView');
   getId('deleteContact').classList.remove('d-none');
@@ -144,6 +176,12 @@ function showFullContact(i) {
   }
 }
 
+
+/**
+ * 
+ * @param {container where the slide animation has to be toggled} fullContact 
+ * @param {index} i 
+ */
 function defaultFullContact(fullContact, i) {
   if (fullContact.classList.contains('slide-in-right')) {
     changeContact(fullContact, i);
@@ -153,6 +191,12 @@ function defaultFullContact(fullContact, i) {
   }
 }
 
+
+/**
+ * 
+ * @param {contact that has to be shown in fullview} fullContact 
+ * @param {actualContact} i 
+ */
 function mobileFullContact(fullContact, i) {
   document.querySelector('.newContactBtnImg').src = `./img/pencil.svg`;
   document.querySelector('.contactArea').style = 'display: flex';
@@ -169,6 +213,12 @@ function mobileFullContact(fullContact, i) {
   );
 }
 
+
+/**
+ * 
+ * @param {container} fullContact 
+ * @param {actualContact} i 
+ */
 function changeContact(fullContact, i) {
   fullContact.className = 'slide-out-right';
   removeActiveClass();
@@ -178,21 +228,37 @@ function changeContact(fullContact, i) {
   }, 750);
 }
 
+
+/**
+ * 
+ * @param {container} fullContact 
+ * @param {actualContact} i 
+ */
 function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
 }
 
+
+/**
+ * 
+ * function for deleting a contact
+ * @param {contact that should be deleted } index
+*/
 async function deleteContact(index) {
   contacts.splice(index, 1);
   await backend.setItem('contacts', contacts);
   getId('deleteContact').classList.add('d-none');
-  getId('ContactView').innerHTML = '';
+  getId('contactView').innerHTML = '';
   initContact();
   if (window.innerWidth < 800) {
     closeContactBoxMobile();
   }
 }
 
+
+/**
+ * function for closing the contactBox on mobile devices
+ */
 function closeContactBoxMobile() {
   document.querySelector('.contactArea').classList.remove('slide-in-bottom');
   document.querySelector('.contactArea').classList.add('slide-out-bottom');
@@ -203,6 +269,10 @@ function closeContactBoxMobile() {
   }, 150);
 }
 
+
+/**
+ * function for removing an active class of each contact
+ */
 function removeActiveClass() {
   let contactInfos = document.querySelectorAll('.contactInfo');
   contactInfos.forEach((contact) => {
@@ -210,6 +280,10 @@ function removeActiveClass() {
   });
 }
 
+
+/**
+ * function for checking if the screen is resized
+ */
 window.addEventListener('resize', () => {
   if (window.innerWidth >= 800) {
     document.querySelector('.contactArea').style = 'display: flex';

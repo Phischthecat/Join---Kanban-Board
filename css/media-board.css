@@ -24,6 +24,12 @@
   }
 }
 
+@media(max-width: 1050px) {
+  .taskHeader {
+    font-size: 50px;
+  }
+}
+
 @media (max-width: 1000px) {
   .headlineBoardMobile h1 {
     font-size: 51px;

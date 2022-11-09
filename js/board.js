@@ -1,4 +1,6 @@
 let currentDraggedElement;
+let sections = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
+
 
 /**
  * initialising board section
@@ -118,6 +120,12 @@ function boardInitialsClassAdd(index) {
   }
 }
 
+
+/**
+ * 
+ * @param {*} task 
+ * @param {*} index 
+ */
 function renderBoardInitials(task, index) {
   renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
   renderMoreBoardInitials(task, index);
@@ -207,8 +215,8 @@ function showUrgency(task) {
 }
 
 /**
- *
- * @param {*} task
+ * 
+ * @param {actualTask where a box will be rendered with the assigned Contacts} task 
  */
 function showContacts(task) {
   let assignedContacts = document.getElementById('assignedUser');
@@ -219,6 +227,11 @@ function showContacts(task) {
   }
 }
 
+
+/**
+ * 
+ * @param {specific id of task} specific 
+ */
 function renderEditTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
   let card = document.getElementById('fullCard');
@@ -232,6 +245,11 @@ function renderEditTask(specific) {
   }, 200);
 }
 
+
+/**
+ * 
+ * @param {task where the chossenContacts should be shown} task 
+ */
 function choosenContacts(task) {
   let choosenContacts = document.querySelectorAll('.item');
   choosenContacts.forEach((choosenContact) => {
@@ -244,6 +262,11 @@ function choosenContacts(task) {
   }
 }
 
+
+/**
+ * 
+ * @param {specific id of task which has to be changed} specific 
+ */
 async function changeTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
   task.title = getId('editTitle').value.trim();
@@ -256,6 +279,11 @@ async function changeTask(specific) {
   document.querySelector('.modalContainer').classList.remove('fade');
 }
 
+
+/**
+ * 
+ * @param {task where the urgent has to be styled} task 
+ */
 function styleUrgency(task) {
   let urgent = '#ff3b00',
     medium = '#ffb32a',
@@ -264,6 +292,10 @@ function styleUrgency(task) {
   getId('showUrgency').style = `background-color: ${task.priority}`;
 }
 
+
+/**
+ * function for closing fullview
+ */
 async function closeFullView() {
   await backend.setItem('allTasks', allTasks);
   document.getElementById('taskBox').classList.add('d-none');
@@ -271,6 +303,12 @@ async function closeFullView() {
   updateHTML();
 }
 
+
+/**
+ * 
+ * checking if a subtask is created
+ * @param {index of the respectively task } index 
+ */
 function checkIfSubtasksDone(index) {
   let task = allTasks[index];
 
@@ -285,6 +323,10 @@ function checkIfSubtasksDone(index) {
   }
 }
 
+
+/**
+ * showing where a task can be dropped
+ */
 function showPossibleDropzones() {
   let columns = document.querySelectorAll('.column');
   columns.forEach((column) => {
@@ -294,6 +336,10 @@ function showPossibleDropzones() {
   });
 }
 
+
+/**
+ * removing the possible dropzones that are shown when a task is dragged
+ */
 function removePossibleDropzones() {
   let dropzones = document.querySelectorAll('.possiblePosition');
   dropzones.forEach((dropzone) => {
@@ -301,12 +347,16 @@ function removePossibleDropzones() {
   });
 }
 
+
+/**
+ * 
+ * @param {task which has to be deleted} taskIndex 
+ */
 function deleteTask(taskIndex) {
   allTasks.splice(taskIndex, 1);
   closeFullView();
 }
 
-let sections = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
 
 /**
  * function for searching  Task
@@ -322,7 +372,7 @@ function searchForTask() {
     });
     for (let i = 0; i < allTasks.length; i++) {
       const task = allTasks[i];
-      if (task.title.includes(search)) {
+      if (task.title.toLowerCase().includes(search)) {
         searchedTasks = task;
         updateOnSearch(searchedTasks, i);
       }
@@ -330,6 +380,12 @@ function searchForTask() {
   }
 }
 
+
+/**
+ * 
+ * @param {array of founded task by their input value} searchedTasks 
+ * @param {index of array} index 
+ */
 function updateOnSearch(searchedTasks, index) {
   let column = getId(searchedTasks.status);
   column.innerHTML += createTaskCard(index);

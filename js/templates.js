@@ -1,3 +1,8 @@
+/**
+ * 
+ * @param {index of Task} index 
+ * @returns returns html part of a task card
+ */
 function createTaskCard(index) {
   let task = allTasks[index];
   return /*html*/ `
@@ -24,6 +29,13 @@ function createTaskCard(index) {
   `;
 }
 
+
+/**
+ * 
+ * @param {actual Task} task 
+ * @param {index of task} index 
+ * @returns html part for fullview of taskcard
+ */
 function createFullView(task, index) {
   return /*html*/ `
   <div class="modalContainer fade-in startTop">
@@ -106,12 +118,24 @@ function createAssignedToFullCard(taskContact) {
     `;
 }
 
+
+/**
+ * 
+ * @param {css tag} overflow 
+ * @returns html part for div container
+ */
 function createAssignedContactInitialsOverflow(overflow) {
   return /*html*/ `
   <div class="initials initialCircle" style="background-color:#2a3647">+${overflow}</div>
   `;
 }
 
+
+/**
+ * 
+ * @param {actual Task that should be edited} task 
+ * @returns html part for edit task section
+ */
 function createEditTask(task) {
   return /*html*/ `
     <div class="flex changedCard"> 
@@ -213,6 +237,11 @@ function createEditTask(task) {
   `;
 }
 
+
+/**
+ * 
+ * @returns html part for new Contact section
+ */
 function createNewContact() {
   return /*html*/ `
     <div class="modalContainer modalContainerContacts slide-in-right" id="animation">
@@ -248,6 +277,12 @@ function createNewContact() {
     `;
 }
 
+
+/**
+ * 
+ * @param {index} i 
+ * @returns html part for edit contact section
+ */
 function editContact(i) {
   const contact = contacts[i];
   return /*html*/ `
@@ -284,6 +319,33 @@ function editContact(i) {
     </div>
     `;
 }
+
+
+/**
+ * 
+ * @returns html part for all subtasks that are checked
+ */
+function createSubtasksChecked(i) {
+  return /*html*/ `
+  <div class="subtask">
+    <input type="checkbox" id="sub${i}" checked>${subtask.description}
+  </div>
+  `
+}
+
+
+/**
+ * 
+ * @returns html part for all subtasks that are not checked
+ */
+function createSubtasksUnchecked(i) {
+  return /*html*/ `
+  <div class="subtask">
+    <input type="checkbox" id="sub${i}">${subtask.description}
+  </div>
+  `
+}
+
 
 /**
  * This function returns a span which is used for an error message
@@ -338,6 +400,11 @@ function createForgetPart() {
     `;
 }
 
+
+/**
+ * 
+ * @returns html part of addtask section
+ */
 function addTaskContainerHMTL() {
   return /*html*/ `
     <div class="modalContainer modalContainerAddTask slide-in-right hide-scrollbar" id="animation">
@@ -510,6 +577,12 @@ function addTaskContainerHMTL() {
     `;
 }
 
+
+/**
+ * returns html part for the choosen Category Section
+ * @param {index} i 
+ * @returns 
+ */
 function createCategorys(i) {
   const category = categorys[i];
   return /*html*/ `
@@ -522,6 +595,11 @@ function createCategorys(i) {
   `;
 }
 
+
+/**
+ * 
+ * @returns html part 
+ */
 function createCategoryDefault() {
   return /*html*/ `
   <li class="categoryItem item" onclick="addNewCategory()">
@@ -530,6 +608,11 @@ function createCategoryDefault() {
   `;
 }
 
+
+/**
+ * 
+ * @returns html part for the input field to create a new Category
+ */
 function createInputForNewCategory() {
   return /*html*/ `
   <div class="newCategoryContainer">
@@ -545,6 +628,12 @@ function createInputForNewCategory() {
     `;
 }
 
+
+/**
+ * 
+ * @param {index} i 
+ * @returns html part for color bubbles with first letters
+ */
 function createNewCategoryColors(i) {
   const categoryColor = categoryColors[i];
   return /*html*/ `
@@ -554,6 +643,11 @@ function createNewCategoryColors(i) {
   `;
 }
 
+
+/**
+ * 
+ * @returns html part for the section where you can decide which category has to be choosed
+ */
 function createCategorySelection() {
   return /*html*/ `
   <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
@@ -566,6 +660,12 @@ function createCategorySelection() {
   `;
 }
 
+
+/**
+ * 
+ * @param {value of the input} input 
+ * @returns htmlpart that shows the new created Category
+ */
 function createSelectedCategory(input) {
   return /*html*/ `
   <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
@@ -590,6 +690,12 @@ function createSelectedCategory(input) {
   `;
 }
 
+
+/**
+ * 
+ * @param {index} i 
+ * @returns html part for a container 
+ */
 function contactsAssignedTo(i) {
   const contact = contacts[i];
   return /*html*/ `
@@ -602,6 +708,12 @@ function contactsAssignedTo(i) {
       `;
 }
 
+
+/**
+ * 
+ * @param {letter of contact} letter 
+ * @returns html part for alphabet list of contacts
+ */
 function createContactSectionOfLetter(letter) {
   return /* html*/ `
 <div class="contactSection">
@@ -614,12 +726,18 @@ function createContactSectionOfLetter(letter) {
   `;
 }
 
+
+/**
+ * 
+ * @param {actual contact} contact 
+ * @param {index} i 
+ * @returns html part for the section where you can create a new contact
+ */
 function createContact(contact, i) {
   return /* html */ `
   <div id="contactInfo${i}" class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${
-      contact.color
+    <div class="initials initialCircle" style="background-color:#${contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>
@@ -635,6 +753,12 @@ ${contact.email}
   `;
 }
 
+
+/**
+ * 
+ * @param {index} i 
+ * @returns html part for fullview of a contact card
+ */
 function createFullContact(i) {
   let contact = contacts[i];
   return /*html*/ `

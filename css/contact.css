@@ -242,21 +242,21 @@
 }
 
 .nameModal {
-  background: url(./img/name.svg) no-repeat 260px center;
+  background: url(../img/name.svg) no-repeat 260px center;
   background-size: 12px;
   font-size: 14px;
   padding-right: 45px;
 }
 
 .emailModal {
-  background: url(./img/email.svg) no-repeat 260px center;
+  background: url(../img/email.svg) no-repeat 260px center;
   background-size: 12px;
   font-size: 14px;
   padding-right: 45px;
 }
 
 .phoneModal {
-  background: url(./img/phone.svg) no-repeat 260px center;
+  background: url(../img/phone.svg) no-repeat 260px center;
   background-size: 12px;
   font-size: 14px;
   padding-right: 45px;

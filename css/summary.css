@@ -29,13 +29,13 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  max-width: 500px;
+  max-width: 650px;
   flex-wrap: wrap;
 }
 
 .box {
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
   border-radius: 20px;
   box-shadow: 1px 1px 3px rgb(0 0 0 / 30%);
   display: flex;
@@ -129,7 +129,7 @@
 .thirdBox {
   height: 100px;
   background-color: white;
-  width: 235px;
+  width: 275px;
   border-radius: 20px;
   display: flex;
   justify-content: center;

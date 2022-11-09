@@ -1,5 +1,40 @@
+.coachbox {
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  background-color: white;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+
+.coachbox h1 {
+  font-size: 50px;
+  color: red;
+}
+
+
+.coachbox button {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  background-color: aqua;
+}
+
+
+
+
+
 .loginBody {
   background-color: var(--backGroundSection);
+}
+
+.none {
+  display: none;
 }
 
 .loginForm {
@@ -13,7 +48,7 @@
 }
 
 .logo {
-  margin: 15px 30px 0 30px;
+  margin: 15px 30px 0 30px !important;
 }
 
 .headContainer {
@@ -136,18 +171,11 @@
 }
 
 #userName {
-  background-image: url('./img/user.login.png');
+  background-image: url(../img/user.login.png);
 }
 
 .msTop {
   margin-top: -40px;
-}
-
-#errorMessage {
-  height: 35px;
-  width: 100%;
-  display: flex;
-  justify-content: center;
 }
 
 #loginError {
@@ -169,11 +197,11 @@
 }
 
 #password {
-  background-image: url(./img/padlock.png);
+  background-image: url(../img/padlock.png);
 }
 
 #email {
-  background-image: url(./img/mail.png);
+  background-image: url(../img/mail.png);
 }
 
 .forgotMessage {
@@ -248,8 +276,7 @@
 }
 
 .arrowPassword img {
-  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg)
-    brightness(91%) contrast(94%);
+  filter: invert(69%) sepia(28%) saturate(4986%) hue-rotate(166deg) brightness(91%) contrast(94%);
   width: 30px;
   height: 30px;
 }
@@ -282,7 +309,7 @@
 }
 
 #emailbox {
-  background-image: url(./img/mail.png);
+  background-image: url(../img/mail.png);
 }
 
 .sendBtnBox {
@@ -310,7 +337,7 @@
 
 @media (max-width: 900px) {
   .passwordContainer {
-    padding: 44px 0;
+    padding: 36px 0;
   }
 
   .arrowPassword img {
@@ -405,7 +432,7 @@
   .loginContainer {
     margin: unset;
     width: 350px;
-    height: 475px;
+    height: 500px;
   }
 
   .loginBtn {
@@ -443,7 +470,6 @@
 
   .line {
     width: 100px;
-    margin-bottom: unset;
   }
 
   .registrate {
@@ -453,7 +479,7 @@
   .responsiveSpan {
     padding-top: 20px;
     padding-bottom: 20px;
-    display: flex;
+    display: flex !important;
     align-items: center;
     gap: 10px;
   }
