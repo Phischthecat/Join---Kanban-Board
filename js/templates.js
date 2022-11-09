@@ -87,6 +87,12 @@ function createGreeting() {
   `;
 }
 
+function createGreetingGuest() {
+  return /*html*/ `
+  <span>Good morning</span>
+  `;
+}
+
 function createAssignedToFullCard(taskContact) {
   return /*html*/ `
     <div class="fullCardAssignedTo">

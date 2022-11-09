@@ -17,7 +17,7 @@ function greetingMobile() {
       getId('greeting').style.display = 'none';
     }, 2000);
   } else {
-    getId('greeting').innerHTML = 'Good morning';
+    getId('greeting').innerHTML = createGreetingGuest();
   }
 }
 
