@@ -1,3 +1,9 @@
+@media (max-width: 1250px) {
+  .overviewSummary {
+    flex-direction: column;
+  }
+}
+
 @media (max-width: 1135px) {
   .summaryArea {
     padding-left: 120px;
@@ -19,28 +25,6 @@
 
   .greeting {
     padding-top: 25px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .box {
-    height: 150px;
-    width: 150px;
-  }
-
-  .thirdBox {
-    width: 235px;
-  }
-}
-
-@media (max-width: 1000px) {
-  .box {
-    height: 120px;
-    width: 120px;
-  }
-
-  .thirdBox {
-    width: 200px;
   }
 }
 
@@ -66,22 +50,26 @@
   }
 
   .greeting span {
-    font-size: 28px;
+    font-size: 50px;
   }
 }
 
-@media (max-width: 840px) {
+@media (max-width: 860px) {
   .box {
-    height: 110px;
-    width: 110px;
+    height: 150px;
+    width: 150px;
   }
 
   .thirdBox {
-    width: 160px;
+    width: 250px;
   }
 }
 
 @media (max-width: 800px) {
+  .greeting span {
+    padding: unset;
+  }
+
   .kanbanBar {
     position: relative;
     z-index: 1;
@@ -114,30 +102,12 @@
     border-radius: 100%;
   }
 
-  .overviewSummary {
-    padding-bottom: 120px;
-  }
-
-  .box {
-    width: 120px;
-    height: 120px;
-  }
-
   .nr {
     font-size: 40px;
   }
 
-  .longBox {
-    height: 80px;
-  }
-
   .text {
     margin-top: 5px;
-  }
-
-  .thirdBox {
-    height: 80px;
-    width: 200px;
   }
 
   .todoAndDone {
@@ -187,6 +157,15 @@
 
   .containerOverview {
     width: 420px;
+  }
+
+  .box {
+    height: 120px;
+    width: 120px;
+  }
+
+  .thirdBox {
+    width: 200px;
   }
 }
 

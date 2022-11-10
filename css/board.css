@@ -90,6 +90,16 @@
   justify-content: space-between;
 }
 
+.logoutBox {
+  top: 75px !important;
+  z-index: 1 !important;
+}
+
+#help {
+  top: 3px;
+  left: 0;
+}
+
 .kanbanBar {
   position: fixed;
   top: 0;

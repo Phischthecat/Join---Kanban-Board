@@ -10,9 +10,8 @@ async function initContact() {
   generateContactSectionsForLetters();
 }
 
-
 /**
- * 
+ *
  * @returns a random color which is created by a number
  */
 function generateRandomColor() {
@@ -45,26 +44,9 @@ async function addContact() {
   initContact();
 }
 
-
 /**
- * checks if an input field is empty and if it is , an error message will be shown
- */
-function checkIfInputEmpty() {
-  if (
-    getId('newContactName').value == '' ||
-    getId('newContactEmail').value == '' ||
-    getId('newContactPhone').value == ''
-  ) {
-    openDialogForCreate('Please fill up all inputs');
-  } else {
-    addContact();
-  }
-}
-
-
-/**
- * 
- * @param {name of contact} name 
+ *
+ * @param {name of contact} name
  * @returns the firstletter of firstname and the firstLetter of Lastname
  */
 function contactInitial(name) {
@@ -78,10 +60,9 @@ function contactInitial(name) {
   }
 }
 
-
 /**
- * 
- * @param {actual contact which should be saved in backend} i 
+ *
+ * @param {actual contact which should be saved in backend} i
  */
 async function saveContact(i) {
   let fullContact = getId('contactView');
@@ -96,10 +77,9 @@ async function saveContact(i) {
   showContact(fullContact, i);
 }
 
-
 /**
- * 
- * @param {text from saveContact function which will be animated} text 
+ *
+ * @param {text from saveContact function which will be animated} text
  */
 function openDialogForCreate(text) {
   let message = getId('messageToBoard');
@@ -115,7 +95,6 @@ function openDialogForCreate(text) {
   }, 2000);
 }
 
-
 /**
  * rendering the first letters of each contact in the contactList
  */
@@ -128,7 +107,6 @@ function lettersOfContactList() {
   }
   contactListLetters.sort();
 }
-
 
 /**
  * creating the contactList
@@ -144,8 +122,8 @@ function generateContactSectionsForLetters() {
 }
 
 /**
- * 
- * @param {first letter of actual Contact} letter 
+ *
+ * @param {first letter of actual Contact} letter
  */
 function generateContacts(letter) {
   let letterContainer = getId('contactsOf' + letter);
@@ -157,11 +135,10 @@ function generateContacts(letter) {
   }
 }
 
-
 /**
- * 
+ *
  * showas full Contact Card
- * @param {actual Contact} i 
+ * @param {actual Contact} i
  */
 function showFullContact(i) {
   let fullContact = getId('contactView');
@@ -176,11 +153,10 @@ function showFullContact(i) {
   }
 }
 
-
 /**
- * 
- * @param {container where the slide animation has to be toggled} fullContact 
- * @param {index} i 
+ *
+ * @param {container where the slide animation has to be toggled} fullContact
+ * @param {index} i
  */
 function defaultFullContact(fullContact, i) {
   if (fullContact.classList.contains('slide-in-right')) {
@@ -191,11 +167,10 @@ function defaultFullContact(fullContact, i) {
   }
 }
 
-
 /**
- * 
- * @param {contact that has to be shown in fullview} fullContact 
- * @param {actualContact} i 
+ *
+ * @param {contact that has to be shown in fullview} fullContact
+ * @param {actualContact} i
  */
 function mobileFullContact(fullContact, i) {
   document.querySelector('.newContactBtnImg').src = `./img/pencil.svg`;
@@ -213,11 +188,10 @@ function mobileFullContact(fullContact, i) {
   );
 }
 
-
 /**
- * 
- * @param {container} fullContact 
- * @param {actualContact} i 
+ *
+ * @param {container} fullContact
+ * @param {actualContact} i
  */
 function changeContact(fullContact, i) {
   fullContact.className = 'slide-out-right';
@@ -228,22 +202,20 @@ function changeContact(fullContact, i) {
   }, 750);
 }
 
-
 /**
- * 
- * @param {container} fullContact 
- * @param {actualContact} i 
+ *
+ * @param {container} fullContact
+ * @param {actualContact} i
  */
 function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
 }
 
-
 /**
- * 
+ *
  * function for deleting a contact
  * @param {contact that should be deleted } index
-*/
+ */
 async function deleteContact(index) {
   contacts.splice(index, 1);
   await backend.setItem('contacts', contacts);
@@ -254,7 +226,6 @@ async function deleteContact(index) {
     closeContactBoxMobile();
   }
 }
-
 
 /**
  * function for closing the contactBox on mobile devices
@@ -269,7 +240,6 @@ function closeContactBoxMobile() {
   }, 150);
 }
 
-
 /**
  * function for removing an active class of each contact
  */
@@ -279,7 +249,6 @@ function removeActiveClass() {
     contact.classList.remove('active');
   });
 }
-
 
 /**
  * function for checking if the screen is resized

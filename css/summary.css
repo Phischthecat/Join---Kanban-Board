@@ -23,6 +23,8 @@
 
 .overviewSummary {
   display: flex;
+  justify-content: space-between;
+  height: calc(100vh - 300px);
 }
 
 .containerOverview {
@@ -160,6 +162,12 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 80px;
+}
+
+.greeting span {
+  font-size: 61px;
+  word-break: break-word;
+  text-overflow: ellipsis;
 }
 
 #guest {

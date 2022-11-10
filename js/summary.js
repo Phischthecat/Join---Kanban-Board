@@ -8,7 +8,6 @@ async function initTasks() {
   deadlineChecker();
 }
 
-
 /**
  * function that shows a greeting message for the logged User
  */
@@ -23,11 +22,8 @@ function greetingMobile() {
     setTimeout(() => {
       getId('greeting').style.display = 'none';
     }, 2000);
-  } else {
-    getId('greeting').innerHTML = createGreetingGuest();
   }
 }
-
 
 /**
  * function that filters all tasks by theier status for the respectively container
@@ -44,12 +40,12 @@ function quantityTasks() {
 }
 
 /**
- * 
- * @param {container where the tasks should be rendered} todo 
- * @param {container where the tasks should be rendered} inProgress 
- * @param {container where the tasks should be rendered} awaitingFeedback 
- * @param {container where the tasks should be rendered} done 
- * @param {urgentContainer} urgent 
+ *
+ * @param {container where the tasks should be rendered} todo
+ * @param {container where the tasks should be rendered} inProgress
+ * @param {container where the tasks should be rendered} awaitingFeedback
+ * @param {container where the tasks should be rendered} done
+ * @param {urgentContainer} urgent
  */
 function setQuantity(todo, inProgress, awaitingFeedback, done, urgent) {
   getId('tasksInBoard').innerHTML = allTasks.length;
@@ -59,7 +55,6 @@ function setQuantity(todo, inProgress, awaitingFeedback, done, urgent) {
   getId('done').innerHTML = done.length;
   getId('nrOfUrgent').innerHTML = urgent.length;
 }
-
 
 /**
  * checking the nearest coming deadline off allTasks
@@ -81,9 +76,8 @@ function deadlineChecker() {
   }
 }
 
-
 /**
- * 
+ *
  * @returns  a minimum date
  */
 function findingMinimumDate() {
@@ -99,22 +93,20 @@ function findingMinimumDate() {
   }
 }
 
-
 /**
- * 
- * @param {date which has to be converted into a timestamp} date 
- * @returns 
+ *
+ * @param {date which has to be converted into a timestamp} date
+ * @returns
  */
 function convertTimetoTimestamp(date) {
   let newDate = new Date(date);
   return newDate.getTime();
 }
 
-
 /**
- * 
- * @param {minimum date that will be converted into a string} allTasksDatesMinimum 
- * @returns 
+ *
+ * @param {minimum date that will be converted into a string} allTasksDatesMinimum
+ * @returns
  */
 function convertTimetoString(allTasksDatesMinimum) {
   return new Date(allTasksDatesMinimum);

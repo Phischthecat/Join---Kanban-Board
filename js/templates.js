@@ -1,6 +1,6 @@
 /**
- * 
- * @param {index of Task} index 
+ *
+ * @param {index of Task} index
  * @returns returns html part of a task card
  */
 function createTaskCard(index) {
@@ -29,11 +29,10 @@ function createTaskCard(index) {
   `;
 }
 
-
 /**
- * 
- * @param {actual Task} task 
- * @param {index of task} index 
+ *
+ * @param {actual Task} task
+ * @param {index of task} index
  * @returns html part for fullview of taskcard
  */
 function createFullView(task, index) {
@@ -94,14 +93,8 @@ function createFullView(task, index) {
 
 function createGreeting() {
   return /*html*/ `
-  <span>Good morning,</span>
+  <span>Good to see you</span>
   <span id="loggedInUser" class="nameOfUser"></span>
-  `;
-}
-
-function createGreetingGuest() {
-  return /*html*/ `
-  <span>Good morning</span>
   `;
 }
 
@@ -118,10 +111,9 @@ function createAssignedToFullCard(taskContact) {
     `;
 }
 
-
 /**
- * 
- * @param {css tag} overflow 
+ *
+ * @param {css tag} overflow
  * @returns html part for div container
  */
 function createAssignedContactInitialsOverflow(overflow) {
@@ -130,10 +122,9 @@ function createAssignedContactInitialsOverflow(overflow) {
   `;
 }
 
-
 /**
- * 
- * @param {actual Task that should be edited} task 
+ *
+ * @param {actual Task that should be edited} task
  * @returns html part for edit task section
  */
 function createEditTask(task) {
@@ -237,50 +228,47 @@ function createEditTask(task) {
   `;
 }
 
-
 /**
- * 
+ *
  * @returns html part for new Contact section
  */
 function createNewContact() {
   return /*html*/ `
     <div class="modalContainer modalContainerContacts slide-in-right" id="animation">
-    <div class="boxContainer">
-            <div class="overlayContainer">
-                <div class="overlayHeader">
-                    <img src="./img/joinlogo.svg">    
-                    <h1>Add contact</h1>
-                    <span>Tasks are better with a team!</span>
-                    <div class="verticalLine">
-                  <hr />
-                </div>
-                </div>
-                <div class="addContactSection">
-                        <div>
-                            <img class="userIcon" src="./img/user.svg" alt="user">
-                        </div>
-                        <div class="contactInputSection">
-                            <img class="close cursor-pointer" src="./img/secondary-plus.svg" onclick="closeContactBox()">
-                            <form id="newContactForm" onsubmit="checkIfInputEmpty(); return false;">
-                            <input class="nameModal" id="newContactName" type="text" placeholder="Name">
-                            <input class="emailModal" id="newContactEmail" type="email" placeholder="Email">
-                            <input class="phoneModal" id="newContactPhone" type="tel" placeholder="Phone">
-                            <div class="contactBtnContainer">
-                                <button type="button" class="btn-white btn-white-mobile" onclick="closeContactBox()">Cancel <img src="./img/secondary-plus.svg"></button>
-                                <button type="submit" class="btn-blue btn-blue-mobile" >Create Contact <img src="./img/ticked-off.svg"></button>
-                            </div>
-                            </form>
-                </div>
+      <div class="boxContainer">
+        <div class="overlayContainer">
+            <div class="overlayHeader">
+                <img src="./img/joinlogo.svg">    
+                <h1>Add contact</h1>
+                <span>Tasks are better with a team!</span>
+                <div class="verticalLine">
+              <hr />
             </div>
         </div>
+        <div class="addContactSection">
+          <div>
+              <img class="userIcon" src="./img/user.svg" alt="user">
+          </div>
+          <div class="contactInputSection">
+            <img class="close cursor-pointer" src="./img/secondary-plus.svg" onclick="closeContactBox()">
+            <form id="newContactForm" onsubmit="addContact(); return false;">
+              <input class="nameModal" id="newContactName" type="text" placeholder="Name" required>
+              <input class="emailModal" id="newContactEmail" type="email" placeholder="Email" required>
+              <input class="phoneModal" id="newContactPhone" type="tel" placeholder="Phone" required>
+              <div class="contactBtnContainer">
+                  <button type="button" class="btn-white btn-white-mobile" onclick="closeContactBox()">Cancel <img src="./img/secondary-plus.svg"></button>
+                  <button type="submit" class="btn-blue btn-blue-mobile" >Create Contact <img src="./img/ticked-off.svg"></button>
+              </div>
+            </form>
+          </div>                  
+      </div>
     </div>
     `;
 }
 
-
 /**
- * 
- * @param {index} i 
+ *
+ * @param {index} i
  * @returns html part for edit contact section
  */
 function editContact(i) {
@@ -320,32 +308,29 @@ function editContact(i) {
     `;
 }
 
-
 /**
- * 
+ *
  * @returns html part for all subtasks that are checked
  */
-function createSubtasksChecked(i) {
+function createSubtasksChecked(subtask, i) {
   return /*html*/ `
   <div class="subtask">
     <input type="checkbox" id="sub${i}" checked>${subtask.description}
   </div>
-  `
+  `;
 }
 
-
 /**
- * 
+ *
  * @returns html part for all subtasks that are not checked
  */
-function createSubtasksUnchecked(i) {
+function createSubtasksUnchecked(subtask, i) {
   return /*html*/ `
   <div class="subtask">
     <input type="checkbox" id="sub${i}">${subtask.description}
   </div>
-  `
+  `;
 }
-
 
 /**
  * This function returns a span which is used for an error message
@@ -400,9 +385,8 @@ function createForgetPart() {
     `;
 }
 
-
 /**
- * 
+ *
  * @returns html part of addtask section
  */
 function addTaskContainerHMTL() {
@@ -422,7 +406,7 @@ function addTaskContainerHMTL() {
             </span>
           </div>
 
-          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTask('toDo'); return false;">
+          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTask('toDo'); updateHTML(); return false;">
                         <!--Header only for Mobile Add Task-->
                         <button type="submit" class="btn-blue btnCreate">
                   Create
@@ -557,7 +541,6 @@ function addTaskContainerHMTL() {
                 <button
                   type="submit"
                   class="btn-blue createTaskBtn"
-                  onclick="addTask('toDo')"
                   id="create"
                 >
                   Create Task
@@ -577,11 +560,10 @@ function addTaskContainerHMTL() {
     `;
 }
 
-
 /**
  * returns html part for the choosen Category Section
- * @param {index} i 
- * @returns 
+ * @param {index} i
+ * @returns
  */
 function createCategorys(i) {
   const category = categorys[i];
@@ -595,10 +577,9 @@ function createCategorys(i) {
   `;
 }
 
-
 /**
- * 
- * @returns html part 
+ *
+ * @returns html part
  */
 function createCategoryDefault() {
   return /*html*/ `
@@ -608,9 +589,8 @@ function createCategoryDefault() {
   `;
 }
 
-
 /**
- * 
+ *
  * @returns html part for the input field to create a new Category
  */
 function createInputForNewCategory() {
@@ -628,10 +608,9 @@ function createInputForNewCategory() {
     `;
 }
 
-
 /**
- * 
- * @param {index} i 
+ *
+ * @param {index} i
  * @returns html part for color bubbles with first letters
  */
 function createNewCategoryColors(i) {
@@ -643,9 +622,8 @@ function createNewCategoryColors(i) {
   `;
 }
 
-
 /**
- * 
+ *
  * @returns html part for the section where you can decide which category has to be choosed
  */
 function createCategorySelection() {
@@ -660,10 +638,9 @@ function createCategorySelection() {
   `;
 }
 
-
 /**
- * 
- * @param {value of the input} input 
+ *
+ * @param {value of the input} input
  * @returns htmlpart that shows the new created Category
  */
 function createSelectedCategory(input) {
@@ -690,11 +667,10 @@ function createSelectedCategory(input) {
   `;
 }
 
-
 /**
- * 
- * @param {index} i 
- * @returns html part for a container 
+ *
+ * @param {index} i
+ * @returns html part for a container
  */
 function contactsAssignedTo(i) {
   const contact = contacts[i];
@@ -708,10 +684,9 @@ function contactsAssignedTo(i) {
       `;
 }
 
-
 /**
- * 
- * @param {letter of contact} letter 
+ *
+ * @param {letter of contact} letter
  * @returns html part for alphabet list of contacts
  */
 function createContactSectionOfLetter(letter) {
@@ -726,18 +701,18 @@ function createContactSectionOfLetter(letter) {
   `;
 }
 
-
 /**
- * 
- * @param {actual contact} contact 
- * @param {index} i 
+ *
+ * @param {actual contact} contact
+ * @param {index} i
  * @returns html part for the section where you can create a new contact
  */
 function createContact(contact, i) {
   return /* html */ `
   <div id="contactInfo${i}" class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${contact.color
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>
@@ -753,10 +728,9 @@ ${contact.email}
   `;
 }
 
-
 /**
- * 
- * @param {index} i 
+ *
+ * @param {index} i
  * @returns html part for fullview of a contact card
  */
 function createFullContact(i) {

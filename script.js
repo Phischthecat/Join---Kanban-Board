@@ -22,7 +22,6 @@ let categoryIndex;
 let checkedContactsList = [];
 let addTaskSubtasks = [];
 
-
 /**
  * loading all data from backend
  */
@@ -35,7 +34,6 @@ async function init() {
   includeHTML();
   checkIfUserIsLoggedIn();
 }
-
 
 /**
  * w3 include function to use html snippets
@@ -54,7 +52,6 @@ async function includeHTML() {
     }
   }
 }
-
 
 /**
  * function for setting duedate on todays date
@@ -76,23 +73,22 @@ function setDueDateOnToday() {
     });
 }
 
-
 /**
  * opening Taskbox
  */
 function openTaskBox() {
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL();
+  setDueDateOnToday();
   renderCategorys();
   renderAssignedToContacts();
   slideAnimation(box);
 }
 
-
 /**
- * 
+ *
  * function for creating a slide animation
- * @param {actualConatiner} box 
+ * @param {actualConatiner} box
  */
 function slideAnimation(box) {
   setTimeout(() => {
@@ -102,7 +98,6 @@ function slideAnimation(box) {
     box.classList.remove('d-none');
   }, 200);
 }
-
 
 /**
  * function for closing a taskbox
@@ -119,12 +114,11 @@ function closeTaskBox() {
   }, 1000);
 }
 
-
 /**
- * 
+ *
  * opening a contactBox
- * @param {function} fct 
- * @param {used Contact} contact 
+ * @param {function} fct
+ * @param {used Contact} contact
  */
 async function openContactBox(fct, contact) {
   document.body.style.overflow = 'hidden';
@@ -142,7 +136,6 @@ async function openContactBox(fct, contact) {
   }
 }
 
-
 /**
  * closing a contact Box
  */
@@ -153,9 +146,8 @@ function closeContactBox() {
   }, 1000);
 }
 
-
 /**
- * 
+ *
  * @returns all users that are selected in the assigned to section
  */
 function filterAssignedContacts() {
@@ -182,7 +174,6 @@ function checkIfUserIsLoggedIn() {
   }
 }
 
-
 /**
  * function to forward only to board
  */
@@ -199,7 +190,6 @@ function getId(theId) {
   return document.getElementById(theId);
 }
 
-
 /**
  * rendering assigned contacts in a template
  */
@@ -211,22 +201,20 @@ async function renderAssignedToContacts() {
   }
 }
 
-
 /**
- * 
+ *
  * opening dropdown menu to assign contacts
- * @param {id of task} id 
+ * @param {id of task} id
  */
 function openDropdownMenu(id) {
   getId('selectBtn' + id).classList.toggle('open');
   getId('assignedToContacts').classList.toggle('d-none');
 }
 
-
 /**
- * 
+ *
  * showing selectbox checked or not checked and html 5 formvalidation
- * @param {name of contacts} name 
+ * @param {name of contacts} name
  */
 function checked(name) {
   getId(name).classList.toggle('checked');
@@ -242,12 +230,11 @@ function checked(name) {
   renderAssignedContactInitials(checkedContacts, 'assignedToContacts');
 }
 
-
 /**
- * 
+ *
  * rendering all selected contacts in a container
- * @param {all contacts that are selected} checkedContacts 
- * @param {id of actual contact} id 
+ * @param {all contacts that are selected} checkedContacts
+ * @param {id of actual contact} id
  */
 function renderAssignedContactInitials(checkedContacts, id) {
   let assignedContacts = getId(id);
@@ -263,10 +250,9 @@ function renderAssignedContactInitials(checkedContacts, id) {
   }
 }
 
-
 /**
- * 
- * @param {contact for the initials} contact 
+ *
+ * @param {contact for the initials} contact
  * @returns styling the circle with the initials
  */
 function createAssignedContactInitials(contact) {
@@ -274,7 +260,6 @@ function createAssignedContactInitials(contact) {
     <div class="initials initialCircle" style="background-color:#${contact.color}">${contact.initial}</div>
     `;
 }
-
 
 /**
  * rendering all categorys in a container
@@ -288,9 +273,9 @@ function renderCategorys() {
 }
 
 /**
- * 
+ *
  * rendering all selected categorys
- * @param {index} i 
+ * @param {index} i
  */
 function renderChoosenCategory(i) {
   categoryIndex = i;
@@ -299,7 +284,6 @@ function renderChoosenCategory(i) {
   renderSelectedCategory(category.name);
   renderCategorys();
 }
-
 
 /**
  * function for adding a new category in a template
@@ -310,7 +294,6 @@ function addNewCategory() {
   renderNewCategoryColors();
 }
 
-
 /**
  * cancelling creating new category
  */
@@ -318,7 +301,6 @@ function cancelNewCategory() {
   renderCategorySelection();
   renderCategorys();
 }
-
 
 /**
  * function or rendering colors of categorys
@@ -331,11 +313,10 @@ function renderNewCategoryColors() {
   }
 }
 
-
 /**
- * 
+ *
  * setting the color that is used
- * @param {id of color } colorId 
+ * @param {id of color } colorId
  */
 function categoryColorChoose(colorId) {
   let colorBubbles = document.querySelectorAll('.colorBubble');
@@ -346,7 +327,6 @@ function categoryColorChoose(colorId) {
   choosenColor = categoryColors[colorId];
 }
 
-
 /**
  * rendering the category section in atemplate
  */
@@ -355,18 +335,16 @@ function renderCategorySelection() {
   categorySelection.innerHTML = createCategorySelection();
 }
 
-
 /**
- * 
+ *
  * rendering all selected categorys
- * @param {value} input 
- * @param {index} index 
+ * @param {value} input
+ * @param {index} index
  */
 function renderSelectedCategory(input, index) {
   let categorySelection = getId('categorySelect');
   categorySelection.innerHTML = createSelectedCategory(input, index);
 }
-
 
 /**
  * saving a created category in backend
@@ -383,11 +361,10 @@ async function saveNewCategory() {
   renderCategorys();
 }
 
-
 /**
- * 
+ *
  * setting urgency backgroundcolor
- * @param {priority that is selected} prio 
+ * @param {priority that is selected} prio
  */
 function getPriority(prio) {
   if (prio == 'urgent') {
@@ -407,7 +384,6 @@ function getPriority(prio) {
   getId('hiddenUrgentInput').value = prio;
 }
 
-
 /**
  * rendering subtask section in a template
  */
@@ -421,7 +397,6 @@ function renderSubtaskSection() {
   `;
 }
 
-
 /**
  * cancelling creating a subtask
  */
@@ -429,7 +404,6 @@ function cancelNewSubtasks() {
   renderSubtaskSection();
   addTaskSubtasks = [];
 }
-
 
 /**
  * saving subtask
@@ -446,12 +420,11 @@ function saveNewSubtasks() {
   renderSubtaskSection();
 }
 
-
 /**
- * 
+ *
  * showing all selected subtasks
- * @param {id of task} id 
- * @param {array of subtasks} arr 
+ * @param {id of task} id
+ * @param {array of subtasks} arr
  */
 function createSubtasksSection(id, arr) {
   let subtasksContainer = getId(id);
@@ -459,16 +432,15 @@ function createSubtasksSection(id, arr) {
   for (let i = 0; i < arr.length; i++) {
     const subtask = arr[i];
     if (subtask.checked == true) {
-      subtasksContainer.innerHTML += createSubtasksChecked(i);
+      subtasksContainer.innerHTML += createSubtasksChecked(subtask, i);
     } else {
-      subtasksContainer.innerHTML += createSubtasksUnchecked(i);
+      subtasksContainer.innerHTML += createSubtasksUnchecked(subtask, i);
     }
   }
 }
 
-
 /**
- * function that changes the subtasks icon when a subtask 
+ * function that changes the subtasks icon when a subtask
  */
 function changeSubTasksIcons() {
   let subtasksIcons = getId('substasksIcons');
