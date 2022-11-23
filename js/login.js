@@ -58,10 +58,6 @@ async function initBoard() {
     checkForRemember();
     logAllUsersOut();
   }
-
-  setTimeout(() => {
-    showMessageForCoaches();
-  }, 2000);
 }
 
 /**

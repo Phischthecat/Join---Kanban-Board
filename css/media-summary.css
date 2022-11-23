@@ -56,8 +56,11 @@
 
 @media (max-width: 860px) {
   .box {
-    height: 150px;
     width: 150px;
+  }
+
+  .box-height {
+    height: 150px;
   }
 
   .thirdBox {
@@ -125,13 +128,6 @@
     padding-bottom: 0;
   }
 
-  /* .subheadlineSummaryMobile {
-        border-left: 0;
-        border-bottom: 4px solid var(--mainColorLightBlue);
-        padding-bottom: 20px;
-        margin-top: -15px;
-    } */
-
   .summaryArea {
     padding-top: 25px;
   }
@@ -160,8 +156,11 @@
   }
 
   .box {
-    height: 120px;
     width: 120px;
+  }
+
+  .box-height {
+    height: 120px;
   }
 
   .thirdBox {
@@ -199,15 +198,14 @@
 
   .box {
     width: 90px;
+  }
+
+  .box-height {
     height: 90px;
   }
 
   .nr {
     font-size: 25px;
-  }
-
-  .longBox {
-    height: 70px;
   }
 
   #dateOfDeadline {
@@ -216,7 +214,6 @@
 
   .thirdBox {
     width: 160px;
-    height: 60px;
   }
 
   .todoAndDone {
@@ -268,6 +265,9 @@
 
   .box {
     width: 80px;
+  }
+
+  .box-height {
     height: 80px;
   }
 
@@ -279,13 +279,8 @@
     font-size: 12px;
   }
 
-  .longBox {
-    height: 60px;
-  }
-
   .thirdBox {
     width: 140px;
-    height: 60px;
   }
 
   .todoAndDone {
@@ -346,6 +341,9 @@
 
   .box {
     width: 65px;
+  }
+
+  .box-height {
     height: 65px;
   }
 
@@ -374,5 +372,3 @@
     font-size: 12px;
   }
 }
-
-/************************** Media Queries for Summary **************************/

@@ -19,12 +19,12 @@
   .dragAndDropContainer {
     flex-direction: column;
     width: 100%;
-    overflow: scroll;
-    height: calc(100vh - 365px);
+    overflow: auto;
+    height: calc(100vh - 270px);
   }
 }
 
-@media(max-width: 1050px) {
+@media (max-width: 1050px) {
   .taskHeader {
     font-size: 50px;
   }
@@ -134,6 +134,7 @@
 
   .dragAndDropContainer {
     padding-top: 20px;
+    height: calc(100vh - 365px);
   }
 
   .rightSplit {
