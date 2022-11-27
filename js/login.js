@@ -3,54 +3,6 @@ let loggedIn = true;
 let exists = false;
 let actualLoggedUser;
 
-function showMessageForCoaches() {
-  getId('messageForCoaches').innerHTML += /*html*/`
-  <div class="coachbox">
-    <h1>Bitte vor der Bewertung von Join lesen.  Wichtig!</h1>
-
-    <div>
-      <span>Hallo liebe Coaches, <br>
-      Vor dem Projekt möchte ich sagen , dass Ich Rico Denkewitz neben dem alten Join Mockup, was damals meine Gruppenarbeit war,ich mich entschlossen habe das neue umzusetzen und mir 2 Leute gesucht habe die mitmachen weil meine alte Gruppe das als zuviel Arbeit empfand.<br>
-      Mit <b> Phil Schmucker </b> und <b> Tom Petri </b> habe ich das Projekt dann weiter umgesetzt.
-      Noch bevor es Pflicht wurde join im Modul Scrum abzugeben saßen wir bereits dadran und haben es anschließend auch gemeinsam fertig gestellt. Nach Abnahme des Projekts würde ich euch bitten, Phil Schmucker , wenn er sein Sharkie abgegeben hat und das akzeptiert wurde direkt Angular freizuschalten. <br>
-      Sollte es Kritik geben welche natürlich umgesetzt wird , haben wir 3 exakt das gleiche Join und bei ihm muss es ja dann keiner zweiten Kontrolle unterzogen werden wenn es bei mir bereits abgenommen wurde.
-      Tom Petri und ich haben bereits durch eine bug angular frei aber wollen trz alle ein abgenommenes Join haben weshalb wir das ganze trz abgeben obwohl wir bereits weitere module frei haben. <br>
-
-      Ich danke fürs lesen und wünsche einen angenehmen Abend oder Tag je nachdem wann es gelesen wird. <br>
-
-      Diese Nachricht wird natürlich nach Abnahme des Projekts rausgenommen , deswegen bitte nicht wundern das die erste function der login.js so lang ist. <br>
-
-      nun aber Viel Spaß an unserem Join 🙂
-
-      <br>
-      <br>
-      <br>
-      Mit freundlichen Grüßen, <br>
-      <i>Rico Denkewitz</i>
-    </span>
-    </div>
-
-
-    <button onclick="closeCoachBox()"> Ok</button>
-  </div>
-  `
-}
-
-function closeCoachBox() {
-  document.querySelector('.coachbox').classList.add('d-none');
-}
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * This function is used for controlling password and username
  */
