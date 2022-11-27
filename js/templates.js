@@ -406,7 +406,7 @@ function addTaskContainerHMTL() {
             </span>
           </div>
 
-          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTask('toDo'); updateHTML(); return false;">
+          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTask('toDo'); updateHTML(); setDragAndDropId(); return false;">
                         <!--Header only for Mobile Add Task-->
                         <button type="submit" class="btn-blue btnCreate">
                   Create

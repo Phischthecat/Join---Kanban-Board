@@ -8,9 +8,18 @@ let actualLoggedUser;
  */
 async function checkAllUsers() {
   let name = getUser();
-  if (name && name.userName && name.password == getId('password').value && getId('remember').checked) {
+  if (
+    name &&
+    name.userName &&
+    name.password == getId('password').value &&
+    getId('remember').checked
+  ) {
     conditionsAreTrue(name);
-  } else if (name && name.userName && name.password == getId('password').value) {
+  } else if (
+    name &&
+    name.userName &&
+    name.password == getId('password').value
+  ) {
     getId('loginError').innerHTML = '';
     name.logStatus = 'loggedIn';
     login();
@@ -29,8 +38,8 @@ async function checkAllUsers() {
 }
 
 /**
- * 
- * @param {name from actual user} name 
+ *
+ * @param {name from actual user} name
  */
 function conditionsAreTrue(name) {
   let rememberedUser = JSON.stringify(name);
@@ -39,7 +48,6 @@ function conditionsAreTrue(name) {
   name.logStatus = 'loggedIn';
   login();
 }
-
 
 /**
  * initialising the Login Section
@@ -50,10 +58,6 @@ async function initBoard() {
     checkForRemember();
     logAllUsersOut();
   }
-
-  setTimeout(() => {
-    showMessageForCoaches();
-  }, 2000);
 }
 
 /**

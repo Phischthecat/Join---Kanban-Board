@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/media-addTask.css" />
   <link rel="shortcut icon" href="./img/joinlogo.svg" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-  <script src="js/mini_backend.js"></script>
+   <script src="js/mini_backend.js"></script>
   <script src="script.js"></script>
   <script src="https://www.w3schools.com/lib/w3data.js"></script>
   <script src="js/templates.js"></script>
@@ -62,7 +62,7 @@
       </div>
     </nav>
 
-    <div class="mainContainer">
+    <div class="mainContainer hide-scrollbar">
       <div class="kanbanBar">
         <span class="subText">Kanban Project Management Tool</span>
         <img id="imgResponsive" class="respoImg" src="./img/joinlogo-black.svg"></img>
@@ -77,7 +77,7 @@
       </div>
 
       <div class="logoutContainer">
-        <div class="logoutBox d-none" id="logoutBox">
+        <div class="logoutBox hide-scrollbar  d-none" id="logoutBox">
           <span onclick="logout()">Logout</span>
           <span class="logSpan" onclick="showLegalNotice()">Legal Notice</span>
           <span class="logSpan" onclick="showHelpSection()">Help</span>
