@@ -1,7 +1,6 @@
 let allTasks = [];
 let urgency;
 
-
 /**
  * main function for add task section
  */
@@ -12,10 +11,9 @@ async function initAddTask() {
   renderAssignedToContacts();
 }
 
-
 /**
- * 
- * @returns an array with assigned contacts 
+ *
+ * @returns an array with assigned contacts
  */
 function filterAssignedContacts() {
   let assignedToContacts = [];
@@ -26,7 +24,6 @@ function filterAssignedContacts() {
   }
   return assignedToContacts;
 }
-
 
 /**
  * This function is used to return the ids and/or values of the input fields for the current task
@@ -62,9 +59,8 @@ async function addTask(taskStatus) {
   clearFields();
 }
 
-
 /**
- * 
+ *
  * @returns the structure of a task
  */
 function taskStrucure(taskStatus) {
@@ -92,8 +88,10 @@ function clearFields() {
   setDueDateOnToday();
   getId('formAddTask').reset();
   renderCategorySelection();
+  renderCategorys();
   getId('assignedToBtnText').innerText = 'Select contacts to assign';
   renderAssignedToContacts();
+  getId('assignedToContacts').innerHTML = '';
   getId('subtasksContainer').innerHTML = '';
   getId('urgent').classList.remove('urgentBtn');
   getId('medium').classList.remove('mediumBtn');
