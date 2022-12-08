@@ -37,7 +37,7 @@ function createTaskCard(index) {
  */
 function createFullView(task, index) {
   return /*html*/ `
-  <div class="modalContainer fade-in startTop">
+  <div class="modalContainer fade-in startTop" onclick="dontClose(event); closeFullView()">
       <div class="fullCard hide-scrollbar" id="fullCard">
         <div class="headerFullCard">
           <div
@@ -711,8 +711,7 @@ function createContact(contact, i) {
   return /* html */ `
   <div id="contactInfo${i}" class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${
-      contact.color
+    <div class="initials initialCircle" style="background-color:#${contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>

@@ -165,6 +165,10 @@ function showFullView(externalId) {
   }
 }
 
+function dontClose(event) {
+  event.stopPropagation();
+}
+
 /**
  * adding z-index to the kanbanbar in responsive
  */
