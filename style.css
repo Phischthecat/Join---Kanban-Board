@@ -444,13 +444,18 @@ textarea {
 .list-items .categoryItem {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   list-style: none;
   height: 40px;
-  padding-left: 16px;
+  padding: 0 16px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.list-items .categoryItem div:first-child {
   gap: 10px;
+  display: flex;
+  width: 100%;
 }
 
 .list-items .item:hover {

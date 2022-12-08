@@ -568,12 +568,17 @@ function addTaskContainerHMTL() {
 function createCategorys(i) {
   const category = categorys[i];
   return /*html*/ `
-  <li class="categoryItem item" onclick="renderChoosenCategory(${i})">
-                    <span class="item-text">${category.name}</span>
-                    <span class="categoryCheckbox" style="color:${category.color}">
-                      <i class="fa-solid fa-circle"></i>
-                    </span>
-                  </li>
+  <li class="categoryItem item" >
+    <div onclick="renderChoosenCategory(${i})">
+      <span class="item-text">${category.name}</span>
+      <span class="categoryCheckbox" style="color:${category.color}">
+       <i class="fa-solid fa-circle"></i>
+      </span>
+    </div>
+    <div onclick="deleteCategory(${i})">
+      <i class="fa-sharp fa-solid fa-trash"></i>
+    </div>                  
+</li>
   `;
 }
 

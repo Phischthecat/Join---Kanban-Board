@@ -208,7 +208,9 @@ async function renderAssignedToContacts() {
  */
 function openDropdownMenu(id) {
   getId('selectBtn' + id).classList.toggle('open');
-  getId('assignedToContacts').classList.toggle('d-none');
+  if (id == 1 && !getId('assignedToContacts').contains('d-none')) {
+    getId('assignedToContacts').classList.toggle('d-none');
+  }
 }
 
 /**
@@ -285,6 +287,13 @@ function renderChoosenCategory(i) {
   renderCategorys();
 }
 
+async function deleteCategory(index) {
+  categorys.splice(index, 1);
+  await backend.setItem('categorys', categorys);
+  createCategorySelection();
+  renderCategorys();
+}
+
 /**
  * function for adding a new category in a template
  */
@@ -355,7 +364,6 @@ async function saveNewCategory() {
     name: input,
     color: choosenColor,
   });
-  categoryIndex = categorys.findIndex((n) => n.name == input);
   await backend.setItem('categorys', categorys);
   renderSelectedCategory(input);
   renderCategorys();
