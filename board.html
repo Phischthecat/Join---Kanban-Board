@@ -91,7 +91,7 @@
             <!--Only for Mobile-->
             <span class="kanbanTextBoard d-none">Kanban Project Management Tool</span>
             <!--Only for Mobile-->
-            <img class="plusImgMobile d-none" src="./img/mobileAddtaskBoard.svg" onclick="openTaskBox()" />
+            <img class="plusImgMobile d-none" src="./img/mobileAddtaskBoard.svg" onclick="openTaskBox('toDo')" />
             <h1>Board</h1>
             <!--Only for Mobile-->
             <input type="text" class="inputSearchMobile d-none" placeholder="Find Task" />
@@ -100,7 +100,7 @@
 
           <div class="searchContainer">
             <input type="text" id="search" placeholder="find Task" onkeyup="searchForTask()" />
-            <button onclick="openTaskBox()" class="btn-blue">
+            <button onclick="openTaskBox('toDo')" class="btn-blue">
               <b>Add Task </b><span><i class="fa-regular fa-plus"></i> </span>
             </button>
           </div>
