@@ -1,7 +1,6 @@
 let currentDraggedElement;
 let sections = ['toDo', 'inProgress', 'awaitingFeedback', 'done'];
 
-
 /**
  * initialising board section
  */
@@ -43,17 +42,18 @@ function allowDrop(ev) {
  */
 async function moveTo(status) {
   allTasks[currentDraggedElement]['status'] = status;
-  backend.setItem('tasks', allTasks);
+  await backend.setItem('allTasks', allTasks);
   updateHTML();
 }
 
 /**
  * setting the drag and drop id
  */
-function setDragAndDropId() {
+async function setDragAndDropId() {
   for (let i = 0; i < allTasks.length; i++) {
     allTasks[i]['dragAndDropId'] = i;
   }
+  await backend.setItem('allTasks', allTasks);
 }
 
 /**
@@ -61,16 +61,18 @@ function setDragAndDropId() {
  * @param {for setting the task into the actual container} container
  */
 function updateContainer(container) {
-  let filteredTask = allTasks.filter((t) => t['status'] == container);
-  let column = getId(container);
-  column.innerHTML = '';
-  for (let i = 0; i < filteredTask.length; i++) {
-    let task = filteredTask[i];
-    let index = allTasks.indexOf(task);
-    column.innerHTML += createTaskCard(index);
-    renderBoardInitials(task, index);
-    taskUrgency(index);
-    updateProgressbar(index);
+  if (allTasks.length > 0) {
+    let filteredTask = allTasks.filter((t) => t['status'] == container);
+    let column = getId(container);
+    column.innerHTML = '';
+    for (let i = 0; i < filteredTask.length; i++) {
+      let task = filteredTask[i];
+      let index = allTasks.indexOf(task);
+      column.innerHTML += createTaskCard(index);
+      renderBoardInitials(task, index);
+      taskUrgency(index);
+      updateProgressbar(index);
+    }
   }
 }
 
@@ -120,11 +122,10 @@ function boardInitialsClassAdd(index) {
   }
 }
 
-
 /**
- * 
- * @param {*} task 
- * @param {*} index 
+ *
+ * @param {*} task
+ * @param {*} index
  */
 function renderBoardInitials(task, index) {
   renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
@@ -215,8 +216,8 @@ function showUrgency(task) {
 }
 
 /**
- * 
- * @param {actualTask where a box will be rendered with the assigned Contacts} task 
+ *
+ * @param {actualTask where a box will be rendered with the assigned Contacts} task
  */
 function showContacts(task) {
   let assignedContacts = document.getElementById('assignedUser');
@@ -227,10 +228,9 @@ function showContacts(task) {
   }
 }
 
-
 /**
- * 
- * @param {specific id of task} specific 
+ *
+ * @param {specific id of task} specific
  */
 function renderEditTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
@@ -245,10 +245,9 @@ function renderEditTask(specific) {
   }, 200);
 }
 
-
 /**
- * 
- * @param {task where the chossenContacts should be shown} task 
+ *
+ * @param {task where the chossenContacts should be shown} task
  */
 function choosenContacts(task) {
   let choosenContacts = document.querySelectorAll('.item');
@@ -262,10 +261,9 @@ function choosenContacts(task) {
   }
 }
 
-
 /**
- * 
- * @param {specific id of task which has to be changed} specific 
+ *
+ * @param {specific id of task which has to be changed} specific
  */
 async function changeTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
@@ -279,10 +277,9 @@ async function changeTask(specific) {
   document.querySelector('.modalContainer').classList.remove('fade');
 }
 
-
 /**
- * 
- * @param {task where the urgent has to be styled} task 
+ *
+ * @param {task where the urgent has to be styled} task
  */
 function styleUrgency(task) {
   let urgent = '#ff3b00',
@@ -291,7 +288,6 @@ function styleUrgency(task) {
 
   getId('showUrgency').style = `background-color: ${task.priority}`;
 }
-
 
 /**
  * function for closing fullview
@@ -303,11 +299,10 @@ async function closeFullView() {
   updateHTML();
 }
 
-
 /**
- * 
+ *
  * checking if a subtask is created
- * @param {index of the respectively task } index 
+ * @param {number} index index of the respectively task
  */
 function checkIfSubtasksDone(index) {
   let task = allTasks[index];
@@ -323,7 +318,6 @@ function checkIfSubtasksDone(index) {
   }
 }
 
-
 /**
  * showing where a task can be dropped
  */
@@ -336,7 +330,6 @@ function showPossibleDropzones() {
   });
 }
 
-
 /**
  * removing the possible dropzones that are shown when a task is dragged
  */
@@ -347,16 +340,15 @@ function removePossibleDropzones() {
   });
 }
 
-
 /**
- * 
- * @param {task which has to be deleted} taskIndex 
+ *
+ * @param {task which has to be deleted} taskIndex
  */
-function deleteTask(taskIndex) {
+async function deleteTask(taskIndex) {
   allTasks.splice(taskIndex, 1);
+  await backend.setItem('allTasks', allTasks);
   closeFullView();
 }
-
 
 /**
  * function for searching  Task
@@ -380,11 +372,10 @@ function searchForTask() {
   }
 }
 
-
 /**
- * 
- * @param {array of founded task by their input value} searchedTasks 
- * @param {index of array} index 
+ *
+ * @param {array of founded task by their input value} searchedTasks
+ * @param {index of array} index
  */
 function updateOnSearch(searchedTasks, index) {
   let column = getId(searchedTasks.status);

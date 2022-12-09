@@ -20,7 +20,6 @@
     flex-direction: column;
     width: 100%;
     overflow: auto;
-    height: calc(100vh - 270px);
   }
 }
 
@@ -30,9 +29,13 @@
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1060px) {
   .headlineBoardMobile h1 {
     font-size: 51px;
+  }
+
+  .dragAndDropContainer {
+    height: calc(100vh - 205px);
   }
 }
 
@@ -40,10 +43,6 @@
   .searchContainer input {
     background-position-x: 130px !important;
     width: 150px;
-  }
-
-  .headlineBoardMobile h1 {
-    font-size: 45px;
   }
 
   .searchContainer input {
