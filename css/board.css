@@ -133,6 +133,13 @@
   text-transform: capitalize;
 }
 
+.descriptionBoard span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
 .descriptionBoard :first-child {
   font-weight: bold;
 }

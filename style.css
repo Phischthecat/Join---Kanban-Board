@@ -327,6 +327,8 @@ textarea {
   margin-bottom: 0;
   text-transform: capitalize;
   vertical-align: middle;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .contactArea,
