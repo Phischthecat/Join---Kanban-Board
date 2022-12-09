@@ -389,7 +389,7 @@ function createForgetPart() {
  *
  * @returns html part of addtask section
  */
-function addTaskContainerHMTL(param) {
+function addTaskContainerHMTL(column) {
   return /*html*/ `
     <div class="modalContainer modalContainerAddTask slide-in-right hide-scrollbar" id="animation">
       <div class="modalKanbanBar">
@@ -406,7 +406,7 @@ function addTaskContainerHMTL(param) {
             </span>
           </div>
 
-          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTask(${param}); updateHTML(); setDragAndDropId(); return false;">
+          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTaskBoard('${column}'); return false;">
                         <!--Header only for Mobile Add Task-->
                         <button type="submit" class="btn-blue btnCreate">
                   Create

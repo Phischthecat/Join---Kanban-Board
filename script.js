@@ -76,9 +76,9 @@ function setDueDateOnToday() {
 /**
  * opening Taskbox
  */
-function openTaskBox(param) {
+function openTaskBox(column) {
   let box = document.getElementById('taskBox');
-  box.innerHTML = addTaskContainerHMTL(param);
+  box.innerHTML = addTaskContainerHMTL(column);
   setDueDateOnToday();
   renderCategorys();
   renderAssignedToContacts();
@@ -103,6 +103,7 @@ function slideAnimation(box) {
  * function for closing a taskbox
  */
 function closeTaskBox() {
+  setDragAndDropId();
   let taskBoxContainer = document.getElementById('animation');
   let taskBox = document.getElementById('taskBox');
   taskBoxContainer.classList.toggle('slide-in-right');
@@ -367,6 +368,12 @@ async function saveNewCategory() {
   await backend.setItem('categorys', categorys);
   renderSelectedCategory(input);
   renderCategorys();
+}
+
+async function addTaskBoard(column) {
+  addTask(column);
+  await setDragAndDropId();
+  updateHTML();
 }
 
 /**
