@@ -76,9 +76,9 @@ function setDueDateOnToday() {
 /**
  * opening Taskbox
  */
-function openTaskBox() {
+function openTaskBox(param) {
   let box = document.getElementById('taskBox');
-  box.innerHTML = addTaskContainerHMTL();
+  box.innerHTML = addTaskContainerHMTL(param);
   setDueDateOnToday();
   renderCategorys();
   renderAssignedToContacts();
@@ -208,7 +208,7 @@ async function renderAssignedToContacts() {
  */
 function openDropdownMenu(id) {
   getId('selectBtn' + id).classList.toggle('open');
-  if (id == 1 && !getId('assignedToContacts').contains('d-none')) {
+  if (id == 1) {
     getId('assignedToContacts').classList.toggle('d-none');
   }
 }
