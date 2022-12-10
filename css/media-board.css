@@ -60,7 +60,7 @@
 
   .kanbanBar {
     position: relative;
-    z-index: 99;
+    /* z-index: 99; */
     left: 0;
   }
 
@@ -109,10 +109,6 @@
     width: 40px !important;
     display: flex !important;
   }
-
-  /* .kanbanBar {
-    z-index: 50;
-  } */
 
   .footerFullCard {
     gap: 60px;

@@ -76,9 +76,9 @@ function setDueDateOnToday() {
 /**
  * opening Taskbox
  */
-function openTaskBox(column) {
+function openTaskBox(column, instance) {
   let box = document.getElementById('taskBox');
-  box.innerHTML = addTaskContainerHMTL(column);
+  box.innerHTML = addTaskContainerHMTL(column, instance);
   setDueDateOnToday();
   renderCategorys();
   renderAssignedToContacts();
@@ -212,6 +212,11 @@ function openDropdownMenu(id) {
   if (id == 1) {
     getId('assignedToContacts').classList.toggle('d-none');
   }
+}
+
+function closeDropdowns() {
+  getId('selectBtn0').classList.remove('open');
+  getId('selectBtn1').classList.remove('open');
 }
 
 /**
@@ -370,10 +375,15 @@ async function saveNewCategory() {
   renderCategorys();
 }
 
-async function addTaskBoard(column) {
-  addTask(column);
-  await setDragAndDropId();
-  updateHTML();
+async function addTaskBoard(column, instance) {
+  if (instance != 'contact') {
+    addTask(column);
+    await setDragAndDropId();
+    updateHTML();
+  } else {
+    addTask(column);
+    await setDragAndDropId();
+  }
 }
 
 /**
@@ -539,4 +549,9 @@ function showLegalNotice() {
 function closeLegalNotice() {
   getId('help').classList.add('d-none');
   document.querySelector('.mainContainer').style = 'overflow: auto';
+}
+
+
+function dontClose(event) {
+  event.stopPropagation();
 }

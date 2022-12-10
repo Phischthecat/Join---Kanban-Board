@@ -47,6 +47,18 @@ function getValuesForTasks() {
   ];
 }
 
+
+/**
+ * setting the drag and drop id
+ */
+async function setDragAndDropId() {
+  for (let i = 0; i < allTasks.length; i++) {
+    allTasks[i]['dragAndDropId'] = i;
+  }
+  await backend.setItem('allTasks', allTasks);
+}
+
+
 /**
  * This function is used to create the Task and add it to the storage
  *  * @param {string} taskStatus -- after creating a task the user is asked to push the task into backlog or toDo

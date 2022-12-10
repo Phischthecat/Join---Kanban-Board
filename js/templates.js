@@ -37,8 +37,8 @@ function createTaskCard(index) {
  */
 function createFullView(task, index) {
   return /*html*/ `
-  <div class="modalContainer fade-in startTop" onclick="dontClose(event); closeFullView()">
-      <div class="fullCard hide-scrollbar" id="fullCard">
+  <div class="modalContainer fade-in startTop" onclick="closeFullView()">
+      <div class="fullCard hide-scrollbar" id="fullCard" onclick="dontClose(event)">
         <div class="headerFullCard">
           <div
             class="categoryText"
@@ -389,13 +389,13 @@ function createForgetPart() {
  *
  * @returns html part of addtask section
  */
-function addTaskContainerHMTL(column) {
+function addTaskContainerHMTL(column, instance) {
   return /*html*/ `
-    <div class="modalContainer modalContainerAddTask slide-in-right hide-scrollbar" id="animation">
+    <div class="modalContainer modalContainerAddTask slide-in-right hide-scrollbar" id="animation" onclick="closeTaskBox()">
       <div class="modalKanbanBar">
         <img id="imgResponsive" class="respoImg" src="./img/joinlogo-black.svg">
       </div>
-        <div class="boxContent">
+        <div class="boxContent" onclick="dontClose(event); closeDropdowns()">
         <div class="headline">
             <span  id="kanbanTextBoard" class="kanbanTextAddTask d-none"
               >Kanban Project Management Tool</span
@@ -406,7 +406,7 @@ function addTaskContainerHMTL(column) {
             </span>
           </div>
 
-          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTaskBoard('${column}'); return false;">
+          <form id="formAddTask" class="flex flexAddTaskMobile" onsubmit="addTaskBoard('${column}', '${instance}'); return false;">
                         <!--Header only for Mobile Add Task-->
                         <button type="submit" class="btn-blue btnCreate">
                   Create
@@ -427,7 +427,7 @@ function addTaskContainerHMTL(column) {
               <div class="container">
                 <span class="text textAddTaskMobile">Category</span>
                 <div id="categorySelect">
-                  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
+                  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0); dontClose(event)">
                     <div>
                       <span class="btn-text">Choose category</span>
                       <input type="text" class="hiddenInput" id="hiddenCategoryInput" required />
@@ -458,7 +458,7 @@ function addTaskContainerHMTL(column) {
 
               <div class="container">
                 <span class="text textAddTaskMobile">Assigned to</span>
-                <div id="selectBtn1" class="select-btn" onclick="openDropdownMenu(1)">
+                <div id="selectBtn1" class="select-btn" onclick="openDropdownMenu(1); dontClose(event)">
                   <div>
                     <span id="assignedToBtnText" class="btn-text">Select contacts to assign</span>
                     <input type="text" class="hiddenInput" id="hiddenAssignedToInput" required />
@@ -753,7 +753,7 @@ function createFullContact(i) {
         <div class="nameFullContact">${contact.name}</div>
         <div
           class="addTaskLink cursor-pointer"
-          onclick="openTaskBox('toDo')"
+          onclick="openTaskBox('toDo', 'contact')"
         >
           <span>+</span> Add Task
         </div>

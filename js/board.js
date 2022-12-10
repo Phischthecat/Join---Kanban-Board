@@ -46,22 +46,13 @@ async function moveTo(status) {
   updateHTML();
 }
 
-/**
- * setting the drag and drop id
- */
-async function setDragAndDropId() {
-  for (let i = 0; i < allTasks.length; i++) {
-    allTasks[i]['dragAndDropId'] = i;
-  }
-  await backend.setItem('allTasks', allTasks);
-}
 
 /**
  *
  * @param {for setting the task into the actual container} container
  */
 function updateContainer(container) {
-  if (allTasks.length > 0) {
+  if (allTasks.length >= 0) {
     let filteredTask = allTasks.filter((t) => t['status'] == container);
     let column = getId(container);
     column.innerHTML = '';
@@ -166,9 +157,6 @@ function showFullView(externalId) {
   }
 }
 
-function dontClose(event) {
-  event.stopPropagation();
-}
 
 /**
  * adding z-index to the kanbanbar in responsive
@@ -351,6 +339,7 @@ function removePossibleDropzones() {
 async function deleteTask(taskIndex) {
   allTasks.splice(taskIndex, 1);
   await backend.setItem('allTasks', allTasks);
+  updateHTML();
   closeFullView();
 }
 

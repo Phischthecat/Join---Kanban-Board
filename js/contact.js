@@ -260,3 +260,4 @@ window.addEventListener('resize', () => {
     document.querySelector('.contactArea').style = 'display: none';
   }
 });
+
