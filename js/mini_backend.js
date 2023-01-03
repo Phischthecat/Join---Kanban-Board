@@ -1,6 +1,6 @@
 let jsonFromServer = {};
 let BASE_SERVER_URL;
-setURL(''); //enter your link to smallest_backend_ever
+setURL('https://philschmucker.de/smallest_backend_ever');
 
 const backend = {
   setItem: function (key, item) {
