@@ -25,7 +25,6 @@ function updateHTML() {
  * @param {number} id for dragging element
  */
 function startDragging(id) {
-  console.log(id);
   currentDraggedElement = id;
 }
 
@@ -46,7 +45,6 @@ async function moveTo(status) {
   await backend.setItem('allTasks', allTasks);
   updateHTML();
 }
-
 
 /**
  *
@@ -125,9 +123,9 @@ function renderBoardInitials(task, index) {
 }
 
 /**
- * 
- * @param {object} task 
- * @param {number} index 
+ *
+ * @param {object} task
+ * @param {number} index
  */
 function renderMoreBoardInitials(task, index) {
   let overflow = task.assignedTo.length - 2;
@@ -162,7 +160,6 @@ function showFullView(externalId) {
     createSubtasksSection('subtasksSection', task.subtasks);
   }
 }
-
 
 /**
  * adding z-index to the kanbanbar in responsive
