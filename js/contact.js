@@ -12,7 +12,7 @@ async function initContact() {
 
 /**
  *
- * @returns a random color which is created by a number
+ * @returns {string} a random color which is created by a number
  */
 function generateRandomColor() {
   let randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -46,8 +46,8 @@ async function addContact() {
 
 /**
  *
- * @param {name of contact} name
- * @returns the firstletter of firstname and the firstLetter of Lastname
+ * @param {string} name of contact
+ * @returns {string}the firstletter of firstname and the firstLetter of Lastname
  */
 function contactInitial(name) {
   if (name.indexOf(' ') == -1) {
@@ -62,7 +62,7 @@ function contactInitial(name) {
 
 /**
  *
- * @param {actual contact which should be saved in backend} i
+ * @param {number} actual contact which should be saved in backend
  */
 async function saveContact(i) {
   let fullContact = getId('contactView');
@@ -79,7 +79,7 @@ async function saveContact(i) {
 
 /**
  *
- * @param {text from saveContact function which will be animated} text
+ * @param {string} text from saveContact function which will be animated
  */
 function openDialogForCreate(text) {
   let message = getId('messageToBoard');
@@ -123,7 +123,7 @@ function generateContactSectionsForLetters() {
 
 /**
  *
- * @param {first letter of actual Contact} letter
+ * @param {string} first letter of actual Contact
  */
 function generateContacts(letter) {
   let letterContainer = getId('contactsOf' + letter);
@@ -138,7 +138,7 @@ function generateContacts(letter) {
 /**
  *
  * showas full Contact Card
- * @param {actual Contact} i
+ * @param {number} actual Contact
  */
 function showFullContact(i) {
   let fullContact = getId('contactView');
@@ -155,8 +155,8 @@ function showFullContact(i) {
 
 /**
  *
- * @param {container where the slide animation has to be toggled} fullContact
- * @param {index} i
+ * @param {object} container where the slide animation has to be toggled
+ * @param {number} i
  */
 function defaultFullContact(fullContact, i) {
   if (fullContact.classList.contains('slide-in-right')) {
@@ -169,8 +169,8 @@ function defaultFullContact(fullContact, i) {
 
 /**
  *
- * @param {contact that has to be shown in fullview} fullContact
- * @param {actualContact} i
+ * @param {string} contact that has to be shown in fullview
+ * @param {number} actualContact
  */
 function mobileFullContact(fullContact, i) {
   document.querySelector('.newContactBtnImg').src = `./img/pencil.svg`;
@@ -190,8 +190,8 @@ function mobileFullContact(fullContact, i) {
 
 /**
  *
- * @param {container} fullContact
- * @param {actualContact} i
+ * @param {object} fullContact
+ * @param {number} i
  */
 function changeContact(fullContact, i) {
   fullContact.className = 'slide-out-right';
@@ -204,8 +204,8 @@ function changeContact(fullContact, i) {
 
 /**
  *
- * @param {container} fullContact
- * @param {actualContact} i
+ * @param {object} fullContact
+ * @param {number} i
  */
 function showContact(fullContact, i) {
   fullContact.innerHTML = createFullContact(i);
@@ -214,7 +214,7 @@ function showContact(fullContact, i) {
 /**
  *
  * function for deleting a contact
- * @param {contact that should be deleted } index
+ * @param {number} contact that should be deleted
  */
 async function deleteContact(index) {
   contacts.splice(index, 1);

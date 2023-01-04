@@ -13,7 +13,7 @@ async function initAddTask() {
 
 /**
  *
- * @returns an array with assigned contacts
+ * @returns {Array} an array with assigned contacts
  */
 function filterAssignedContacts() {
   let assignedToContacts = [];
@@ -26,7 +26,7 @@ function filterAssignedContacts() {
 }
 
 /**
- * This function is used to return the ids and/or values of the input fields for the current task
+ * @returns {Array} This function is used to return the ids and/or values of the input fields for the current task
  */
 function getValuesForTasks() {
   let title = getId('taskTitle');
@@ -73,7 +73,7 @@ async function addTask(taskStatus) {
 
 /**
  *
- * @returns the structure of a task
+ * @returns {object}the structure of a task
  */
 function taskStrucure(taskStatus) {
   [title, description, dueDate, createdDate, assignedTo, specificId, priority] =

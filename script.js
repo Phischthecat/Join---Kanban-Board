@@ -74,9 +74,12 @@ function setDueDateOnToday() {
 }
 
 /**
+ * @param {string} column
+ * @param {string} optional paramter for contact section
  * opening Taskbox
  */
 function openTaskBox(column, instance) {
+  console.log(instance);
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL(column, instance);
   setDueDateOnToday();
@@ -88,7 +91,7 @@ function openTaskBox(column, instance) {
 /**
  *
  * function for creating a slide animation
- * @param {actualConatiner} box
+ * @param {string} actualConatiner
  */
 function slideAnimation(box) {
   setTimeout(() => {
@@ -119,7 +122,7 @@ function closeTaskBox() {
  *
  * opening a contactBox
  * @param {function} fct
- * @param {used Contact} contact
+ * @param {object} used Contact
  */
 async function openContactBox(fct, contact) {
   document.body.style.overflow = 'hidden';
@@ -149,7 +152,7 @@ function closeContactBox() {
 
 /**
  *
- * @returns all users that are selected in the assigned to section
+ * @returns {array} all users that are selected in the assigned to section
  */
 function filterAssignedContacts() {
   let assignedToContacts = [];
@@ -185,7 +188,7 @@ function gotToBoard() {
 /**
  * This Function is a simplified spelling for document.getElementById
  * @param {string} theId is used for the actual Id
- * @returns document.getElementById();
+ * @returns {array} document.getElementById();
  */
 function getId(theId) {
   return document.getElementById(theId);
@@ -205,7 +208,7 @@ async function renderAssignedToContacts() {
 /**
  *
  * opening dropdown menu to assign contacts
- * @param {id of task} id
+ * @param {number} id of task
  */
 function openDropdownMenu(id) {
   getId('selectBtn' + id).classList.toggle('open');
@@ -225,7 +228,7 @@ function closeDropdowns() {
 /**
  *
  * showing selectbox checked or not checked and html 5 formvalidation
- * @param {name of contacts} name
+ * @param {object} name of contacts
  */
 function checked(name) {
   getId(name).classList.toggle('checked');
@@ -244,8 +247,8 @@ function checked(name) {
 /**
  *
  * rendering all selected contacts in a container
- * @param {all contacts that are selected} checkedContacts
- * @param {id of actual contact} id
+ * @param {object} all contacts that are selected
+ * @param {number} id of actual contact
  */
 function renderAssignedContactInitials(checkedContacts, id) {
   let assignedContacts = getId(id);
@@ -263,8 +266,8 @@ function renderAssignedContactInitials(checkedContacts, id) {
 
 /**
  *
- * @param {contact for the initials} contact
- * @returns styling the circle with the initials
+ * @param {object} contact for the initials
+ * @returns {any} styling the circle with the initials
  */
 function createAssignedContactInitials(contact) {
   return /*html*/ `
@@ -286,7 +289,7 @@ function renderCategorys() {
 /**
  *
  * rendering all selected categorys
- * @param {index} i
+ * @param {number} index
  */
 function renderChoosenCategory(i) {
   categoryIndex = i;
@@ -296,6 +299,10 @@ function renderChoosenCategory(i) {
   renderCategorys();
 }
 
+/**
+ *
+ * @param {number} index
+ */
 async function deleteCategory(index) {
   categorys.splice(index, 1);
   await backend.setItem('categorys', categorys);
@@ -334,7 +341,7 @@ function renderNewCategoryColors() {
 /**
  *
  * setting the color that is used
- * @param {id of color } colorId
+ * @param {string} colorId
  */
 function categoryColorChoose(colorId) {
   let colorBubbles = document.querySelectorAll('.colorBubble');
@@ -356,8 +363,8 @@ function renderCategorySelection() {
 /**
  *
  * rendering all selected categorys
- * @param {value} input
- * @param {index} index
+ * @param {string} input
+ * @param {number} index
  */
 function renderSelectedCategory(input, index) {
   let categorySelection = getId('categorySelect');
@@ -378,6 +385,11 @@ async function saveNewCategory() {
   renderCategorys();
 }
 
+/**
+ *
+ * @param {string} column
+ * @param {string} optional paramter instance
+ */
 async function addTaskBoard(column, instance) {
   if (instance != 'contact') {
     addTask(column);
@@ -392,7 +404,7 @@ async function addTaskBoard(column, instance) {
 /**
  *
  * setting urgency backgroundcolor
- * @param {priority that is selected} prio
+ * @param {string} priority that is selected
  */
 function getPriority(prio) {
   if (prio == 'urgent') {
@@ -451,8 +463,8 @@ function saveNewSubtasks() {
 /**
  *
  * showing all selected subtasks
- * @param {id of task} id
- * @param {array of subtasks} arr
+ * @param {number} id of task
+ * @param {array} array of subtasks
  */
 function createSubtasksSection(id, arr) {
   let subtasksContainer = getId(id);
@@ -554,6 +566,10 @@ function closeLegalNotice() {
   document.querySelector('.mainContainer').style = 'overflow: auto';
 }
 
+/**
+ *
+ * @param {any} event
+ */
 function dontClose(event) {
   event.stopPropagation();
 }

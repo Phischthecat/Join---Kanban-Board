@@ -41,11 +41,11 @@ function quantityTasks() {
 
 /**
  *
- * @param {container where the tasks should be rendered} todo
- * @param {container where the tasks should be rendered} inProgress
- * @param {container where the tasks should be rendered} awaitingFeedback
- * @param {container where the tasks should be rendered} done
- * @param {urgentContainer} urgent
+ * @param {string} container where the tasks should be rendered todo
+ * @param {string} container where the tasks should be rendered inProgress
+ * @param {string} container where the tasks should be rendered awaitingFeedback
+ * @param {string} container where the tasks should be rendered done
+ * @param {string} urgentContainer urgent
  */
 function setQuantity(todo, inProgress, awaitingFeedback, done, urgent) {
   getId('tasksInBoard').innerHTML = allTasks.length;
@@ -78,7 +78,7 @@ function deadlineChecker() {
 
 /**
  *
- * @returns  a minimum date
+ * @returns {date} a minimum date
  */
 function findingMinimumDate() {
   if (allTasks.length > 0) {
@@ -95,8 +95,8 @@ function findingMinimumDate() {
 
 /**
  *
- * @param {date which has to be converted into a timestamp} date
- * @returns
+ * @param {date} date which has to be converted into a timestamp
+ * @returns {date} 
  */
 function convertTimetoTimestamp(date) {
   let newDate = new Date(date);
@@ -105,8 +105,8 @@ function convertTimetoTimestamp(date) {
 
 /**
  *
- * @param {minimum date that will be converted into a string} allTasksDatesMinimum
- * @returns
+ * @param {date} minimum date that will be converted into a string
+ * @returns {date}  allTasksDatesMinimum
  */
 function convertTimetoString(allTasksDatesMinimum) {
   return new Date(allTasksDatesMinimum);
