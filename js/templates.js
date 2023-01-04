@@ -632,7 +632,7 @@ function createNewCategoryColors(i) {
  */
 function createCategorySelection() {
   return /*html*/ `
-  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
+  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0); dontClose(event)">
     <span class="btn-text">Choose category</span>
     <span class="arrow-down">
       <i class="fa-solid fa-caret-down"></i>
@@ -649,7 +649,7 @@ function createCategorySelection() {
  */
 function createSelectedCategory(input) {
   return /*html*/ `
-  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0)">
+  <div id="selectBtn0" class="select-btn" onclick="openDropdownMenu(0); dontClose(event)">
   <div>
     <span class="item-text">${input}<span class="categoryCheckbox">
       <i class="fa-solid fa-circle" style="color:${choosenColor}"></i>

@@ -215,7 +215,7 @@ function openDropdownMenu(id) {
 }
 
 function closeDropdowns() {
-  getId('selectBtn0').classList.remove('open');
+  getId('selectBtn0')?.classList.remove('open');
   getId('selectBtn1').classList.remove('open');
 }
 
