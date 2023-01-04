@@ -1,5 +1,6 @@
 /* ************************* Media Queries for Contact **************************/
 @media (max-width: 1300px) {
+
   .contactInfo .name,
   .contactInfo .email {
     width: 12vw;
@@ -8,6 +9,7 @@
 }
 
 @media (max-width: 1200px) {
+
   .header,
   .headerFullContact {
     gap: 20px;
@@ -236,10 +238,6 @@
     font-size: 40px !important;
   }
 
-  /* #editContactInitial {
-    margin-top: -30px;
-  } */
-
   .closeMobile {
     display: block;
   }
@@ -268,17 +266,17 @@
   }
 
   .nameModal {
-    background: url('./img/name.svg') no-repeat 365px center !important;
+    background: url('../img/name.svg') no-repeat 330px center !important;
     background-size: 12px !important;
   }
 
   .emailModal {
-    background: url('./img/email.svg') no-repeat 365px center !important;
+    background: url('../img/email.svg') no-repeat 330px center !important;
     background-size: 12px !important;
   }
 
   .phoneModal {
-    background: url('./img/phone.svg') no-repeat 365px center !important;
+    background: url('../img/phone.svg') no-repeat 330px center !important;
     background-size: 12px !important;
   }
 

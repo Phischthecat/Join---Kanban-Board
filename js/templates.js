@@ -1,7 +1,7 @@
 /**
  *
- * @param {index of Task} index
- * @returns returns html part of a task card
+ * @param {number} index of Task
+ * @returns {any} returns html part of a task card
  */
 function createTaskCard(index) {
   let task = allTasks[index];
@@ -31,9 +31,9 @@ function createTaskCard(index) {
 
 /**
  *
- * @param {actual Task} task
- * @param {index of task} index
- * @returns html part for fullview of taskcard
+ * @param {object} actual Task
+ * @param {number} index of task
+ * @returns {any} html part for fullview of taskcard
  */
 function createFullView(task, index) {
   return /*html*/ `
@@ -91,6 +91,10 @@ function createFullView(task, index) {
     `;
 }
 
+/**
+ * 
+ * @returns {any} html paart for greeting section
+ */
 function createGreeting() {
   return /*html*/ `
   <span>Good to see you</span>
@@ -98,6 +102,11 @@ function createGreeting() {
   `;
 }
 
+/**
+ * 
+ * @param {object} taskContact 
+ * @returns {any} html part for assigned contacts in fullview
+ */
 function createAssignedToFullCard(taskContact) {
   return /*html*/ `
     <div class="fullCardAssignedTo">
@@ -113,8 +122,8 @@ function createAssignedToFullCard(taskContact) {
 
 /**
  *
- * @param {css tag} overflow
- * @returns html part for div container
+ * @param {string} overflow
+ * @returns {any} html part for div container
  */
 function createAssignedContactInitialsOverflow(overflow) {
   return /*html*/ `
@@ -124,8 +133,8 @@ function createAssignedContactInitialsOverflow(overflow) {
 
 /**
  *
- * @param {actual Task that should be edited} task
- * @returns html part for edit task section
+ * @param {object} actual Task that should be edited
+ * @returns {any} html part for edit task section
  */
 function createEditTask(task) {
   return /*html*/ `
@@ -230,7 +239,7 @@ function createEditTask(task) {
 
 /**
  *
- * @returns html part for new Contact section
+ * @returns {any} html part for new Contact section
  */
 function createNewContact() {
   return /*html*/ `
@@ -268,8 +277,8 @@ function createNewContact() {
 
 /**
  *
- * @param {index} i
- * @returns html part for edit contact section
+ * @param {number} index
+ * @returns {any} html part for edit contact section
  */
 function editContact(i) {
   const contact = contacts[i];
@@ -309,8 +318,9 @@ function editContact(i) {
 }
 
 /**
- *
- * @returns html part for all subtasks that are checked
+ * @param {object} subtask
+ * @param {number} index
+ * @returns {any} html part for all subtasks that are checked
  */
 function createSubtasksChecked(subtask, i) {
   return /*html*/ `
@@ -321,8 +331,9 @@ function createSubtasksChecked(subtask, i) {
 }
 
 /**
- *
- * @returns html part for all subtasks that are not checked
+ * @param {object} subtask
+ * @param {number} index
+ * @returns {any} html part for all subtasks that are not checked
  */
 function createSubtasksUnchecked(subtask, i) {
   return /*html*/ `
@@ -334,7 +345,7 @@ function createSubtasksUnchecked(subtask, i) {
 
 /**
  * This function returns a span which is used for an error message
- * @returns html part
+ * @returns {any} html part
  */
 function createErrorName() {
   return /*html*/ `
@@ -344,7 +355,7 @@ function createErrorName() {
 
 /**
  * This function returns a span which is used for an error message
- * @returns html part
+ * @returns {any} html part
  */
 function createErrorEmail() {
   return /*html*/ `
@@ -352,6 +363,10 @@ function createErrorEmail() {
   `;
 }
 
+/**
+ * 
+ * @returns {any} html part for the forgot password section
+ */
 function createForgetPart() {
   return /*html*/ `
     <div class="passwordMainContainer">
@@ -386,8 +401,9 @@ function createForgetPart() {
 }
 
 /**
- *
- * @returns html part of addtask section
+ * @param {string} column
+ * @param {any} instance
+ * @returns {any} html part of addtask section
  */
 function addTaskContainerHMTL(column, instance) {
   return /*html*/ `
@@ -561,8 +577,8 @@ function addTaskContainerHMTL(column, instance) {
 
 /**
  * returns html part for the choosen Category Section
- * @param {index} i
- * @returns
+ * @param {number} i
+ * @returns {any} html part for category section
  */
 function createCategorys(i) {
   const category = categorys[i];
@@ -583,7 +599,7 @@ function createCategorys(i) {
 
 /**
  *
- * @returns html part
+ * @returns {any} html part
  */
 function createCategoryDefault() {
   return /*html*/ `
@@ -595,7 +611,7 @@ function createCategoryDefault() {
 
 /**
  *
- * @returns html part for the input field to create a new Category
+ * @returns {any} html part for the input field to create a new Category
  */
 function createInputForNewCategory() {
   return /*html*/ `
@@ -614,8 +630,8 @@ function createInputForNewCategory() {
 
 /**
  *
- * @param {index} i
- * @returns html part for color bubbles with first letters
+ * @param {number} index
+ * @returns {any} html part for color bubbles with first letters
  */
 function createNewCategoryColors(i) {
   const categoryColor = categoryColors[i];
@@ -628,7 +644,7 @@ function createNewCategoryColors(i) {
 
 /**
  *
- * @returns html part for the section where you can decide which category has to be choosed
+ * @returns {any} html part for the section where you can decide which category has to be choosed
  */
 function createCategorySelection() {
   return /*html*/ `
@@ -644,8 +660,8 @@ function createCategorySelection() {
 
 /**
  *
- * @param {value of the input} input
- * @returns htmlpart that shows the new created Category
+ * @param {string} value of the input
+ * @returns {any} htmlpart that shows the new created Category
  */
 function createSelectedCategory(input) {
   return /*html*/ `
@@ -673,8 +689,8 @@ function createSelectedCategory(input) {
 
 /**
  *
- * @param {index} i
- * @returns html part for a container
+ * @param {number} index
+ * @returns {any} html part for a container
  */
 function contactsAssignedTo(i) {
   const contact = contacts[i];
@@ -690,8 +706,8 @@ function contactsAssignedTo(i) {
 
 /**
  *
- * @param {letter of contact} letter
- * @returns html part for alphabet list of contacts
+ * @param {string} letter of contact
+ * @returns {any} html part for alphabet list of contacts
  */
 function createContactSectionOfLetter(letter) {
   return /* html*/ `
@@ -707,9 +723,9 @@ function createContactSectionOfLetter(letter) {
 
 /**
  *
- * @param {actual contact} contact
- * @param {index} i
- * @returns html part for the section where you can create a new contact
+ * @param {object} actual contact
+ * @param {number} index
+ * @returns {any} html part for the section where you can create a new contact
  */
 function createContact(contact, i) {
   return /* html */ `
@@ -733,8 +749,8 @@ ${contact.email}
 
 /**
  *
- * @param {index} i
- * @returns html part for fullview of a contact card
+ * @param {number} index
+ * @returns {any} html part for fullview of a contact card
  */
 function createFullContact(i) {
   let contact = contacts[i];
@@ -787,7 +803,7 @@ function createFullContact(i) {
 }
 
 /**
- * creating the Html Part for the Help Section
+ * @returns {any} creating the Html Part for the Help Section
  */
 function createHelpSection() {
   return /*html*/ `
@@ -886,7 +902,7 @@ function createHelpSection() {
 }
 
 /**
- * template for Legal Notice
+ * @returns {any} template for Legal Notice
  */
 function createLegalNotice() {
   return /*html*/ `

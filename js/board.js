@@ -22,15 +22,16 @@ function updateHTML() {
 
 /**
  *
- * @param {id for dragging element} id
+ * @param {number} id for dragging element
  */
 function startDragging(id) {
+  console.log(id);
   currentDraggedElement = id;
 }
 
 /**
  *
- * @param {changed the status of the element to draggable} ev
+ * @param {Event} changed the status of the element to draggable
  */
 function allowDrop(ev) {
   ev.preventDefault();
@@ -38,7 +39,7 @@ function allowDrop(ev) {
 
 /**
  *
- * @param {the actual status of the current task} status
+ * @param {string} the actual status of the current task
  */
 async function moveTo(status) {
   allTasks[currentDraggedElement]['status'] = status;
@@ -49,7 +50,7 @@ async function moveTo(status) {
 
 /**
  *
- * @param {for setting the task into the actual container} container
+ * @param {string} for setting the task into the actual container
  */
 function updateContainer(container) {
   if (allTasks.length >= 0) {
@@ -69,7 +70,7 @@ function updateContainer(container) {
 
 /**
  *
- * @param {actual Task which should be updated} index
+ * @param {number} actual Task which should be updated
  */
 function updateProgressbar(index) {
   let subtasks = allTasks[index].subtasks,
@@ -90,7 +91,7 @@ function updateProgressbar(index) {
 
 /**
  *
- * @param {setting the urgency img} index
+ * @param {number} setting the urgency img
  */
 function taskUrgency(index) {
   let task = allTasks[index];
@@ -100,7 +101,7 @@ function taskUrgency(index) {
 
 /**
  *
- * @param {*} index
+ * @param {number} index
  */
 function boardInitialsClassAdd(index) {
   let initials = getId('assignedUsers' + index);
@@ -115,14 +116,19 @@ function boardInitialsClassAdd(index) {
 
 /**
  *
- * @param {*} task
- * @param {*} index
+ * @param {object} task
+ * @param {number} index
  */
 function renderBoardInitials(task, index) {
   renderAssignedContactInitials(task.assignedTo, 'assignedUsers' + index);
   renderMoreBoardInitials(task, index);
 }
 
+/**
+ * 
+ * @param {object} task 
+ * @param {number} index 
+ */
 function renderMoreBoardInitials(task, index) {
   let overflow = task.assignedTo.length - 2;
   if (overflow >= 1) {
@@ -139,7 +145,7 @@ function renderMoreBoardInitials(task, index) {
 
 /**
  *
- * @param {opens the clicked task in fullview} externalId
+ * @param {number} opens the clicked task in fullview
  */
 function showFullView(externalId) {
   let task = allTasks.find((id) => id['specificId'] == externalId);
@@ -169,8 +175,8 @@ function responsiveBoard() {
 
 /**
  *
- * @param {subtasks of the main task} subtasks
- * @param {actual index of the main task} index
+ * @param {subtasks} subtasks of the main task
+ * @param {number} actual index of the main task
  */
 function renderSubtasksSection(subtasks, index) {
   if (!subtasks.length == 0) {
@@ -181,7 +187,7 @@ function renderSubtasksSection(subtasks, index) {
 
 /**
  *
- * @param {creating a container on the actual index} index
+ * @param {number} creating a container on the actual index
  */
 function createSubtasksContainer(index) {
   let subtasksFullCard = getId('subtasksFullCard' + index);
@@ -193,7 +199,7 @@ function createSubtasksContainer(index) {
 
 /**
  *
- * @param {actualtask which urgency has to be shown} task
+ * @param {object} actualtask which urgency has to be shown
  */
 function showUrgency(task) {
   let actualPrio = document.getElementById('showUrgency');
@@ -209,7 +215,7 @@ function showUrgency(task) {
 
 /**
  *
- * @param {actualTask where a box will be rendered with the assigned Contacts} task
+ * @param {object} actualTask where a box will be rendered with the assigned Contacts
  */
 function showContacts(task) {
   let assignedContacts = document.getElementById('assignedUser');
@@ -222,7 +228,7 @@ function showContacts(task) {
 
 /**
  *
- * @param {specific id of task} specific
+ * @param {number} specific id of task
  */
 function renderEditTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
@@ -239,7 +245,7 @@ function renderEditTask(specific) {
 
 /**
  *
- * @param {task where the chossenContacts should be shown} task
+ * @param {object} task where the chossenContacts should be shown
  */
 function choosenContacts(task) {
   let choosenContacts = document.querySelectorAll('.item');
@@ -255,7 +261,7 @@ function choosenContacts(task) {
 
 /**
  *
- * @param {specific id of task which has to be changed} specific
+ * @param {number} specific id of task which has to be changed
  */
 async function changeTask(specific) {
   let task = allTasks.find((id) => id['specificId'] == specific);
@@ -271,7 +277,7 @@ async function changeTask(specific) {
 
 /**
  *
- * @param {task where the urgent has to be styled} task
+ * @param {object} task where the urgent has to be styled
  */
 function styleUrgency(task) {
   let urgent = '#ff3b00',
@@ -334,7 +340,7 @@ function removePossibleDropzones() {
 
 /**
  *
- * @param {task which has to be deleted} taskIndex
+ * @param {number} task which has to be deleted
  */
 async function deleteTask(taskIndex) {
   allTasks.splice(taskIndex, 1);
@@ -367,8 +373,8 @@ function searchForTask() {
 
 /**
  *
- * @param {array of founded task by their input value} searchedTasks
- * @param {index of array} index
+ * @param {Array} array of founded task by their input value
+ * @param {number} index of array
  */
 function updateOnSearch(searchedTasks, index) {
   let column = getId(searchedTasks.status);

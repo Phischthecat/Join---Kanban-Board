@@ -39,7 +39,7 @@ async function checkAllUsers() {
 
 /**
  *
- * @param {name from actual user} name
+ * @param {string} name from actual user
  */
 function conditionsAreTrue(name) {
   let rememberedUser = JSON.stringify(name);
@@ -82,7 +82,7 @@ function showError() {
 
 /**
  *
- * @returns the founded name for Login
+ * @returns {string} the founded name for Login
  */
 function getUser() {
   let nameToCheck = getId('userName').value;
