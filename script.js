@@ -217,6 +217,9 @@ function openDropdownMenu(id) {
 function closeDropdowns() {
   getId('selectBtn0')?.classList.remove('open');
   getId('selectBtn1').classList.remove('open');
+  if (getId('assignedToContacts').classList.contains('d-none')) {
+    getId('assignedToContacts').classList.toggle('d-none');
+  }
 }
 
 /**
@@ -550,7 +553,6 @@ function closeLegalNotice() {
   getId('help').classList.add('d-none');
   document.querySelector('.mainContainer').style = 'overflow: auto';
 }
-
 
 function dontClose(event) {
   event.stopPropagation();

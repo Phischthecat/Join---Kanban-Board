@@ -436,7 +436,7 @@ function addTaskContainerHMTL(column, instance) {
                       <i class="fa-solid fa-caret-down"></i>
                     </span>
                   </div>
-                  <ul class="list-items" id="categoryList">
+                  <ul class="list-items" id="categoryList" >
                     <li class="categoryItem" onclick="addNewCategory()">
                       <span class="item-text"> New category</span>
                     </li>
@@ -467,7 +467,7 @@ function addTaskContainerHMTL(column, instance) {
                     <i class="fa-solid fa-caret-down"></i>
                   </span>
                 </div>
-                <ul class="list-items" id="assignedToList">
+                <ul class="list-items" id="assignedToList"  onclick="dontClose(event);">
                   <li class="item">
                     <span class="item-text">You</span>
                     <span class="checkbox">
@@ -715,7 +715,8 @@ function createContact(contact, i) {
   return /* html */ `
   <div id="contactInfo${i}" class="contactInfo cursor-pointer" onclick="showFullContact(${i})">
   <div class="initialContainer">
-    <div class="initials initialCircle" style="background-color:#${contact.color
+    <div class="initials initialCircle" style="background-color:#${
+      contact.color
     }">${contact.initial.toUpperCase()}</div>
 
     </div>
