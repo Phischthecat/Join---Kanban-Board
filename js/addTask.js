@@ -47,7 +47,6 @@ function getValuesForTasks() {
   ];
 }
 
-
 /**
  * setting the drag and drop id
  */
@@ -57,7 +56,6 @@ async function setDragAndDropId() {
   }
   await backend.setItem('allTasks', allTasks);
 }
-
 
 /**
  * This function is used to create the Task and add it to the storage
@@ -97,8 +95,9 @@ function taskStrucure(taskStatus) {
  * function for resetting all inputfields
  */
 function clearFields() {
-  setDueDateOnToday();
+  addTaskSubtasks = [];
   getId('formAddTask').reset();
+  setDueDateOnToday();
   renderCategorySelection();
   renderCategorys();
   getId('assignedToBtnText').innerText = 'Select contacts to assign';

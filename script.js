@@ -79,7 +79,6 @@ function setDueDateOnToday() {
  * opening Taskbox
  */
 function openTaskBox(column, instance) {
-  console.log(instance);
   let box = document.getElementById('taskBox');
   box.innerHTML = addTaskContainerHMTL(column, instance);
   setDueDateOnToday();
